@@ -1,0 +1,79 @@
+{
+  "forms": [
+    {
+      "id": "tcs-cv",
+      "title": "TCS CV Template",
+      "url": "https://form.jotform.com/221501404417038",
+      "category": "onboarding",
+      "description": "Comprehensive CV template for TCS applications",
+      "required": true,
+      "sections": [
+        "Personal Information",
+        "Work Experience",
+        "Educational History",
+        "Professional Qualifications",
+        "References",
+        "Next of Kin"
+      ]
+    },
+    {
+      "id": "confidentiality-agreement",
+      "title": "Confidentiality Agreement",
+      "url": "https://form.jotform.com/203003202135028",
+      "category": "legal",
+      "description": "Agreement to maintain confidentiality of company information",
+      "required": true
+    },
+    {
+      "id": "handbook-acknowledgement",
+      "title": "Employee Handbook Acknowledgement",
+      "url": "https://form.jotform.com/202802321916548",
+      "category": "onboarding",
+      "description": "Acknowledgement of receiving and understanding the employee handbook",
+      "required": true
+    },
+    {
+      "id": "health-assessment",
+      "title": "Annual Health Assessment Questionnaire",
+      "url": "https://form.jotform.com/202722153489052",
+      "category": "health",
+      "description": "Annual health assessment for employees",
+      "required": true,
+      "frequency": "annual"
+    },
+    {
+      "id": "48hr-opt-out",
+      "title": "48hr Opt Out",
+      "url": "https://form.jotform.com/200262051908345",
+      "category": "employment",
+      "description": "Form to opt out of the 48-hour working week limit",
+      "required": false
+    },
+    {
+      "id": "employee-manual",
+      "title": "Employee Manual Acknowledgement",
+      "url": "http://jotformeu.com/83444447608362",
+      "category": "onboarding",
+      "description": "Acknowledgement of receiving and understanding the employee manual",
+      "required": true
+    },
+    {
+      "id": "temporary-worker-contract",
+      "title": "Temporary Workers Contract for Services",
+      "url": "https://form.jotform.com/202803657435557",
+      "category": "employment",
+      "description": "Contract for temporary workers",
+      "required": true,
+      "employmentType": "temporary"
+    },
+    {
+      "id": "numeracy-literacy",
+      "title": "Numeracy and Literacy Quiz",
+      "url": "https://form.jotform.com/202714678035052",
+      "category": "assessment",
+      "description": "Assessment of basic numeracy and literacy skills",
+      "required": true,
+      "type": "quiz"
+    }
+  ]
+} 

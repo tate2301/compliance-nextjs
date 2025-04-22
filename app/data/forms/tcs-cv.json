@@ -1,0 +1,189 @@
+{
+  "id": "tcs-cv",
+  "title": "TCS CV Template",
+  "description": "Comprehensive CV template for TCS applications",
+  "theme": {
+    "id": "default",
+    "name": "Default Theme",
+    "description": "Default form theme",
+    "colors": {
+      "primary": "#0066cc",
+      "secondary": "#4d4d4d",
+      "accent": "#ff6b6b",
+      "background": "#ffffff",
+      "surface": "#f5f5f5",
+      "text": "#333333"
+    },
+    "font": "Inter"
+  },
+  "fields": [
+    {
+      "id": "firstName",
+      "type": "shortAnswer",
+      "label": "First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "lastName",
+      "type": "shortAnswer",
+      "label": "Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your last name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "dateOfBirth",
+      "type": "date",
+      "label": "Date of Birth",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your email address"
+      }
+    },
+    {
+      "id": "phone",
+      "type": "shortAnswer",
+      "label": "Phone Number",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your phone number",
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "nationalInsurance",
+      "type": "shortAnswer",
+      "label": "National Insurance Number",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your NI number",
+        "maxLength": 9
+      }
+    },
+    {
+      "id": "sex",
+      "type": "multipleChoice",
+      "label": "Sex",
+      "required": true,
+      "properties": {
+        "choices": ["Male", "Female", "N/A"]
+      }
+    },
+    {
+      "id": "address",
+      "type": "longAnswer",
+      "label": "Full Address",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your full address including postcode",
+        "maxLength": 500
+      }
+    },
+    {
+      "id": "workExperience",
+      "type": "longAnswer",
+      "label": "Work Experience (Last 10 Years)",
+      "required": true,
+      "properties": {
+        "placeholder": "Detail your work experience for the last 10 years, with no gaps",
+        "minLength": 100,
+        "maxLength": 5000
+      }
+    },
+    {
+      "id": "educationalHistory",
+      "type": "longAnswer",
+      "label": "Educational History",
+      "required": true,
+      "properties": {
+        "placeholder": "Detail your educational history",
+        "maxLength": 2000
+      }
+    },
+    {
+      "id": "professionalQualifications",
+      "type": "longAnswer",
+      "label": "Professional Qualifications",
+      "required": true,
+      "properties": {
+        "placeholder": "List your professional qualifications",
+        "maxLength": 2000
+      }
+    },
+    {
+      "id": "academicQualifications",
+      "type": "longAnswer",
+      "label": "Academic Qualifications",
+      "required": true,
+      "properties": {
+        "placeholder": "List your academic qualifications",
+        "maxLength": 2000
+      }
+    },
+    {
+      "id": "personalStatement",
+      "type": "longAnswer",
+      "label": "Personal Statement",
+      "required": true,
+      "properties": {
+        "placeholder": "Write a personal statement",
+        "minLength": 100,
+        "maxLength": 1000
+      }
+    },
+    {
+      "id": "references",
+      "type": "longAnswer",
+      "label": "References (Last 5 Years)",
+      "required": true,
+      "properties": {
+        "placeholder": "Provide at least 3 references covering the last 5 years. Include: Company name, Reference name, Role, Contact details",
+        "minLength": 100,
+        "maxLength": 3000
+      }
+    },
+    {
+      "id": "nextOfKinName",
+      "type": "shortAnswer",
+      "label": "Next of Kin Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter next of kin full name",
+        "maxLength": 100
+      }
+    },
+    {
+      "id": "nextOfKinRelationship",
+      "type": "shortAnswer",
+      "label": "Relationship with Next of Kin",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your relationship",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "nextOfKinPhone",
+      "type": "shortAnswer",
+      "label": "Next of Kin Phone Number",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter next of kin phone number",
+        "maxLength": 20
+      }
+    }
+  ]
+} 

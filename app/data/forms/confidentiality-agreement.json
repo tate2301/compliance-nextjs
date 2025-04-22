@@ -1,0 +1,119 @@
+{
+  "id": "confidentiality-agreement",
+  "title": "Confidentiality Agreement",
+  "description": "Agreement to maintain confidentiality of company information",
+  "theme": {
+    "id": "default",
+    "name": "Default Theme",
+    "description": "Default form theme",
+    "colors": {
+      "primary": "#0066cc",
+      "secondary": "#4d4d4d",
+      "accent": "#ff6b6b",
+      "background": "#ffffff",
+      "surface": "#f5f5f5",
+      "text": "#333333"
+    },
+    "font": "Inter"
+  },
+  "fields": [
+    {
+      "id": "employeeFirstName",
+      "type": "shortAnswer",
+      "label": "First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeLastName",
+      "type": "shortAnswer",
+      "label": "Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your last name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeId",
+      "type": "shortAnswer",
+      "label": "Employee ID",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your employee ID",
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "department",
+      "type": "shortAnswer",
+      "label": "Department",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your department",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "position",
+      "type": "shortAnswer",
+      "label": "Position",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your position",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "agreementDate",
+      "type": "date",
+      "label": "Agreement Date",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "confidentialityTerms",
+      "type": "yesNo",
+      "label": "I understand and agree to maintain the confidentiality of all proprietary and confidential information",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "nonDisclosure",
+      "type": "yesNo",
+      "label": "I agree not to disclose any confidential information to third parties",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "returnOfMaterials",
+      "type": "yesNo",
+      "label": "I agree to return all confidential materials upon termination of employment",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "witnessFirstName",
+      "type": "shortAnswer",
+      "label": "Witness First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter witness first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "witnessLastName",
+      "type": "shortAnswer",
+      "label": "Witness Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter witness last name",
+        "maxLength": 50
+      }
+    }
+  ]
+} 

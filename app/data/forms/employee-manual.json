@@ -1,0 +1,96 @@
+{
+  "id": "employee-manual",
+  "title": "Employee Manual Acknowledgement",
+  "description": "Acknowledgement of receipt and understanding of the Employee Manual",
+  "theme": {
+    "id": "default",
+    "name": "Default Theme",
+    "description": "Default form theme",
+    "colors": {
+      "primary": "#0066cc",
+      "secondary": "#4d4d4d",
+      "accent": "#ff6b6b",
+      "background": "#ffffff",
+      "surface": "#f5f5f5",
+      "text": "#333333"
+    },
+    "font": "Inter"
+  },
+  "fields": [
+    {
+      "id": "employeeFirstName",
+      "type": "shortAnswer",
+      "label": "First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeLastName",
+      "type": "shortAnswer",
+      "label": "Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your last name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeId",
+      "type": "shortAnswer",
+      "label": "Employee ID",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your employee ID",
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "manualReceiptDate",
+      "type": "date",
+      "label": "Date Manual Received",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "manualReadConfirmation",
+      "type": "yesNo",
+      "label": "I confirm that I have read and understood the Employee Manual",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "policyComplianceAgreement",
+      "type": "yesNo",
+      "label": "I agree to comply with all policies and procedures outlined in the manual",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "updatesAcknowledgement",
+      "type": "yesNo",
+      "label": "I understand that the manual may be updated and I will be notified of changes",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "questionsComments",
+      "type": "longAnswer",
+      "label": "Questions or Comments",
+      "required": false,
+      "properties": {
+        "placeholder": "Enter any questions or comments you have about the manual",
+        "maxLength": 1000
+      }
+    },
+    {
+      "id": "acknowledgementDate",
+      "type": "date",
+      "label": "Date of Acknowledgement",
+      "required": true,
+      "properties": {}
+    }
+  ]
+} 

@@ -1,0 +1,183 @@
+/* Import Radix Colors */
+@import '@radix-ui/colors/slate.css';
+@import '@radix-ui/colors/slate-dark.css';
+@import '@radix-ui/colors/slate-alpha.css';
+@import '@radix-ui/colors/slate-dark-alpha.css';
+
+@import '@radix-ui/colors/indigo.css';
+@import '@radix-ui/colors/indigo-dark.css';
+@import '@radix-ui/colors/indigo-alpha.css';
+@import '@radix-ui/colors/indigo-dark-alpha.css';
+
+@import '@radix-ui/colors/blue.css';
+@import '@radix-ui/colors/blue-dark.css';
+@import '@radix-ui/colors/blue-alpha.css';
+@import '@radix-ui/colors/blue-dark-alpha.css';
+
+@import '@radix-ui/colors/red.css';
+@import '@radix-ui/colors/red-dark.css';
+@import '@radix-ui/colors/red-alpha.css';
+@import '@radix-ui/colors/red-dark-alpha.css';
+
+@import '@radix-ui/colors/amber.css';
+@import '@radix-ui/colors/amber-dark.css';
+@import '@radix-ui/colors/amber-alpha.css';
+@import '@radix-ui/colors/amber-dark-alpha.css';
+
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/green-dark.css';
+@import '@radix-ui/colors/green-alpha.css';
+@import '@radix-ui/colors/green-dark-alpha.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('./SohneWeb-Mager.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('./SohneWeb-Kraftig.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-sans: 'Sohne', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mercury-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    --background: var(--slate-1);
+    --foreground: var(--slate-12);
+    --card: var(--slate-2);
+    --card-foreground: var(--slate-12);
+    --popover: var(--slate-2);
+    --popover-foreground: var(--slate-12);
+    --primary: var(--indigo-9);
+    --primary-foreground: white;
+    --secondary: var(--slate-6);
+    --secondary-foreground: var(--slate-12);
+    --border: var(--slate-6);
+    --input: var(--slate-6);
+    --ring: var(--indigo-7);
+  }
+
+  .dark {
+    --background: var(--slate-1);
+    --foreground: var(--slate-12);
+    --card: var(--slate-2);
+    --card-foreground: var(--slate-12);
+    --popover: var(--slate-2);
+    --popover-foreground: var(--slate-12);
+    --primary: var(--indigo-9);
+    --primary-foreground: white;
+    --secondary: var(--slate-7);
+    --secondary-foreground: var(--slate-12);
+    --border: var(--slate-7);
+    --input: var(--slate-7);
+    --ring: var(--indigo-7);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+  }
+
+  * {
+        @apply border-slate-6 outline-slate-6;
+
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary-9 to-primary-10;
+  }
+
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-secondary-9 to-secondary-10;
+  }
+}
+
+/* Custom scrollbar styles */
+.flow__modules::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mercury Design System specific base styles */
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+.module {
+  transition: var(--mercury-transition);
+}
+
+.flow__scroll {
+  transition: var(--mercury-transition);
+}
+
+.space__content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--slate-6) transparent;
+}
+
+.space__content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.space__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.space__content::-webkit-scrollbar-thumb {
+  background-color: var(--slate-6);
+  border-radius: 4px;
+}
+
+:root {
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+.dark {
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+@theme inline {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}

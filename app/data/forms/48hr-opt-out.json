@@ -1,0 +1,123 @@
+{
+  "id": "48hr-opt-out",
+  "title": "48hr Opt Out Agreement",
+  "description": "Agreement to opt out of the 48-hour weekly working time limit",
+  "theme": {
+    "id": "default",
+    "name": "Default Theme",
+    "description": "Default form theme",
+    "colors": {
+      "primary": "#0066cc",
+      "secondary": "#4d4d4d",
+      "accent": "#ff6b6b",
+      "background": "#ffffff",
+      "surface": "#f5f5f5",
+      "text": "#333333"
+    },
+    "font": "Inter"
+  },
+  "fields": [
+    {
+      "id": "employeeFirstName",
+      "type": "shortAnswer",
+      "label": "First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeLastName",
+      "type": "shortAnswer",
+      "label": "Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your last name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeId",
+      "type": "shortAnswer",
+      "label": "Employee ID",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your employee ID",
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "department",
+      "type": "shortAnswer",
+      "label": "Department",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your department",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "optOutAgreement",
+      "type": "yesNo",
+      "label": "I agree to opt out of the 48-hour weekly working time limit under the Working Time Regulations",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "voluntaryAgreement",
+      "type": "yesNo",
+      "label": "I understand this agreement is entirely voluntary",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "revokeRights",
+      "type": "yesNo",
+      "label": "I understand I can revoke this agreement with one week's notice",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "otherRights",
+      "type": "yesNo",
+      "label": "I understand this does not affect my other working time rights",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "effectiveDate",
+      "type": "date",
+      "label": "Effective Date",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "healthSafetyAcknowledgement",
+      "type": "yesNo",
+      "label": "I acknowledge my responsibility to not work hours that may impair my health and safety",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "managerFirstName",
+      "type": "shortAnswer",
+      "label": "Manager First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter manager's first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "managerLastName",
+      "type": "shortAnswer",
+      "label": "Manager Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter manager's last name",
+        "maxLength": 50
+      }
+    }
+  ]
+} 

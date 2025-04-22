@@ -1,0 +1,253 @@
+{
+  "id": "temporary-worker-contract",
+  "title": "Temporary Workers Contract for Services",
+  "version": "1.0",
+  "fields": [
+    {
+      "id": "personalInfo",
+      "type": "section",
+      "label": "Personal Information",
+      "fields": [
+        {
+          "id": "workerName",
+          "type": "name",
+          "label": "Worker Name",
+          "required": true,
+          "fields": [
+            {
+              "id": "firstName",
+              "type": "text",
+              "label": "First Name"
+            },
+            {
+              "id": "lastName",
+              "type": "text",
+              "label": "Last Name"
+            }
+          ]
+        },
+        {
+          "id": "address",
+          "type": "address",
+          "label": "Home Address",
+          "required": true,
+          "fields": [
+            {
+              "id": "street1",
+              "type": "text",
+              "label": "Street Address"
+            },
+            {
+              "id": "street2",
+              "type": "text",
+              "label": "Street Address Line 2"
+            },
+            {
+              "id": "city",
+              "type": "text",
+              "label": "City"
+            },
+            {
+              "id": "county",
+              "type": "text",
+              "label": "County"
+            },
+            {
+              "id": "postcode",
+              "type": "text",
+              "label": "Postcode"
+            }
+          ]
+        },
+        {
+          "id": "contactDetails",
+          "type": "section",
+          "label": "Contact Details",
+          "fields": [
+            {
+              "id": "phone",
+              "type": "phone",
+              "label": "Phone Number",
+              "required": true
+            },
+            {
+              "id": "email",
+              "type": "email",
+              "label": "Email Address",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contractDetails",
+      "type": "section",
+      "label": "Contract Details",
+      "fields": [
+        {
+          "id": "startDate",
+          "type": "date",
+          "label": "Start Date",
+          "required": true
+        },
+        {
+          "id": "endDate",
+          "type": "date",
+          "label": "Expected End Date",
+          "required": true
+        },
+        {
+          "id": "position",
+          "type": "text",
+          "label": "Position/Role",
+          "required": true
+        },
+        {
+          "id": "payRate",
+          "type": "currency",
+          "label": "Pay Rate (per hour)",
+          "required": true
+        },
+        {
+          "id": "workingHours",
+          "type": "number",
+          "label": "Expected Weekly Hours",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "termsConditions",
+      "type": "section",
+      "label": "Terms and Conditions",
+      "fields": [
+        {
+          "id": "contractTerms",
+          "type": "checkbox",
+          "label": "Contract Terms",
+          "required": true,
+          "options": [
+            {
+              "value": "temporary",
+              "label": "I understand this is a temporary contract with no guarantee of permanent employment"
+            },
+            {
+              "value": "notice",
+              "label": "I agree to provide one week's notice of termination"
+            },
+            {
+              "value": "policies",
+              "label": "I agree to comply with all company policies and procedures"
+            }
+          ]
+        },
+        {
+          "id": "availability",
+          "type": "checkbox",
+          "label": "Availability",
+          "required": true,
+          "options": [
+            {
+              "value": "shifts",
+              "label": "I am available to work assigned shifts"
+            },
+            {
+              "value": "overtime",
+              "label": "I understand overtime may be required"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "documentation",
+      "type": "section",
+      "label": "Required Documentation",
+      "fields": [
+        {
+          "id": "rightToWork",
+          "type": "file",
+          "label": "Right to Work Documentation",
+          "required": true,
+          "allowedFileTypes": ["pdf", "jpg", "png"]
+        },
+        {
+          "id": "idDocuments",
+          "type": "file",
+          "label": "ID Documents",
+          "required": true,
+          "allowedFileTypes": ["pdf", "jpg", "png"]
+        }
+      ]
+    },
+    {
+      "id": "bankDetails",
+      "type": "section",
+      "label": "Bank Details",
+      "fields": [
+        {
+          "id": "accountName",
+          "type": "text",
+          "label": "Account Holder Name",
+          "required": true
+        },
+        {
+          "id": "accountNumber",
+          "type": "text",
+          "label": "Account Number",
+          "required": true
+        },
+        {
+          "id": "sortCode",
+          "type": "text",
+          "label": "Sort Code",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "signatures",
+      "type": "section",
+      "label": "Signatures",
+      "fields": [
+        {
+          "id": "workerSignature",
+          "type": "signature",
+          "label": "Worker Signature",
+          "required": true
+        },
+        {
+          "id": "signatureDate",
+          "type": "date",
+          "label": "Date",
+          "required": true
+        },
+        {
+          "id": "agencyRepName",
+          "type": "name",
+          "label": "Agency Representative Name",
+          "required": true,
+          "fields": [
+            {
+              "id": "firstName",
+              "type": "text",
+              "label": "First Name"
+            },
+            {
+              "id": "lastName",
+              "type": "text",
+              "label": "Last Name"
+            }
+          ]
+        },
+        {
+          "id": "agencySignature",
+          "type": "signature",
+          "label": "Agency Representative Signature",
+          "required": true
+        }
+      ]
+    }
+  ]
+} 

@@ -1,0 +1,179 @@
+{
+  "id": "health-assessment",
+  "title": "Annual Health Assessment Questionnaire",
+  "description": "Annual health assessment for employees",
+  "theme": {
+    "id": "default",
+    "name": "Default Theme",
+    "description": "Default form theme",
+    "colors": {
+      "primary": "#0066cc",
+      "secondary": "#4d4d4d",
+      "accent": "#ff6b6b",
+      "background": "#ffffff",
+      "surface": "#f5f5f5",
+      "text": "#333333"
+    },
+    "font": "Inter"
+  },
+  "fields": [
+    {
+      "id": "employeeFirstName",
+      "type": "shortAnswer",
+      "label": "First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeLastName",
+      "type": "shortAnswer",
+      "label": "Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your last name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "dateOfBirth",
+      "type": "date",
+      "label": "Date of Birth",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "employeeId",
+      "type": "shortAnswer",
+      "label": "Employee ID",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your employee ID",
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "currentHealth",
+      "type": "multipleChoice",
+      "label": "How would you rate your current health?",
+      "required": true,
+      "properties": {
+        "choices": [
+          "Excellent",
+          "Good",
+          "Fair",
+          "Poor"
+        ]
+      }
+    },
+    {
+      "id": "recentChanges",
+      "type": "longAnswer",
+      "label": "Have there been any significant changes in your health in the past year?",
+      "required": true,
+      "properties": {
+        "placeholder": "Please describe any significant health changes",
+        "maxLength": 1000
+      }
+    },
+    {
+      "id": "existingConditions",
+      "type": "multipleChoice",
+      "label": "Do you have any of the following conditions? (Select all that apply)",
+      "required": true,
+      "properties": {
+        "choices": [
+          "Diabetes",
+          "Heart Disease",
+          "High Blood Pressure",
+          "Asthma",
+          "None of the above",
+          "Other"
+        ]
+      }
+    },
+    {
+      "id": "otherConditions",
+      "type": "longAnswer",
+      "label": "If you selected Other, please specify",
+      "required": false,
+      "properties": {
+        "placeholder": "Please describe other medical conditions",
+        "maxLength": 500
+      }
+    },
+    {
+      "id": "currentMedications",
+      "type": "longAnswer",
+      "label": "List any current medications",
+      "required": true,
+      "properties": {
+        "placeholder": "Please list all current medications",
+        "maxLength": 1000
+      }
+    },
+    {
+      "id": "workImpact",
+      "type": "multipleChoice",
+      "label": "Does your health affect your ability to perform your job?",
+      "required": true,
+      "properties": {
+        "choices": [
+          "No impact",
+          "Minor impact",
+          "Moderate impact",
+          "Significant impact"
+        ]
+      }
+    },
+    {
+      "id": "accommodations",
+      "type": "longAnswer",
+      "label": "Do you require any workplace accommodations?",
+      "required": true,
+      "properties": {
+        "placeholder": "Please describe any required accommodations",
+        "maxLength": 1000
+      }
+    },
+    {
+      "id": "emergencyContactName",
+      "type": "shortAnswer",
+      "label": "Emergency Contact Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter emergency contact's full name",
+        "maxLength": 100
+      }
+    },
+    {
+      "id": "emergencyContactPhone",
+      "type": "shortAnswer",
+      "label": "Emergency Contact Phone",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter emergency contact's phone number",
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "emergencyContactRelationship",
+      "type": "shortAnswer",
+      "label": "Relationship to Emergency Contact",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your relationship to emergency contact",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "truthfulnessDeclaration",
+      "type": "yesNo",
+      "label": "I confirm that the information provided is true and complete",
+      "required": true,
+      "properties": {}
+    }
+  ]
+} 

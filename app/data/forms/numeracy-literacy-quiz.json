@@ -1,0 +1,217 @@
+{
+  "id": "numeracy-literacy-quiz",
+  "title": "Numeracy and Literacy Quiz",
+  "version": "1.0",
+  "fields": [
+    {
+      "id": "candidateInfo",
+      "type": "section",
+      "label": "Candidate Information",
+      "fields": [
+        {
+          "id": "candidateName",
+          "type": "name",
+          "label": "Candidate Name",
+          "required": true,
+          "fields": [
+            {
+              "id": "firstName",
+              "type": "text",
+              "label": "First Name"
+            },
+            {
+              "id": "lastName",
+              "type": "text",
+              "label": "Last Name"
+            }
+          ]
+        },
+        {
+          "id": "email",
+          "type": "email",
+          "label": "Email Address",
+          "required": true
+        },
+        {
+          "id": "phone",
+          "type": "phone",
+          "label": "Phone Number",
+          "required": true
+        },
+        {
+          "id": "quizDate",
+          "type": "date",
+          "label": "Quiz Date",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "numeracySection",
+      "type": "section",
+      "label": "Numeracy Assessment",
+      "fields": [
+        {
+          "id": "basicCalculations",
+          "type": "questions",
+          "label": "Basic Calculations",
+          "required": true,
+          "questions": [
+            {
+              "id": "addition",
+              "type": "number",
+              "label": "What is 234 + 567?",
+              "correctAnswer": "801"
+            },
+            {
+              "id": "subtraction",
+              "type": "number",
+              "label": "What is 789 - 456?",
+              "correctAnswer": "333"
+            },
+            {
+              "id": "multiplication",
+              "type": "number",
+              "label": "What is 12 × 15?",
+              "correctAnswer": "180"
+            },
+            {
+              "id": "division",
+              "type": "number",
+              "label": "What is 360 ÷ 9?",
+              "correctAnswer": "40"
+            }
+          ]
+        },
+        {
+          "id": "percentages",
+          "type": "questions",
+          "label": "Percentages",
+          "required": true,
+          "questions": [
+            {
+              "id": "percentage1",
+              "type": "number",
+              "label": "What is 15% of 200?",
+              "correctAnswer": "30"
+            },
+            {
+              "id": "percentage2",
+              "type": "number",
+              "label": "If something costs £80 and is reduced by 25%, what is the new price?",
+              "correctAnswer": "60"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "literacySection",
+      "type": "section",
+      "label": "Literacy Assessment",
+      "fields": [
+        {
+          "id": "comprehension",
+          "type": "questions",
+          "label": "Reading Comprehension",
+          "required": true,
+          "content": "Read the following paragraph and answer the questions below:\n\nThe company's new health and safety policy requires all employees to complete a safety training course within their first month of employment. This course covers basic first aid, fire safety procedures, and emergency protocols. Upon completion, employees will receive a certificate valid for two years.",
+          "questions": [
+            {
+              "id": "comp1",
+              "type": "radio",
+              "label": "When must employees complete the safety training?",
+              "options": [
+                {"value": "first_week", "label": "First week"},
+                {"value": "first_month", "label": "First month"},
+                {"value": "first_year", "label": "First year"},
+                {"value": "second_year", "label": "Second year"}
+              ],
+              "correctAnswer": "first_month"
+            },
+            {
+              "id": "comp2",
+              "type": "checkbox",
+              "label": "What topics are covered in the training? (Select all that apply)",
+              "options": [
+                {"value": "first_aid", "label": "First Aid"},
+                {"value": "fire_safety", "label": "Fire Safety"},
+                {"value": "emergency", "label": "Emergency Protocols"},
+                {"value": "customer_service", "label": "Customer Service"}
+              ],
+              "correctAnswers": ["first_aid", "fire_safety", "emergency"]
+            }
+          ]
+        },
+        {
+          "id": "grammar",
+          "type": "questions",
+          "label": "Grammar and Spelling",
+          "required": true,
+          "questions": [
+            {
+              "id": "grammar1",
+              "type": "radio",
+              "label": "Choose the correct spelling:",
+              "options": [
+                {"value": "necessary", "label": "necessary"},
+                {"value": "necesary", "label": "necesary"},
+                {"value": "necessery", "label": "necessery"}
+              ],
+              "correctAnswer": "necessary"
+            },
+            {
+              "id": "grammar2",
+              "type": "radio",
+              "label": "Which sentence is grammatically correct?",
+              "options": [
+                {"value": "sent1", "label": "Their going to the meeting."},
+                {"value": "sent2", "label": "They're going to the meeting."},
+                {"value": "sent3", "label": "There going to the meeting."}
+              ],
+              "correctAnswer": "sent2"
+            }
+          ]
+        },
+        {
+          "id": "writing",
+          "type": "textarea",
+          "label": "Writing Assessment",
+          "required": true,
+          "description": "Write a brief paragraph (50-100 words) describing your previous work experience and why you would be suitable for this role."
+        }
+      ]
+    },
+    {
+      "id": "declaration",
+      "type": "section",
+      "label": "Declaration",
+      "fields": [
+        {
+          "id": "honesty",
+          "type": "checkbox",
+          "label": "Declaration",
+          "required": true,
+          "options": [
+            {
+              "value": "confirm",
+              "label": "I confirm that I completed this assessment honestly and independently"
+            }
+          ]
+        },
+        {
+          "id": "signature",
+          "type": "signature",
+          "label": "Candidate Signature",
+          "required": true
+        },
+        {
+          "id": "submissionDate",
+          "type": "date",
+          "label": "Submission Date",
+          "required": true
+        }
+      ]
+    }
+  ]
+} 

@@ -1,0 +1,96 @@
+{
+  "id": "handbook-acknowledgement",
+  "title": "Employee Handbook Acknowledgement",
+  "description": "Acknowledgement of receiving and understanding the employee handbook",
+  "theme": {
+    "id": "default",
+    "name": "Default Theme",
+    "description": "Default form theme",
+    "colors": {
+      "primary": "#0066cc",
+      "secondary": "#4d4d4d",
+      "accent": "#ff6b6b",
+      "background": "#ffffff",
+      "surface": "#f5f5f5",
+      "text": "#333333"
+    },
+    "font": "Inter"
+  },
+  "fields": [
+    {
+      "id": "employeeFirstName",
+      "type": "shortAnswer",
+      "label": "First Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your first name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeLastName",
+      "type": "shortAnswer",
+      "label": "Last Name",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your last name",
+        "maxLength": 50
+      }
+    },
+    {
+      "id": "employeeId",
+      "type": "shortAnswer",
+      "label": "Employee ID",
+      "required": true,
+      "properties": {
+        "placeholder": "Enter your employee ID",
+        "maxLength": 20
+      }
+    },
+    {
+      "id": "receiptDate",
+      "type": "date",
+      "label": "Date of Handbook Receipt",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "receivedHandbook",
+      "type": "yesNo",
+      "label": "I acknowledge that I have received a copy of the Employee Handbook",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "readCompliance",
+      "type": "yesNo",
+      "label": "I agree to read the Handbook and comply with its policies",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "notContract",
+      "type": "yesNo",
+      "label": "I understand that the Handbook is not a contract of employment",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "policyUpdates",
+      "type": "yesNo",
+      "label": "I understand that the company may update the policies at any time",
+      "required": true,
+      "properties": {}
+    },
+    {
+      "id": "questions",
+      "type": "longAnswer",
+      "label": "Questions or Concerns",
+      "required": false,
+      "properties": {
+        "placeholder": "Please note any questions or concerns about the handbook policies",
+        "maxLength": 1000
+      }
+    }
+  ]
+} 
