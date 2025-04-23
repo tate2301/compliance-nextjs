@@ -1,179 +1,333 @@
 {
-  "id": "health-assessment",
+  "id": "annual-health-assessment-questionnaire",
   "title": "Annual Health Assessment Questionnaire",
-  "description": "Annual health assessment for employees",
-  "theme": {
-    "id": "default",
-    "name": "Default Theme",
-    "description": "Default form theme",
-    "colors": {
-      "primary": "#0066cc",
-      "secondary": "#4d4d4d",
-      "accent": "#ff6b6b",
-      "background": "#ffffff",
-      "surface": "#f5f5f5",
-      "text": "#333333"
-    },
-    "font": "Inter"
-  },
+  "version": "1.0",
   "fields": [
     {
-      "id": "employeeFirstName",
-      "type": "shortAnswer",
-      "label": "First Name",
-      "required": true,
-      "properties": {
-        "placeholder": "Enter your first name",
-        "maxLength": 50
-      }
+      "id": "personalInfo",
+      "type": "section",
+      "label": "Personal Information",
+      "fields": [
+        {
+          "id": "fullName",
+          "type": "name",
+          "label": "Full Name",
+          "required": true,
+          "fields": [
+            { "id": "firstName", "type": "text", "label": "First Name" },
+            { "id": "lastName",  "type": "text", "label": "Last Name"  }
+          ]
+        },
+        {
+          "id": "dob",
+          "type": "date",
+          "label": "Date of Birth",
+          "required": true
+        },
+        {
+          "id": "address",
+          "type": "address",
+          "label": "Address",
+          "required": true,
+          "fields": [
+            { "id": "street1",     "type": "text", "label": "Street Address"            },
+            { "id": "street2",     "type": "text", "label": "Street Address Line 2"     },
+            { "id": "city",        "type": "text", "label": "City"                      },
+            { "id": "state",       "type": "text", "label": "State / Province"          },
+            { "id": "postcode",    "type": "text", "label": "Postal / Zip Code"         }
+          ]
+        },
+        {
+          "id": "email",
+          "type": "email",
+          "label": "Email",
+          "required": true
+        },
+        {
+          "id": "phoneNumber",
+          "type": "phone",
+          "label": "Phone Number",
+          "required": true
+        },
+        {
+          "id": "position",
+          "type": "text",
+          "label": "Proposed Position",
+          "required": true
+        }
+      ]
     },
     {
-      "id": "employeeLastName",
-      "type": "shortAnswer",
-      "label": "Last Name",
-      "required": true,
-      "properties": {
-        "placeholder": "Enter your last name",
-        "maxLength": 50
-      }
+      "id": "medicalHistory",
+      "type": "section",
+      "label": "Medical History",
+      "fields": [
+        {
+          "id": "q1HeartConditions",
+          "type": "multipleChoice",
+          "label": "1. Heart attack, chest pains/angina, high blood pressure or persistent leg pains?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q1ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q1Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q2Respiratory",
+          "type": "multipleChoice",
+          "label": "2. Bronchitis, asthma, shortness of breath or persistent cough (>3 weeks)?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q2ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q2Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q3MentalIllness",
+          "type": "multipleChoice",
+          "label": "3. Illness requiring treatment/medication (e.g. depression, anxiety, drug/alcohol‑related)?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q3ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q3Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q4Sensory",
+          "type": "multipleChoice",
+          "label": "4. Significant problems with hearing, eyesight or smell?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q4ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q4Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q5Neurological",
+          "type": "multipleChoice",
+          "label": "5. Blackouts, fainting, stroke, epilepsy, dizzy spells or muscular weakness?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q5ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q5Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q6Diabetes",
+          "type": "multipleChoice",
+          "label": "6. Are you diabetic?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        {
+          "id": "q6DiabetesTreatment",
+          "type": "multipleChoice",
+          "label": "If YES, select the treatment",
+          "options": [
+            { "value": "insulin",        "label": "Insulin"        },
+            { "value": "tablets",        "label": "Tablets"        },
+            { "value": "dietControlled", "label": "Diet Controlled" }
+          ]
+        },
+
+        {
+          "id": "q7Renal",
+          "type": "multipleChoice",
+          "label": "7. Kidney, bladder or reproductive‑tract problems?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q7ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q7Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q8Musculoskeletal",
+          "type": "multipleChoice",
+          "label": "8. Back/neck pains, rheumatism, arthritis or joint/muscular problems?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q8ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q8Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q9Infections",
+          "type": "multipleChoice",
+          "label": "9. Dysentery, recurring diarrhoea/boils or septic fingers in the last two years?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q9ConditionDetails", "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q9Treatment",        "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q10Skin",
+          "type": "multipleChoice",
+          "label": "10. Skin conditions (eczema, dermatitis, psoriasis, etc.)?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q10Condition",    "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q10AffectedPart", "type": "text",       "label": "Which body part is affected?" },
+        { "id": "q10Treatment",    "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q11Allergies",
+          "type": "multipleChoice",
+          "label": "11. Allergies (hay fever, allergic rhinitis, etc.)?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q11Condition",    "type": "text",       "label": "If YES, which condition?" },
+        { "id": "q11AffectedPart", "type": "text",       "label": "Which body part is affected?" },
+        { "id": "q11Treatment",    "type": "longAnswer", "label": "Treatment and how it affects you (include time off work)" },
+
+        {
+          "id": "q12aIllHealthRetirement",
+          "type": "multipleChoice",
+          "label": "12A. Ever retired from work on grounds of ill‑health?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q12aDetails", "type": "longAnswer", "label": "If YES, give details" },
+
+        {
+          "id": "q12bDisabled",
+          "type": "multipleChoice",
+          "label": "12B. Are you disabled in any way?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q12bDetails", "type": "longAnswer", "label": "If YES, give details" },
+
+        {
+          "id": "q12cOtherConditions",
+          "type": "multipleChoice",
+          "label": "12C. Any medical condition not mentioned on this form?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q12cDetails", "type": "longAnswer", "label": "If YES, give details (including treatments)" }
+      ]
     },
     {
-      "id": "dateOfBirth",
-      "type": "date",
-      "label": "Date of Birth",
-      "required": true,
-      "properties": {}
+      "id": "generalHealth",
+      "type": "section",
+      "label": "General Health & Lifestyle",
+      "fields": [
+        {
+          "id": "q13RecentConditions",
+          "type": "multipleChoice",
+          "label": "13. Conditions in the last year (select all that apply)",
+          "required": true,
+          "options": [
+            { "value": "weightChange",       "label": "Unplanned weight change"              },
+            { "value": "lossOfAppetite",     "label": "Loss of appetite"                      },
+            { "value": "sinusColds",         "label": "Sinus / recurrent colds"               },
+            { "value": "chestPains",         "label": "Chest pains or tightness"              },
+            { "value": "irregularHeartbeat", "label": "Irregular heartbeat"                  },
+            { "value": "shortnessOfBreath",  "label": "Shortness of breath"                  },
+            { "value": "wheezeOrCough",      "label": "Wheeze or cough"                      },
+            { "value": "indigestion",        "label": "Indigestion / stomach pain"            },
+            { "value": "bowelChange",        "label": "Change in bowel habit / blood in stool" },
+            { "value": "bladderChange",      "label": "Change in bladder function"            },
+            { "value": "sensationChange",    "label": "Change in strength of sensation"       },
+            { "value": "memoryProblems",     "label": "Concentration or memory problems"      },
+            { "value": "breathOnHills",      "label": "Shortness of breath on hill or stairs" },
+            { "value": "other",              "label": "Anything else not mentioned"           },
+            { "value": "none",               "label": "None of the above"                     }
+          ]
+        },
+        { "id": "q13Details",     "type": "longAnswer", "label": "Include details" },
+        { "id": "q14SickDays",    "type": "longAnswer", "label": "14. Days lost in the last year due to illness/injury – reasons" },
+        { "id": "q15DoctorVisits","type": "text",       "label": "15. Number of doctor consultations in the past year" },
+        { "id": "q16Smoking",     "type": "text",       "label": "16. How much do you smoke?" },
+        {
+          "id": "q17Alcohol",
+          "type": "multipleChoice",
+          "label": "17. Do you drink alcohol?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        {
+          "id": "q17AlcoholDetails",
+          "type": "section",
+          "label": "If YES, average weekly intake",
+          "fields": [
+            { "id": "beerOrdinary", "type": "likertScale", "label": "Ordinary beer / lager (½ pint)", "properties": { "scalePoints": 10 } },
+            { "id": "beerStrong",   "type": "likertScale", "label": "Strong beer / lager (½ pint)",   "properties": { "scalePoints": 10 } },
+            { "id": "wine",         "type": "likertScale", "label": "Wine / sherry (glass)",          "properties": { "scalePoints": 10 } },
+            { "id": "spirits",      "type": "likertScale", "label": "Spirits (pub measure)",          "properties": { "scalePoints": 10 } }
+          ]
+        },
+        { "id": "q18Exercise",  "type": "text",       "label": "18. Regular exercise – times per week" },
+        {
+          "id": "q19HazardousPastimes",
+          "type": "multipleChoice",
+          "label": "19. Do pastimes expose you to dust, chemicals, noise, vibration, etc.?",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no",  "label": "No"  }
+          ]
+        },
+        { "id": "q19Details", "type": "longAnswer", "label": "If YES, give details" }
+      ]
     },
     {
-      "id": "employeeId",
-      "type": "shortAnswer",
-      "label": "Employee ID",
-      "required": true,
-      "properties": {
-        "placeholder": "Enter your employee ID",
-        "maxLength": 20
-      }
-    },
-    {
-      "id": "currentHealth",
-      "type": "multipleChoice",
-      "label": "How would you rate your current health?",
-      "required": true,
-      "properties": {
-        "choices": [
-          "Excellent",
-          "Good",
-          "Fair",
-          "Poor"
-        ]
-      }
-    },
-    {
-      "id": "recentChanges",
-      "type": "longAnswer",
-      "label": "Have there been any significant changes in your health in the past year?",
-      "required": true,
-      "properties": {
-        "placeholder": "Please describe any significant health changes",
-        "maxLength": 1000
-      }
-    },
-    {
-      "id": "existingConditions",
-      "type": "multipleChoice",
-      "label": "Do you have any of the following conditions? (Select all that apply)",
-      "required": true,
-      "properties": {
-        "choices": [
-          "Diabetes",
-          "Heart Disease",
-          "High Blood Pressure",
-          "Asthma",
-          "None of the above",
-          "Other"
-        ]
-      }
-    },
-    {
-      "id": "otherConditions",
-      "type": "longAnswer",
-      "label": "If you selected Other, please specify",
-      "required": false,
-      "properties": {
-        "placeholder": "Please describe other medical conditions",
-        "maxLength": 500
-      }
-    },
-    {
-      "id": "currentMedications",
-      "type": "longAnswer",
-      "label": "List any current medications",
-      "required": true,
-      "properties": {
-        "placeholder": "Please list all current medications",
-        "maxLength": 1000
-      }
-    },
-    {
-      "id": "workImpact",
-      "type": "multipleChoice",
-      "label": "Does your health affect your ability to perform your job?",
-      "required": true,
-      "properties": {
-        "choices": [
-          "No impact",
-          "Minor impact",
-          "Moderate impact",
-          "Significant impact"
-        ]
-      }
-    },
-    {
-      "id": "accommodations",
-      "type": "longAnswer",
-      "label": "Do you require any workplace accommodations?",
-      "required": true,
-      "properties": {
-        "placeholder": "Please describe any required accommodations",
-        "maxLength": 1000
-      }
-    },
-    {
-      "id": "emergencyContactName",
-      "type": "shortAnswer",
-      "label": "Emergency Contact Name",
-      "required": true,
-      "properties": {
-        "placeholder": "Enter emergency contact's full name",
-        "maxLength": 100
-      }
-    },
-    {
-      "id": "emergencyContactPhone",
-      "type": "shortAnswer",
-      "label": "Emergency Contact Phone",
-      "required": true,
-      "properties": {
-        "placeholder": "Enter emergency contact's phone number",
-        "maxLength": 20
-      }
-    },
-    {
-      "id": "emergencyContactRelationship",
-      "type": "shortAnswer",
-      "label": "Relationship to Emergency Contact",
-      "required": true,
-      "properties": {
-        "placeholder": "Enter your relationship to emergency contact",
-        "maxLength": 50
-      }
-    },
-    {
-      "id": "truthfulnessDeclaration",
-      "type": "yesNo",
-      "label": "I confirm that the information provided is true and complete",
-      "required": true,
-      "properties": {}
+      "id": "declaration",
+      "type": "section",
+      "label": "Declaration",
+      "fields": [
+        { "id": "signature",     "type": "signature", "label": "Your Signature", "required": true },
+        { "id": "signatureDate", "type": "date",      "label": "Date",            "required": true },
+        { "id": "fullNameConfirm","type": "text",     "label": "Print your full name", "required": true }
+      ]
     }
   ]
-} 
+}

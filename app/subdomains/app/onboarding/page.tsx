@@ -1,17 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { FormPreview } from "@/forms_builder/components/FormPreview"
+import { FormPreview, FormPreviewRef } from "@/forms_builder/components/FormPreview"
 import complianceForms from "@/app/data/compliance-forms.json"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
 import { FormProvider } from "@/forms_builder/context"
 import { Form, FormField } from "@/forms_builder/types"
+import { cn } from "@/lib/utils"
+import { getJotFormById } from "@/app/actions/forms"
 
 // Group forms by category
 const formsByCategory = complianceForms.forms.reduce((acc, form) => {
@@ -26,60 +27,75 @@ const formsByCategory = complianceForms.forms.reduce((acc, form) => {
 // Get all categories
 const categories = Object.keys(formsByCategory)
 
-// Convert compliance form to builder form format
-function convertToBuilderForm(form: typeof complianceForms.forms[0]): Form {
-    // Create fields based on sections if available
-    const fields: FormField[] = form.sections ? form.sections.map((section, index) => ({
-        id: `${form.id}_section_${index}`,
-        type: "shortAnswer", // Default to short answer for now
-        label: section,
-        required: form.required || false,
-        properties: {
-            placeholder: `Enter details for ${section}`,
-            minLength: 0,
-            maxLength: 1000
-        }
-    })) : [
-        // Default field if no sections
-        {
-            id: `${form.id}_default`,
-            type: "longAnswer",
-            label: "Additional Information",
-            required: form.required || false,
-            properties: {
-                placeholder: "Please provide the required information",
-                minLength: 0,
-                maxLength: 2000
-            }
-        }
-    ]
+// Helper function to process form fields recursively
+function processFields(formFields: any[]): FormField[] {
+    const fields: FormField[] = [];
 
-    return {
-        id: form.id,
-        title: form.title,
-        description: form.description || "",
-        fields,
-        theme: {
-            id: form.id,
-            name: form.title,
-            description: form.description || "",
-            colors: {
-                primary: "rgb(var(--primary))",
-                secondary: "rgb(var(--muted-foreground))",
-                accent: "rgb(var(--accent))",
-                background: "transparent",
-                surface: "rgb(var(--card))",
-                text: "rgb(var(--foreground))"
-            },
-            font: "Inter"
+    formFields.forEach((field) => {
+        if (field.type === 'section' && field.fields) {
+            // For sections, add a label field and then process nested fields
+            fields.push({
+                id: `${field.id}_label`,
+                type: "shortAnswer",
+                label: field.label,
+                required: false,
+                properties: {
+                    placeholder: field.label,
+                    minLength: 0,
+                    maxLength: 0
+                }
+            });
+            fields.push(...processFields(field.fields));
+        } else {
+            // Map form field types to builder field types
+            const fieldType = {
+                text: 'shortAnswer',
+                email: 'email',
+                phone: 'shortAnswer',
+                date: 'date',
+                multipleChoice: 'multipleChoice',
+                yesNo: 'yesNo',
+                npsRating: 'npsRating',
+                signature: 'signature',
+                name: 'shortAnswer',
+                address: 'longAnswer',
+                paragraph: 'paragraph'
+            }[field.type] || 'paragraph';
+
+            // Process multiple choice options if they exist
+            const choices = field.options?.map((option: any) =>
+                typeof option === 'string' ? option : option.label || option.value
+            );
+
+            fields.push({
+                id: field.id,
+                type: fieldType,
+                label: field.label,
+                required: field.required || false,
+                properties: {
+                    placeholder: `Enter ${field.label.toLowerCase()}`,
+                    ...(choices && { choices }),
+                    minLength: 0,
+                    maxLength: fieldType === 'shortAnswer' ? 1000 : 2000,
+                    text: field.text
+                }
+            });
         }
-    }
+    });
+
+    return fields;
+}
+
+
+interface FormWithValues extends Form {
+    values: Record<string, string>;
 }
 
 export default function OnboardingPage() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const { toast } = useToast()
+    const formRef = useRef<FormPreviewRef>(null)
 
     const category = searchParams.get("category") || categories[0]
     const step = parseInt(searchParams.get("step") || "1")
@@ -89,47 +105,71 @@ export default function OnboardingPage() {
 
     const [completedForms, setCompletedForms] = useState<string[]>([])
     const [isSubmitting, setIsSubmitting] = useState(false)
-
-    // Calculate progress for current category
-    const categoryProgress = {
-        completed: completedForms.length,
-        total: currentForms.length,
-        percentage: (completedForms.length / currentForms.length) * 100
-    }
+    const [formData, setFormData] = useState<Form | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (!currentForm) {
-            // If no form in current step, go to first step of next category
             const currentCategoryIndex = categories.indexOf(category)
             if (currentCategoryIndex < categories.length - 1) {
                 router.push(`/subdomains/app/onboarding?category=${categories[currentCategoryIndex + 1]}&step=1`)
             } else {
-                // All forms completed
                 router.push("/dashboard")
             }
         }
     }, [currentForm, category, step, router])
 
-    const handleSubmitForm = async (formData: Form) => {
+    useEffect(() => {
+        async function loadForm() {
+            if (currentForm) {
+                setIsLoading(true);
+                try {
+                    // Extract form ID from the JotForm URL
+                    const formId = currentForm.url.split("/").pop() || "";
+                    const form = await getJotFormById(formId);
+                    setFormData(form);
+                } catch (error) {
+                    console.error('Error loading form:', error);
+                    toast({
+                        title: "Error",
+                        description: "There was an error loading the form. Please try again.",
+                        variant: "destructive",
+                    });
+                } finally {
+                    setIsLoading(false);
+                }
+            }
+        }
+        loadForm();
+    }, [currentForm]);
+
+    const handleSubmitForm = async (formData: FormWithValues) => {
         setIsSubmitting(true)
         try {
-            // Here you would submit the form data to your backend
-            await new Promise((resolve) => setTimeout(resolve, 1000))
+            const hasEmptyRequiredFields = formData.fields.some(
+                field => field.required && !formData.values[field.id]?.trim()
+            );
 
-            // Mark form as completed
+            if (hasEmptyRequiredFields) {
+                toast({
+                    title: "Error",
+                    description: "Please fill in all required fields before proceeding.",
+                    variant: "destructive",
+                });
+                return;
+            }
+
+            // Here you could submit the form data to JotForm using their submission API
+            await new Promise((resolve) => setTimeout(resolve, 1000))
             setCompletedForms(prev => [...prev, currentForm.id])
 
-            // Calculate next step
             if (step < currentForms.length) {
-                // Move to next form in current category
                 router.push(`/subdomains/app/onboarding?category=${category}&step=${step + 1}`)
             } else {
-                // Move to next category
                 const currentCategoryIndex = categories.indexOf(category)
                 if (currentCategoryIndex < categories.length - 1) {
                     router.push(`/subdomains/app/onboarding?category=${categories[currentCategoryIndex + 1]}&step=1`)
                 } else {
-                    // All categories completed
                     router.push("/dashboard")
                     toast({
                         title: "Onboarding Complete",
@@ -150,90 +190,173 @@ export default function OnboardingPage() {
 
     if (!currentForm) return null
 
-    const builderForm = convertToBuilderForm(currentForm)
 
     return (
-        <div className="space-y-8">
-            <Tabs value={category} className="w-full flex flex-row">
-                <TabsList className="justify-start flex-col w-fit">
-                    {categories.map((cat) => {
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+
+
+            {/* Left sidebar with steps */}
+            <div className="w-full lg:w-72 lg:flex-none">
+                <div className="flex lg:flex-col gap-2 lg:gap-1 pb-4 lg:pb-0 overflow-x-auto scrollbar-none">
+                    {categories.map((cat, categoryIndex) => {
                         const catForms = formsByCategory[cat]
-                        const completedInCategory = catForms.filter(form => completedForms.includes(form.id)).length
+                        const isCurrentCategory = cat === category
+                        const isCompleted = catForms.every(form => completedForms.includes(form.id))
+                        const isActive = isCurrentCategory
+                        const isPending = categoryIndex > categories.indexOf(category)
 
                         return (
-                            <TabsTrigger
-                                key={cat}
-                                value={cat}
-                                className="w-full flex items-center gap-2 !justify-between min-w-56 !text-left !shadow-none !bg-transparent"
-                                onClick={() => router.push(`/subdomains/app/onboarding?category=${cat}&step=1`)}
-                            >
-                                {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                                <Badge variant={completedInCategory === catForms.length ? "default" : "outline"}>
-                                    {completedInCategory}/{catForms.length}
-                                </Badge>
-                            </TabsTrigger>
+                            <div key={cat} className="flex-none lg:flex-initial min-w-[200px] lg:min-w-0">
+                                <button
+                                    onClick={() => router.push(`/subdomains/app/onboarding?category=${cat}&step=1`)}
+                                    className={cn(
+                                        "w-full text-left",
+                                        isActive && "cursor-default"
+                                    )}
+                                >
+                                    <div className={cn(
+                                        "flex items-center gap-3 rounded-lg border-2 p-3",
+                                        isCompleted && "border-success-10 bg-primary/5",
+                                        isActive && "border-secondary-10 bg-slate-1",
+                                        isPending && "opacity-50 hover:opacity-75 transition-opacity"
+                                    )}>
+                                        <div className={cn(
+                                            "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-sm font-medium",
+                                            isCompleted && "border-success-10 bg-success-4 text-white",
+                                            isActive && "border-primary bg-primary text-white",
+                                            isPending && "border-muted-foreground text-muted-foreground"
+                                        )}>
+                                            {isCompleted ? <CheckCircle className="h-4 w-4 text-white" /> : categoryIndex + 1}
+                                        </div>
+                                        <div className="flex flex-col min-w-0 flex-1">
+                                            <div className="text-sm font-medium mb-1 truncate">
+                                                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                                            </div>
+                                            <div className="text-xs text-slate-10">
+                                                {catForms.filter(form => completedForms.includes(form.id)).length}/{catForms.length} completed
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                {isCurrentCategory && (
+                                    <div className="ml-7 space-y-1 border-l pl-4 hidden lg:block mt-2">
+                                        {catForms.map((form, formIndex) => {
+                                            const isCompleted = completedForms.includes(form.id)
+                                            const isActive = formIndex + 1 === step
+                                            const isPending = formIndex + 1 > step
+
+                                            return (
+                                                <button
+                                                    key={form.id}
+                                                    onClick={() => router.push(`/subdomains/app/onboarding?category=${cat}&step=${formIndex + 1}`)}
+                                                    className={cn(
+                                                        "flex w-full items-center gap-3 rounded-lg p-2 text-left text-sm transition-colors",
+                                                        isCompleted && "text-primary",
+                                                        isActive && "bg-accent text-accent-foreground",
+                                                        isPending && "text-muted-foreground hover:text-muted-foreground/80"
+                                                    )}
+                                                >
+                                                    <div className={cn(
+                                                        "h-2 w-2 rounded-full shrink-0",
+                                                        isCompleted && "bg-primary",
+                                                        isActive && "bg-background",
+                                                        isPending && "bg-muted-foreground"
+                                                    )} />
+                                                    <span className="truncate">{form.title}</span>
+                                                </button>
+                                            )
+                                        })}
+                                    </div>
+                                )}
+                            </div>
                         )
                     })}
-                </TabsList>
+                </div>
+            </div>
 
-                {categories.map((cat) => (
-                    <TabsContent key={cat} value={cat} className="space-y-8 flex-1">
-                        <div className="grid gap-4">
+            {/* Main content */}
+            <div className="flex-1 min-w-0">
+                <div className="grid gap-4">
+                    <Card className="overflow-hidden">
+                        {/* Form title for desktop */}
+                        {currentForm && (
+                            <div className="hidden lg:block px-6 py-4 border-b">
+                                <h2 className="text-lg font-semibold text-slate-12">{currentForm.title}</h2>
+                            </div>
+                        )}
 
-
-                            <Card className="p-6">
+                        <div className="p-4 sm:p-6">
+                            {isLoading ? (
+                                <div className="flex items-center justify-center p-8">
+                                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+                                </div>
+                            ) : formData ? (
                                 <FormProvider
-                                    initialForm={JSON.stringify(builderForm)}
+                                    initialForm={JSON.stringify(formData)}
                                     onFormChange={(form) => {
                                         // Handle form changes if needed
                                     }}
                                 >
-                                    <FormPreview onHandleSubmitForm={() => handleSubmitForm(builderForm)} />
+                                    <FormPreview ref={formRef} onHandleSubmitForm={handleSubmitForm} />
                                 </FormProvider>
-                            </Card>
-
-                            <div className="flex justify-between">
-                                <Button
-                                    variant="outline"
-                                    onClick={() => {
-                                        if (step > 1) {
-                                            router.push(`/subdomains/app/onboarding?category=${category}&step=${step - 1}`)
-                                        } else {
-                                            const currentCategoryIndex = categories.indexOf(category)
-                                            if (currentCategoryIndex > 0) {
-                                                const prevCategory = categories[currentCategoryIndex - 1]
-                                                const prevCategoryForms = formsByCategory[prevCategory]
-                                                router.push(`/subdomains/app/onboarding?category=${prevCategory}&step=${prevCategoryForms.length}`)
-                                            }
-                                        }
-                                    }}
-                                    disabled={step === 1 && categories.indexOf(category) === 0 || isSubmitting}
-                                >
-                                    Previous
-                                </Button>
-                                <Button
-                                    onClick={() => handleSubmitForm(builderForm)}
-                                    disabled={isSubmitting}
-                                >
-                                    {isSubmitting ? (
-                                        <span className="flex items-center gap-2">
-                                            <span className="h-4 w-4 animate-spin rounded-full border-2 border-background border-t-transparent" />
-                                            Submitting...
-                                        </span>
-                                    ) : completedForms.includes(currentForm.id) ? (
-                                        <span className="flex items-center gap-2">
-                                            <CheckCircle className="h-4 w-4" />
-                                            Completed - Next Form
-                                        </span>
-                                    ) : (
-                                        "Submit and Continue"
-                                    )}
-                                </Button>
-                            </div>
+                            ) : (
+                                <div className="p-8 text-center text-muted-foreground">
+                                    Form could not be loaded
+                                </div>
+                            )}
                         </div>
-                    </TabsContent>
-                ))}
-            </Tabs>
+                    </Card>
+
+                    <div className="flex  justify-between gap-3 px-6 lg:px-0 sticky bottom-0 bg-background/80 backdrop-blur-sm p-4 -mx-4 border-t lg:mx-0 lg:p-0 lg:border-0 lg:bg-transparent lg:backdrop-blur-none">
+                        <Button
+                            variant="outline"
+                            onClick={() => {
+                                if (step > 1) {
+                                    router.push(`/subdomains/app/onboarding?category=${category}&step=${step - 1}`)
+                                } else {
+                                    const currentCategoryIndex = categories.indexOf(category)
+                                    if (currentCategoryIndex > 0) {
+                                        const prevCategory = categories[currentCategoryIndex - 1]
+                                        const prevCategoryForms = formsByCategory[prevCategory]
+                                        router.push(`/subdomains/app/onboarding?category=${prevCategory}&step=${prevCategoryForms.length}`)
+                                    }
+                                }
+                            }}
+                            disabled={step === 1 && categories.indexOf(category) === 0 || isSubmitting}
+                            className="sm:w-auto"
+                        >
+                            Previous
+                        </Button>
+                        <Button
+                            onClick={async () => {
+                                if (formRef.current) {
+                                    const isValid = await formRef.current.submitForm();
+                                    if (isValid) {
+                                        // The form submission is handled by onHandleSubmitForm
+                                    }
+                                }
+                            }}
+                            disabled={isSubmitting}
+                            className="sm:w-auto"
+                        >
+                            {isSubmitting ? (
+                                <span className="flex items-center gap-2">
+                                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-background border-t-transparent" />
+                                    Submitting...
+                                </span>
+                            ) : completedForms.includes(currentForm.id) ? (
+                                <span className="flex items-center gap-2">
+                                    <CheckCircle className="h-4 w-4" />
+                                    Next Step
+                                </span>
+                            ) : (
+                                "Submit and Continue"
+                            )}
+                        </Button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

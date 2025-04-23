@@ -7,14 +7,7 @@
       "category": "onboarding",
       "description": "Comprehensive CV template for TCS applications",
       "required": true,
-      "sections": [
-        "Personal Information",
-        "Work Experience",
-        "Educational History",
-        "Professional Qualifications",
-        "References",
-        "Next of Kin"
-      ]
+      "file": "./forms/tcs-cv.json"
     },
     {
       "id": "confidentiality-agreement",
@@ -22,7 +15,8 @@
       "url": "https://form.jotform.com/203003202135028",
       "category": "legal",
       "description": "Agreement to maintain confidentiality of company information",
-      "required": true
+      "required": true,
+      "file": "./forms/confidentiality-agreement.json"
     },
     {
       "id": "handbook-acknowledgement",
@@ -30,7 +24,8 @@
       "url": "https://form.jotform.com/202802321916548",
       "category": "onboarding",
       "description": "Acknowledgement of receiving and understanding the employee handbook",
-      "required": true
+      "required": true,
+      "file": "./forms/handbook-acknowledgement.json"
     },
     {
       "id": "health-assessment",
@@ -39,7 +34,8 @@
       "category": "health",
       "description": "Annual health assessment for employees",
       "required": true,
-      "frequency": "annual"
+      "frequency": "annual",
+      "file": "./forms/health-assessment.json"
     },
     {
       "id": "48hr-opt-out",
@@ -47,7 +43,8 @@
       "url": "https://form.jotform.com/200262051908345",
       "category": "employment",
       "description": "Form to opt out of the 48-hour working week limit",
-      "required": false
+      "required": false,
+      "file": "./forms/48hr-opt-out.json"
     },
     {
       "id": "employee-manual",
@@ -55,7 +52,8 @@
       "url": "http://jotformeu.com/83444447608362",
       "category": "onboarding",
       "description": "Acknowledgement of receiving and understanding the employee manual",
-      "required": true
+      "required": true,
+      "file": "./forms/employee-manual.json"
     },
     {
       "id": "temporary-worker-contract",
@@ -64,7 +62,8 @@
       "category": "employment",
       "description": "Contract for temporary workers",
       "required": true,
-      "employmentType": "temporary"
+      "employmentType": "temporary",
+      "file": "./forms/temporary-worker-contract.json"
     },
     {
       "id": "numeracy-literacy",
@@ -73,7 +72,8 @@
       "category": "assessment",
       "description": "Assessment of basic numeracy and literacy skills",
       "required": true,
-      "type": "quiz"
+      "type": "quiz",
+      "file": "./forms/numeracy-literacy.json"
     }
   ]
-} 
+}

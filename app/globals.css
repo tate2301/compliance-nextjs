@@ -92,6 +92,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    line-height: 18px;
 
   }
 
@@ -180,4 +181,41 @@ body {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Table styles */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  display: table;
+}
+
+
+.prose th,
+.prose td {
+  padding: 0.75rem;
+  border: 1px solid;
+  text-align: left;
+  @apply border border-slate-6;
+
+}
+
+.prose thead th {
+  background-color: var(--slate-4);
+  font-weight: 500;
+}
+
+.prose tbody tr:nth-child(odd) {
+  background-color: var(--muted);
+  @apply text-slate-11 bg-slate-2
+}
+
+.prose tbody tr:nth-child(even) {
+  background-color: var(--background);
+    @apply text-slate-11
+
+}
+
+.prose tbody tr:hover {
+  background-color: var(--slate-2);
 }

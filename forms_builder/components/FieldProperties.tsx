@@ -14,6 +14,7 @@ import { PlusIcon, TrashIcon } from "lucide-react";
 import type { KeyboardEvent } from "react";
 import { useFormContext } from "../context";
 import type { FormField, InputType } from "../types";
+import { Textarea } from "@/components/ui/textarea";
 
 const fieldTypes = [
 	{ value: "shortAnswer", label: "Short Answer" },
@@ -25,6 +26,8 @@ const fieldTypes = [
 	{ value: "npsRating", label: "NPS Rating" },
 	{ value: "fileUpload", label: "File Upload" },
 	{ value: "likertScale", label: "Likert Scale" },
+	{ value: "signature", label: "Signature" },
+	{ value: "paragraph", label: "Paragraph" },
 ];
 
 export function FieldProperties() {
@@ -297,6 +300,135 @@ export function FieldProperties() {
 							}
 							className="w-full"
 						/>
+					</div>
+				)}
+
+				{selectedField.type === "signature" && (
+					<div className="space-y-4 rounded-lg border bg-white p-4">
+						<h4 className="font-medium text-zinc-700">Signature Settings</h4>
+						<div className="grid grid-cols-2 gap-4">
+							<div className="space-y-2">
+								<Label htmlFor="width" className="text-zinc-500">Width (px)</Label>
+								<TextField
+									id="width"
+									type="number"
+									value={selectedField.properties.width || 600}
+									onChange={(e) =>
+										handlePropertyChange(
+											"width",
+											Number.parseInt(e.target.value),
+										)
+									}
+									className="w-full"
+								/>
+							</div>
+							<div className="space-y-2">
+								<Label htmlFor="height" className="text-zinc-500">Height (px)</Label>
+								<TextField
+									id="height"
+									type="number"
+									value={selectedField.properties.height || 200}
+									onChange={(e) =>
+										handlePropertyChange(
+											"height",
+											Number.parseInt(e.target.value),
+										)
+									}
+									className="w-full"
+								/>
+							</div>
+						</div>
+					</div>
+				)}
+
+				{selectedField.type === "paragraph" && (
+					<div className="space-y-4 rounded-lg border bg-white p-4">
+						<h4 className="font-medium text-zinc-700">Paragraph Settings</h4>
+						<div className="space-y-4">
+							<div className="space-y-2">
+								<Label htmlFor="text" className="text-zinc-500">Text Content</Label>
+								<Textarea
+									id="text"
+									value={selectedField.properties.text || ""}
+									onChange={(e) => handlePropertyChange("text", e.target.value)}
+									className="min-h-[100px] w-full"
+									placeholder="Enter your paragraph text here..."
+								/>
+							</div>
+
+							<div className="grid grid-cols-2 gap-4">
+								<div className="space-y-2">
+									<Label htmlFor="fontSize" className="text-zinc-500">Font Size (px)</Label>
+									<TextField
+										id="fontSize"
+										type="number"
+										value={selectedField.properties.fontSize || "16"}
+										onChange={(e) =>
+											handlePropertyChange(
+												"fontSize",
+												Number.parseInt(e.target.value),
+											)
+										}
+										className="w-full"
+									/>
+								</div>
+								<div className="space-y-2">
+									<Label htmlFor="fontWeight" className="text-zinc-500">Font Weight</Label>
+									<Select
+										value={selectedField.properties.fontWeight || "normal"}
+										onValueChange={(value) => handlePropertyChange("fontWeight", value)}
+									>
+										<SelectTrigger className="w-full bg-white">
+											<SelectValue placeholder="Select weight" />
+										</SelectTrigger>
+										<SelectContent>
+											<SelectItem value="normal">Normal</SelectItem>
+											<SelectItem value="medium">Medium</SelectItem>
+											<SelectItem value="semibold">Semibold</SelectItem>
+											<SelectItem value="bold">Bold</SelectItem>
+										</SelectContent>
+									</Select>
+								</div>
+							</div>
+
+							<div className="space-y-2">
+								<Label htmlFor="textAlign" className="text-zinc-500">Text Alignment</Label>
+								<Select
+									value={selectedField.properties.textAlign || "left"}
+									onValueChange={(value) => handlePropertyChange("textAlign", value)}
+								>
+									<SelectTrigger className="w-full bg-white">
+										<SelectValue placeholder="Select alignment" />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectItem value="left">Left</SelectItem>
+										<SelectItem value="center">Center</SelectItem>
+										<SelectItem value="right">Right</SelectItem>
+										<SelectItem value="justify">Justify</SelectItem>
+									</SelectContent>
+								</Select>
+							</div>
+
+							<div className="space-y-2">
+								<Label htmlFor="textColor" className="text-zinc-500">Text Color</Label>
+								<div className="flex gap-2">
+									<TextField
+										id="textColor"
+										type="text"
+										value={selectedField.properties.textColor || ""}
+										onChange={(e) => handlePropertyChange("textColor", e.target.value)}
+										className="flex-1"
+										placeholder="#000000 or rgb(0,0,0)"
+									/>
+									<input
+										type="color"
+										value={selectedField.properties.textColor || "#000000"}
+										onChange={(e) => handlePropertyChange("textColor", e.target.value)}
+										className="h-10 w-10 rounded border border-gray-200"
+									/>
+								</div>
+							</div>
+						</div>
 					</div>
 				)}
 			</div>

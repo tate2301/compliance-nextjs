@@ -4,214 +4,105 @@
   "version": "1.0",
   "fields": [
     {
-      "id": "candidateInfo",
-      "type": "section",
-      "label": "Candidate Information",
+      "id": "name",
+      "type": "name",
+      "label": "Name",
+      "required": true,
       "fields": [
-        {
-          "id": "candidateName",
-          "type": "name",
-          "label": "Candidate Name",
-          "required": true,
-          "fields": [
-            {
-              "id": "firstName",
-              "type": "text",
-              "label": "First Name"
-            },
-            {
-              "id": "lastName",
-              "type": "text",
-              "label": "Last Name"
-            }
-          ]
-        },
-        {
-          "id": "email",
-          "type": "email",
-          "label": "Email Address",
-          "required": true
-        },
-        {
-          "id": "phone",
-          "type": "phone",
-          "label": "Phone Number",
-          "required": true
-        },
-        {
-          "id": "quizDate",
-          "type": "date",
-          "label": "Quiz Date",
-          "required": true
-        }
+        { "id": "firstName", "type": "text", "label": "First Name" },
+        { "id": "lastName",  "type": "text", "label": "Last Name"  }
       ]
     },
     {
-      "id": "numeracySection",
-      "type": "section",
-      "label": "Numeracy Assessment",
-      "fields": [
-        {
-          "id": "basicCalculations",
-          "type": "questions",
-          "label": "Basic Calculations",
-          "required": true,
-          "questions": [
-            {
-              "id": "addition",
-              "type": "number",
-              "label": "What is 234 + 567?",
-              "correctAnswer": "801"
-            },
-            {
-              "id": "subtraction",
-              "type": "number",
-              "label": "What is 789 - 456?",
-              "correctAnswer": "333"
-            },
-            {
-              "id": "multiplication",
-              "type": "number",
-              "label": "What is 12 × 15?",
-              "correctAnswer": "180"
-            },
-            {
-              "id": "division",
-              "type": "number",
-              "label": "What is 360 ÷ 9?",
-              "correctAnswer": "40"
-            }
-          ]
-        },
-        {
-          "id": "percentages",
-          "type": "questions",
-          "label": "Percentages",
-          "required": true,
-          "questions": [
-            {
-              "id": "percentage1",
-              "type": "number",
-              "label": "What is 15% of 200?",
-              "correctAnswer": "30"
-            },
-            {
-              "id": "percentage2",
-              "type": "number",
-              "label": "If something costs £80 and is reduced by 25%, what is the new price?",
-              "correctAnswer": "60"
-            }
-          ]
-        }
+      "id": "q1Spelling",
+      "type": "multipleChoice",
+      "label": "Select the word that is spelled incorrectly.",
+      "required": true,
+      "options": [
+        { "value": "conscious", "label": "conscious" },
+        { "value": "metaphor",  "label": "metaphor"  },
+        { "value": "wierd",     "label": "wierd"     },
+        { "value": "pastime",   "label": "pastime"   }
       ]
     },
     {
-      "id": "literacySection",
-      "type": "section",
-      "label": "Literacy Assessment",
-      "fields": [
-        {
-          "id": "comprehension",
-          "type": "questions",
-          "label": "Reading Comprehension",
-          "required": true,
-          "content": "Read the following paragraph and answer the questions below:\n\nThe company's new health and safety policy requires all employees to complete a safety training course within their first month of employment. This course covers basic first aid, fire safety procedures, and emergency protocols. Upon completion, employees will receive a certificate valid for two years.",
-          "questions": [
-            {
-              "id": "comp1",
-              "type": "radio",
-              "label": "When must employees complete the safety training?",
-              "options": [
-                {"value": "first_week", "label": "First week"},
-                {"value": "first_month", "label": "First month"},
-                {"value": "first_year", "label": "First year"},
-                {"value": "second_year", "label": "Second year"}
-              ],
-              "correctAnswer": "first_month"
-            },
-            {
-              "id": "comp2",
-              "type": "checkbox",
-              "label": "What topics are covered in the training? (Select all that apply)",
-              "options": [
-                {"value": "first_aid", "label": "First Aid"},
-                {"value": "fire_safety", "label": "Fire Safety"},
-                {"value": "emergency", "label": "Emergency Protocols"},
-                {"value": "customer_service", "label": "Customer Service"}
-              ],
-              "correctAnswers": ["first_aid", "fire_safety", "emergency"]
-            }
-          ]
-        },
-        {
-          "id": "grammar",
-          "type": "questions",
-          "label": "Grammar and Spelling",
-          "required": true,
-          "questions": [
-            {
-              "id": "grammar1",
-              "type": "radio",
-              "label": "Choose the correct spelling:",
-              "options": [
-                {"value": "necessary", "label": "necessary"},
-                {"value": "necesary", "label": "necesary"},
-                {"value": "necessery", "label": "necessery"}
-              ],
-              "correctAnswer": "necessary"
-            },
-            {
-              "id": "grammar2",
-              "type": "radio",
-              "label": "Which sentence is grammatically correct?",
-              "options": [
-                {"value": "sent1", "label": "Their going to the meeting."},
-                {"value": "sent2", "label": "They're going to the meeting."},
-                {"value": "sent3", "label": "There going to the meeting."}
-              ],
-              "correctAnswer": "sent2"
-            }
-          ]
-        },
-        {
-          "id": "writing",
-          "type": "textarea",
-          "label": "Writing Assessment",
-          "required": true,
-          "description": "Write a brief paragraph (50-100 words) describing your previous work experience and why you would be suitable for this role."
-        }
+      "id": "q2Analogy",
+      "type": "multipleChoice",
+      "label": "______ is to CLEANING as MEDICINE is to CURING",
+      "required": true,
+      "options": [
+        { "value": "chore",  "label": "Chore"  },
+        { "value": "dirt",   "label": "Dirt"   },
+        { "value": "soap",   "label": "Soap"   },
+        { "value": "germs",  "label": "Germs"  },
+        { "value": "shiny",  "label": "Shiny"  }
       ]
     },
     {
-      "id": "declaration",
-      "type": "section",
-      "label": "Declaration",
-      "fields": [
-        {
-          "id": "honesty",
-          "type": "checkbox",
-          "label": "Declaration",
-          "required": true,
-          "options": [
-            {
-              "value": "confirm",
-              "label": "I confirm that I completed this assessment honestly and independently"
-            }
-          ]
-        },
-        {
-          "id": "signature",
-          "type": "signature",
-          "label": "Candidate Signature",
-          "required": true
-        },
-        {
-          "id": "submissionDate",
-          "type": "date",
-          "label": "Submission Date",
-          "required": true
-        }
+      "id": "q3Verb",
+      "type": "multipleChoice",
+      "label": "Susan ______ already run the London Marathon three times.",
+      "required": true,
+      "options": [
+        { "value": "have",     "label": "have"     },
+        { "value": "has",      "label": "has"      },
+        { "value": "willHave", "label": "will have"},
+        { "value": "will",     "label": "will"     }
+      ]
+    },
+    {
+      "id": "q4Fraction",
+      "type": "multipleChoice",
+      "label": "How is 5/8 expressed as a decimal?",
+      "required": true,
+      "options": [
+        { "value": "0.50",  "label": "0.5"   },
+        { "value": "0.65",  "label": "0.65"  },
+        { "value": "0.47",  "label": "0.47"  },
+        { "value": "0.75",  "label": "0.75"  },
+        { "value": "0.625", "label": "0.625" }
+      ]
+    },
+    {
+      "id": "q5Percentage",
+      "type": "multipleChoice",
+      "label": "How much is 25% of 400?",
+      "required": true,
+      "options": [
+        { "value": "250", "label": "250" },
+        { "value": "150", "label": "150" },
+        { "value": "100", "label": "100" },
+        { "value": "200", "label": "200" },
+        { "value": "75",  "label": "75"  }
+      ]
+    },
+    {
+      "id": "q6Distance",
+      "type": "multipleChoice",
+      "label": "The Tube travels 100 meters every 2 seconds. How far will it travel in 36 seconds?",
+      "required": true,
+      "options": [
+        { "value": "1670",      "label": "1,670 m" },
+        { "value": "200",       "label": "200 m"   },
+        { "value": "1836",      "label": "1,836 m" },
+        { "value": "286",       "label": "286 m"   },
+        { "value": "11480",     "label": "11,480 m"},
+        { "value": "noneAbove", "label": "None of the above" }
+      ]
+    },
+    {
+      "id": "q7Phrase",
+      "type": "multipleChoice",
+      "label": "Fire‑fighters are held in great ______ by society for saving the lives and ______ of others.",
+      "required": true,
+      "options": [
+        { "value": "esteemProperties",   "label": "esteem, properties"   },
+        { "value": "esteemProprietary",  "label": "esteem, proprietary"  },
+        { "value": "esteemProperty",     "label": "esteem, property"     },
+        { "value": "esteemProperly",     "label": "esteem, properly"     },
+        { "value": "noneAbove",          "label": "None of the above"    },
+        { "value": "other",              "label": "Other"                }
       ]
     }
   ]
-} 
+}

@@ -24,7 +24,9 @@ export type InputType =
 	| "yesNo"
 	| "npsRating"
 	| "fileUpload"
-	| "likertScale";
+	| "likertScale"
+	| "paragraph"
+	| 'signature';
 
 export type GigForm = {
 	_id: string;
@@ -45,6 +47,14 @@ export interface FormField {
 		allowedFileTypes?: string[];
 		maxFileSize?: number;
 		scalePoints?: number;
+		width?: number;
+		height?: number;
+		// Paragraph specific properties
+		text?: string;
+		fontSize?: number;
+		fontWeight?: 'normal' | 'medium' | 'semibold' | 'bold';
+		textAlign?: 'left' | 'center' | 'right' | 'justify';
+		textColor?: string;
 	};
 }
 

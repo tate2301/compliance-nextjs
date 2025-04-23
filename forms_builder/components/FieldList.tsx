@@ -13,6 +13,8 @@ import {
 	ToggleLeft,
 	Trash2Icon,
 	UploadCloud,
+	Edit3,
+	Type,
 } from "lucide-react";
 import { useFormContext } from "../context";
 import type { FormField } from "../types";
@@ -54,6 +56,16 @@ const fieldTypes = [
 		type: "fileUpload",
 		label: "File Upload",
 		icon: <UploadCloud />,
+	},
+	{
+		type: "signature",
+		label: "Signature",
+		icon: <Edit3 />,
+	},
+	{
+		type: "paragraph",
+		label: "Paragraph",
+		icon: <Type />,
 	},
 ];
 

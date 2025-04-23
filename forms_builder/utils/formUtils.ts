@@ -39,6 +39,8 @@ const getDefaultLabelForType = (type: FormField["type"]): string => {
 		npsRating: "NPS Rating",
 		fileUpload: "File Upload",
 		likertScale: "Likert Scale",
+		paragraph: "Paragraph",
+		signature: "Signature"
 	};
 	return labels[type];
 };
@@ -57,6 +59,8 @@ const getDefaultPropertiesForType = (type: FormField["type"]) => {
 			allowedFileTypes: [".pdf", ".doc", ".docx"],
 		},
 		likertScale: { scalePoints: 5 },
+		paragraph: { text: "Placeholder text" },
+		signature: { data: null }
 	};
 	return defaults[type];
 };

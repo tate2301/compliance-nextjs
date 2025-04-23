@@ -4,6 +4,40 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import type { FormField } from "../types";
+import { SignatureInput } from "../components/Signature";
+import { cn } from "@/lib/utils";
+
+// Function to safely format text with basic Markdown-like syntax
+function formatText(text: string): string {
+	if (!text) return "";
+
+	return text
+		// Escape HTML special characters
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;")
+		// Convert line breaks to <br>
+		.replace(/\n/g, "<br>")
+		// Bold text
+		.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+		// Italic text
+		.replace(/\*(.*?)\*/g, "<em>$1</em>")
+		// Bullet points
+		.replace(/^- (.*)$/gm, "• $1")
+		// Links (only http/https)
+		.replace(
+			/(https?:\/\/[^\s<]+[^<.,:;"\')\]\s])/g,
+			'<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">$1</a>'
+		);
+}
+
+interface FieldRenderProps {
+	value: string;
+	onChange: (value: string) => void;
+	error?: string;
+}
 
 const commonLabelStyles = {
 	color: "var(--text)",
@@ -25,15 +59,21 @@ const commonButtonHoverStyles = {
 	color: "white",
 } as const;
 
-export function renderField(field: FormField) {
+export function renderField(field: FormField, props: FieldRenderProps) {
 	const { id, label, required, type, properties } = field;
+	const { value, onChange, error } = props;
 
 	const commonProps = {
 		id,
 		required,
 		placeholder: properties.placeholder || `Enter ${label.toLowerCase()}`,
 		style: commonInputStyles,
-		className: "",
+		className: cn(
+			"w-full",
+			error && "border-error-7 focus:border-error-8 focus:ring-error-8"
+		),
+		value,
+		onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => onChange(e.target.value),
 	};
 
 	const renderRequiredIndicator = () => (
@@ -88,10 +128,13 @@ export function renderField(field: FormField) {
 						{required && renderRequiredIndicator()}
 					</Label>
 					<DatePicker
-						onChange={(_value) => { }}
-						value={new Date()}
-						{...commonProps}
+						value={value ? new Date(value) : null}
+						onChange={(date) => onChange(date?.toISOString() ?? "")}
+						className="w-full"
 					/>
+					{error && (
+						<p className="text-sm text-error-9 mt-1">{error}</p>
+					)}
 				</div>
 			);
 		case "multipleChoice":
@@ -101,13 +144,16 @@ export function renderField(field: FormField) {
 						{label}
 						{required && renderRequiredIndicator()}
 					</Label>
-					<RadioGroup className="space-y-2">
+					<RadioGroup value={value} onValueChange={onChange} className="space-y-2">
 						{properties.choices?.map((choice, index) => (
 							<div key={index} className="flex items-center space-x-2">
 								<RadioGroupItem
 									value={choice}
 									id={`${id}-${index}`}
-									className="border-zinc-300 text-indigo-600 focus:ring-indigo-500/20"
+									className={cn(
+										"border-zinc-300 text-indigo-600 focus:ring-indigo-500/20",
+										error && "border-error-7"
+									)}
 								/>
 								<Label
 									htmlFor={`${id}-${index}`}
@@ -127,12 +173,15 @@ export function renderField(field: FormField) {
 						{label}
 						{required && renderRequiredIndicator()}
 					</Label>
-					<RadioGroup className="space-y-2">
+					<RadioGroup value={value} onValueChange={onChange} className="space-y-2">
 						<div className="flex items-center space-x-2">
 							<RadioGroupItem
 								value="yes"
 								id={`${id}-yes`}
-								className="border-zinc-300 text-indigo-600 focus:ring-indigo-500/20"
+								className={cn(
+									"border-zinc-300 text-indigo-600 focus:ring-indigo-500/20",
+									error && "border-error-7"
+								)}
 							/>
 							<Label
 								htmlFor={`${id}-yes`}
@@ -145,7 +194,10 @@ export function renderField(field: FormField) {
 							<RadioGroupItem
 								value="no"
 								id={`${id}-no`}
-								className="border-zinc-300 text-indigo-600 focus:ring-indigo-500/20"
+								className={cn(
+									"border-zinc-300 text-indigo-600 focus:ring-indigo-500/20",
+									error && "border-error-7"
+								)}
 							/>
 							<Label
 								htmlFor={`${id}-no`}
@@ -166,15 +218,22 @@ export function renderField(field: FormField) {
 						{required && renderRequiredIndicator()}
 					</Label>
 					<div role="radiogroup" aria-label={label} className="flex flex-wrap gap-2">
-						{Array.from({ length: maxRating }, (_, i) => i + 1).map((value) => (
+						{Array.from({ length: maxRating }, (_, i) => i + 1).map((rating) => (
 							<button
-								key={value}
+								key={rating}
 								type="button"
-								aria-checked="false"
-								aria-label={`Rating ${value}`}
-								className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white font-medium text-zinc-700 transition-colors hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+								onClick={() => onChange(rating.toString())}
+								aria-checked={value === rating.toString()}
+								aria-label={`Rating ${rating}`}
+								className={cn(
+									"flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
+									value === rating.toString()
+										? "border-primary bg-primary text-white"
+										: "border-zinc-200 bg-white text-zinc-700 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-600 focus:ring-indigo-500/20",
+									error && "border-error-7"
+								)}
 							>
-								{value}
+								{rating}
 							</button>
 						))}
 					</div>
@@ -195,15 +254,24 @@ export function renderField(field: FormField) {
 					</Label>
 					<div className="flex flex-wrap gap-2">
 						{Array.from({ length: maxRatingScale }, (_, i) => i + 1).map(
-							(value) => (
+							(rating) => (
 								<button
-									key={value}
+									key={rating}
 									type="button"
-									className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white font-medium text-zinc-700 transition-colors hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+									onClick={() => onChange(rating.toString())}
+									aria-checked={value === rating.toString()}
+									aria-label={`Rating ${rating}`}
+									className={cn(
+										"flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
+										value === rating.toString()
+											? "border-primary bg-primary text-white"
+											: "border-zinc-200 bg-white text-zinc-700 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-600 focus:ring-indigo-500/20",
+										error && "border-error-7"
+									)}
 								>
-									{value}
+									{rating}
 								</button>
-							),
+							)
 						)}
 					</div>
 					<div className="flex justify-between text-sm text-zinc-500">
@@ -245,6 +313,49 @@ export function renderField(field: FormField) {
 							</div>
 						</div>
 					</div>
+				</div>
+			);
+		case "signature":
+			return (
+				<div className="space-y-2">
+					<Label style={commonLabelStyles} htmlFor={id} className="text-zinc-700">
+						{label}
+						{required && renderRequiredIndicator()}
+					</Label>
+					<SignatureInput
+						value={value}
+						onEnd={onChange}
+						width={properties.width || 600}
+						height={properties.height || 200}
+						required={required}
+						className={cn(error && "border-error-7")}
+					/>
+				</div>
+			);
+		case "paragraph":
+			return (
+				<div className="space-y-2">
+					<div
+						className={cn(
+							"prose prose-slate max-w-none w-full rounded-md p-4",
+							properties.textAlign === "center" && "text-center",
+							properties.textAlign === "right" && "text-right",
+							properties.textAlign === "justify" && "text-justify"
+						)}
+						style={{
+							fontSize: properties.fontSize ? `${properties.fontSize}px` : undefined,
+							fontWeight: properties.fontWeight || undefined,
+							color: properties.textColor || "var(--text)",
+						}}
+						dangerouslySetInnerHTML={{
+							__html: (properties.text || "")
+						}}
+					/>
+					{!properties.text && (
+						<p className="text-zinc-400 italic text-sm">
+							Enter paragraph text in the properties panel
+						</p>
+					)}
 				</div>
 			);
 		default:

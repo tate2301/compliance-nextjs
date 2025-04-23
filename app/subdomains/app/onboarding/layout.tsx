@@ -11,16 +11,10 @@ interface OnboardingLayoutProps {
 
 export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
     const searchParams = useSearchParams()
-    const step = parseInt(searchParams.get("step") || "1")
-    const totalSteps = 4 // Total number of onboarding forms
 
     return (
-        <div className="container max-w-7xl py-8">
-            <div className="mb-8 space-y-2">
-
-                <Progress value={(step / totalSteps) * 100} className="h-2" />
-            </div>
-            <div >
+        <div className="container px-1 max-w-7xl py-8">
+            <div>
                 {children}
             </div>
         </div>
