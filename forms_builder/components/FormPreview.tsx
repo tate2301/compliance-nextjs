@@ -22,11 +22,10 @@ export const FormPreview = forwardRef<
   FormPreviewRef,
   {
     onHandleSubmitForm: (form: Form & { values: FormValues }) => void;
+    form: Form;
   }
->(({ onHandleSubmitForm }, ref) => {
-  const { form } = useFormContext();
+>(({ onHandleSubmitForm, form }, ref) => {
   const { toast } = useToast();
-  const safeTheme = ensureCompleteTheme(form.theme);
   const [formValues, setFormValues] = useState<FormValues>({});
   const [formErrors, setFormErrors] = useState<FormErrors>({});
 
@@ -80,34 +79,17 @@ export const FormPreview = forwardRef<
   return (
     <div className="relative">
       <div
-        className="p-3"
         style={{
-          ...getCssVariables(safeTheme),
-          backgroundColor: "var(--background)",
           fontFamily:
             "'Sohne', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-          color: "var(--text)",
         }}
       >
         <div className="space-y-8">
-          <div className="space-y-4 border-b pb-6">
-            <h1
-              className="text-3xl font-bold tracking-tight"
-              style={{ color: "var(--primary)" }}
-            >
-              {form.title}
-            </h1>
-            {form.description && (
-              <p className="text-lg" style={{ color: "var(--text-secondary)" }}>
-                {form.description}
-              </p>
-            )}
-          </div>
           <div className="space-y-8">
             {form.fields.map((field) => (
               <div
                 key={field.id}
-                className="rounded-lg has-[active]:bg-slate-2 p-6 transition-all hover:bg-slate-2"
+                className="rounded-lg has-[active]:bg-slate-2 transition-all hover:bg-slate-2"
               >
                 {renderField(field, {
                   value: formValues[field.id] || "",

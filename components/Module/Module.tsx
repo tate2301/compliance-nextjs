@@ -88,8 +88,6 @@ export const Module = ({
         height: heightValue,
         position: "relative",
         background: "var(--slate-2)",
-        borderRadius: "12px",
-        padding: "16px",
         border: "1px solid var(--slate-6)",
         boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
         overflow: "hidden",
@@ -108,7 +106,7 @@ export const Module = ({
     >
       {(title || actions) && (
         <div
-          className="module__header"
+          className="module__header border-b p-4"
           style={{
             display: "flex",
             alignItems: "center",
@@ -138,39 +136,13 @@ export const Module = ({
       )}
 
       <div
-        className="module__content"
+        className="module__content p-4"
         style={{
           flex: 1,
           overflow: "auto",
         }}
       >
         {children}
-      </div>
-
-      {/* Locus area (action bar) at the bottom */}
-      <div
-        className="module__locus"
-        style={{
-          marginTop: "12px",
-          padding: "8px",
-          borderRadius: "8px",
-          background: "var(--slate-4)",
-          fontSize: "0.875rem",
-          color: "var(--slate-11)",
-          cursor: "text",
-          display: "flex",
-          alignItems: "center",
-          transition: "background 0.2s ease",
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <span
-          style={{
-            opacity: 0.6,
-          }}
-        >
-          Type a command or search...
-        </span>
       </div>
     </motion.div>
   );

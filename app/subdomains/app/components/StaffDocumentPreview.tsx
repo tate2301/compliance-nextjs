@@ -1,5 +1,8 @@
 "use client";
 
+import { EmptyState } from "@/app/components/ui/empty-state";
+import Module from "@/components/Module/Module";
+import { Button } from "@/components/ui/button";
 import {
   FormPreview,
   FormPreviewRef,
@@ -20,20 +23,38 @@ export default function StaffDocumentPreview({
   });
   const formRef = useRef<FormPreviewRef>(null);
 
-  console.log({ documentsData: documentData });
-
   const handleSubmitForm = () => {};
 
   return (
-    <div>
-      <FormProvider
-        initialForm={JSON.stringify(documentData)}
-        onFormChange={(form) => {
-          // Handle form changes if needed
-        }}
-      >
-        <FormPreview ref={formRef} onHandleSubmitForm={handleSubmitForm} />
-      </FormProvider>
-    </div>
+    <Module
+      actions={
+        <div className="flex gap-4">
+          <Button variant="outline">Save as draft</Button>
+          <Button>Submit</Button>
+        </div>
+      }
+      title={documentData ? documentData.title : ""}
+    >
+      {documentData && (
+        <>
+          {documentData.description && (
+            <p className="text-slate-10 mb-8  pb-4">
+              {documentData.description}
+            </p>
+          )}
+          <FormPreview
+            form={documentData}
+            ref={formRef}
+            onHandleSubmitForm={handleSubmitForm}
+          />
+        </>
+      )}
+      {!documentData && (
+        <EmptyState
+          title="Loading form"
+          description="Please wait while we load the form..."
+        />
+      )}
+    </Module>
   );
 }
