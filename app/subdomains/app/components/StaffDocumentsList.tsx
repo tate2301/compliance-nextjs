@@ -1,7 +1,5 @@
 "use client";
-
 import FilterBar from "@/components/FilterBar";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,15 +12,14 @@ import { documentsService } from "@/lib/documents";
 import { StaffDocument } from "@/lib/types";
 import {
   CheckCircleIcon,
-  CheckIcon,
   ChevronRightIcon,
-  ClockIcon,
   DocumentIcon,
   XCircleIcon,
 } from "@heroicons/react/solid";
 import { useQuery } from "@tanstack/react-query";
 import { HourglassIcon } from "lucide-react";
 import Link from "next/link";
+import { MissingStaffDocumentsAlert } from "./MissingStaffDocumentsAlert";
 
 function StaffDocumentsList() {
   const { data: documentsData } = useQuery({
@@ -130,35 +127,6 @@ export const StaffDocumentListItem = (props: StaffDocument) => {
         </Button>
       </div>
     </Link>
-  );
-};
-
-export const MissingStaffDocumentsAlert = (props: {
-  missingDocuments: StaffDocument[];
-  userFullname: string;
-}) => {
-  return (
-    <Alert variant="destructive" className="mb-4">
-      <AlertTitle>
-        Hi {props.userFullname}, you have missing documents.
-      </AlertTitle>
-      <AlertDescription>
-        <p className="mb-2">
-          Your compliance score is being affected by the following missing
-          documents. Please upload new documents to avoid inconviences.
-        </p>
-        <ul className="list-decimal list-inside p-2 space-y-1 bg-error-1 border border-error-6 border-dashed w-full">
-          {props.missingDocuments?.map((doc) => (
-            <li key={doc.form_id} className="font-semibold">
-              {doc.title}
-            </li>
-          ))}
-        </ul>
-        <Button variant="destructive" className="mt-4">
-          Resolve issues
-        </Button>
-      </AlertDescription>
-    </Alert>
   );
 };
 

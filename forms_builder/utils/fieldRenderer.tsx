@@ -50,16 +50,6 @@ const commonInputStyles = {
   color: "var(--text)",
 } as const;
 
-const commonButtonStyles = {
-  backgroundColor: "var(--surface)",
-  color: "var(--text)",
-} as const;
-
-const commonButtonHoverStyles = {
-  backgroundColor: "var(--primary)",
-  color: "white",
-} as const;
-
 export function renderField(field: FormField, props: FieldRenderProps) {
   const { id, label, required, type, properties } = field;
   const { value, onChange, error } = props;
@@ -97,6 +87,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Input
             type="text"
             {...commonProps}
+            className="max-w-96"
             minLength={properties.minLength}
             maxLength={properties.maxLength}
           />
@@ -115,6 +106,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           </Label>
           <Textarea
             {...commonProps}
+            className="max-w-96"
             minLength={properties.minLength}
             maxLength={properties.maxLength}
           />
@@ -131,7 +123,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
             {label}
             {required ? renderRequiredIndicator() : null}
           </Label>
-          <Input type="email" {...commonProps} />
+          <Input className="max-w-96" type="email" {...commonProps} />
         </div>
       );
     case "date":
@@ -148,7 +140,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <DatePicker
             value={value ? new Date(value) : null}
             onChange={(date) => onChange(date?.toISOString() ?? "")}
-            className="w-full"
+            className="w-full max-w-96"
           />
           {error && <p className="text-sm text-error-9 mt-1">{error}</p>}
         </div>
@@ -174,7 +166,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                   value={choice}
                   id={`${id}-${index}`}
                   className={cn(
-                    "border-zinc-300 text-indigo-600 focus:ring-indigo-500/20",
+                    "border-zinc-300 text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 />
@@ -209,7 +201,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                 value="yes"
                 id={`${id}-yes`}
                 className={cn(
-                  "border-zinc-300 text-indigo-600 focus:ring-indigo-500/20",
+                  "border-zinc-300 text-primary-10 focus:ring-primary-20/20",
                   error && "border-error-7"
                 )}
               />
@@ -225,7 +217,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                 value="no"
                 id={`${id}-no`}
                 className={cn(
-                  "border-zinc-300 text-indigo-600 focus:ring-indigo-500/20",
+                  "border-zinc-300 text-primary-10 focus:ring-primary-20/20",
                   error && "border-error-7"
                 )}
               />
@@ -264,8 +256,8 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                   className={cn(
                     "flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
                     value === rating.toString()
-                      ? "border-primary bg-primary text-white"
-                      : "border-zinc-200 bg-white text-zinc-700 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-600 focus:ring-indigo-500/20",
+                      ? "border-primary-10 bg-primary-4 text-white"
+                      : "border-zinc-200 bg-white text-zinc-700 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 >
@@ -305,8 +297,8 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                   className={cn(
                     "flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
                     value === rating.toString()
-                      ? "border-primary bg-primary text-white"
-                      : "border-zinc-200 bg-white text-zinc-700 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-600 focus:ring-indigo-500/20",
+                      ? "border-primary-10 bg-primary-4 text-white"
+                      : "border-zinc-200 bg-white text-zinc-700 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 >
@@ -333,15 +325,15 @@ export function renderField(field: FormField, props: FieldRenderProps) {
             {label}
             {required ? renderRequiredIndicator() : null}
           </Label>
-          <div className="rounded-lg border-2 border-dashed border-zinc-200 bg-zinc-50/50 p-6 text-center transition-colors hover:border-indigo-300 hover:bg-zinc-50">
+          <div className="rounded-lg border-2 border-dashed flex-col max-w-96 bg-zinc-50/50 p-6 text-center transition-colors hover:border-indigo-300 hover:bg-zinc-50">
             <Input
               type="file"
               {...commonProps}
               accept={properties.allowedFileTypes?.join(",")}
               className="hidden"
             />
-            <div className="flex flex-col items-center justify-center gap-2">
-              <div className="rounded-full bg-indigo-50 p-2 text-indigo-600">
+            <div className="flex flex-col items-center justify-center gap-2 max-w-96">
+              <div className="rounded-full bg-primary-2 p-2 text-primary-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

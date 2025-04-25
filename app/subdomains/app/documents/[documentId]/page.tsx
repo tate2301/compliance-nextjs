@@ -10,7 +10,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
-import { DocumentIcon } from "@heroicons/react/solid";
+import { DocumentIcon, HomeIcon } from "@heroicons/react/solid";
+import PageBreadcrumbs from "../../components/PageBreadcrumbs";
 
 export default async function StaffDocument({
   params,
@@ -33,30 +34,24 @@ export default async function StaffDocument({
   return (
     <div className="max-w-7xl w-full mx-auto py-8">
       <div className="mb-4">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/home">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="#">
-                  <DocumentIcon className="size-4 inline-flex mr-1" />
-                  Compliance documents
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="#">Document</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <PageBreadcrumbs
+          links={[
+            {
+              label: "Home",
+              href: "/home",
+              icon: <HomeIcon className="size-4 inline-flex mr-1" />,
+            },
+            {
+              label: "Compliance documents",
+              href: "/documents",
+              icon: <DocumentIcon className="size-4 inline-flex mr-1" />,
+            },
+            {
+              label: "View document",
+              href: "#",
+            },
+          ]}
+        />
       </div>
       <StaffDocumentPreview documentId={documentId} />
     </div>

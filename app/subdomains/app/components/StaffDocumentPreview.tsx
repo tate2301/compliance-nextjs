@@ -8,6 +8,7 @@ import {
   FormPreviewRef,
 } from "@/forms_builder/components/FormPreview";
 import { FormProvider } from "@/forms_builder/context";
+import { Form } from "@/forms_builder/types";
 import { documentsService } from "@/lib/documents";
 import { useQuery } from "@tanstack/react-query";
 import { useRef } from "react";
@@ -43,7 +44,7 @@ export default function StaffDocumentPreview({
             </p>
           )}
           <FormPreview
-            form={documentData}
+            form={documentData as unknown as Form}
             ref={formRef}
             onHandleSubmitForm={handleSubmitForm}
           />
