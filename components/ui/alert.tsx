@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
   "relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current",
@@ -10,14 +10,14 @@ const alertVariants = cva(
       variant: {
         default: "bg-slate-1 text-slate-12",
         destructive:
-          "text-error-9 bg-slate-1 [&>svg]:text-current *:data-[slot=alert-description]:text-error-8",
+          "bg-error-2 text-error-9 border-error-8 [&>svg]:text-current *:data-[slot=alert-description]:text-error-8",
       },
     },
     defaultVariants: {
       variant: "default",
     },
   }
-)
+);
 
 function Alert({
   className,
@@ -31,7 +31,7 @@ function Alert({
       className={cn(alertVariants({ variant }), className)}
       {...props}
     />
-  )
+  );
 }
 
 function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
@@ -39,12 +39,12 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "col-start-2 line-clamp-1 min-h-4 text-xl font-semibold tracking-tight text-slate-12",
+        "col-start-2 line-clamp-1 min-h-4 text-xl font-semibold tracking-tight ",
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AlertDescription({
@@ -55,12 +55,12 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-slate-9 col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
+        "col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Alert, AlertTitle, AlertDescription }
+export { Alert, AlertTitle, AlertDescription };

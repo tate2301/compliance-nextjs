@@ -59,13 +59,13 @@ export function StaffSidebar() {
                     <NavLink href="/profile" icon={<UserCircleIcon className='size-5' />}>
                         Profile
                     </NavLink>
-                    <NavLink href="/documents" icon={<OfficeBuildingIcon className='size-5' />}>
+                    <NavLink href="/shifts" icon={<OfficeBuildingIcon className='size-5' />}>
                         Shifts
                     </NavLink>
                     <NavLink href="/documents" icon={<DocumentIcon className='size-5' />}>
                         Compliance documents
                     </NavLink>
-                    <NavLink href="/documents" icon={<AcademicCapIcon className='size-5' />}>
+                    <NavLink href="/trainings" icon={<AcademicCapIcon className='size-5' />}>
                         Trainings
                     </NavLink>
                     <NavLink href="/settings" icon={<CogIcon className='size-5' />}>

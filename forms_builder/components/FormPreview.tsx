@@ -18,9 +18,12 @@ export interface FormPreviewRef {
   submitForm: () => Promise<boolean>;
 }
 
-export const FormPreview = forwardRef<FormPreviewRef, {
-  onHandleSubmitForm: (form: Form & { values: FormValues }) => void;
-}>(({ onHandleSubmitForm }, ref) => {
+export const FormPreview = forwardRef<
+  FormPreviewRef,
+  {
+    onHandleSubmitForm: (form: Form & { values: FormValues }) => void;
+  }
+>(({ onHandleSubmitForm }, ref) => {
   const { form } = useFormContext();
   const { toast } = useToast();
   const safeTheme = ensureCompleteTheme(form.theme);
@@ -71,7 +74,7 @@ export const FormPreview = forwardRef<FormPreviewRef, {
         });
         return false;
       }
-    }
+    },
   }));
 
   return (
@@ -81,7 +84,8 @@ export const FormPreview = forwardRef<FormPreviewRef, {
         style={{
           ...getCssVariables(safeTheme),
           backgroundColor: "var(--background)",
-          fontFamily: "'Sohne', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          fontFamily:
+            "'Sohne', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           color: "var(--text)",
         }}
       >
@@ -94,10 +98,7 @@ export const FormPreview = forwardRef<FormPreviewRef, {
               {form.title}
             </h1>
             {form.description && (
-              <p
-                className="text-lg"
-                style={{ color: "var(--text-secondary)" }}
-              >
+              <p className="text-lg" style={{ color: "var(--text-secondary)" }}>
                 {form.description}
               </p>
             )}
@@ -110,11 +111,14 @@ export const FormPreview = forwardRef<FormPreviewRef, {
               >
                 {renderField(field, {
                   value: formValues[field.id] || "",
-                  onChange: (value: string) => handleFieldChange(field.id, value),
+                  onChange: (value: string) =>
+                    handleFieldChange(field.id, value),
                   error: formErrors[field.id],
                 })}
                 {formErrors[field.id] && (
-                  <p className="mt-1 text-sm text-error-9">{formErrors[field.id]}</p>
+                  <p className="mt-1 text-sm text-error-9">
+                    {formErrors[field.id]}
+                  </p>
                 )}
               </div>
             ))}

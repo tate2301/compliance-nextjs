@@ -42,7 +42,7 @@ export function SignatureInput({
                     <img
                         src={value}
                         alt="Signature"
-                        className="border border-gray-200 rounded-md"
+                        className="border  rounded-md"
                         style={{ width, height }}
                     />
                     {!disabled && (
@@ -61,13 +61,12 @@ export function SignatureInput({
                     <SignatureCanvas
                         ref={sigRef}
                         penColor="black"
-                        backgroundColor="rgba(255,255,255,0)"
                         canvasProps={{
                             width,
                             height,
                             className: cn(
-                                'border rounded-md',
-                                required ? 'border-red-500' : 'border-gray-200'
+                                'border rounded-md bg-slate-3',
+                                required ? 'border-red-500' : ''
                             )
                         }}
                         onEnd={save}

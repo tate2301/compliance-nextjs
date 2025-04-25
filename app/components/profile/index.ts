@@ -1,8 +1,8 @@
 export { EditableField } from './editable-field'
 export type { EditableFieldProps } from './editable-field'
 
-export { DocumentItem } from './document-item'
-export type { DocumentItemProps } from './document-item'
+export { ReferenceItem as DocumentItem } from './reference-item'
+export type { DocumentItemProps } from './reference-item'
 
 export { EditModal } from './edit-modal'
 export type { EditModalProps } from './edit-modal'

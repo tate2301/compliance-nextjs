@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label'
 import { DocumentItem, EditableField, EditModal, FileUploadModal } from '@/app/components/profile';
+import { UserCircleIcon, UsersIcon } from '@heroicons/react/solid';
 
 
 export default function ProfilePage() {
@@ -54,7 +55,7 @@ export default function ProfilePage() {
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
                             <BreadcrumbLink asChild>
-                                <Link href="#">Profile</Link>
+                                <Link href="#"><UserCircleIcon className='size-4 inline-flex mr-1' />Profile</Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
                     </BreadcrumbList>
@@ -126,16 +127,18 @@ export default function ProfilePage() {
                     />
 
                     <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                        <dt className="text-sm font-medium text-slate-11">Identity Documents</dt>
+                        <dt className="text-sm font-medium text-slate-11">References</dt>
                         <dd className="mt-1 text-sm text-slate-12 sm:mt-0 sm:col-span-2">
                             <ul role="list" className="border border-slate-6 rounded-md divide-y divide-slate-6">
                                 <DocumentItem
-                                    filename="passport_scanned.pdf"
+                                    fullname="Tatenda Chinyamakobvu"
+                                    email_address='tatendachris@gmail.com'
                                     onUpdate={() => setActiveModal('document_upload')}
                                     onRemove={() => { }}
                                 />
                                 <DocumentItem
-                                    filename="workvisa_scanned.pdf"
+                                    fullname="Sean Muchenje"
+                                    email_address='seanmuchie@gmail.com'
                                     updatedDate="22 Mar, 2025"
                                     onUpdate={() => setActiveModal('document_upload')}
                                     onRemove={() => { }}
@@ -147,8 +150,8 @@ export default function ProfilePage() {
                                     onClick={() => setActiveModal('document_upload')}
                                     className="w-full justify-center"
                                 >
-                                    <Upload className="mr-2 h-4 w-4" />
-                                    Upload New Document
+                                    <UsersIcon className="mr-2 h-4 w-4" />
+                                    Add new reference
                                 </Button>
                             </div>
                         </dd>

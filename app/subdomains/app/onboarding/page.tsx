@@ -279,12 +279,6 @@ export default function OnboardingPage() {
             <div className="flex-1 min-w-0">
                 <div className="grid gap-4">
                     <Card className="overflow-hidden">
-                        {/* Form title for desktop */}
-                        {currentForm && (
-                            <div className="hidden lg:block px-6 py-4 border-b">
-                                <h2 className="text-lg font-semibold text-slate-12">{currentForm.title}</h2>
-                            </div>
-                        )}
 
                         <div className="p-4 sm:p-6">
                             {isLoading ? (
@@ -308,7 +302,7 @@ export default function OnboardingPage() {
                         </div>
                     </Card>
 
-                    <div className="flex  justify-between gap-3 px-6 lg:px-0 sticky bottom-0 bg-background/80 backdrop-blur-sm p-4 -mx-4 border-t lg:mx-0 lg:p-0 lg:border-0 lg:bg-transparent lg:backdrop-blur-none">
+                    <div className="flex  justify-between gap-3 px-6 lg:px-0  lg:relative bottom-0 bg-background/80 backdrop-blur-sm p-4 -mx-4 border-t lg:mx-0 lg:p-0 lg:border-0 lg:bg-transparent lg:backdrop-blur-none">
                         <Button
                             variant="outline"
                             onClick={() => {
