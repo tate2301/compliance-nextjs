@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export interface ModuleProps {
   /** Main content of the module */
-  children: ReactNode;
+  children?: ReactNode;
   /** Optional title for the module */
   title?: string;
   /** Whether the module is currently focused */
@@ -108,12 +108,11 @@ export const Module = ({
     >
       {(title || actions) && (
         <div
-          className="module__header border-b p-4"
+          className="module__header p-4"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginBottom: "12px",
           }}
         >
           {title && (
@@ -125,7 +124,6 @@ export const Module = ({
                 gap: "8px",
                 fontSize: "1rem",
                 fontWeight: 600,
-                color: "#0f172a",
               }}
             >
               {icon && <span className="module__icon">{icon}</span>}
@@ -137,15 +135,17 @@ export const Module = ({
         </div>
       )}
 
-      <div
-        className="module__content p-4"
-        style={{
-          flex: 1,
-          overflow: "auto",
-        }}
-      >
-        {children}
-      </div>
+      {children && (
+        <div
+          className="module__content border-t"
+          style={{
+            flex: 1,
+            overflow: "auto",
+          }}
+        >
+          {children}
+        </div>
+      )}
     </motion.div>
   );
 };

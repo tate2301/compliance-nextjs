@@ -28,6 +28,16 @@ export default function FilterBar() {
             <SelectItem value="upload">Upload date</SelectItem>
           </SelectContent>
         </Select>
+        <Select>
+          <SelectTrigger className="bg-slate-1">
+            <SelectValue placeholder="Filter by" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="completed">Completed</SelectItem>
+            <SelectItem value="pending">Pending</SelectItem>
+            <SelectItem value="missing">Missing</SelectItem>
+          </SelectContent>
+        </Select>
       </form>
     </div>
   );

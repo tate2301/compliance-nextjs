@@ -32,7 +32,7 @@ export default async function StaffDocument({
   });
 
   return (
-    <div className="max-w-7xl w-full mx-auto py-8">
+    <div className="max-w-4xl w-full mx-auto py-8">
       <div className="mb-4">
         <PageBreadcrumbs
           links={[

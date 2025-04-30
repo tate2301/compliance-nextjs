@@ -32,4 +32,35 @@ export const documentsService = {
       throw error;
     }
   },
+
+  getPendingDocuments: async (
+    userId: string
+  ): Promise<Array<StaffDocument>> => {
+    try {
+      const response = await api.get(`/user-form/${userId}`);
+      return response.data as Array<StaffDocument>;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        throw new Error(
+          error.response?.data?.message || "Failed to fetch documents"
+        );
+      }
+      throw error;
+    }
+  },
+  getDocumentsByStatus: async (
+    status: "completed" | "archived"
+  ): Promise<Array<StaffDocument>> => {
+    try {
+      const response = await api.get("/user-form");
+      return response.data as Array<StaffDocument>;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        throw new Error(
+          error.response?.data?.message || "Failed to fetch documents"
+        );
+      }
+      throw error;
+    }
+  },
 };

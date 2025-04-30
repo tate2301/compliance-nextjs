@@ -18,7 +18,7 @@ api.interceptors.request.use((config) => {
   config.headers["Content-Type"] = "application/json";
   config.headers["Accept"] = "application/json";
 
-  // Log the full request configuration for debugging
+// Log the full request configuration for debugging
   console.log("Full Request Config:", {
     url: config.url,
     method: config.method,

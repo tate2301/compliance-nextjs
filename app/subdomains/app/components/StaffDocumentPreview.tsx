@@ -37,7 +37,7 @@ export default function StaffDocumentPreview({
       title={documentData ? documentData.title : ""}
     >
       {documentData && (
-        <>
+        <div className="p-4">
           {documentData.description && (
             <p className="text-slate-10 mb-8  pb-4">
               {documentData.description}
@@ -48,7 +48,7 @@ export default function StaffDocumentPreview({
             ref={formRef}
             onHandleSubmitForm={handleSubmitForm}
           />
-        </>
+        </div>
       )}
       {!documentData && (
         <EmptyState
