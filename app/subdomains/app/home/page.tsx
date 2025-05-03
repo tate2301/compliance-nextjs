@@ -10,6 +10,9 @@ import { Award, MessageSquare, PlusCircle } from "lucide-react";
 
 export default function AppPage() {
     const { user } = useAuth()
+    if(!user) {
+        return null;
+    }
     return (
         <>
 

@@ -49,6 +49,10 @@ function NavLink({ href, icon, children }: NavLinkProps) {
 export function StaffSidebar() {
   const { user, isAuthenticated } = useAuth();
 
+  if (!user) {
+    return null;
+  }
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="h-16 border-b">
