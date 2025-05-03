@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { trainingsService } from "@/app/subdomains/app/services/trainings";
+import { trainingsService } from "@/app/app/services/trainings";
 import { Training, TrainingPayload, TrainingReference } from "@/lib/types";
 import { useAuth } from "@/lib/auth/auth-context";
 

@@ -12,7 +12,7 @@ import { documentsService } from "@/lib/documents";
 import StaffDocumentsList from "../components/StaffDocumentsList";
 import { GlobalComplianceAlert } from "../components/GlobalComplianceAlert";
 
-export default async function ProfilePage({ dehydratedState }) {
+export default async function ProfilePage({ dehydratedState }: any) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -28,7 +28,7 @@ export default async function ProfilePage({ dehydratedState }) {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/home">Home</Link>
+                  <Link href="/app/home">Home</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />

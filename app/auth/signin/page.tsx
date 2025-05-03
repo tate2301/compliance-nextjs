@@ -37,7 +37,7 @@ export default function SignIn() {
       if (returnUrl) {
         router.push(returnUrl);
       } else {
-        router.push("/documents");
+        router.push("/app/documents");
       }
 
       toast.success("Successfully signed in!");
@@ -53,7 +53,7 @@ export default function SignIn() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push("/documents");
+      router.push("/app/documents");
     }
   }, [isAuthenticated, router]);
 

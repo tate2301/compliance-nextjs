@@ -66,7 +66,7 @@ export default function ProfilePage() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/home">Home</Link>
+                <Link href="/app/home">Home</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />

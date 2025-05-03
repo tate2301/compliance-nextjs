@@ -41,7 +41,7 @@ export const DashboardProfileLayout = ({
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/home">Home</Link>
+                <Link href="/app/home">Home</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -62,60 +62,63 @@ export const DashboardProfileLayout = ({
           <ul className="space-y-2 w-64">
             <li
               className={`p-2 h-[40px] flex items-center border ${
-                pathname === "/profile"
+                pathname === "/app/profile"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
                   : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
-              <Link className="w-full h-full" href={"/profile"}>
+              <Link className="w-full h-full" href={"/app/profile"}>
                 <UserIcon className="size-4 inline-flex self-center mr-2" />
                 Personal Information
               </Link>
             </li>
             <li
               className={`p-2 h-[40px] flex items-center border ${
-                pathname === "/profile/address"
+                pathname === "/app/profile/address"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
                   : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
-              <Link className="w-full h-full" href={"/profile/address"}>
+              <Link className="w-full h-full" href={"/app/profile/address"}>
                 <HomeIcon className="size-4 inline-flex self-center mr-2" />
                 Physical Address
               </Link>
             </li>
             <li
               className={`p-2 h-[40px] flex items-center border ${
-                pathname === "/profile/identification"
+                pathname === "/app/profile/identification"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
                   : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
-              <Link className="w-full h-full" href={"/profile/identification"}>
+              <Link
+                className="w-full h-full"
+                href={"/app/profile/identification"}
+              >
                 <IdentificationIcon className="size-4 inline-flex self-center mr-2" />
                 Identification
               </Link>
             </li>
             <li
               className={`p-2 h-[40px] flex items-center border ${
-                pathname === "/profile/dbs"
+                pathname === "/app/profile/dbs"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
                   : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
-              <Link className="w-full h-full" href={"/profile/dbs"}>
+              <Link className="w-full h-full" href={"/app/profile/dbs"}>
                 <DocumentTextIcon className="size-4 inline-flex self-center mr-2" />
                 DBS
               </Link>
             </li>
             <li
               className={`p-2 h-[40px] flex items-center border ${
-                pathname === "/profile/references"
+                pathname === "/app/profile/references"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
                   : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
-              <Link className="w-full h-full" href={"/profile/references"}>
+              <Link className="w-full h-full" href={"/app/profile/references"}>
                 <UsersIcon className="size-4 inline-flex self-center mr-2" />
                 References
               </Link>

@@ -69,9 +69,9 @@ export default function TrainingsPage() {
   // Check for expired trainings
   const checkExpiredTrainings = () => {
     if (!trainings) return [];
-    
+
     const now = new Date();
-    return trainings.filter(training => {
+    return trainings.filter((training) => {
       const expiryDate = new Date(training.date_expiring);
       return expiryDate < now;
     });
@@ -90,7 +90,7 @@ export default function TrainingsPage() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/home">Home</Link>
+                <Link href="/app/home">Home</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -123,10 +123,15 @@ export default function TrainingsPage() {
               <AlertCircle className="h-5 w-5 text-error-11 mt-0.5 mr-3" />
               <div>
                 <h3 className="font-medium text-error-11">
-                  {expiredTrainings.length} Expired Training{expiredTrainings.length > 1 ? 's' : ''}
+                  {expiredTrainings.length} Expired Training
+                  {expiredTrainings.length > 1 ? "s" : ""}
                 </h3>
                 <p className="text-sm text-error-10 mt-1">
-                  You have {expiredTrainings.length} training{expiredTrainings.length > 1 ? 's' : ''} that {expiredTrainings.length > 1 ? 'have' : 'has'} expired. Please renew {expiredTrainings.length > 1 ? 'them' : 'it'} as soon as possible.
+                  You have {expiredTrainings.length} training
+                  {expiredTrainings.length > 1 ? "s" : ""} that{" "}
+                  {expiredTrainings.length > 1 ? "have" : "has"} expired. Please
+                  renew {expiredTrainings.length > 1 ? "them" : "it"} as soon as
+                  possible.
                 </p>
               </div>
             </div>
@@ -141,7 +146,9 @@ export default function TrainingsPage() {
               return (
                 <div
                   key={training.id}
-                  className={`flex items-center justify-between p-4 border rounded-lg ${isExpired ? 'border-error-6 bg-error-2' : ''}`}
+                  className={`flex items-center justify-between p-4 border rounded-lg ${
+                    isExpired ? "border-error-6 bg-error-2" : ""
+                  }`}
                 >
                   <div className="space-y-1">
                     <div className="font-medium flex items-center gap-2">
@@ -159,7 +166,13 @@ export default function TrainingsPage() {
                       Trained:{" "}
                       {format(new Date(training.date_trained), "dd MMM yyyy")}
                     </div>
-                    <div className={`text-sm ${isExpired ? 'text-error-11 font-medium' : 'text-gray-500'}`}>
+                    <div
+                      className={`text-sm ${
+                        isExpired
+                          ? "text-error-11 font-medium"
+                          : "text-gray-500"
+                      }`}
+                    >
                       Expires:{" "}
                       {format(new Date(training.date_expiring), "dd MMM yyyy")}
                       {isExpired && " - Renewal required"}

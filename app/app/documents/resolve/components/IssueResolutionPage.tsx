@@ -8,7 +8,7 @@ import {
 import { documentsService } from "@/lib/documents";
 import { useDocuments } from "@/app/hooks/documents";
 import { useTrainings } from "@/app/hooks/trainings";
-import { useReferences } from "@/app/subdomains/app/hooks/references";
+import { useReferences } from "@/app/app/hooks/references";
 
 export default function StaffIssueResolutionPage() {
   // Get documents, trainings, and references
@@ -27,22 +27,22 @@ export default function StaffIssueResolutionPage() {
     if (!trainingReferences || !trainings) return [];
 
     const userTrainingMap = new Map();
-    
+
     // Create a map of user trainings with training_id as key
-    trainings.forEach(training => {
+    trainings.forEach((training) => {
       userTrainingMap.set(training.training_id, training);
     });
-    
+
     // Get missing required trainings
     const missingTrainings = trainingReferences.filter(
       (ref) => !userTrainingMap.has(ref.id) && ref.is_required
     );
-    
+
     // Get expired trainings
     const now = new Date();
     const expiredTrainings = [];
-    
-    trainingReferences.forEach(ref => {
+
+    trainingReferences.forEach((ref) => {
       const userTraining = userTrainingMap.get(ref.id);
       if (userTraining) {
         const expiryDate = new Date(userTraining.date_expiring);
@@ -51,12 +51,12 @@ export default function StaffIssueResolutionPage() {
           expiredTrainings.push({
             ...ref,
             isExpired: true,
-            expiryDate: userTraining.date_expiring
+            expiryDate: userTraining.date_expiring,
           });
         }
       }
     });
-    
+
     return [...missingTrainings, ...expiredTrainings];
   };
 

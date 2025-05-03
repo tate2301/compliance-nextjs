@@ -132,16 +132,22 @@ export function StaffSidebar() {
         <ComplianceStatus isCompliant={userWithCompliance?.isCompliant} />
 
         <div className="flex flex-col gap-2 w-full">
-          <NavLink href="/profile" icon={<UserCircleIcon className="size-5" />}>
+          <NavLink
+            href="/app/profile"
+            icon={<UserCircleIcon className="size-5" />}
+          >
             Profile
           </NavLink>
           <NavLink
-            href="/shifts"
+            href="/app/shifts"
             icon={<OfficeBuildingIcon className="size-5" />}
           >
             Shifts
           </NavLink>
-          <NavLink href="/documents" icon={<DocumentIcon className="size-5" />}>
+          <NavLink
+            href="/app/documents"
+            icon={<DocumentIcon className="size-5" />}
+          >
             <span className="flex-1 mr-4">Compliance documents</span>
             {!userWithCompliance?.isCompliant.isCompliant && (
               <Badge variant="destructive" className="ml-auto">
@@ -150,12 +156,12 @@ export function StaffSidebar() {
             )}
           </NavLink>
           <NavLink
-            href="/trainings"
+            href="/app/trainings"
             icon={<AcademicCapIcon className="size-5" />}
           >
             Trainings
           </NavLink>
-          <NavLink href="/settings" icon={<CogIcon className="size-5" />}>
+          <NavLink href="/app/settings" icon={<CogIcon className="size-5" />}>
             Settings
           </NavLink>
         </div>

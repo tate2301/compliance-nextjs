@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { dbsService } from "@/app/subdomains/app/services/dbs";
+import { dbsService } from "@/app/app/services/dbs";
 import { DBS, DBSReference } from "@/lib/types";
 import { useAuth } from "@/lib/auth/auth-context";
 

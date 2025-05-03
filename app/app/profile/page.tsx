@@ -94,7 +94,7 @@ export default function ProfilePage() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/home">Home</Link>
+                <Link href="/app/home">Home</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -121,31 +121,34 @@ export default function ProfilePage() {
         <div className="flex flex-col sticky top-0 w-64 py-4">
           <ul className="space-y-2">
             <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
-              <Link className="w-full h-full" href={"/profile/info"}>
+              <Link className="w-full h-full" href={"/app/profile/info"}>
                 <UserIcon className="size-4 inline-flex self-center mr-2" />
                 Personal Information
               </Link>
             </li>
             <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
-              <Link className="w-full h-full" href={"/profile/address"}>
+              <Link className="w-full h-full" href={"/app/profile/address"}>
                 <HomeIcon className="size-4 inline-flex self-center mr-2" />
                 Physical Address
               </Link>
             </li>
             <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
-              <Link className="w-full h-full" href={"/profile/identification"}>
+              <Link
+                className="w-full h-full"
+                href={"/app/profile/identification"}
+              >
                 <IdentificationIcon className="size-4 inline-flex self-center mr-2" />
                 Identification
               </Link>
             </li>
             <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
-              <Link className="w-full h-full" href={"/profile/dbs"}>
+              <Link className="w-full h-full" href={"/app/profile/dbs"}>
                 <DocumentTextIcon className="size-4 inline-flex self-center mr-2" />
                 DBS
               </Link>
             </li>
             <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
-              <Link className="w-full h-full" href={"/profile/references"}>
+              <Link className="w-full h-full" href={"/app/profile/references"}>
                 <UsersIcon className="size-4 inline-flex self-center mr-2" />
                 References
               </Link>

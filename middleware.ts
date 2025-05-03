@@ -7,21 +7,11 @@ export function middleware(request: NextRequest) {
     const host = request.headers.get('host') || '';
     const url = request.nextUrl;
 
-    // Check if request is from a subdomain
-    const isAdminSubdomain = host.startsWith('admin.');
-    const isAppSubdomain = host.startsWith('app.');
-
-    // Block direct access to /subdomains/* routes
-    if (url.pathname.startsWith('/subdomains/') && !isAdminSubdomain && !isAppSubdomain) {
-        return new NextResponse(null, { status: 404 });
-    }
 
     // Determine if route is protected
     const isProtectedRoute =
         url.pathname.startsWith('/dashboard') ||
-        url.pathname.startsWith('/app') ||
-        isAdminSubdomain ||
-        isAppSubdomain;
+        url.pathname.startsWith('/app');
 
     if (isProtectedRoute && (!token || !user)) {
         // Determine the base URL for the redirect

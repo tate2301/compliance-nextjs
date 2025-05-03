@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { identificationService } from "@/app/subdomains/app/services/identification";
+import { identificationService } from "@/app/app/services/identification";
 import { ID, IDReference } from "@/lib/types";
 import { useAuth } from "@/lib/auth/auth-context";
 

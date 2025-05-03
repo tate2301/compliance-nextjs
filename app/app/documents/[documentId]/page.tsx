@@ -38,7 +38,7 @@ export default async function StaffDocument({
           links={[
             {
               label: "Home",
-              href: "/home",
+              href: "/app/home",
               icon: <HomeIcon className="size-4 inline-flex mr-1" />,
             },
             {

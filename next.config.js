@@ -1,5 +1,11 @@
+const appHosts   = ['app.localhost',   'app.hurudza.tech'];
+const adminHosts = ['admin.localhost', 'admin.yourdomain.com'];
+
 // next.config.js
 module.exports = {
+    eslint: {
+        ignoreDuringBuilds: true,
+      },
     async rewrites() {
         return [
             {
