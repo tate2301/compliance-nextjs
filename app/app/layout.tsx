@@ -1,7 +1,7 @@
 "use client";
 
 import { AuthProvider } from "@/lib/auth/auth-context";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import StaffHeader from "./components/Header";
 import { StaffSidebar } from "./components/StaffSidebar";
 import {
@@ -60,14 +60,16 @@ export default function Providers({ children }: ProvidersProps) {
   const queryClient = getQueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <SidebarProvider>
-          <StaffSidebar />
-          <SidebarInset>{children}</SidebarInset>
-          <Toaster />
-        </SidebarProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+    <Suspense>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <SidebarProvider>
+            <StaffSidebar />
+            <SidebarInset>{children}</SidebarInset>
+            <Toaster />
+          </SidebarProvider>
+        </AuthProvider>
+      </QueryClientProvider>
+    </Suspense>
   );
 }

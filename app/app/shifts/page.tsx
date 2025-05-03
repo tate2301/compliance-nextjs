@@ -32,12 +32,12 @@ import { GlobalComplianceAlert } from "../components/GlobalComplianceAlert";
 export default function ProfilePage() {
   const { user } = useAuth();
   const [editValues, setEditValues] = useState({
-    first_name: user.first_name,
-    last_name: user.last_name,
-    email: user.email,
-    phone: user.phone,
-    date_of_birth: user.date_of_birth,
-    ni_number: user.ni_number,
+    first_name: user?.first_name,
+    last_name: user?.last_name,
+    email: user?.email,
+    phone: user?.phone,
+    date_of_birth: user?.date_of_birth,
+    ni_number: user?.ni_number,
   });
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
