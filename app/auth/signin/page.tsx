@@ -37,7 +37,7 @@ export default function SignIn() {
       if (returnUrl) {
         router.push(returnUrl);
       } else {
-        router.push("/home");
+        router.push("/documents");
       }
 
       toast.success("Successfully signed in!");
@@ -53,10 +53,9 @@ export default function SignIn() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push("/home");
+      router.push("/documents");
     }
   }, [isAuthenticated, router]);
-  console.log(isAuthenticated)
 
   return (
     <div className="space-y-6">

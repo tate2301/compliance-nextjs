@@ -4,10 +4,12 @@ import { EmptyState } from "@/app/components/ui/empty-state";
 import Module from "@/components/Module/Module";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { StaffDocument } from "@/lib/types";
+import { Document, StaffDocument } from "@/lib/types";
 import {
+  AcademicCapIcon,
   ArrowRightIcon,
   CheckCircleIcon,
+  CloudUploadIcon,
   DocumentIcon,
   TrashIcon,
   UserIcon,
@@ -28,6 +30,7 @@ export enum ComplianceItemType {
   DOCUMENTS = "documents",
   TRAININGS = "trainings",
   REFERENCES = "references",
+  SYSTEM = "system-documents",
 }
 
 const MissingComplianceItemsList = ({
@@ -66,6 +69,15 @@ const MissingComplianceItemsList = ({
       }
       className="flex flex-col p-0"
     >
+      {itemType === ComplianceItemType.SYSTEM && items?.length > 0 && (
+        <div className="divide-y">
+          {items &&
+            items.map((item) => (
+              <MissingSystemComplianceDocument itemType={itemType} {...item} />
+            ))}
+        </div>
+      )}
+
       {itemType === ComplianceItemType.DOCUMENTS && items?.length > 0 && (
         <div className="divide-y">
           {items &&
@@ -105,8 +117,73 @@ const MissingComplianceDocument = ({
   description,
   id,
   itemType,
+  isExpired,
+  expiryDate,
+  name,
   ...rest
-}: StaffDocument & { itemType: ComplianceItemType }) => {
+}: StaffDocument & {
+  itemType: ComplianceItemType;
+  isExpired?: boolean;
+  expiryDate?: string;
+  name?: string;
+}) => {
+  const { onOpen, onClose, isOpen } = useDisclosure();
+  const { data: documentData } = useQuery({
+    queryKey: ["documents", id],
+    queryFn: () => documentsService.getDocumentById({ id: id.toString() }),
+  });
+
+  return (
+    <div className="max-w-4xl rounded-none p-4">
+      <div className="flex justify-between items-start ">
+        <div>
+          <p className="font-semibold text-slate-12 mb-1 text-sm">
+            {itemType === ComplianceItemType.TRAININGS ? (
+              <AcademicCapIcon className="size-5 text-slate-8 inline-flex mr-2" />
+            ) : (
+              <DocumentIcon className="size-5 text-slate-8 inline-flex mr-2" />
+            )}
+            {title || name}
+            {isExpired && (
+              <span className="ml-2 text-error-11 text-xs">
+                (Expired: {new Date(expiryDate).toLocaleDateString()})
+              </span>
+            )}
+          </p>
+          {description && (
+            <p className="text-sm text-slate-10 ml-7">{description}</p>
+          )}
+          {isExpired && (
+            <p className="text-sm text-error-10 ml-7">
+              This training has expired and needs to be renewed.
+            </p>
+          )}
+        </div>
+        <Button asChild variant="ghost" className="ml-4">
+          <Link
+            href={
+              itemType === ComplianceItemType.TRAININGS
+                ? "/trainings"
+                : `/documents/${id}`
+            }
+            className="flex items-center gap-2"
+          >
+            <span className="text-sm text-primary-11">
+              {isExpired ? "Renew" : "Update"}
+            </span>
+          </Link>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+const MissingSystemComplianceDocument = ({
+  name,
+  id,
+  itemType,
+  ...rest
+}: Document & { itemType: ComplianceItemType }) => {
   const { onOpen, onClose, isOpen } = useDisclosure();
   const { data: documentData } = useQuery({
     queryKey: ["documents", id],
@@ -119,13 +196,13 @@ const MissingComplianceDocument = ({
         <div>
           <p className="font-semibold text-slate-12 mb-1 text-sm">
             <DocumentIcon className="size-5 text-slate-8 inline-flex mr-2" />
-            {title}
+            {name}
           </p>
-          <p className="text-sm text-slate-10 ml-7">{description}</p>
         </div>
         <Button asChild variant="ghost" className="ml-4">
           <Link href={`/documents/${id}`} className="flex items-center gap-2">
-            <span className="text-sm text-primary-11">Update</span>
+            <CloudUploadIcon className="size-5 text-primary-11 mr-2" />
+            <span className="text-sm text-primary-11">Upload</span>
           </Link>
         </Button>
       </div>

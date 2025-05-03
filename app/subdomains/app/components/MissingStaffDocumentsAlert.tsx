@@ -4,7 +4,7 @@ import { StaffDocument } from "@/lib/types";
 import Link from "next/link";
 
 export const MissingStaffDocumentsAlert = (props: {
-  missingDocuments: StaffDocument[];
+  missingDocuments: string[];
   userFullname: string;
 }) => {
   return (
@@ -19,8 +19,8 @@ export const MissingStaffDocumentsAlert = (props: {
         </p>
         <ul className="list-decimal list-inside p-2 space-y-1 bg-error-1 border border-error-6 border-dashed w-full">
           {props.missingDocuments?.map((doc) => (
-            <li key={doc.form_id} className="font-semibold">
-              {doc.title}
+            <li key={doc} className="font-semibold">
+              {doc}
             </li>
           ))}
         </ul>

@@ -61,7 +61,10 @@ export default function ProfilePage() {
   };
 
   return (
-    <DashboardProfileLayout title="Personal information" subtitle="Information must match your legal documents">
+    <DashboardProfileLayout
+      title="Personal information"
+      subtitle="Information must match your legal documents"
+    >
       <dl className="divide-y divide-slate-6">
         <EditableField
           label="Full name"
@@ -121,55 +124,6 @@ export default function ProfilePage() {
           type="date"
           renderValue={(value) => new Date(value).toLocaleDateString()}
         />
-
-        <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-          <dt className="text-sm font-medium text-slate-11">
-            Physical Address
-          </dt>
-          <dd className="mt-1 text-sm text-slate-12 sm:mt-0 sm:col-span-2">
-            <ul
-              role="list"
-              className="border border-slate-6 rounded-md divide-y divide-slate-6"
-            >
-              <DocumentItem
-                fullname="Tatenda Chinyamakobvu"
-                email_address="tatendachris@gmail.com"
-                onUpdate={() => setActiveModal("document_upload")}
-                onRemove={() => {}}
-              />
-              <DocumentItem
-                fullname="Sean Muchenje"
-                email_address="seanmuchie@gmail.com"
-                updatedDate="22 Mar, 2025"
-                onUpdate={() => setActiveModal("document_upload")}
-                onRemove={() => {}}
-              />
-            </ul>
-          </dd>
-        </div>
-        <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-          <dt className="text-sm font-medium text-slate-11">Identification</dt>
-          <dd className="mt-1 text-sm text-slate-12 sm:mt-0 sm:col-span-2">
-            <ul
-              role="list"
-              className="border border-slate-6 rounded-md divide-y divide-slate-6"
-            >
-              <DocumentItem
-                fullname="Tatenda Chinyamakobvu"
-                email_address="tatendachris@gmail.com"
-                onUpdate={() => setActiveModal("document_upload")}
-                onRemove={() => {}}
-              />
-              <DocumentItem
-                fullname="Sean Muchenje"
-                email_address="seanmuchie@gmail.com"
-                updatedDate="22 Mar, 2025"
-                onUpdate={() => setActiveModal("document_upload")}
-                onRemove={() => {}}
-              />
-            </ul>
-          </dd>
-        </div>
       </dl>
 
       {/* Edit Modals */}

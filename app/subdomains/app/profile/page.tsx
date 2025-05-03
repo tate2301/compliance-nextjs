@@ -28,9 +28,13 @@ import {
   UserIcon,
   UsersIcon,
 } from "@heroicons/react/solid";
+import { useUser } from "@/app/hooks/user";
+import { toast } from "sonner";
 
 export default function ProfilePage() {
   const { user } = useAuth();
+  const { userData, isLoading, updateUser, isUpdating } = useUser();
+  const [activeField, setActiveField] = useState<string | null>(null);
   const [editValues, setEditValues] = useState({
     first_name: user?.first_name,
     last_name: user?.last_name,
@@ -40,24 +44,48 @@ export default function ProfilePage() {
     ni_number: user?.ni_number,
   });
   const [activeModal, setActiveModal] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleEdit = (field: string) => {
+    setActiveField(field);
+  };
+
+  const handleSave = async (field: string, value: string) => {
+    try {
+      await updateUser({ [field]: value });
+      setActiveField(null);
+    } catch (error) {
+      // Error is handled in the mutation
+    }
+  };
+
+  const handleModalEdit = (field: string) => {
     setActiveModal(field);
   };
 
-  const handleSave = async (field: string) => {
-    setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
-    setActiveModal(null);
+  const handleModalSave = async (field: string) => {
+    try {
+      if (field === "name") {
+        await updateUser({
+          first_name: editValues.first_name,
+          last_name: editValues.last_name,
+        });
+      } else {
+        await updateUser({ [field]: editValues[field] });
+      }
+      setActiveModal(null);
+    } catch (error) {
+      toast.error(`Failed to update ${field}`);
+    }
   };
 
   const handleUploadDocument = (file: File) => {
     // Handle document upload logic here
     console.log("Uploading document:", file);
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="p-6 rounded-lg max-w-6xl mx-auto w-full">
@@ -127,26 +155,26 @@ export default function ProfilePage() {
         <dl className="divide-y divide-slate-6 w-full">
           <EditableField
             label="Full name"
-            value={`${editValues.first_name} ${editValues.last_name}`}
-            isEditing={false}
+            value={`${userData?.first_name || ""} ${userData?.last_name || ""}`}
+            isEditing={activeField === "name"}
             onEdit={() => handleEdit("name")}
-            onSave={() => {}}
+            onSave={(value) => handleSave("name", value)}
             onChange={() => {}}
             placeholder="Full name"
           />
 
           <EditableField
             label="Email address"
-            value={editValues.email}
-            isEditing={false}
+            value={userData?.email || ""}
+            isEditing={activeField === "email"}
             onEdit={() => handleEdit("email")}
-            onSave={() => {}}
+            onSave={(value) => handleSave("email", value)}
             onChange={() => {}}
             placeholder="Email address"
             renderValue={(value) => (
               <span className="inline-flex items-center gap-2">
                 {value}
-                {!!user?.email_verified_at && (
+                {!!userData?.email_verified_at && (
                   <Verified className="size-4 text-secondary-11" />
                 )}
               </span>
@@ -155,33 +183,35 @@ export default function ProfilePage() {
 
           <EditableField
             label="Phone number"
-            value={editValues.phone}
-            isEditing={false}
+            value={userData?.phone || ""}
+            isEditing={activeField === "phone"}
             onEdit={() => handleEdit("phone")}
-            onSave={() => {}}
+            onSave={(value) => handleSave("phone", value)}
             onChange={() => {}}
             placeholder="Phone number"
           />
 
           <EditableField
             label="NI Number"
-            value={editValues.ni_number}
-            isEditing={false}
+            value={userData?.ni_number || ""}
+            isEditing={activeField === "ni_number"}
             onEdit={() => handleEdit("ni_number")}
-            onSave={() => {}}
+            onSave={(value) => handleSave("ni_number", value)}
             onChange={() => {}}
             placeholder="NI Number"
           />
 
           <EditableField
             label="Date of Birth"
-            value={editValues.date_of_birth}
-            isEditing={false}
+            value={userData?.date_of_birth || ""}
+            isEditing={activeField === "date_of_birth"}
             onEdit={() => handleEdit("date_of_birth")}
-            onSave={() => {}}
+            onSave={(value) => handleSave("date_of_birth", value)}
             onChange={() => {}}
             type="date"
-            renderValue={(value) => new Date(value).toLocaleDateString()}
+            renderValue={(value) =>
+              value ? new Date(value).toLocaleDateString() : ""
+            }
           />
         </dl>
       </div>
@@ -190,10 +220,10 @@ export default function ProfilePage() {
       <EditModal
         isOpen={activeModal === "name"}
         onClose={() => setActiveModal(null)}
-        onSave={() => handleSave("name")}
+        onSave={() => handleModalSave("name")}
         title="Edit Full Name"
         description="Update your full name"
-        isLoading={isLoading}
+        isLoading={isUpdating}
       >
         <div className="space-y-4">
           <div className="space-y-2">
@@ -228,10 +258,10 @@ export default function ProfilePage() {
       <EditModal
         isOpen={activeModal === "email"}
         onClose={() => setActiveModal(null)}
-        onSave={() => handleSave("email")}
+        onSave={() => handleModalSave("email")}
         title="Edit Email Address"
         description="Update your email address. You'll need to verify the new email."
-        isLoading={isLoading}
+        isLoading={isUpdating}
       >
         <div className="space-y-2">
           <Label htmlFor="email">Email Address</Label>
@@ -249,10 +279,10 @@ export default function ProfilePage() {
       <EditModal
         isOpen={activeModal === "phone"}
         onClose={() => setActiveModal(null)}
-        onSave={() => handleSave("phone")}
+        onSave={() => handleModalSave("phone")}
         title="Edit Phone Number"
         description="Update your phone number"
-        isLoading={isLoading}
+        isLoading={isUpdating}
       >
         <div className="space-y-2">
           <Label htmlFor="phone">Phone Number</Label>
@@ -270,10 +300,10 @@ export default function ProfilePage() {
       <EditModal
         isOpen={activeModal === "ni_number"}
         onClose={() => setActiveModal(null)}
-        onSave={() => handleSave("ni_number")}
+        onSave={() => handleModalSave("ni_number")}
         title="Edit NI Number"
         description="Update your National Insurance number"
-        isLoading={isLoading}
+        isLoading={isUpdating}
       >
         <div className="space-y-2">
           <Label htmlFor="ni_number">NI Number</Label>
@@ -290,10 +320,10 @@ export default function ProfilePage() {
       <EditModal
         isOpen={activeModal === "date_of_birth"}
         onClose={() => setActiveModal(null)}
-        onSave={() => handleSave("date_of_birth")}
+        onSave={() => handleModalSave("date_of_birth")}
         title="Edit Date of Birth"
         description="Update your date of birth"
-        isLoading={isLoading}
+        isLoading={isUpdating}
       >
         <div className="space-y-2">
           <Label htmlFor="date_of_birth">Date of Birth</Label>

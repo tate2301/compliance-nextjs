@@ -62,12 +62,12 @@ export const DashboardProfileLayout = ({
           <ul className="space-y-2 w-64">
             <li
               className={`p-2 h-[40px] flex items-center border ${
-                pathname === "/profile/info"
+                pathname === "/profile"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
                   : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
-              <Link className="w-full h-full" href={"/profile/info"}>
+              <Link className="w-full h-full" href={"/profile"}>
                 <UserIcon className="size-4 inline-flex self-center mr-2" />
                 Personal Information
               </Link>

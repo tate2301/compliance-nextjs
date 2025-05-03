@@ -218,3 +218,55 @@ export interface Reference {
   updated_at?: string;
   token?: string;
 }
+
+
+
+export interface Training {
+  id?: number;
+  verified_by?: number;
+  date_trained: string;
+  date_expiring: string;
+  certificate?: string;
+  user_id: number;
+  training_id: number;
+  is_expired?: boolean;
+  name?: string;
+}
+
+export interface TrainingReference {
+  id: number;
+  name: string;
+  reference: string;
+  selected?: boolean;
+  is_required?: boolean;
+}
+
+export interface TrainingPayload {
+  date_trained: string;
+  date_expiring: string;
+  training_id: Array<number>;
+  user_id: number;
+  certificate: any;
+}
+
+export interface Document {
+  id?: number;
+  uploaded_at?: string;
+  verified_by?: number;
+  certificate?: string;
+  user_id?: number;
+  name?: string;
+}
+
+export interface DocumentReference {
+  id: number;
+  name: string;
+  reference: string;
+  is_required?: boolean;
+}
+
+export interface DocumentPayload {
+  Document_id: number;
+  user_id: number;
+  certificate: any;
+}

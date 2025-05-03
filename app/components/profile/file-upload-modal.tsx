@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
@@ -9,9 +9,21 @@ export interface FileUploadModalProps {
     isOpen: boolean;
     onClose: () => void;
     onUpload: (file: File) => void;
+    title?: string;
+    description?: string;
+    children?: ReactNode;
+    isLoading?: boolean;
 }
 
-export function FileUploadModal({ isOpen, onClose, onUpload }: FileUploadModalProps) {
+export function FileUploadModal({ 
+    isOpen, 
+    onClose, 
+    onUpload, 
+    title = "Upload Document",
+    description = "Upload a new identity document to your profile.",
+    children,
+    isLoading = false
+}: FileUploadModalProps) {
     const [file, setFile] = useState<File | null>(null);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [isUploading, setIsUploading] = useState(false);
@@ -29,7 +41,6 @@ export function FileUploadModal({ isOpen, onClose, onUpload }: FileUploadModalPr
                     clearInterval(interval);
                     setIsUploading(false);
                     onUpload(file);
-                    onClose();
                     return 100;
                 }
                 return prev + 10;
@@ -41,12 +52,14 @@ export function FileUploadModal({ isOpen, onClose, onUpload }: FileUploadModalPr
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px] border-slate-6 bg-slate-2">
                 <DialogHeader>
-                    <DialogTitle className="text-slate-12">Upload Document</DialogTitle>
+                    <DialogTitle className="text-slate-12">{title}</DialogTitle>
                     <DialogDescription className="text-slate-11">
-                        Upload a new identity document to your profile.
+                        {description}
                     </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
+                    {children}
+                    
                     <div className="border-2 border-dashed border-slate-7 rounded-lg p-6 flex flex-col items-center justify-center gap-2 transition-all duration-300 hover:border-primary-7 hover:bg-slate-3/50 cursor-pointer">
                         <Upload className="h-8 w-8 text-slate-11" />
                         <p className="text-sm font-medium text-slate-12">Drag files here or click to browse</p>
@@ -78,8 +91,11 @@ export function FileUploadModal({ isOpen, onClose, onUpload }: FileUploadModalPr
                 </div>
                 <DialogFooter>
                     <Button variant="outline" onClick={onClose}>Cancel</Button>
-                    <Button onClick={handleUpload} disabled={!file || isUploading}>
-                        {isUploading ? (
+                    <Button 
+                        onClick={handleUpload} 
+                        disabled={!file || isUploading || isLoading}
+                    >
+                        {isUploading || isLoading ? (
                             <>
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Uploading...
@@ -92,4 +108,4 @@ export function FileUploadModal({ isOpen, onClose, onUpload }: FileUploadModalPr
             </DialogContent>
         </Dialog>
     );
-} 
+}

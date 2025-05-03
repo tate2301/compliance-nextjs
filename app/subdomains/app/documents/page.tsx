@@ -10,6 +10,7 @@ import { DocumentIcon } from "@heroicons/react/solid";
 import { HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { documentsService } from "@/lib/documents";
 import StaffDocumentsList from "../components/StaffDocumentsList";
+import { GlobalComplianceAlert } from "../components/GlobalComplianceAlert";
 
 export default async function ProfilePage({ dehydratedState }) {
   const queryClient = new QueryClient();
@@ -42,6 +43,8 @@ export default async function ProfilePage({ dehydratedState }) {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
+        <GlobalComplianceAlert />
+
         <StaffDocumentsList />
       </div>
     </HydrationBoundary>

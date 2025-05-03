@@ -32,7 +32,7 @@ export interface ModalProps {
 const variantStyles: Record<ModalVariant, { button: string; title: string }> = {
   default: {
     button: "bg-primary-11 hover:bg-primary-9",
-    title: "text-primary-1",
+    title: "text-slate-12",
   },
   destructive: {
     button: "bg-error-1 hover:bg-error-9 text-error-1",
