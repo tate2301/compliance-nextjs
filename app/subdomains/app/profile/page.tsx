@@ -32,12 +32,12 @@ import {
 export default function ProfilePage() {
   const { user } = useAuth();
   const [editValues, setEditValues] = useState({
-    first_name: user.first_name,
-    last_name: user.last_name,
-    email: user.email,
-    phone: user.phone,
-    date_of_birth: user.date_of_birth,
-    ni_number: user.ni_number,
+    first_name: user?.first_name,
+    last_name: user?.last_name,
+    email: user?.email,
+    phone: user?.phone,
+    date_of_birth: user?.date_of_birth,
+    ni_number: user?.ni_number,
   });
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -146,7 +146,7 @@ export default function ProfilePage() {
             renderValue={(value) => (
               <span className="inline-flex items-center gap-2">
                 {value}
-                {!!user.email_verified_at && (
+                {!!user?.email_verified_at && (
                   <Verified className="size-4 text-secondary-11" />
                 )}
               </span>
