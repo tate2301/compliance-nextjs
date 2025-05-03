@@ -183,3 +183,38 @@ export interface BasicRequirements {
 export interface UpdatePayload {
   [key:string]: any
 }
+
+export interface Reference {
+  id?: number;
+  user_id?: number;
+  signature?: string;
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  title?: string;
+  company?: string;
+  capacity_known?: string;
+  date_known_from?: string;
+  date_known_to?: string;
+  reason_for_leaving?: string;
+  careplans_score?: number;
+  reliability_score?: number;
+  character_score?: number;
+  attitude_score?: number;
+  relationships_with_others_score?: number;
+  own_initiative_score?: number;
+  discipline?: boolean;
+  discipline_details?: string;
+  safeguard?: boolean;
+  safeguard_details?: string;
+  employed?: boolean;
+  employed_details?: string;
+  crime?: boolean;
+  crime_details?: string;
+  extra_comments?: string;
+  terms_accepted?: boolean;
+  created_at?: string;
+  updated_at?: string;
+  token?: string;
+}

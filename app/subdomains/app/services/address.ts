@@ -29,7 +29,7 @@ export const addressService = {
     },
     updateAddress: async (address: Address): Promise<Address> => {
         try {
-            const response = await api.put(`/address/update`, address)
+            const response = await api.post(`/address/update/${address.id}`, address)
             return response.data 
         }  catch (error) {
             if (isAxiosError(error)) {

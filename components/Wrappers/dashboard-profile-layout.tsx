@@ -21,11 +21,17 @@ import {
 
 interface Props {
   children: ReactNode;
-  title: string
-  subtitle: string
+  title: string;
+  subtitle: string;
+  actions?: ReactNode;
 }
 
-export const DashboardProfileLayout = ({ children, title, subtitle: susbtitle }: Props) => {
+export const DashboardProfileLayout = ({
+  children,
+  title,
+  subtitle: susbtitle,
+  actions,
+}: Props) => {
   const pathname = usePathname();
 
   return (
@@ -50,15 +56,10 @@ export const DashboardProfileLayout = ({ children, title, subtitle: susbtitle }:
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <div className="px-2 mb-4">
-        <h3 className="text-lg leading-6 font-medium text-slate-12">{title}</h3>
-        <p className="mt-1 max-w-2xl text-sm text-slate-11">
-          {susbtitle}
-        </p>
-      </div>
+
       <div className="px-2 mt-5 border-t border-slate-6 flex gap-6">
         <div className="flex flex-col sticky top-0 w-64 py-4">
-          <ul className="space-y-2">
+          <ul className="space-y-2 w-64">
             <li
               className={`p-2 h-[40px] flex items-center border ${
                 pathname === "/profile/info"
@@ -121,7 +122,20 @@ export const DashboardProfileLayout = ({ children, title, subtitle: susbtitle }:
             </li>
           </ul>
         </div>
-        <p className="p-4">{children}</p>
+        <div className="p-4 w-full">
+          <div className="px-2 mb-4 flex justify-between items-center">
+            <div>
+              <h3 className="text-lg leading-6 font-medium text-slate-12">
+                {title}
+              </h3>
+              <p className="mt-1 max-w-2xl text-sm text-slate-11">
+                {susbtitle}
+              </p>
+            </div>
+            <div className="flex gap-4 items-center">{actions}</div>
+          </div>
+          {children}
+        </div>
       </div>
     </div>
   );
