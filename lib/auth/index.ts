@@ -17,6 +17,10 @@ api.interceptors.request.use((config) => {
   // Set headers explicitly
   config.headers["Content-Type"] = "application/json";
   config.headers["Accept"] = "application/json";
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers["Authorization"] = `Bearer ${token}`;
+  }
 
 // Log the full request configuration for debugging
   console.log("Full Request Config:", {

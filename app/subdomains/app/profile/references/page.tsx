@@ -3,14 +3,16 @@
 import { DocumentItem } from "@/app/components/profile";
 import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-layout";
 import { useState } from "react";
+import { useReferences } from "../../hooks/references";
 
 export default function ProfilePage() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
+  const {references, addReference, removeReference} = useReferences()
 
   return (
-    <DashboardProfileLayout>
-      <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-        <dd className="mt-1 text-sm text-slate-12 sm:mt-0 sm:col-span-2">
+    <DashboardProfileLayout title="References" subtitle="Please note that references are subject to review">
+      <div className="py-4 sm:gap-4">
+        <dd className="mt-1 text-sm text-slate-12 sm:mt-0">
           <ul
             role="list"
             className="border border-slate-6 rounded-md divide-y divide-slate-6"

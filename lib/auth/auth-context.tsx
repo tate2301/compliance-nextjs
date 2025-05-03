@@ -43,13 +43,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     if (storedToken) {
       try {
-        const parsedToken =
-          typeof storedToken === "string"
-            ? storedToken
-            : JSON.parse(storedToken);
+        const parsedToken = storedToken;
         setToken(parsedToken);
         // Ensure localStorage is in sync
-        localStorage.setItem("token", JSON.stringify(parsedToken));
+        localStorage.setItem("token", (parsedToken));
       } catch (error) {
         console.error("Failed to parse token:", error);
       }
@@ -59,7 +56,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = (user: User, token: string) => {
     // Set localStorage
     localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("token", token);
 
     // Set cookies
     document.cookie = `user=${JSON.stringify(user)}; path=/; max-age=2592000`; // 30 days

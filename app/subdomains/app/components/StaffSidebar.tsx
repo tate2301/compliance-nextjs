@@ -8,6 +8,8 @@ import {
   UserIcon,
   UserCircleIcon,
   CogIcon,
+  DownloadIcon,
+  DocumentDownloadIcon,
 } from "@heroicons/react/solid";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useAuth } from "@/lib/auth/auth-context";
@@ -26,7 +28,13 @@ import {
   SidebarRail,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
-import { Plus } from "lucide-react";
+import { Loader2, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useDisclosure } from "@/hooks/use-disclosure";
+import { Modal } from "@/app/components/ui/modal";
+import { useExportProfile } from "../hooks/exports";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 interface NavLinkProps {
   href: string;
@@ -45,6 +53,8 @@ function NavLink({ href, icon, children }: NavLinkProps) {
     </Link>
   );
 }
+
+
 
 export function StaffSidebar() {
   const { user, isAuthenticated } = useAuth();
@@ -93,7 +103,7 @@ export function StaffSidebar() {
         </div>
       </SidebarContent>
       <SidebarFooter>
-        <div className="mt-auto flex justify-between items-center bg-slate-4 p-2 px-2">
+        <div className="mt-auto space-y-4 bg-slate-4 p-2 px-2">
           <ThemeToggle />
         </div>
       </SidebarFooter>

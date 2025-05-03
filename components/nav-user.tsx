@@ -3,6 +3,7 @@ import {
   Bell,
   ChevronsUpDown,
   CreditCard,
+  Loader2,
   LogOut,
   Sparkles,
 } from "lucide-react";
@@ -27,9 +28,18 @@ import { Button, ButtonGroup } from "@/app/components/ui/button";
 import {
   BellIcon,
   CreditCardIcon,
+  DocumentDownloadIcon,
   LogoutIcon,
   UserCircleIcon,
 } from "@heroicons/react/solid";
+import { Modal } from "@/app/components/ui/modal";
+import { toast } from "sonner";
+import { useEffect, useState } from "react";
+import { useDisclosure } from "@/hooks/use-disclosure";
+import { useExportProfile } from "@/app/subdomains/app/hooks/exports";
+
+
+
 
 export function NavUser({
   user,
@@ -41,9 +51,46 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [hasStartedDownload, setHasStartedDownload] = useState(false)
+  const { downloadCygnetProfile, downloadElysiumProfile, isDownloading } = useExportProfile()
+
+  useEffect(() => {
+    if (hasStartedDownload && !isDownloading) {
+      setHasStartedDownload(false)
+      toast("Profile downloaded successfully")
+      onClose()
+    }
+  }, [hasStartedDownload, isDownloading])
 
   return (
     <SidebarMenu>
+      <Modal isLoading={isDownloading} showCancel={false} hideConfirm onConfirm={onClose} isOpen={isOpen} onClose={onClose} title="Export profile" description="Download your professional profile in the format required by different healthcare providers">
+        {
+          isDownloading && (
+            <div className="flex items-center gap-4">
+              <Loader2 className="size-5 mr-auto animate-spin" />
+              <span className="w-full text-left">Downloading profile...</span>
+            </div>
+          )
+        }
+        {!isDownloading && <div className="flex flex-col gap-2">
+          <Button onClick={() => {
+            setHasStartedDownload(true)
+            downloadCygnetProfile()
+          }} variant="outline" className="w-full">
+            <span className="w-full text-left">Cygnet Profile</span>
+            <DocumentDownloadIcon className="size-5 mr-auto" />
+          </Button>
+          <Button onClick={() => {
+            setHasStartedDownload(true)
+            downloadElysiumProfile()
+          }} variant="outline" className="w-full">
+            <span className="w-full text-left">Elysium Profile</span>
+            <DocumentDownloadIcon className="size-5 mr-auto" />
+          </Button>
+        </div>}
+      </Modal>
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -94,8 +141,13 @@ export function NavUser({
               <DropdownMenuItem>
                 <BellIcon className="size-5" /> Notifications
               </DropdownMenuItem>
+
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
+            <DropdownMenuItem className="w-full" onClick={onOpen}>
+              <DocumentDownloadIcon className="size-5 mr-auto" />
+              <span className="w-full text-left">Export profile</span>
+            </DropdownMenuItem>            <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogoutIcon className="size-5" /> Log out
             </DropdownMenuItem>

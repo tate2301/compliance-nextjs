@@ -1,12 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useState } from 'react'
 
 export interface EditableFieldProps {
     label: string;
     value: string;
     isEditing: boolean;
     onEdit: () => void;
-    onSave: () => void;
+    onSave: (value: string) => void;
     onChange: (value: string) => void;
     placeholder?: string;
     type?: string;
@@ -24,6 +25,22 @@ export function EditableField({
     type = "text",
     renderValue
 }: EditableFieldProps) {
+    const [currentValue, setCurrentValue] = useState(value);
+
+    const handleChange = (newValue: string) => {
+        setCurrentValue(newValue);
+        onChange(newValue);
+    };
+
+    const handleSave = () => {
+        onSave(currentValue);
+    };
+
+    // Update local state when prop value changes
+    if (value !== currentValue && !isEditing) {
+        setCurrentValue(value);
+    }
+
     return (
         <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
             <dt className="text-sm font-medium text-slate-11">{label}</dt>
@@ -32,20 +49,20 @@ export function EditableField({
                     <Input
                         className="flex-grow"
                         type={type}
-                        value={value}
-                        onChange={(e) => onChange(e.target.value)}
+                        value={currentValue}
+                        onChange={(e) => handleChange(e.target.value)}
                         placeholder={placeholder}
                     />
                 ) : (
-                    <span className="flex-grow">
+                    <span className="flex-grow flex-1">
                         {renderValue ? renderValue(value) : value}
                     </span>
                 )}
                 <span className="ml-4 flex-shrink-0">
                     <Button
-                        variant="ghost"
+                        variant="outline"
                         className="text-primary-11 hover:text-primary-12"
-                        onClick={() => isEditing ? onSave() : onEdit()}
+                        onClick={() => isEditing ? handleSave() : onEdit()}
                     >
                         {isEditing ? 'Save' : 'Update'}
                     </Button>
@@ -53,4 +70,4 @@ export function EditableField({
             </dd>
         </div>
     );
-} 
+}

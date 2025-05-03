@@ -61,7 +61,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <DashboardProfileLayout>
+    <DashboardProfileLayout title="Personal information" subtitle="Information must match your legal documents">
       <dl className="divide-y divide-slate-6">
         <EditableField
           label="Full name"

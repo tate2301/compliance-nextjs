@@ -4,6 +4,6 @@ import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-
 
 export default function ProfileIdentificationPage() {
   return (
-    <DashboardProfileLayout>identification page items</DashboardProfileLayout>
+    <DashboardProfileLayout title="Identification documents" subtitle="We require you provide government issued identity documents">identification page items</DashboardProfileLayout>
   );
 }

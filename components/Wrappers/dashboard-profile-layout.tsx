@@ -21,9 +21,11 @@ import {
 
 interface Props {
   children: ReactNode;
+  title: string
+  subtitle: string
 }
 
-export const DashboardProfileLayout = ({ children }: Props) => {
+export const DashboardProfileLayout = ({ children, title, subtitle: susbtitle }: Props) => {
   const pathname = usePathname();
 
   return (
@@ -41,7 +43,7 @@ export const DashboardProfileLayout = ({ children }: Props) => {
               <BreadcrumbLink asChild>
                 <Link href="#">
                   <UserCircleIcon className="size-4 inline-flex mr-1" />
-                  Profile
+                  {title}
                 </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -49,9 +51,9 @@ export const DashboardProfileLayout = ({ children }: Props) => {
         </Breadcrumb>
       </div>
       <div className="px-2 mb-4">
-        <h3 className="text-lg leading-6 font-medium text-slate-12">Profile</h3>
+        <h3 className="text-lg leading-6 font-medium text-slate-12">{title}</h3>
         <p className="mt-1 max-w-2xl text-sm text-slate-11">
-          Personal details and application.
+          {susbtitle}
         </p>
       </div>
       <div className="px-2 mt-5 border-t border-slate-6 flex gap-6">

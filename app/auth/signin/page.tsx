@@ -56,6 +56,7 @@ export default function SignIn() {
       router.push("/home");
     }
   }, [isAuthenticated, router]);
+  console.log(isAuthenticated)
 
   return (
     <div className="space-y-6">

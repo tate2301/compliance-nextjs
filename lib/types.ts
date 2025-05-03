@@ -171,3 +171,15 @@ export interface StaffDocument {
   updated_at: number;
   fields: FormField[];
 }
+
+export interface BasicRequirements {
+  visa: boolean
+  address: boolean
+  dbs: boolean
+  identification: boolean
+  references: number
+}
+
+export interface UpdatePayload {
+  [key:string]: any
+}

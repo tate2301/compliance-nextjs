@@ -36,6 +36,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "file-saver": "^2.0.5",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.292.0",
     "mongoose": "^8.13.2",
