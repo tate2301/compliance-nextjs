@@ -25,7 +25,7 @@ export const MissingStaffDocumentsAlert = (props: {
           ))}
         </ul>
         <Button asChild variant="destructive" className="mt-4">
-          <Link href={"/documents/resolve"}>Resolve issues</Link>
+          <Link href={"/documents/app/resolve"}>Resolve issues</Link>
         </Button>
       </AlertDescription>
     </Alert>
