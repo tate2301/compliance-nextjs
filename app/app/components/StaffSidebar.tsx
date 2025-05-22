@@ -93,7 +93,7 @@ function ComplianceStatus({ isCompliant }) {
       {missing && missing.length > 0 && (
         <div className="mt-2">
           <Link
-            href="/documents"
+            href="/app/documents"
             className="text-xs text-primary-9 hover:text-primary-10 font-medium"
           >
             Resolve issues

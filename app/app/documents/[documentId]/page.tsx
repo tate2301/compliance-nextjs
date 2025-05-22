@@ -43,7 +43,7 @@ export default async function StaffDocument({
             },
             {
               label: "Compliance documents",
-              href: "/documents",
+              href: "/app/documents",
               icon: <DocumentIcon className="size-4 inline-flex mr-1" />,
             },
             {

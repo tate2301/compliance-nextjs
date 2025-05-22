@@ -69,7 +69,7 @@ api.interceptors.response.use(
 export const authService = {
   async login(credentials: { email: string; password: string }) {
     try {
-      const response = await api.post("/authentication/login", credentials, {
+      const response = await axios.post("/auth/api", credentials, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",

@@ -83,7 +83,7 @@ export const StaffDocumentListSkeleton = () => {
 export const StaffDocumentListItem = (props: StaffDocument) => {
   return (
     <Link
-      href={`/documents/${props.id}`}
+      href={`/app/documents/${props.id}`}
       className="flex gap-8 items-center px-2 py-4"
     >
       <div>
