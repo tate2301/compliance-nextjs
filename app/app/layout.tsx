@@ -2,13 +2,11 @@
 
 import { AuthProvider } from "@/lib/auth/auth-context";
 import { ReactNode, Suspense } from "react";
-import StaffHeader from "./components/Header";
 import { StaffSidebar } from "./components/StaffSidebar";
 import OnboardingGuard from "./components/OnboardingGuard";
 import {
   SidebarInset,
   SidebarProvider,
-  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -21,6 +19,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { GlobalComplianceAlert } from "./components/GlobalComplianceAlert";
 import { usePathname } from "next/navigation";
 import { OnboardingProvider } from "./contexts/OnboardingContext";
+import MobileHeader from "./components/MobileHeader";
 
 import {
   isServer,
@@ -68,7 +67,6 @@ function AppLayoutContent({ children }: { children: ReactNode }) {
   if (isOnboardingPage) {
     return (
       <>
-
         {children}
         <Toaster />
       </>
@@ -80,6 +78,7 @@ function AppLayoutContent({ children }: { children: ReactNode }) {
     <SidebarProvider defaultOpen={true}>
       <StaffSidebar />
       <SidebarInset className="flex flex-col">
+        <MobileHeader />
         <main className="flex-1 overflow-auto p-6 custom-scrollbar max-w-6xl mx-auto w-full">
           <GlobalComplianceAlert />
           {children}
