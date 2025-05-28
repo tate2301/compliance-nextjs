@@ -4,6 +4,7 @@ import { AuthProvider } from "@/lib/auth/auth-context";
 import { ReactNode, Suspense } from "react";
 import StaffHeader from "./components/Header";
 import { StaffSidebar } from "./components/StaffSidebar";
+import OnboardingGuard from "./components/OnboardingGuard";
 import {
   SidebarInset,
   SidebarProvider,
@@ -18,6 +19,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Toaster } from "@/components/ui/toaster";
 import { GlobalComplianceAlert } from "./components/GlobalComplianceAlert";
+import { usePathname } from "next/navigation";
+import { OnboardingProvider } from "./contexts/OnboardingContext";
 
 import {
   isServer,
@@ -52,8 +55,39 @@ function getQueryClient() {
     return browserQueryClient;
   }
 }
+
 interface ProvidersProps {
   children: ReactNode;
+}
+
+function AppLayoutContent({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const isOnboardingPage = pathname?.startsWith("/app/onboarding");
+
+  // If on onboarding page, render children directly (OnboardingHeader will be shown in onboarding layout)
+  if (isOnboardingPage) {
+    return (
+      <>
+
+        {children}
+        <Toaster />
+      </>
+    );
+  }
+
+  // For all other pages, show sidebar and staff header (no onboarding header)
+  return (
+    <SidebarProvider defaultOpen={true}>
+      <StaffSidebar />
+      <SidebarInset className="flex flex-col">
+        <main className="flex-1 overflow-auto p-6 custom-scrollbar max-w-6xl mx-auto w-full">
+          <GlobalComplianceAlert />
+          {children}
+        </main>
+      </SidebarInset>
+      <Toaster />
+    </SidebarProvider>
+  );
 }
 
 export default function Providers({ children }: ProvidersProps) {
@@ -63,11 +97,13 @@ export default function Providers({ children }: ProvidersProps) {
     <Suspense>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <SidebarProvider>
-            <StaffSidebar />
-            <SidebarInset>{children}</SidebarInset>
-            <Toaster />
-          </SidebarProvider>
+          <OnboardingProvider>
+            <OnboardingGuard>
+              <AppLayoutContent>
+                {children}
+              </AppLayoutContent>
+            </OnboardingGuard>
+          </OnboardingProvider>
         </AuthProvider>
       </QueryClientProvider>
     </Suspense>

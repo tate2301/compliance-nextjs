@@ -1,53 +1,55 @@
 // Define the form categories and their associated forms
-export const categories = ["personal", "qualifications", "employment", "documents"];
+export const categories = ["onboarding", "legal", "health", "employment", "assessment"];
 
 export const formsByCategory = {
-  personal: [
+  onboarding: [
     {
-      id: "personal-details",
-      title: "Personal Details",
-      url: "https://form.jotform.com/123456789",
+      id: "tcs-cv",
+      title: "TCS CV Template",
+      url: "https://form.jotform.com/221501404417038",
     },
     {
-      id: "contact-information",
-      title: "Contact Information",
-      url: "https://form.jotform.com/123456790",
+      id: "handbook-acknowledgement",
+      title: "Employee Handbook Acknowledgement",
+      url: "https://form.jotform.com/202802321916548",
+    },
+    {
+      id: "employee-manual",
+      title: "Employee Manual Acknowledgement",
+      url: "http://jotformeu.com/83444447608362",
     },
   ],
-  qualifications: [
+  legal: [
     {
-      id: "education",
-      title: "Education History",
-      url: "https://form.jotform.com/123456791",
+      id: "confidentiality-agreement",
+      title: "Confidentiality Agreement",
+      url: "https://form.jotform.com/203003202135028",
     },
+  ],
+  health: [
     {
-      id: "certifications",
-      title: "Professional Certifications",
-      url: "https://form.jotform.com/123456792",
+      id: "health-assessment",
+      title: "Annual Health Assessment Questionnaire",
+      url: "https://form.jotform.com/202722153489052",
     },
   ],
   employment: [
     {
-      id: "work-history",
-      title: "Work History",
-      url: "https://form.jotform.com/123456793",
+      id: "48hr-opt-out",
+      title: "48hr Opt Out",
+      url: "https://form.jotform.com/200262051908345",
     },
     {
-      id: "references",
-      title: "Professional References",
-      url: "https://form.jotform.com/123456794",
+      id: "temporary-worker-contract",
+      title: "Temporary Workers Contract for Services",
+      url: "https://form.jotform.com/202803657435557",
     },
   ],
-  documents: [
+  assessment: [
     {
-      id: "identity",
-      title: "Identity Documents",
-      url: "https://form.jotform.com/123456795",
-    },
-    {
-      id: "right-to-work",
-      title: "Right to Work",
-      url: "https://form.jotform.com/123456796",
+      id: "numeracy-literacy",
+      title: "Numeracy and Literacy Quiz",
+      url: "https://form.jotform.com/202714678035052",
     },
   ],
 };

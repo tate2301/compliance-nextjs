@@ -105,7 +105,7 @@ function convertJotFormToBuilderForm(formData: Record<string, JotFormQuestion>):
             fields.push({
                 id: question.qid,
                 type: "paragraph",
-                label: "",
+                label: question.text ?? "Placeholder text",
                 required: question.required === "Yes",
                 properties: {
                     placeholder: "Fill in the matrix data",
@@ -230,6 +230,8 @@ export async function getJotFormById(formId: string): Promise<Form> {
     )
 
     if (!response.ok) {
+        console.log(response)
+
         throw new Error(`Failed to fetch form: ${response.statusText}`)
     }
 

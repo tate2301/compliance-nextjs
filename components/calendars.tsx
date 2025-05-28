@@ -28,7 +28,7 @@ export function Calendars({
     <>
       {calendars.map((calendar, index) => (
         <React.Fragment key={calendar.name}>
-          <SidebarGroup key={calendar.name} className="py-0">
+          <SidebarGroup key={calendar.name} className="py-0 px-0">
             <Collapsible
               defaultOpen={index === 0}
               className="group/collapsible"

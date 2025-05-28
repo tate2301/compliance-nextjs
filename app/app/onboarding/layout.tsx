@@ -1,21 +1,27 @@
 "use client";
 
-import { ReactNode } from "react"
-import { Card } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { useSearchParams } from "next/navigation"
+import { Progress } from "@/components/ui/progress";
+import OnboardingHeader from "@/app/app/components/OnboardingHeader";
+import { useOnboardingData } from "@/app/hooks/useOnboardingData";
 
 interface OnboardingLayoutProps {
-    children: ReactNode
+    children: React.ReactNode;
 }
 
 export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
-    const searchParams = useSearchParams()
-
+    const { totalSteps, completedSteps, progressPercentage } = useOnboardingData();
+    
     return (
-        <div className="container px-1 max-w-7xl py-8">
-            <div>
-                {children}
+        <div className="min-h-screen bg-slate-1">
+            <OnboardingHeader />
+            
+            <div className="container max-w-7xl mx-auto px-4 py-8">
+                
+
+                {/* Main content */}
+                <div className="bg-card rounded-lg border border-slate-6 p-6">
+                    {children}
+                </div>
             </div>
         </div>
     )

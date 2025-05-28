@@ -60,7 +60,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
     placeholder: properties.placeholder || `Enter ${label.toLowerCase()}`,
     style: commonInputStyles,
     className: cn(
-      "w-full",
+      "w-full p-2",
       error && "border-error-7 focus:border-error-8 focus:ring-error-8"
     ),
     value,
@@ -391,7 +391,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
         <div className="space-y-2">
           <div
             className={cn(
-              "prose prose-slate max-w-none w-full rounded-md p-4",
+              "prose max-w-none w-full rounded-md p-4 leading-loose text-slate-11",
               properties.textAlign === "center" && "text-center",
               properties.textAlign === "right" && "text-right",
               properties.textAlign === "justify" && "text-justify"

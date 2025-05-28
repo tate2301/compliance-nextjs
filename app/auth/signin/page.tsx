@@ -32,12 +32,13 @@ export default function SignIn() {
       const { user, token } = response.data;
       login(user, token);
 
-      // Check for return URL in search params
+      // After successful login, redirect to onboarding first
+      // The OnboardingGuard will check completion status and redirect appropriately
       const returnUrl = searchParams.get("return_url");
       if (returnUrl) {
         router.push(returnUrl);
       } else {
-        router.push("/app/documents");
+        router.push("/app/onboarding");
       }
 
       toast.success("Successfully signed in!");

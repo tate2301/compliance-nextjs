@@ -1,11 +1,22 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { User } from "@/lib/types";
+import { useAuth } from "@/lib/auth/auth-context";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { LogOut } from "lucide-react";
 
 export default function StaffDropdownMenu({ user }: {
     user: User
 }) {
+    const { logout } = useAuth();
+    const router = useRouter();
+
+    const handleLogout = () => {
+        logout();
+        router.push("/auth/signin");
+    };
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger>
@@ -32,10 +43,11 @@ export default function StaffDropdownMenu({ user }: {
                 <DropdownMenuItem>
                     Settings
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout}>
+                    <LogOut className="mr-2 h-4 w-4" />
                     Sign out
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
-    )
+    );
 }

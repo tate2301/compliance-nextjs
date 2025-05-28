@@ -1,6 +1,7 @@
 import {
   BadgeCheck,
   Bell,
+  ChevronDown,
   ChevronsUpDown,
   CreditCard,
   Loader2,
@@ -112,17 +113,16 @@ export function NavUser({
             <Button
               size="lg"
               variant="ghost"
-              className="p-1 flex w-full gap-4 data-[state=open]:bg-slate-6 data-[state=open]:text-sidebar-accent-foreground"
+              className="px-1 pr-2 py-0.5 flex gap-4 hover:bg-slate-6 data-[state=open]:bg-slate-6 data-[state=open]:text-sidebar-accent-foreground max-w-64 w-fit"
             >
-              <Avatar className="h-8 w-8 rounded-lg">
+              <Avatar className="h-6 w-7 rounded-md">
                 <AvatarImage src={user.avatar} alt={user.name} />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
-                <span className="truncate text-xs">{user.email}</span>
               </div>
-              <ChevronsUpDown className="ml-auto size-4" />
+              <ChevronDown className="ml-auto size-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent

@@ -12,7 +12,6 @@ export function ThemeToggle() {
 
     return (
         <div className="flex items-center space-x-2 w-full justify-between">
-            <span className='text-sm font-medium text-slate-11'>Appearance</span>
             <div className="flex gap-1 rounded-md bg-slate-3 p-1 w-fit">
                 <Button onClick={() => {
                     setTheme('light')

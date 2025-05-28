@@ -35,6 +35,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap");
+
 @font-face {
   font-family: 'Sohne';
   src: url('./SohneWeb-Mager.woff2') format('woff2');
@@ -56,35 +58,58 @@
     --font-sans: 'Sohne', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --mercury-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
-    --background: var(--slate-1);
-    --foreground: var(--slate-12);
-    --card: var(--slate-2);
-    --card-foreground: var(--slate-12);
-    --popover: var(--slate-2);
-    --popover-foreground: var(--slate-12);
-    --primary: var(--indigo-9);
-    --primary-foreground: white;
-    --secondary: var(--slate-6);
-    --secondary-foreground: var(--slate-12);
-    --border: var(--slate-6);
-    --input: var(--slate-6);
-    --ring: var(--indigo-7);
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
   }
 
   .dark {
-    --background: var(--slate-1);
-    --foreground: var(--slate-12);
-    --card: var(--slate-2);
-    --card-foreground: var(--slate-12);
-    --popover: var(--slate-2);
-    --popover-foreground: var(--slate-12);
-    --primary: var(--indigo-9);
-    --primary-foreground: white;
-    --secondary: var(--slate-7);
-    --secondary-foreground: var(--slate-12);
-    --border: var(--slate-7);
-    --input: var(--slate-7);
-    --ring: var(--indigo-7);
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 
   html {
@@ -93,12 +118,15 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     line-height: 18px;
-
   }
 
   * {
-        @apply border-slate-6 outline-slate-6;
+    border-color: hsl(var(--border));
+  }
 
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
@@ -190,14 +218,12 @@ body {
   display: table;
 }
 
-
 .prose th,
 .prose td {
   padding: 0.75rem;
   border: 1px solid;
   text-align: left;
   @apply border border-slate-6;
-
 }
 
 .prose thead th {
@@ -213,9 +239,150 @@ body {
 .prose tbody tr:nth-child(even) {
   background-color: var(--background);
     @apply text-slate-11
-
 }
 
 .prose tbody tr:hover {
   background-color: var(--slate-2);
+}
+
+/* Enhanced Sidebar Animations */
+.sidebar-enhanced {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-enhanced[data-state="collapsed"] {
+  transform: translateX(0);
+}
+
+.sidebar-enhanced[data-state="expanded"] {
+  transform: translateX(0);
+}
+
+/* Sidebar Content Animations */
+.sidebar-content {
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.sidebar-content[data-collapsed="true"] {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.sidebar-content[data-collapsed="false"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hover Effects */
+.sidebar-item {
+  transition: all 150ms ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.sidebar-item:hover::before {
+  transform: translateX(100%);
+}
+
+/* Smooth resize handle */
+.sidebar-resize-handle {
+  transition: background-color 200ms ease-in-out;
+  cursor: col-resize;
+}
+
+.sidebar-resize-handle:hover {
+  background-color: hsl(var(--primary) / 0.1);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .sidebar-mobile {
+    transform: translateX(-100%);
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .sidebar-mobile[data-open="true"] {
+    transform: translateX(0);
+  }
+}
+
+/* Loading skeleton animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Notification badge animation */
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.notification-badge {
+  animation: bounce-in 0.3s ease-out;
+}
+
+/* Progress bar animation */
+@keyframes progress-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--progress-width);
+  }
+}
+
+.progress-bar {
+  animation: progress-fill 1s ease-out forwards;
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }
