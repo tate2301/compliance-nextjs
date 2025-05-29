@@ -294,7 +294,7 @@ export function StaffSidebar() {
             <div className="flex gap-4 items-center">
               <NavUser
                 user={{
-                  avatar: user.profile_image,
+                  profile_image: user.profile_image,
                   email: user.email,
                   name: `${user.first_name} ${user.last_name}`,
                 }}

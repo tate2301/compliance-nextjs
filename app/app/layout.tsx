@@ -79,8 +79,7 @@ function AppLayoutContent({ children }: { children: ReactNode }) {
       <StaffSidebar />
       <SidebarInset className="flex flex-col">
         <MobileHeader />
-        <main className="flex-1 overflow-auto p-6 custom-scrollbar max-w-6xl mx-auto w-full">
-          <GlobalComplianceAlert />
+        <main className="flex-1 overflow-auto lg:p-6 custom-scrollbar max-w-6xl mx-auto w-full">
           {children}
         </main>
       </SidebarInset>

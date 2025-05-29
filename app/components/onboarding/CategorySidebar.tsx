@@ -1,5 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CheckCircleIcon } from "@heroicons/react/solid";
 
 interface CategorySidebarProps {
   categories: string[];
@@ -21,7 +22,7 @@ export function CategorySidebar({
   onStepSelect,
 }: CategorySidebarProps) {
   return (
-    <div className="w-full lg:w-72 lg:flex-none">
+    <div className="w-full lg:w-72 lg:flex-none sticky top-0">
       <div className="flex lg:flex-col gap-2 lg:gap-1 pb-4 lg:pb-0 overflow-x-auto scrollbar-none">
         {categories.map((cat, categoryIndex) => {
           const catForms = formsByCategory[cat];
@@ -48,9 +49,9 @@ export function CategorySidebar({
                   className={cn(
                     "flex items-center gap-3 rounded-lg border-2 p-3",
                     isCompleted && "border-success-10 bg-primary/5",
-                    isActive && "border-secondary-10 bg-slate-1",
+                    isActive && "bg-slate-1",
                     isPending &&
-                      "opacity-50 hover:opacity-75 transition-opacity"
+                      "hover:opacity-75 transition-opacity"
                   )}
                 >
                   <div
@@ -64,13 +65,13 @@ export function CategorySidebar({
                     )}
                   >
                     {isCompleted ? (
-                      <CheckCircle className="h-4 w-4 text-white" />
+                      <CheckCircleIcon className="h-6 w-6 text-success-10" />
                     ) : (
                       categoryIndex + 1
                     )}
                   </div>
                   <div className="flex flex-col min-w-0 flex-1">
-                    <div className="text-sm font-medium mb-1 truncate">
+                    <div className={cn("text-sm font-medium mb-1 truncate", isCompleted && "text-slate-10")}>
                       {cat.charAt(0).toUpperCase() + cat.slice(1)}
                     </div>
                     <div className="text-xs text-slate-10">
@@ -98,8 +99,8 @@ export function CategorySidebar({
                         onClick={() => onStepSelect(cat, formIndex + 1)}
                         className={cn(
                           "flex w-full items-center gap-3 rounded-lg p-2 text-left text-sm transition-colors",
-                          isCompleted && "text-primary",
-                          isActive && "bg-accent text-accent-foreground",
+                          isCompleted && "text-success-10",
+                          isActive && "bg-slate-3 text-slate-12",
                           isPending &&
                             "text-muted-foreground hover:text-muted-foreground/80"
                         )}
@@ -107,12 +108,12 @@ export function CategorySidebar({
                         <div
                           className={cn(
                             "h-2 w-2 rounded-full shrink-0",
-                            isCompleted && "bg-primary",
-                            isActive && "bg-background",
-                            isPending && "bg-muted-foreground"
+                            isCompleted && "bg-success-10",
+                            isActive && "border-2 border-slate-8",
+                            isPending && "border border-slate-6"
                           )}
                         />
-                        <span className="truncate">{form.title}</span>
+                        <span className={cn("truncate text-slate-10", isActive && "font-semibold text-slate-12")}>{form.title}</span>
                       </button>
                     );
                   })}

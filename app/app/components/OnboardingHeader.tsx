@@ -19,7 +19,7 @@ export default function OnboardingHeader() {
     if (!isAuthenticated || !user) return null;
 
     return (
-        <header className="sticky top-0 z-50 p-4 w-full border-b border-slate-6 bg-card/75 backdrop-blur supports-[backdrop-filter]:bg-card/75">
+        <header className="sticky top-0 z-50 p-2 w-full border-b border-slate-6/50 shadow-sm bg-slate-2 backdrop-blur supports-[backdrop-filter]:bg-card/75">
             <div className="max-w-7xl mx-auto flex justify-between w-full px-4 sm:px-6 lg:px-8">
                 <div className="flex gap-4 items-center">
                     <p className='text-slate-12 text-base sm:text-lg font-medium'>Compliance Aide</p>

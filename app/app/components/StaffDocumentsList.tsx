@@ -22,9 +22,13 @@ import { useQuery } from "@tanstack/react-query";
 import { HourglassIcon } from "lucide-react";
 import Link from "next/link";
 import { MissingStaffDocumentsAlert } from "./MissingStaffDocumentsAlert";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function StaffDocumentsList() {
-  const { data: systemDocuments } = useQuery({
+  const {
+    data: systemDocuments,
+    isLoading: isLoadingSystemDocuments,
+  } = useQuery({
     queryKey: ["systemDocuments"],
     queryFn: () => documentsService.getDocuments(),
   });
@@ -32,12 +36,18 @@ function StaffDocumentsList() {
   const {
     documents: userDocuments,
     documentReferences,
-    isLoading,
+    isLoading: isLoadingUserDocuments,
     getMissingDocuments,
   } = useDocuments();
 
   // Get missing documents
   const missingDocuments = getMissingDocuments();
+
+  const isLoading = isLoadingSystemDocuments || isLoadingUserDocuments;
+
+  if (isLoading) {
+    return <StaffDocumentListSkeleton />;
+  }
 
   return (
     <div className="">
@@ -77,7 +87,43 @@ function StaffDocumentsList() {
 }
 
 export const StaffDocumentListSkeleton = () => {
-  return <div></div>;
+  const SkeletonListItem = () => (
+    <div className="flex gap-8 items-center px-2 py-4 w-full">
+      <Skeleton className="h-6 w-6 rounded" />
+      <div className="flex-1 space-y-2">
+        <Skeleton className="h-4 w-1/3" />
+        <Skeleton className="h-3 w-1/4" />
+      </div>
+      <Skeleton className="h-6 w-20" />
+      <Skeleton className="h-4 w-32" />
+      <Skeleton className="h-8 w-16" />
+    </div>
+  );
+
+  return (
+    <div className="mb-12 animate-pulse">
+      <div className="flex justify-between items-center mb-4 border-b pb-4">
+        <Skeleton className="h-6 w-48" />
+        <Skeleton className="h-5 w-24" />
+      </div>
+
+      {/* System Forms/Documents */}
+      <Skeleton className="h-5 w-32 mb-4" />
+      <div className="divide-y divide-slate-6 mb-8">
+        {Array.from({ length: 3 }).map((_, idx) => (
+          <SkeletonListItem key={idx} />
+        ))}
+      </div>
+
+      {/* User Documents */}
+      <Skeleton className="h-5 w-32 mb-4" />
+      <div className="divide-y divide-slate-6">
+        {Array.from({ length: 3 }).map((_, idx) => (
+          <SkeletonListItem key={idx} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export const StaffDocumentListItem = (props: StaffDocument) => {

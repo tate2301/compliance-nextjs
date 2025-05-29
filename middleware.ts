@@ -1,42 +1,44 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
     const token = request.cookies.get('token');
-    const user = request.cookies.get('user');
+    const userCookie = request.cookies.get('user');
     const host = request.headers.get('host') || '';
     const url = request.nextUrl;
 
+    // Parse user data from cookie
+    let userData = null;
+    if (userCookie) {
+        try {
+            userData = JSON.parse(userCookie.value);
+        } catch (error) {
+            console.error('Failed to parse user data:', error);
+        }
+    }
 
     // Determine if route is protected
     const isProtectedRoute =
         url.pathname.startsWith('/dashboard') ||
         url.pathname.startsWith('/app');
 
-    if (isProtectedRoute && (!token || !user)) {
-        // Determine the base URL for the redirect
+    // Handle unauthenticated users
+    if (isProtectedRoute && (!token || !userCookie || !userData)) {
         const protocol = request.headers.get('x-forwarded-proto') || 'http';
-        const baseHost = host.replace(/^(app\.|admin\.)/, ''); // Remove subdomain for auth
+        const baseHost = host.replace(/^(app\.|admin\.)/, '');
         const baseUrl = new URL('/auth/signin', `${protocol}://${baseHost}`);
-
-        // Create the return URL that preserves the original request URL
         const returnUrl = encodeURIComponent(`${protocol}://${host}`);
-
         return NextResponse.redirect(new URL(`${baseUrl.toString()}?return_url=${returnUrl}`));
     }
 
+    // Handle API routes with headers
     if (url.pathname.startsWith('/api/')) {
         const requestHeaders = new Headers(request.headers);
         if (token) {
             requestHeaders.set('Authorization', `Bearer ${token.value}`);
         }
-        if (user) {
-            try {
-                const userData = JSON.parse(user.value);
-                requestHeaders.set('userId', userData.id);
-            } catch (error) {
-                console.error('Failed to parse user data:', error);
-            }
+        if (userData) {
+            requestHeaders.set('userId', userData.id);
         }
 
         return NextResponse.next({

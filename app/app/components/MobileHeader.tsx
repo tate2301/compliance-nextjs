@@ -4,6 +4,7 @@ import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import StaffDropdownMenu from "./StaffDropdownMenu";
 import { useAuth } from "@/lib/auth/auth-context";
 import { cn } from "@/lib/utils";
+import { NavUser } from "@/components/nav-user";
 
 export default function MobileHeader() {
   const { user, isAuthenticated } = useAuth();
@@ -23,7 +24,13 @@ export default function MobileHeader() {
         <SidebarTrigger className="size-10 p-0" />
 
         {/* User avatar dropdown */}
-        <StaffDropdownMenu user={user} />
+        <div className="w-fit flex justify-end">
+          <NavUser user={{
+            name: `${user.first_name} ${user.last_name}`,
+            email: user.email,
+            profile_image: user.profile_image,
+          }} />
+        </div>
       </div>
     </header>
   );

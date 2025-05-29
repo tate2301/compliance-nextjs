@@ -9,19 +9,13 @@ interface OnboardingLayoutProps {
 }
 
 export default function OnboardingLayout({ children }: OnboardingLayoutProps) {
-    const { totalSteps, completedSteps, progressPercentage } = useOnboardingData();
     
     return (
-        <div className="min-h-screen bg-slate-1">
+        <div className="min-h-screen bg-slate-1  flex flex-col">
             <OnboardingHeader />
             
-            <div className="container max-w-7xl mx-auto px-4 py-8">
-                
-
-                {/* Main content */}
-                <div className="bg-card rounded-lg border border-slate-6 p-6">
+            <div className="container max-w-7xl mx-auto px-4 py-8 h-full">
                     {children}
-                </div>
             </div>
         </div>
     )

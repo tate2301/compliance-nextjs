@@ -20,6 +20,7 @@ export interface IComplianceUser {
   profileImage?: string;
   onboardingStatus: IOnboardingStatus;
   isActive: boolean;
+  isVerified: boolean; // Whether the user's onboarding has been verified/approved by admin
   createdAt: Date;
   updatedAt: Date;
 }
@@ -94,6 +95,10 @@ const UserSchema = new Schema<IComplianceUser>({
   isActive: {
     type: Boolean,
     default: true
+  },
+  isVerified: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true

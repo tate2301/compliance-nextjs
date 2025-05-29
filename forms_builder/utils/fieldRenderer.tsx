@@ -75,11 +75,11 @@ export function renderField(field: FormField, props: FieldRenderProps) {
   switch (type) {
     case "shortAnswer":
       return (
-        <div className="space-y-2">
+        <div className="space-y-2 p-2">
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -95,11 +95,11 @@ export function renderField(field: FormField, props: FieldRenderProps) {
       );
     case "longAnswer":
       return (
-        <div className="space-y-2">
+        <div className="space-y-2 p-2">
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -114,25 +114,27 @@ export function renderField(field: FormField, props: FieldRenderProps) {
       );
     case "email":
       return (
-        <div className="space-y-2">
+        <div className="space-y-2 p-2">
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
           </Label>
-          <Input className="max-w-96" type="email" {...commonProps} />
+          <div className="max-w-96">
+            <Input type="email" {...commonProps} />
+          </div>
         </div>
       );
     case "date":
       return (
-        <div className="space-y-2">
+        <div className="space-y-2 p-2">
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -158,7 +160,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <RadioGroup
             value={value}
             onValueChange={onChange}
-            className="space-y-2"
+            className="space-y-2 p-2"
           >
             {properties.choices?.map((choice, index) => (
               <div key={index} className="flex items-center space-x-2">
@@ -194,7 +196,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <RadioGroup
             value={value}
             onValueChange={onChange}
-            className="space-y-2"
+            className="space-y-2 p-2"
           >
             <div className="flex items-center space-x-2">
               <RadioGroupItem
@@ -235,7 +237,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -257,7 +259,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                     "flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
                     value === rating.toString()
                       ? "border-primary-10 bg-primary-4 text-white"
-                      : "border-zinc-200 bg-white text-zinc-700 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
+                      : "border-zinc-200 bg-white text-slate-10 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 >
@@ -280,7 +282,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -298,7 +300,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                     "flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
                     value === rating.toString()
                       ? "border-primary-10 bg-primary-4 text-white"
-                      : "border-zinc-200 bg-white text-zinc-700 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
+                      : "border-zinc-200 bg-white text-slate-10 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 >
@@ -316,11 +318,11 @@ export function renderField(field: FormField, props: FieldRenderProps) {
     }
     case "fileUpload":
       return (
-        <div className="space-y-2">
+        <div className="space-y-2 p-2">
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -352,7 +354,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                 </svg>
               </div>
               <div>
-                <p className="text-sm font-medium text-zinc-700">
+                <p className="text-sm font-medium text-slate-10">
                   Click to upload or drag and drop
                 </p>
                 <p className="text-xs text-zinc-500">
@@ -367,11 +369,11 @@ export function renderField(field: FormField, props: FieldRenderProps) {
       );
     case "signature":
       return (
-        <div className="space-y-2">
+        <div className="space-y-2 p-2">
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-zinc-700"
+            className="text-slate-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -388,7 +390,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
       );
     case "paragraph":
       return (
-        <div className="space-y-2">
+        <div className="space-y-2 p-2">
           <div
             className={cn(
               "prose max-w-none w-full rounded-md p-4 leading-loose text-slate-11",
@@ -415,6 +417,6 @@ export function renderField(field: FormField, props: FieldRenderProps) {
         </div>
       );
     default:
-      return <div>Unsupported field type: {type}</div>;
+      return <></>
   }
 }

@@ -18,7 +18,7 @@ export const FormContainer = forwardRef<FormPreviewRef, FormContainerProps>(
   ({ isLoading, formData, onSubmitForm }, ref) => {
     return (
       <Card className="overflow-hidden">
-        <div className="p-4 sm:p-6">
+        <div className="">
           {isLoading ? (
             <div className="flex items-center justify-center p-8">
               <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />

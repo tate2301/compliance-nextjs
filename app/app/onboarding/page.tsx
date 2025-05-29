@@ -13,21 +13,7 @@ import { Loader2 } from "lucide-react";
 function OnboardingLoadingSkeleton() {
   return (
     <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
-      {/* Left sidebar skeleton */}
-      <div className="w-full lg:w-72 lg:flex-none">
-        <div className="space-y-4">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="space-y-3">
-              <div className="h-16 bg-slate-3 rounded-lg animate-pulse" />
-              <div className="ml-7 space-y-2">
-                {[...Array(2)].map((_, j) => (
-                  <div key={j} className="h-8 bg-slate-3 rounded animate-pulse" />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      
 
       {/* Main content skeleton */}
       <div className="flex-1 min-w-0">
@@ -36,10 +22,7 @@ function OnboardingLoadingSkeleton() {
             <div className="flex items-center justify-center p-12">
               <div className="flex flex-col items-center gap-4">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <div className="text-center space-y-1">
-                  <p className="text-lg font-medium text-slate-12">Please wait</p>
-                  <p className="text-sm text-slate-9">We're loading your forms</p>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -82,7 +65,7 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+    <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 h-full overflow-auto">
       {/* Left sidebar with steps */}
       <CategorySidebar
         categories={categories}
