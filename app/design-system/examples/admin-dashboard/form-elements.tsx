@@ -28,10 +28,10 @@ function ExampleCard({ title, children, description, className = '' }: ExampleCa
     return (
         <div className="space-y-3">
             <div className="space-y-1">
-                <h3 className="text-lg font-semibold text-slate-12">{title}</h3>
-                {description && <p className="text-sm text-slate-11">{description}</p>}
+                <h3 className="text-lg font-semibold text-sand-12">{title}</h3>
+                {description && <p className="text-sm text-sand-11">{description}</p>}
             </div>
-            <Card className={`p-4 border-slate-6 bg-slate-2 ${className}`}>
+            <Card className={`p-4 border-sand-6 bg-sand-2 ${className}`}>
                 {children}
             </Card>
         </div>
@@ -44,8 +44,8 @@ export default function FormExamples() {
     return (
         <div className="space-y-10">
             <div className="space-y-4">
-                <h2 className="text-2xl font-bold tracking-tight text-slate-12">Form Elements</h2>
-                <p className="text-slate-11">Examples of form components for admin dashboards and data entry interfaces.</p>
+                <h2 className="text-2xl font-bold tracking-tight text-sand-12">Form Elements</h2>
+                <p className="text-sand-11">Examples of form components for admin dashboards and data entry interfaces.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -84,14 +84,14 @@ export default function FormExamples() {
                         <div className="space-y-2">
                             <Label htmlFor="with-icon" className="flex items-center gap-2">
                                 With Help Icon
-                                <HelpCircle className="h-3 w-3 text-slate-11" />
+                                <HelpCircle className="h-3 w-3 text-sand-11" />
                             </Label>
                             <Input
                                 id="with-icon"
                                 placeholder="Enter value"
                                 className="transition-all duration-300"
                             />
-                            <p className="text-xs text-slate-11">Additional helper text to explain the input</p>
+                            <p className="text-xs text-sand-11">Additional helper text to explain the input</p>
                         </div>
                     </div>
                 </ExampleCard>
@@ -148,7 +148,7 @@ export default function FormExamples() {
                             </Label>
                             <div className="flex items-center space-x-2">
                                 <Switch id="notifications" className="transition-all duration-300" />
-                                <Label htmlFor="notifications" className="text-sm text-slate-11">
+                                <Label htmlFor="notifications" className="text-sm text-sand-11">
                                     Enable notifications
                                 </Label>
                             </div>
@@ -166,25 +166,25 @@ export default function FormExamples() {
                         <div className="space-y-2">
                             <div className="flex items-center space-x-2">
                                 <Checkbox id="read" className="transition-all duration-300" />
-                                <Label htmlFor="read" className="text-sm text-slate-12">
+                                <Label htmlFor="read" className="text-sm text-sand-12">
                                     Read
                                 </Label>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <Checkbox id="write" className="transition-all duration-300" />
-                                <Label htmlFor="write" className="text-sm text-slate-12">
+                                <Label htmlFor="write" className="text-sm text-sand-12">
                                     Write
                                 </Label>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <Checkbox id="delete" className="transition-all duration-300" />
-                                <Label htmlFor="delete" className="text-sm text-slate-12">
+                                <Label htmlFor="delete" className="text-sm text-sand-12">
                                     Delete
                                 </Label>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <Checkbox id="admin" className="transition-all duration-300" disabled />
-                                <Label htmlFor="admin" className="text-sm text-slate-11">
+                                <Label htmlFor="admin" className="text-sm text-sand-11">
                                     Admin (Requires approval)
                                 </Label>
                             </div>
@@ -202,25 +202,25 @@ export default function FormExamples() {
                         <RadioGroup defaultValue="user" className="space-y-2">
                             <div className="flex items-center space-x-2">
                                 <RadioGroupItem value="user" id="user" className="transition-all duration-300" />
-                                <Label htmlFor="user" className="text-sm text-slate-12">
+                                <Label htmlFor="user" className="text-sm text-sand-12">
                                     Regular User
                                 </Label>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <RadioGroupItem value="admin" id="admin" className="transition-all duration-300" />
-                                <Label htmlFor="admin" className="text-sm text-slate-12">
+                                <Label htmlFor="admin" className="text-sm text-sand-12">
                                     Administrator
                                 </Label>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <RadioGroupItem value="mod" id="mod" className="transition-all duration-300" />
-                                <Label htmlFor="mod" className="text-sm text-slate-12">
+                                <Label htmlFor="mod" className="text-sm text-sand-12">
                                     Moderator
                                 </Label>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <RadioGroupItem value="guest" id="guest" className="transition-all duration-300" disabled />
-                                <Label htmlFor="guest" className="text-sm text-slate-11">
+                                <Label htmlFor="guest" className="text-sm text-sand-11">
                                     Guest (Unavailable)
                                 </Label>
                             </div>
@@ -240,7 +240,7 @@ export default function FormExamples() {
                             placeholder="Enter detailed description..."
                             className="min-h-[120px] transition-all duration-300"
                         />
-                        <p className="text-xs text-slate-11">Supports markdown formatting</p>
+                        <p className="text-xs text-sand-11">Supports markdown formatting</p>
                     </div>
                 </ExampleCard>
 
@@ -264,15 +264,15 @@ export default function FormExamples() {
                             </PopoverTrigger>
                             <PopoverContent className="w-full p-0" align="start">
                                 <div className="p-2 space-y-1">
-                                    <div className="flex items-center gap-2 rounded-sm p-1.5 cursor-pointer hover:bg-slate-3 transition-all duration-300">
+                                    <div className="flex items-center gap-2 rounded-sm p-1.5 cursor-pointer hover:bg-sand-3 transition-all duration-300">
                                         <Check className="h-4 w-4 text-primary-9" />
                                         <span>Sophia Chen</span>
                                     </div>
-                                    <div className="flex items-center gap-2 rounded-sm p-1.5 cursor-pointer hover:bg-slate-3 transition-all duration-300">
+                                    <div className="flex items-center gap-2 rounded-sm p-1.5 cursor-pointer hover:bg-sand-3 transition-all duration-300">
                                         <div className="h-4 w-4" />
                                         <span>Marcus Johnson</span>
                                     </div>
-                                    <div className="flex items-center gap-2 rounded-sm p-1.5 cursor-pointer hover:bg-slate-3 transition-all duration-300">
+                                    <div className="flex items-center gap-2 rounded-sm p-1.5 cursor-pointer hover:bg-sand-3 transition-all duration-300">
                                         <div className="h-4 w-4" />
                                         <span>Aisha Patel</span>
                                     </div>
@@ -284,7 +284,7 @@ export default function FormExamples() {
             </div>
 
             {/* Form Layout */}
-            <Separator className="my-8 bg-slate-6" />
+            <Separator className="my-8 bg-sand-6" />
 
             <ExampleCard
                 title="Admin Form Layout"
@@ -328,7 +328,7 @@ export default function FormExamples() {
                     </div>
                     <div className="flex items-center space-x-2">
                         <Checkbox id="active" className="transition-all duration-300" />
-                        <Label htmlFor="active" className="text-sm text-slate-12">
+                        <Label htmlFor="active" className="text-sm text-sand-12">
                             Active account
                         </Label>
                     </div>

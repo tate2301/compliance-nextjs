@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
-import ComplianceUser from "./model";
+import ComplianceUser from "@/lib/db/models/user";
 
 // GET /api/user - Get user by authUserId
 export async function GET(request: NextRequest) {
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 
     let user;
     if (authUserId) {
-      user = await ComplianceUser.findOne({ authUserId }).exec();
+      user = await ComplianceUser.findOne({ legacyId: authUserId }).exec();
     } else {
       user = await ComplianceUser.findOne({ email }).exec();
     }
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user already exists
-    let user = await ComplianceUser.findOne({ authUserId }).exec();
+    let user = await ComplianceUser.findOne({ legacyId: authUserId }).exec();
 
     if (user) {
       // Update existing user
@@ -104,7 +104,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    const user = await ComplianceUser.findOne({ authUserId }).exec();
+    const user = await ComplianceUser.findOne({ legacyId: authUserId }).exec();
 
     if (!user) {
       return NextResponse.json(

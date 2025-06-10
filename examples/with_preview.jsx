@@ -64,7 +64,7 @@ export default function Example() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-slate-12/25 transition-opacity" />
+          <Dialog.Overlay className="fixed inset-0 bg-sand-12/25 transition-opacity" />
         </Transition.Child>
 
         <Transition.Child
@@ -78,25 +78,25 @@ export default function Example() {
         >
           <Combobox
             as="div"
-            className="mx-auto max-w-3xl transform divide-y divide-slate-6 overflow-hidden rounded-xl bg-slate-1 shadow-lg ring-1 ring-slate-6 transition-all"
+            className="mx-auto max-w-3xl transform divide-y divide-sand-6 overflow-hidden rounded-xl bg-sand-1 shadow-lg ring-1 ring-sand-6 transition-all"
             onChange={(person) => (window.location = person.profileUrl)}
           >
             {({ activeOption }) => (
               <>
                 <div className="relative">
                   <SearchIcon
-                    className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-slate-11"
+                    className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-sand-11"
                     aria-hidden="true"
                   />
                   <Combobox.Input
-                    className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-slate-12 placeholder-slate-11 focus:ring-0 sm:text-sm"
+                    className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-sand-12 placeholder-sand-11 focus:ring-0 sm:text-sm"
                     placeholder="Search..."
                     onChange={(event) => setQuery(event.target.value)}
                   />
                 </div>
 
                 {(query === '' || filteredPeople.length > 0) && (
-                  <Combobox.Options as="div" static hold className="flex divide-x divide-slate-6">
+                  <Combobox.Options as="div" static hold className="flex divide-x divide-sand-6">
                     <div
                       className={classNames(
                         'max-h-96 min-w-0 flex-auto scroll-py-4 overflow-y-auto px-6 py-4',
@@ -104,9 +104,9 @@ export default function Example() {
                       )}
                     >
                       {query === '' && (
-                        <h2 className="mt-2 mb-4 text-xs font-semibold text-slate-11">Recent searches</h2>
+                        <h2 className="mt-2 mb-4 text-xs font-semibold text-sand-11">Recent searches</h2>
                       )}
-                      <div className="-mx-2 text-sm text-slate-12">
+                      <div className="-mx-2 text-sm text-sand-12">
                         {(query === '' ? recent : filteredPeople).map((person) => (
                           <Combobox.Option
                             as="div"
@@ -115,7 +115,7 @@ export default function Example() {
                             className={({ active }) =>
                               classNames(
                                 'flex cursor-default select-none items-center rounded-md p-2 transition-colors',
-                                active ? 'bg-slate-3 text-slate-12' : 'text-slate-11 hover:text-slate-12'
+                                active ? 'bg-sand-3 text-sand-12' : 'text-sand-11 hover:text-sand-12'
                               )
                             }
                           >
@@ -125,7 +125,7 @@ export default function Example() {
                                 <span className="ml-3 flex-auto truncate">{person.name}</span>
                                 {active && (
                                   <ChevronRightIcon
-                                    className="ml-3 h-5 w-5 flex-none text-slate-11"
+                                    className="ml-3 h-5 w-5 flex-none text-sand-11"
                                     aria-hidden="true"
                                   />
                                 )}
@@ -137,23 +137,23 @@ export default function Example() {
                     </div>
 
                     {activeOption && (
-                      <div className="hidden h-96 w-1/2 flex-none flex-col divide-y divide-slate-6 overflow-y-auto sm:flex">
+                      <div className="hidden h-96 w-1/2 flex-none flex-col divide-y divide-sand-6 overflow-y-auto sm:flex">
                         <div className="flex-none p-6 text-center">
                           <img src={activeOption.imageUrl} alt="" className="mx-auto h-16 w-16 rounded-full" />
-                          <h2 className="mt-3 font-semibold text-slate-12">{activeOption.name}</h2>
-                          <p className="text-sm leading-6 text-slate-11">{activeOption.role}</p>
+                          <h2 className="mt-3 font-semibold text-sand-12">{activeOption.name}</h2>
+                          <p className="text-sm leading-6 text-sand-11">{activeOption.role}</p>
                         </div>
                         <div className="flex flex-auto flex-col justify-between p-6">
-                          <dl className="grid grid-cols-1 gap-x-6 gap-y-3 text-sm text-slate-12">
-                            <dt className="col-end-1 font-semibold text-slate-12">Phone</dt>
+                          <dl className="grid grid-cols-1 gap-x-6 gap-y-3 text-sm text-sand-12">
+                            <dt className="col-end-1 font-semibold text-sand-12">Phone</dt>
                             <dd>{activeOption.phone}</dd>
-                            <dt className="col-end-1 font-semibold text-slate-12">URL</dt>
+                            <dt className="col-end-1 font-semibold text-sand-12">URL</dt>
                             <dd className="truncate">
                               <a href={activeOption.url} className="text-primary-9 hover:text-primary-10 underline transition-colors">
                                 {activeOption.url}
                               </a>
                             </dd>
-                            <dt className="col-end-1 font-semibold text-slate-12">Email</dt>
+                            <dt className="col-end-1 font-semibold text-sand-12">Email</dt>
                             <dd className="truncate">
                               <a href={`mailto:${activeOption.email}`} className="text-primary-9 hover:text-primary-10 underline transition-colors">
                                 {activeOption.email}
@@ -174,9 +174,9 @@ export default function Example() {
 
                 {query !== '' && filteredPeople.length === 0 && (
                   <div className="py-14 px-6 text-center text-sm sm:px-14">
-                    <UsersIcon className="mx-auto h-6 w-6 text-slate-11" aria-hidden="true" />
-                    <p className="mt-4 font-semibold text-slate-12">No people found</p>
-                    <p className="mt-2 text-slate-11">We couldn't find anything with that term. Please try again.</p>
+                    <UsersIcon className="mx-auto h-6 w-6 text-sand-11" aria-hidden="true" />
+                    <p className="mt-4 font-semibold text-sand-12">No people found</p>
+                    <p className="mt-2 text-sand-11">We couldn't find anything with that term. Please try again.</p>
                   </div>
                 )}
               </>

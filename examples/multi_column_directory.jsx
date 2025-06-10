@@ -324,7 +324,7 @@ export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-slate-1">
+    <div className="min-h-screen bg-sand-1">
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 flex z-40 lg:hidden" onClose={setSidebarOpen}>
           <Transition.Child
@@ -336,19 +336,19 @@ export default function Example() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-slate-12/50" />
+            <Dialog.Overlay className="fixed inset-0 bg-sand-12/50" />
           </Transition.Child>
 
           <Transition.Child
             as={Fragment}
             enter="transition ease-in-out duration-300 transform"
-            enterFrom="-translate-x-full"
-            enterTo="translate-x-0"
+            enterFrom="-transand-x-full"
+            enterTo="transand-x-0"
             leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
+            leaveFrom="transand-x-0"
+            leaveTo="-transand-x-full"
           >
-            <div className="relative flex-1 flex flex-col max-w-xs w-full bg-slate-2 border-r border-slate-6">
+            <div className="relative flex-1 flex flex-col max-w-xs w-full bg-sand-2 border-r border-sand-6">
               <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-300"
@@ -364,7 +364,7 @@ export default function Example() {
                     className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none"
                     onClick={() => setSidebarOpen(false)}
                   >
-                    <XIcon className="h-6 w-6 text-slate-12" aria-hidden="true" />
+                    <XIcon className="h-6 w-6 text-sand-12" aria-hidden="true" />
                   </button>
                 </div>
               </Transition.Child>
@@ -377,13 +377,13 @@ export default function Example() {
                       className={classNames(
                         item.current
                           ? 'bg-primary-5 text-primary-11'
-                          : 'text-slate-11 hover:bg-slate-3 hover:text-slate-12',
+                          : 'text-sand-11 hover:bg-sand-3 hover:text-sand-12',
                         'group flex items-center px-2 py-2 text-base font-medium rounded-md'
                       )}
                     >
                       <item.icon
                         className={classNames(
-                          item.current ? 'text-primary-11' : 'text-slate-11 group-hover:text-slate-12',
+                          item.current ? 'text-primary-11' : 'text-sand-11 group-hover:text-sand-12',
                           'mr-4 flex-shrink-0 h-6 w-6'
                         )}
                         aria-hidden="true"
@@ -400,7 +400,7 @@ export default function Example() {
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0">
-        <div className="flex-1 flex flex-col min-h-0 bg-slate-2 border-r border-slate-6">
+        <div className="flex-1 flex flex-col min-h-0 bg-sand-2 border-r border-sand-6">
           <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
             <nav className="mt-5 flex-1 px-2 space-y-1">
               {navigation.map((item) => (
@@ -410,13 +410,13 @@ export default function Example() {
                   className={classNames(
                     item.current
                       ? 'bg-primary-5 text-primary-11'
-                      : 'text-slate-11 hover:bg-slate-3 hover:text-slate-12',
+                      : 'text-sand-11 hover:bg-sand-3 hover:text-sand-12',
                     'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                   )}
                 >
                   <item.icon
                     className={classNames(
-                      item.current ? 'text-primary-11' : 'text-slate-11 group-hover:text-slate-12',
+                      item.current ? 'text-primary-11' : 'text-sand-11 group-hover:text-sand-12',
                       'mr-3 flex-shrink-0 h-6 w-6'
                     )}
                     aria-hidden="true"
@@ -431,10 +431,10 @@ export default function Example() {
 
       {/* Main content */}
       <div className="lg:pl-64 flex flex-col flex-1">
-        <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-slate-2 border-b border-slate-6">
+        <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-sand-2 border-b border-sand-6">
           <button
             type="button"
-            className="px-4 border-r border-slate-6 text-slate-11 focus:outline-none lg:hidden"
+            className="px-4 border-r border-sand-6 text-sand-11 focus:outline-none lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <MenuIcon className="h-6 w-6" aria-hidden="true" />
@@ -442,7 +442,7 @@ export default function Example() {
           <div className="flex-1 px-4 flex justify-between">
             <div className="flex-1 flex">
               <div className="w-full flex md:ml-0">
-                <div className="relative w-full text-slate-11 focus-within:text-slate-12">
+                <div className="relative w-full text-sand-11 focus-within:text-sand-12">
                   <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
                     <SearchIcon className="h-5 w-5" aria-hidden="true" />
                   </div>
@@ -455,7 +455,7 @@ export default function Example() {
             </div>
             <div className="ml-4 flex items-center md:ml-6">
               <Button variant="outline" size="sm">
-                <FilterIcon className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                <FilterIcon className="h-5 w-5 text-sand-11" aria-hidden="true" />
               </Button>
             </div>
           </div>
@@ -464,12 +464,12 @@ export default function Example() {
         <main className="flex-1">
           <div className="py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <div className="bg-slate-1 shadow-sm rounded-lg">
-                <div className="bg-slate-2 px-4 py-5 border-b border-slate-6 sm:px-6">
+              <div className="bg-sand-1 shadow-sm rounded-lg">
+                <div className="bg-sand-2 px-4 py-5 border-b border-sand-6 sm:px-6">
                   <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
                     <div className="ml-4 mt-4">
-                      <h3 className="text-lg leading-6 font-medium text-slate-12">Directory</h3>
-                      <p className="mt-1 text-sm text-slate-11">Browse through our company directory</p>
+                      <h3 className="text-lg leading-6 font-medium text-sand-12">Directory</h3>
+                      <p className="mt-1 text-sm text-sand-11">Browse through our company directory</p>
                     </div>
                   </div>
                 </div>
@@ -477,13 +477,13 @@ export default function Example() {
                   <nav className="flex-1 min-h-0" aria-label="Directory">
                     {Object.keys(directory).map((letter) => (
                       <div key={letter} className="relative">
-                        <div className="sticky top-0 z-10 border-t border-b border-slate-6 bg-slate-2 px-6 py-1 text-sm font-medium text-slate-11">
+                        <div className="sticky top-0 z-10 border-t border-b border-sand-6 bg-sand-2 px-6 py-1 text-sm font-medium text-sand-11">
                           <h3>{letter}</h3>
                         </div>
-                        <ul role="list" className="relative z-0 divide-y divide-slate-6">
+                        <ul role="list" className="relative z-0 divide-y divide-sand-6">
                           {directory[letter].map((person) => (
-                            <li key={person.id} className="bg-slate-1">
-                              <div className="relative px-6 py-5 flex items-center space-x-3 hover:bg-slate-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-9">
+                            <li key={person.id} className="bg-sand-1">
+                              <div className="relative px-6 py-5 flex items-center space-x-3 hover:bg-sand-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-9">
                                 <div className="flex-shrink-0">
                                   <Avatar>
                                     <AvatarImage src={person.imageUrl} alt="" />
@@ -493,8 +493,8 @@ export default function Example() {
                                 <div className="flex-1 min-w-0">
                                   <a href="#" className="focus:outline-none">
                                     <span className="absolute inset-0" aria-hidden="true" />
-                                    <p className="text-sm font-medium text-slate-12">{person.name}</p>
-                                    <p className="text-sm text-slate-11 truncate">{person.role}</p>
+                                    <p className="text-sm font-medium text-sand-12">{person.name}</p>
+                                    <p className="text-sm text-sand-11 truncate">{person.role}</p>
                                   </a>
                                 </div>
                               </div>

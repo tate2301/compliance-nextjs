@@ -1,8 +1,8 @@
 /* Import Radix Colors */
-@import '@radix-ui/colors/slate.css';
-@import '@radix-ui/colors/slate-dark.css';
-@import '@radix-ui/colors/slate-alpha.css';
-@import '@radix-ui/colors/slate-dark-alpha.css';
+@import '@radix-ui/colors/sand.css';
+@import '@radix-ui/colors/sand-dark.css';
+@import '@radix-ui/colors/sand-alpha.css';
+@import '@radix-ui/colors/sand-dark-alpha.css';
 
 @import '@radix-ui/colors/indigo.css';
 @import '@radix-ui/colors/indigo-dark.css';
@@ -57,6 +57,26 @@
   :root {
     --font-sans: 'Sohne', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --mercury-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Custom Shadow System */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-3xl: 0 35px 60px -12px rgb(0 0 0 / 0.3);
+    
+    /* Elevated shadows with color tints */
+    --shadow-primary: 0 20px 25px -5px rgb(79 70 229 / 0.1), 0 8px 10px -6px rgb(79 70 229 / 0.1);
+    --shadow-primary-lg: 0 25px 50px -12px rgb(79 70 229 / 0.25), 0 0 0 1px rgb(79 70 229 / 0.05);
+    --shadow-success: 0 20px 25px -5px rgb(34 197 94 / 0.1), 0 8px 10px -6px rgb(34 197 94 / 0.1);
+    --shadow-warning: 0 20px 25px -5px rgb(245 158 11 / 0.1), 0 8px 10px -6px rgb(245 158 11 / 0.1);
+    --shadow-error: 0 20px 25px -5px rgb(239 68 68 / 0.1), 0 8px 10px -6px rgb(239 68 68 / 0.1);
+    
+    /* Glass morphism shadows */
+    --shadow-glass: 0 8px 32px 0 rgb(31 38 135 / 0.15);
+    --shadow-glass-lg: 0 20px 40px 0 rgb(31 38 135 / 0.2);
 
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -131,6 +151,27 @@
 }
 
 @layer utilities {
+  /* Custom Shadow Utilities */
+  .shadow-custom-xs { box-shadow: var(--shadow-xs); }
+  .shadow-custom-sm { box-shadow: var(--shadow-sm); }
+  .shadow-custom-md { box-shadow: var(--shadow-md); }
+  .shadow-custom-lg { box-shadow: var(--shadow-lg); }
+  .shadow-custom-xl { box-shadow: var(--shadow-xl); }
+  .shadow-custom-2xl { box-shadow: var(--shadow-2xl); }
+  .shadow-custom-3xl { box-shadow: var(--shadow-3xl); }
+  
+  /* Colored Shadows */
+  .shadow-primary { box-shadow: var(--shadow-primary); }
+  .shadow-primary-lg { box-shadow: var(--shadow-primary-lg); }
+  .shadow-success { box-shadow: var(--shadow-success); }
+  .shadow-warning { box-shadow: var(--shadow-warning); }
+  .shadow-error { box-shadow: var(--shadow-error); }
+  
+  /* Glass Shadows */
+  .shadow-glass { box-shadow: var(--shadow-glass); }
+  .shadow-glass-lg { box-shadow: var(--shadow-glass-lg); }
+
+  /* Gradient Utilities */
   .bg-gradient-primary {
     @apply bg-gradient-to-r from-primary-9 to-primary-10;
   }
@@ -138,6 +179,62 @@
   .bg-gradient-secondary {
     @apply bg-gradient-to-r from-secondary-9 to-secondary-10;
   }
+
+  /* Surface utilities for consistent elevation */
+  .surface-1 {
+    @apply bg-sand-1 border border-sand-6;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .surface-2 {
+    @apply bg-sand-1 border border-sand-6;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .surface-3 {
+    @apply bg-sand-1 border border-sand-6;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .surface-elevated {
+    @apply bg-sand-1 border border-sand-6;
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* Interactive states with proper color harmony */
+  .interactive-surface {
+    @apply transition-all duration-300;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .interactive-surface:hover {
+    box-shadow: var(--shadow-lg);
+    transform: transandY(-2px);
+  }
+  
+  /* Brand color utilities */
+  .text-brand { @apply text-primary-11; }
+  .bg-brand { @apply bg-primary-9; }
+  .border-brand { @apply border-primary-7; }
+  
+  /* Semantic color utilities */
+  .text-success { 
+    color: hsl(var(--green-11));
+   }
+  .bg-success { @apply bg-success-3; }
+  .border-success { @apply border-success-7; }
+  
+  .text-warning { 
+    color: hsl(var(--amber-11));
+   }
+  .bg-warning { @apply bg-warning-3; }
+  .border-warning { @apply border-warning-7; }
+  
+  .text-error { 
+    color: hsl(var(--red-11));
+   }
+  .bg-error { @apply bg-error-3; }
+  .border-error { @apply border-error-7; }
 }
 
 /* Custom scrollbar styles */
@@ -162,7 +259,7 @@ body {
 
 .space__content {
   scrollbar-width: thin;
-  scrollbar-color: var(--slate-6) transparent;
+  scrollbar-color: var(--sand-6) transparent;
 }
 
 .space__content::-webkit-scrollbar {
@@ -174,7 +271,7 @@ body {
 }
 
 .space__content::-webkit-scrollbar-thumb {
-  background-color: var(--slate-6);
+  background-color: var(--sand-6);
   border-radius: 4px;
 }
 
@@ -223,26 +320,26 @@ body {
   padding: 0.75rem;
   border: 1px solid;
   text-align: left;
-  @apply border border-slate-6;
+  @apply border border-sand-6;
 }
 
 .prose thead th {
-  background-color: var(--slate-4);
+  background-color: var(--sand-4);
   font-weight: 500;
 }
 
 .prose tbody tr:nth-child(odd) {
   background-color: var(--muted);
-  @apply text-slate-11 bg-slate-2
+  @apply text-sand-11 bg-sand-2
 }
 
 .prose tbody tr:nth-child(even) {
   background-color: var(--background);
-    @apply text-slate-11
+    @apply text-sand-11
 }
 
 .prose tbody tr:hover {
-  background-color: var(--slate-2);
+  background-color: var(--sand-2);
 }
 
 /* Enhanced Sidebar Animations */
@@ -251,11 +348,11 @@ body {
 }
 
 .sidebar-enhanced[data-state="collapsed"] {
-  transform: translateX(0);
+  transform: transandX(0);
 }
 
 .sidebar-enhanced[data-state="expanded"] {
-  transform: translateX(0);
+  transform: transandX(0);
 }
 
 /* Sidebar Content Animations */
@@ -265,12 +362,12 @@ body {
 
 .sidebar-content[data-collapsed="true"] {
   opacity: 0;
-  transform: translateX(-10px);
+  transform: transandX(-10px);
 }
 
 .sidebar-content[data-collapsed="false"] {
   opacity: 1;
-  transform: translateX(0);
+  transform: transandX(0);
 }
 
 /* Hover Effects */
@@ -288,12 +385,12 @@ body {
   right: 0;
   bottom: 0;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transform: translateX(-100%);
+  transform: transandX(-100%);
   transition: transform 0.6s ease;
 }
 
 .sidebar-item:hover::before {
-  transform: translateX(100%);
+  transform: transandX(100%);
 }
 
 /* Smooth resize handle */
@@ -309,12 +406,12 @@ body {
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .sidebar-mobile {
-    transform: translateX(-100%);
+    transform: transandX(-100%);
     transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .sidebar-mobile[data-open="true"] {
-    transform: translateX(0);
+    transform: transandX(0);
   }
 }
 

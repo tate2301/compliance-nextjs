@@ -15,11 +15,11 @@ export interface EditModalProps {
 export function EditModal({ isOpen, onClose, onSave, title, description, children, isLoading }: EditModalProps) {
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[425px] border-slate-6 bg-slate-2">
+            <DialogContent className="sm:max-w-[425px] border-sand-6 bg-sand-2">
                 <DialogHeader>
-                    <DialogTitle className="text-slate-12">{title}</DialogTitle>
+                    <DialogTitle className="text-sand-12">{title}</DialogTitle>
                     {description && (
-                        <DialogDescription className="text-slate-11">
+                        <DialogDescription className="text-sand-11">
                             {description}
                         </DialogDescription>
                     )}

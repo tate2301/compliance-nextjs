@@ -13,7 +13,7 @@ export default function ExamplesLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className="min-h-screen bg-slate-1">
+            <body className="min-h-screen bg-sand-1">
                 {children}
             </body>
         </html>

@@ -26,10 +26,10 @@ export default function AdminDashboardExamples() {
       {/* Page Header */}
       <div className="flex items-center justify-between pb-8">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-12">
+          <h1 className="text-3xl font-bold tracking-tight text-sand-12">
             Admin Dashboard
           </h1>
-          <p className="text-lg text-slate-11">
+          <p className="text-lg text-sand-11">
             UI patterns and components for building administrative interfaces
           </p>
         </div>
@@ -37,8 +37,8 @@ export default function AdminDashboardExamples() {
 
       <div className="flex flex-col space-y-8">
         {/* Navigation */}
-        <div className="sticky top-0 z-30 -mx-6 bg-slate-1/95 px-6 py-4 backdrop-blur">
-          <Separator className="mt-4 bg-slate-6" />
+        <div className="sticky top-0 z-30 -mx-6 bg-sand-1/95 px-6 py-4 backdrop-blur">
+          <Separator className="mt-4 bg-sand-6" />
         </div>
 
         {/* Content */}

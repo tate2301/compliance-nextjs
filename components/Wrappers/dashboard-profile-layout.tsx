@@ -57,14 +57,14 @@ export const DashboardProfileLayout = ({
         </Breadcrumb>
       </div>
 
-      <div className="px-2 mt-5 border-t border-slate-6 flex gap-6">
+      <div className="px-2 mt-5 border-t border-sand-6 flex gap-6">
         <div className="flex flex-col sticky top-0 w-64 py-4">
           <ul className="space-y-2 w-64">
             <li
               className={`p-2 h-[40px] flex items-center border ${
                 pathname === "/app/profile"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
-                  : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
+                  : "border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
               <Link className="w-full h-full" href={"/app/profile"}>
@@ -76,7 +76,7 @@ export const DashboardProfileLayout = ({
               className={`p-2 h-[40px] flex items-center border ${
                 pathname === "/app/profile/address"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
-                  : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
+                  : "border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
               <Link className="w-full h-full" href={"/app/profile/address"}>
@@ -88,7 +88,7 @@ export const DashboardProfileLayout = ({
               className={`p-2 h-[40px] flex items-center border ${
                 pathname === "/app/profile/identification"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
-                  : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
+                  : "border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
               <Link
@@ -103,7 +103,7 @@ export const DashboardProfileLayout = ({
               className={`p-2 h-[40px] flex items-center border ${
                 pathname === "/app/profile/dbs"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
-                  : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
+                  : "border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
               <Link className="w-full h-full" href={"/app/profile/dbs"}>
@@ -115,7 +115,7 @@ export const DashboardProfileLayout = ({
               className={`p-2 h-[40px] flex items-center border ${
                 pathname === "/app/profile/references"
                   ? "border-secondary-6 bg-secondary-4 text-secondary-11"
-                  : "border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
+                  : "border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11"
               }`}
             >
               <Link className="w-full h-full" href={"/app/profile/references"}>
@@ -128,10 +128,10 @@ export const DashboardProfileLayout = ({
         <div className="p-4 w-full">
           <div className="px-2 mb-4 flex justify-between items-center">
             <div>
-              <h3 className="text-lg leading-6 font-medium text-slate-12">
+              <h3 className="text-lg leading-6 font-medium text-sand-12">
                 {title}
               </h3>
-              <p className="mt-1 max-w-2xl text-sm text-slate-11">
+              <p className="mt-1 max-w-2xl text-sm text-sand-11">
                 {susbtitle}
               </p>
             </div>

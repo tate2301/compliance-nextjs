@@ -52,15 +52,15 @@ export default function ExamplePage({ params }: PageProps) {
     }
 
     return (
-        <div className="min-h-screen bg-slate-1 py-12">
+        <div className="min-h-screen bg-sand-1 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="space-y-8">
                     <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                            <h1 className="text-2xl font-bold text-slate-12 capitalize">
+                            <h1 className="text-2xl font-bold text-sand-12 capitalize">
                                 {params.slug.split('-').join(' ')}
                             </h1>
-                            <p className="text-slate-11">
+                            <p className="text-sand-11">
                                 Example component from Mercury Design System
                             </p>
                         </div>
@@ -72,7 +72,7 @@ export default function ExamplePage({ params }: PageProps) {
                         </a>
                     </div>
 
-                    <div className="rounded-lg border border-slate-6 bg-slate-2 p-6">
+                    <div className="rounded-lg border border-sand-6 bg-sand-2 p-6">
                         <Example />
                     </div>
                 </div>

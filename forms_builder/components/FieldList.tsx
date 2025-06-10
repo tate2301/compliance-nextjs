@@ -94,8 +94,8 @@ export function FieldList() {
       {/* Field Types Section */}
       <div className="flex-none p-6">
         <div className="mb-4">
-          <h3 className="text-sm font-medium text-zinc-500">FIELD TYPES</h3>
-          <p className="text-xs text-zinc-400">Click to add to your form</p>
+          <h3 className="text-sm font-medium text-sand-500">FIELD TYPES</h3>
+          <p className="text-xs text-sand-400">Click to add to your form</p>
         </div>
         <div className="grid grid-cols-2 gap-2">
           {fieldTypes.map((fieldType) => (
@@ -105,9 +105,9 @@ export function FieldList() {
               onClick={() =>
                 handleAddField(fieldType.type as FormField["type"])
               }
-              className="group flex items-center gap-2 rounded-lg border border-zinc-200 bg-white p-3 text-left text-sm font-medium text-zinc-700 transition-all hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-sm"
+              className="group flex items-center gap-2 rounded-lg border border-sand-200 bg-white p-3 text-left text-sm font-medium text-sand-700 transition-all hover:border-sand-300 hover:bg-sand-50 hover:shadow-sm"
             >
-              <span className="rounded-md bg-zinc-100 p-2 text-zinc-500 transition-colors group-hover:bg-white group-hover:text-zinc-900">
+              <span className="rounded-md bg-sand-100 p-2 text-sand-500 transition-colors group-hover:bg-white group-hover:text-sand-900">
                 {fieldType.icon}
               </span>
               {fieldType.label}
@@ -121,8 +121,8 @@ export function FieldList() {
       {/* Form Fields Section */}
       <div className="flex-1 overflow-y-auto p-6">
         <div className="mb-4">
-          <h3 className="text-sm font-medium text-zinc-500">FORM FIELDS</h3>
-          <p className="text-xs text-zinc-400">Drag to reorder fields</p>
+          <h3 className="text-sm font-medium text-sand-500">FORM FIELDS</h3>
+          <p className="text-xs text-sand-400">Drag to reorder fields</p>
         </div>
         <div className="space-y-2">
           {form.fields?.map((field) => (
@@ -162,18 +162,18 @@ const FieldListItem = ({
     <div
       onClick={onSelect}
       className={cn(
-        "group relative flex items-center gap-2 rounded-lg border bg-white p-3 transition-all hover:border-zinc-300 hover:shadow-sm",
+        "group relative flex items-center gap-2 rounded-lg border bg-white p-3 transition-all hover:border-sand-300 hover:shadow-sm",
         isSelected
           ? "border-indigo-500 bg-indigo-50/50 shadow-sm"
-          : "border-zinc-200"
+          : "border-sand-200"
       )}
     >
       <button className="cursor-grab opacity-0 group-hover:opacity-100">
-        <GripVertical className="h-4 w-4 text-zinc-400" />
+        <GripVertical className="h-4 w-4 text-sand-400" />
       </button>
       <span className="flex items-center gap-2">
         {fieldTypes.find((type) => type.type === field.type)?.icon}
-        <span className="text-sm font-medium text-zinc-700">{field.label}</span>
+        <span className="text-sm font-medium text-sand-700">{field.label}</span>
       </span>
       <Button
         variant="ghost"
@@ -181,7 +181,7 @@ const FieldListItem = ({
         onClick={handleDelete}
         className="absolute right-2 ml-auto opacity-0 group-hover:opacity-100"
       >
-        <Trash2Icon className="h-4 w-4 text-zinc-400 hover:text-red-500" />
+        <Trash2Icon className="h-4 w-4 text-sand-400 hover:text-red-500" />
       </Button>
     </div>
   );

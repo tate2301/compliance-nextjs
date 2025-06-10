@@ -64,19 +64,19 @@ export function FormSettings() {
   };
 
   return (
-    <div className="h-full divide-y divide-zinc-200">
+    <div className="h-full divide-y divide-sand-200">
       {/* Basic Settings Section */}
       <section className="space-y-6 p-6">
         <div>
-          <h3 className="text-sm font-medium text-zinc-500">FORM SETTINGS</h3>
-          <p className="text-xs text-zinc-400">
+          <h3 className="text-sm font-medium text-sand-500">FORM SETTINGS</h3>
+          <p className="text-xs text-sand-400">
             Configure your form's basic information
           </p>
         </div>
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="formTitle" className="text-zinc-500">
+            <Label htmlFor="formTitle" className="text-sand-500">
               Form Title
             </Label>
             <Input
@@ -88,7 +88,7 @@ export function FormSettings() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="formDescription" className="text-zinc-500">
+            <Label htmlFor="formDescription" className="text-sand-500">
               Description
             </Label>
             <Textarea
@@ -100,7 +100,7 @@ export function FormSettings() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="fontFamily" className="text-zinc-500">
+            <Label htmlFor="fontFamily" className="text-sand-500">
               Font Family
             </Label>
             <Input
@@ -117,8 +117,8 @@ export function FormSettings() {
       {/* Theme Settings Section */}
       <section className="space-y-6 p-6">
         <div>
-          <h3 className="text-sm font-medium text-zinc-500">THEME</h3>
-          <p className="text-xs text-zinc-400">
+          <h3 className="text-sm font-medium text-sand-500">THEME</h3>
+          <p className="text-xs text-sand-400">
             Customize the look and feel of your form
           </p>
         </div>
@@ -126,7 +126,7 @@ export function FormSettings() {
         <div className="space-y-6">
           {/* Theme Presets */}
           <div className="space-y-4">
-            <Label className="text-zinc-500">Theme Presets</Label>
+            <Label className="text-sand-500">Theme Presets</Label>
             <div className="grid grid-cols-2 gap-3">
               {predefinedThemes.map((presetTheme) => (
                 <button
@@ -134,15 +134,15 @@ export function FormSettings() {
                   key={presetTheme.id}
                   onClick={() => handleThemeSelect(presetTheme.id)}
                   className={cn(
-                    "group relative rounded-lg border p-4 text-left transition-all hover:border-zinc-300 hover:shadow-sm",
+                    "group relative rounded-lg border p-4 text-left transition-all hover:border-sand-300 hover:shadow-sm",
                     theme.id === presetTheme.id
                       ? "border-indigo-500 bg-indigo-50/50 ring-1 ring-indigo-500"
-                      : "border-zinc-200 bg-white"
+                      : "border-sand-200 bg-white"
                   )}
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-medium text-zinc-700">
+                      <h3 className="text-sm font-medium text-sand-700">
                         {presetTheme.name}
                       </h3>
                       {theme.id === presetTheme.id && (
@@ -153,7 +153,7 @@ export function FormSettings() {
                       {Object.values(presetTheme.colors).map((color, i) => (
                         <div
                           key={i}
-                          className="h-4 w-4 rounded-full ring-1 ring-inset ring-zinc-200"
+                          className="h-4 w-4 rounded-full ring-1 ring-inset ring-sand-200"
                           style={{ backgroundColor: color }}
                         />
                       ))}
@@ -166,15 +166,15 @@ export function FormSettings() {
 
           {/* Custom Colors */}
           <div className="space-y-4">
-            <Label className="text-zinc-500">Custom Colors</Label>
+            <Label className="text-sand-500">Custom Colors</Label>
             <div className="space-y-4 rounded-lg border bg-white p-4">
               <div className="space-y-2">
-                <Label htmlFor="primaryColor" className="text-zinc-500">
+                <Label htmlFor="primaryColor" className="text-sand-500">
                   Primary Color
                 </Label>
                 <div className="flex gap-3">
                   <div
-                    className="h-10 w-10 rounded-lg ring-1 ring-inset ring-zinc-200"
+                    className="h-10 w-10 rounded-lg ring-1 ring-inset ring-sand-200"
                     style={{ backgroundColor: theme.colors?.primary }}
                   />
                   <Input
@@ -199,12 +199,12 @@ export function FormSettings() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="backgroundColor" className="text-zinc-500">
+                <Label htmlFor="backgroundColor" className="text-sand-500">
                   Background Color
                 </Label>
                 <div className="flex gap-3">
                   <div
-                    className="h-10 w-10 rounded-lg ring-1 ring-inset ring-zinc-200"
+                    className="h-10 w-10 rounded-lg ring-1 ring-inset ring-sand-200"
                     style={{ backgroundColor: theme.colors?.background }}
                   />
                   <Input

@@ -19,7 +19,7 @@ import {
   EditableField,
   EditModal,
   FileUploadModal,
-} from "@/app/components/profile";
+} from "components/profile";
 import {
   ChevronDownIcon,
   OfficeBuildingIcon,
@@ -85,7 +85,7 @@ export default function ProfilePage() {
       <GlobalComplianceAlert />
 
       <div className="mb-8">
-        <h1 className="text-xl font-medium text-slate-12 mb-4">
+        <h1 className="text-xl font-medium text-sand-12 mb-4">
           Upcoming shifts
         </h1>
         <div className="flex justify-between items-center">
@@ -108,24 +108,24 @@ export default function ProfilePage() {
       <div className="flex gap-8 items-start mb-4">
         <div className="flex-1">
           <p className="">Claybank</p>
-          <p className="text-sm text-slate-11">
+          <p className="text-sm text-sand-11">
             RMN required{" "}
             <QuestionMarkCircleIcon className="size-4 ml-1 inline-flex self-center" />
           </p>
         </div>
         <div>
           <p className="mb-1">
-            <span className="text-slate-11">Elysium</span>
+            <span className="text-sand-11">Elysium</span>
             <Badge variant="destructive" className="ml-2">
               Not Eligible
             </Badge>
           </p>
-          <p className="text-slate-11 text-sm">Required CS: 95%</p>
+          <p className="text-sand-11 text-sm">Required CS: 95%</p>
         </div>
         <p className="font-bold">12:00 - 15:00</p>
         <Button variant="outline">Book shift</Button>
       </div>
-      <p className="text-slate-11 text-center pt-4 border-t">
+      <p className="text-sand-11 text-center pt-4 border-t">
         There are 12 shifts available to fill today.
       </p>
     </div>

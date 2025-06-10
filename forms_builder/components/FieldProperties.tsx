@@ -83,13 +83,13 @@ export function FieldProperties() {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-sm font-medium text-zinc-500">FIELD PROPERTIES</h3>
-        <p className="text-xs text-zinc-400">Customize the selected field</p>
+        <h3 className="text-sm font-medium text-sand-500">FIELD PROPERTIES</h3>
+        <p className="text-xs text-sand-400">Customize the selected field</p>
       </div>
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="fieldType" className="text-zinc-500">
+          <Label htmlFor="fieldType" className="text-sand-500">
             Field Type
           </Label>
           <Select
@@ -110,7 +110,7 @@ export function FieldProperties() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="fieldLabel" className="text-zinc-500">
+          <Label htmlFor="fieldLabel" className="text-sand-500">
             Label
           </Label>
           <TextField
@@ -123,10 +123,10 @@ export function FieldProperties() {
 
         <div className="flex items-center justify-between rounded-lg border bg-white p-3">
           <div className="space-y-0.5">
-            <Label htmlFor="required" className="text-zinc-700">
+            <Label htmlFor="required" className="text-sand-700">
               Required field
             </Label>
-            <p className="text-xs text-zinc-500">Make this field mandatory</p>
+            <p className="text-xs text-sand-500">Make this field mandatory</p>
           </div>
           <Switch
             id="required"
@@ -136,7 +136,7 @@ export function FieldProperties() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="placeholder" className="text-zinc-500">
+          <Label htmlFor="placeholder" className="text-sand-500">
             Placeholder
           </Label>
           <TextField
@@ -153,10 +153,10 @@ export function FieldProperties() {
         {(selectedField.type === "shortAnswer" ||
           selectedField.type === "longAnswer") && (
           <div className="space-y-4 rounded-lg border bg-white p-4">
-            <h4 className="font-medium text-zinc-700">Length Constraints</h4>
+            <h4 className="font-medium text-sand-700">Length Constraints</h4>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="minLength" className="text-zinc-500">
+                <Label htmlFor="minLength" className="text-sand-500">
                   Min Length
                 </Label>
                 <TextField
@@ -173,7 +173,7 @@ export function FieldProperties() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="maxLength" className="text-zinc-500">
+                <Label htmlFor="maxLength" className="text-sand-500">
                   Max Length
                 </Label>
                 <TextField
@@ -196,7 +196,7 @@ export function FieldProperties() {
         {selectedField.type === "multipleChoice" && (
           <div className="space-y-4 rounded-lg border bg-white p-4">
             <div className="flex items-center justify-between">
-              <h4 className="font-medium text-zinc-700">Choices</h4>
+              <h4 className="font-medium text-sand-700">Choices</h4>
               <Button
                 size="sm"
                 variant="outline"
@@ -238,7 +238,7 @@ export function FieldProperties() {
                       handlePropertyChange("choices", newChoices);
                     }}
                   >
-                    <TrashIcon className="h-4 w-4 text-zinc-400 hover:text-red-500" />
+                    <TrashIcon className="h-4 w-4 text-sand-400 hover:text-red-500" />
                   </Button>
                 </div>
               ))}
@@ -248,7 +248,7 @@ export function FieldProperties() {
 
         {selectedField.type === "npsRating" && (
           <div className="space-y-2">
-            <Label htmlFor="npsMaxRating" className="text-zinc-500">
+            <Label htmlFor="npsMaxRating" className="text-sand-500">
               Max Rating (NPS)
             </Label>
             <TextField
@@ -268,10 +268,10 @@ export function FieldProperties() {
 
         {selectedField.type === "fileUpload" && (
           <div className="space-y-4 rounded-lg border bg-white p-4">
-            <h4 className="font-medium text-zinc-700">File Upload Settings</h4>
+            <h4 className="font-medium text-sand-700">File Upload Settings</h4>
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="allowedFileTypes" className="text-zinc-500">
+                <Label htmlFor="allowedFileTypes" className="text-sand-500">
                   Allowed File Types
                 </Label>
                 <TextField
@@ -290,7 +290,7 @@ export function FieldProperties() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="maxFileSize" className="text-zinc-500">
+                <Label htmlFor="maxFileSize" className="text-sand-500">
                   Max File Size (MB)
                 </Label>
                 <TextField
@@ -312,7 +312,7 @@ export function FieldProperties() {
 
         {selectedField.type === "likertScale" && (
           <div className="space-y-2">
-            <Label htmlFor="likertScalePoints" className="text-zinc-500">
+            <Label htmlFor="likertScalePoints" className="text-sand-500">
               Number of Scale Points
             </Label>
             <TextField
@@ -332,10 +332,10 @@ export function FieldProperties() {
 
         {selectedField.type === "signature" && (
           <div className="space-y-4 rounded-lg border bg-white p-4">
-            <h4 className="font-medium text-zinc-700">Signature Settings</h4>
+            <h4 className="font-medium text-sand-700">Signature Settings</h4>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="width" className="text-zinc-500">
+                <Label htmlFor="width" className="text-sand-500">
                   Width (px)
                 </Label>
                 <TextField
@@ -352,7 +352,7 @@ export function FieldProperties() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="height" className="text-zinc-500">
+                <Label htmlFor="height" className="text-sand-500">
                   Height (px)
                 </Label>
                 <TextField
@@ -374,10 +374,10 @@ export function FieldProperties() {
 
         {selectedField.type === "paragraph" && (
           <div className="space-y-4 rounded-lg border bg-white p-4">
-            <h4 className="font-medium text-zinc-700">Paragraph Settings</h4>
+            <h4 className="font-medium text-sand-700">Paragraph Settings</h4>
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="text" className="text-zinc-500">
+                <Label htmlFor="text" className="text-sand-500">
                   Text Content
                 </Label>
                 <Textarea
@@ -391,7 +391,7 @@ export function FieldProperties() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="fontSize" className="text-zinc-500">
+                  <Label htmlFor="fontSize" className="text-sand-500">
                     Font Size (px)
                   </Label>
                   <TextField
@@ -408,7 +408,7 @@ export function FieldProperties() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="fontWeight" className="text-zinc-500">
+                  <Label htmlFor="fontWeight" className="text-sand-500">
                     Font Weight
                   </Label>
                   <Select
@@ -431,7 +431,7 @@ export function FieldProperties() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="textAlign" className="text-zinc-500">
+                <Label htmlFor="textAlign" className="text-sand-500">
                   Text Alignment
                 </Label>
                 <Select
@@ -453,7 +453,7 @@ export function FieldProperties() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="textColor" className="text-zinc-500">
+                <Label htmlFor="textColor" className="text-sand-500">
                   Text Color
                 </Label>
                 <div className="flex gap-2">

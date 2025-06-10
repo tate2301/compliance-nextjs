@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
-import { FormResponse, FormResponseStatus } from "../documents/response/model";
-import { ComplianceForm } from "../documents/model/Document";
+import { FormResponse, FormResponseStatus } from "@/lib/db/models/form-response";
+import { ComplianceForm } from "@/lib/db/models/document";
 
 // GET /api/form-responses - Get form responses for a user
 export async function GET(request: NextRequest) {

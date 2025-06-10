@@ -74,32 +74,32 @@ export default function Example() {
           <li key={activityItem.id}>
             <div className="relative pb-8">
               {activityItemIdx !== activity.length - 1 ? (
-                <span className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-slate-6" aria-hidden="true" />
+                <span className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-sand-6" aria-hidden="true" />
               ) : null}
               <div className="relative flex items-start space-x-3">
                 {activityItem.type === 'comment' ? (
                   <>
                     <div className="relative">
                       <img
-                        className="h-10 w-10 rounded-full bg-slate-6 flex items-center justify-center ring-8 ring-slate-1"
+                        className="h-10 w-10 rounded-full bg-sand-6 flex items-center justify-center ring-8 ring-sand-1"
                         src={activityItem.imageUrl}
                         alt=""
                       />
 
-                      <span className="absolute -bottom-0.5 -right-1 bg-slate-1 rounded-tl px-0.5 py-px">
-                        <ChatAltIcon className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                      <span className="absolute -bottom-0.5 -right-1 bg-sand-1 rounded-tl px-0.5 py-px">
+                        <ChatAltIcon className="h-5 w-5 text-sand-11" aria-hidden="true" />
                       </span>
                     </div>
                     <div className="min-w-0 flex-1">
                       <div>
                         <div className="text-sm">
-                          <a href={activityItem.person.href} className="font-medium text-slate-12 hover:text-slate-11 transition-colors">
+                          <a href={activityItem.person.href} className="font-medium text-sand-12 hover:text-sand-11 transition-colors">
                             {activityItem.person.name}
                           </a>
                         </div>
-                        <p className="mt-0.5 text-sm text-slate-11">Commented {activityItem.date}</p>
+                        <p className="mt-0.5 text-sm text-sand-11">Commented {activityItem.date}</p>
                       </div>
-                      <div className="mt-2 text-sm text-slate-12">
+                      <div className="mt-2 text-sm text-sand-12">
                         <p>{activityItem.comment}</p>
                       </div>
                     </div>
@@ -108,18 +108,18 @@ export default function Example() {
                   <>
                     <div>
                       <div className="relative px-1">
-                        <div className="h-8 w-8 bg-slate-3 rounded-full ring-8 ring-slate-1 flex items-center justify-center">
-                          <UserCircleIcon className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                        <div className="h-8 w-8 bg-sand-3 rounded-full ring-8 ring-sand-1 flex items-center justify-center">
+                          <UserCircleIcon className="h-5 w-5 text-sand-11" aria-hidden="true" />
                         </div>
                       </div>
                     </div>
                     <div className="min-w-0 flex-1 py-1.5">
-                      <div className="text-sm text-slate-11">
-                        <a href={activityItem.person.href} className="font-medium text-slate-12 hover:text-slate-11 transition-colors">
+                      <div className="text-sm text-sand-11">
+                        <a href={activityItem.person.href} className="font-medium text-sand-12 hover:text-sand-11 transition-colors">
                           {activityItem.person.name}
                         </a>{' '}
                         assigned{' '}
-                        <a href={activityItem.assigned.href} className="font-medium text-slate-12 hover:text-slate-11 transition-colors">
+                        <a href={activityItem.assigned.href} className="font-medium text-sand-12 hover:text-sand-11 transition-colors">
                           {activityItem.assigned.name}
                         </a>{' '}
                         <span className="whitespace-nowrap">{activityItem.date}</span>
@@ -130,15 +130,15 @@ export default function Example() {
                   <>
                     <div>
                       <div className="relative px-1">
-                        <div className="h-8 w-8 bg-slate-3 rounded-full ring-8 ring-slate-1 flex items-center justify-center">
-                          <TagIcon className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                        <div className="h-8 w-8 bg-sand-3 rounded-full ring-8 ring-sand-1 flex items-center justify-center">
+                          <TagIcon className="h-5 w-5 text-sand-11" aria-hidden="true" />
                         </div>
                       </div>
                     </div>
                     <div className="min-w-0 flex-1 py-0">
-                      <div className="text-sm leading-8 text-slate-11">
+                      <div className="text-sm leading-8 text-sand-11">
                         <span className="mr-0.5">
-                          <a href={activityItem.person.href} className="font-medium text-slate-12 hover:text-slate-11 transition-colors">
+                          <a href={activityItem.person.href} className="font-medium text-sand-12 hover:text-sand-11 transition-colors">
                             {activityItem.person.name}
                           </a>{' '}
                           added tags
@@ -148,7 +148,7 @@ export default function Example() {
                             <Fragment key={tag.name}>
                               <a
                                 href={tag.href}
-                                className="relative inline-flex items-center rounded-full border border-slate-6 px-3 py-0.5 text-sm hover:border-slate-7 transition-colors"
+                                className="relative inline-flex items-center rounded-full border border-sand-6 px-3 py-0.5 text-sm hover:border-sand-7 transition-colors"
                               >
                                 <span className="absolute flex-shrink-0 flex items-center justify-center">
                                   <span
@@ -156,7 +156,7 @@ export default function Example() {
                                     aria-hidden="true"
                                   />
                                 </span>
-                                <span className="ml-3.5 font-medium text-slate-12">{tag.name}</span>
+                                <span className="ml-3.5 font-medium text-sand-12">{tag.name}</span>
                               </a>{' '}
                             </Fragment>
                           ))}

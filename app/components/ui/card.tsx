@@ -27,11 +27,11 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         ...props
     }, ref) => {
         const variantStyles = {
-            default: 'bg-slate-1 border border-slate-6',
-            outline: 'border border-slate-6 bg-transparent',
+            default: 'bg-sand-1 border border-sand-6',
+            outline: 'border border-sand-6 bg-transparent',
             ghost: 'border-none bg-transparent',
-            interactive: 'bg-slate-1 border border-slate-6 hover:border-slate-8 transition-colors cursor-pointer',
-            elevated: 'bg-slate-1 border border-slate-6 shadow-md'
+            interactive: 'bg-sand-1 border border-sand-6 hover:border-sand-8 transition-colors cursor-pointer',
+            elevated: 'bg-sand-1 border border-sand-6 shadow-md'
         }
 
         return (
@@ -98,7 +98,7 @@ export function CardTitle({
     return (
         <Component
             className={cn(
-                'text-lg font-semibold leading-none tracking-tight text-slate-12',
+                'text-lg font-semibold leading-none tracking-tight text-sand-12',
                 className
             )}
         >
@@ -124,7 +124,7 @@ export function CardDescription({
     return (
         <p
             className={cn(
-                'text-sm text-slate-11',
+                'text-sm text-sand-11',
                 className
             )}
         >

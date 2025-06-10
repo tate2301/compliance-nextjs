@@ -24,10 +24,10 @@ export default function CaregiverDashboardPage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-1">
-            <div className="bg-slate-1 border-b border-slate-6 py-4 px-6 mb-6">
+        <div className="min-h-screen bg-sand-1">
+            <div className="bg-sand-1 border-b border-sand-6 py-4 px-6 mb-6">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <h1 className="text-2xl font-bold text-slate-12">CareConnect Platform</h1>
+                    <h1 className="text-2xl font-bold text-sand-12">CareConnect Platform</h1>
 
                     <div className="flex space-x-6">
                         <Tabs defaultValue="dashboard" value={view} onValueChange={handleViewChange} className="w-full">

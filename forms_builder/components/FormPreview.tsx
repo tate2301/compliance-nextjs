@@ -91,7 +91,7 @@ export const FormPreview = forwardRef<
             {form.fields.map((field) => (
               <div
                 key={field.id}
-                className="rounded-lg has-[active]:bg-slate-2 transition-all hover:bg-slate-2"
+                className="rounded-lg has-[active]:bg-sand-2 transition-all hover:bg-sand-2"
               >
                 {renderField(field, {
                   value: formValues[field.id] || "",

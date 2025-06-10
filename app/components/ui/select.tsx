@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 
 const selectTriggerVariants = cva(
-    "flex h-9 w-full items-center justify-between rounded-md border border-slate-7 bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-slate-9 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+    "flex h-9 w-full items-center justify-between rounded-md border border-sand-7 bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-sand-9 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
     {
         variants: {
             variant: {
-                default: "border-slate-7 focus:border-primary-8 focus:ring-primary-8/20",
+                default: "border-sand-7 focus:border-primary-8 focus:ring-primary-8/20",
                 error: "border-error-8 focus:border-error-9 focus:ring-error-7/20",
             },
             size: {
@@ -62,9 +62,9 @@ const SelectContent = React.forwardRef<
         <SelectPrimitive.Content
             ref={ref}
             className={cn(
-                "relative z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-7 bg-slate-1 text-slate-12 shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+                "relative z-50 min-w-[8rem] overflow-hidden rounded-md border border-sand-7 bg-sand-1 text-sand-12 shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
                 position === "popper" &&
-                "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+                "data-[side=bottom]:transand-y-1 data-[side=left]:-transand-x-1 data-[side=right]:transand-x-1 data-[side=top]:-transand-y-1",
                 className
             )}
             position={position}
@@ -105,7 +105,7 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.Item
         ref={ref}
         className={cn(
-            "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-slate-3 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+            "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-sand-3 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
             className
         )}
         {...props}
@@ -162,7 +162,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <SelectPrimitive.Separator
         ref={ref}
-        className={cn("-mx-1 my-1 h-px bg-slate-6", className)}
+        className={cn("-mx-1 my-1 h-px bg-sand-6", className)}
         {...props}
     />
 ))
@@ -211,7 +211,7 @@ const SelectField = React.forwardRef<
             {label && (
                 <label
                     htmlFor={id}
-                    className="text-sm font-medium text-slate-12"
+                    className="text-sm font-medium text-sand-12"
                 >
                     {label}
                 </label>
@@ -239,7 +239,7 @@ const SelectField = React.forwardRef<
             {(helperText || errorMessage) && (
                 <p className={cn(
                     "text-xs",
-                    hasError ? "text-error-11" : "text-slate-11"
+                    hasError ? "text-error-11" : "text-sand-11"
                 )}>
                     {hasError ? errorMessage : helperText}
                 </p>

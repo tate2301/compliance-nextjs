@@ -65,7 +65,7 @@ export function SignatureInput({
                             width,
                             height,
                             className: cn(
-                                'border rounded-md bg-slate-3',
+                                'border rounded-md bg-sand-3',
                                 required ? 'border-red-500' : ''
                             )
                         }}

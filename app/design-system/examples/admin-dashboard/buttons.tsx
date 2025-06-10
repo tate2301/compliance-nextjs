@@ -16,10 +16,10 @@ function ExampleCard({ title, children, description, className = '' }: ExampleCa
     return (
         <div className="space-y-3">
             <div className="space-y-1">
-                <h3 className="text-lg font-semibold text-slate-12">{title}</h3>
-                {description && <p className="text-sm text-slate-11">{description}</p>}
+                <h3 className="text-lg font-semibold text-sand-12">{title}</h3>
+                {description && <p className="text-sm text-sand-11">{description}</p>}
             </div>
-            <Card className={`p-4 border-slate-6 bg-slate-2 ${className}`}>
+            <Card className={`p-4 border-sand-6 bg-sand-2 ${className}`}>
                 {children}
             </Card>
         </div>
@@ -30,8 +30,8 @@ export default function ButtonExamples() {
     return (
         <div className="space-y-10">
             <div className="space-y-4">
-                <h2 className="text-2xl font-bold tracking-tight text-slate-12">Button Examples</h2>
-                <p className="text-slate-11">Examples of button patterns commonly used in admin dashboards.</p>
+                <h2 className="text-2xl font-bold tracking-tight text-sand-12">Button Examples</h2>
+                <p className="text-sand-11">Examples of button patterns commonly used in admin dashboards.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -45,14 +45,14 @@ export default function ButtonExamples() {
                             <Button className="bg-primary-9 hover:bg-primary-10 text-white transition-all duration-300">
                                 <Plus className="mr-2 h-4 w-4" /> Add New
                             </Button>
-                            <Button variant="outline" className="border-slate-7 text-slate-11 hover:text-slate-12 hover:bg-slate-3 transition-all duration-300">
+                            <Button variant="outline" className="border-sand-7 text-sand-11 hover:text-sand-12 hover:bg-sand-3 transition-all duration-300">
                                 <Edit className="mr-2 h-4 w-4" /> Edit
                             </Button>
                             <Button variant="destructive" className="transition-all duration-300">
                                 <Trash className="mr-2 h-4 w-4" /> Delete
                             </Button>
                         </div>
-                        <div className="text-sm text-slate-11 font-mono">Primary action buttons with consistent spacing</div>
+                        <div className="text-sm text-sand-11 font-mono">Primary action buttons with consistent spacing</div>
                     </div>
                 </ExampleCard>
 
@@ -75,7 +75,7 @@ export default function ButtonExamples() {
                                 <Plus className="mr-2 h-3.5 w-3.5" /> Add Record
                             </Button>
                         </div>
-                        <div className="text-sm text-slate-11 font-mono">Table-specific action buttons</div>
+                        <div className="text-sm text-sand-11 font-mono">Table-specific action buttons</div>
                     </div>
                 </ExampleCard>
 
@@ -91,12 +91,12 @@ export default function ButtonExamples() {
                             <Button variant="outline" className="rounded-l-none transition-all duration-300">Month</Button>
                         </div>
 
-                        <div className="flex gap-1 rounded-md bg-slate-3 p-1 w-fit">
-                            <Button variant="ghost" className="bg-slate-1 shadow-sm text-slate-12 transition-all duration-300">List</Button>
-                            <Button variant="ghost" className="text-slate-11 hover:text-slate-12 transition-all duration-300">Grid</Button>
-                            <Button variant="ghost" className="text-slate-11 hover:text-slate-12 transition-all duration-300">Table</Button>
+                        <div className="flex gap-1 rounded-md bg-sand-3 p-1 w-fit">
+                            <Button variant="ghost" className="bg-sand-1 shadow-sm text-sand-12 transition-all duration-300">List</Button>
+                            <Button variant="ghost" className="text-sand-11 hover:text-sand-12 transition-all duration-300">Grid</Button>
+                            <Button variant="ghost" className="text-sand-11 hover:text-sand-12 transition-all duration-300">Table</Button>
                         </div>
-                        <div className="text-sm text-slate-11 font-mono">Visually connected button groups</div>
+                        <div className="text-sm text-sand-11 font-mono">Visually connected button groups</div>
                     </div>
                 </ExampleCard>
 
@@ -117,7 +117,7 @@ export default function ButtonExamples() {
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Uploading
                             </Button>
                         </div>
-                        <div className="text-sm text-slate-11 font-mono">Buttons with loading indicators</div>
+                        <div className="text-sm text-sand-11 font-mono">Buttons with loading indicators</div>
                     </div>
                 </ExampleCard>
 
@@ -140,7 +140,7 @@ export default function ButtonExamples() {
                                 <ChevronRight className="h-4 w-4" />
                             </Button>
                         </div>
-                        <div className="text-sm text-slate-11 font-mono">Pagination controls with active state</div>
+                        <div className="text-sm text-sand-11 font-mono">Pagination controls with active state</div>
                     </div>
                 </ExampleCard>
 
@@ -161,13 +161,13 @@ export default function ButtonExamples() {
                                 Bulk Actions <ChevronRight className="ml-2 h-4 w-4" />
                             </Button>
                         </div>
-                        <div className="text-sm text-slate-11 font-mono">Buttons for accessing additional actions</div>
+                        <div className="text-sm text-sand-11 font-mono">Buttons for accessing additional actions</div>
                     </div>
                 </ExampleCard>
             </div>
 
             {/* Full Width Button Section */}
-            <Separator className="my-8 bg-slate-6" />
+            <Separator className="my-8 bg-sand-6" />
 
             <ExampleCard
                 title="Admin Toolbar Example"
@@ -179,10 +179,10 @@ export default function ButtonExamples() {
                             <Button className="bg-primary-9 hover:bg-primary-10 text-white transition-all duration-300">
                                 <Plus className="mr-2 h-4 w-4" /> Create New
                             </Button>
-                            <Button variant="outline" className="border-slate-7 transition-all duration-300">
+                            <Button variant="outline" className="border-sand-7 transition-all duration-300">
                                 <Upload className="mr-2 h-4 w-4" /> Import
                             </Button>
-                            <Button variant="outline" className="border-slate-7 transition-all duration-300">
+                            <Button variant="outline" className="border-sand-7 transition-all duration-300">
                                 <Download className="mr-2 h-4 w-4" /> Export
                             </Button>
                         </div>
@@ -199,7 +199,7 @@ export default function ButtonExamples() {
                             </Button>
                         </div>
                     </div>
-                    <div className="text-sm text-slate-11 font-mono">Complete admin dashboard toolbar layout</div>
+                    <div className="text-sm text-sand-11 font-mono">Complete admin dashboard toolbar layout</div>
                 </div>
             </ExampleCard>
         </div>

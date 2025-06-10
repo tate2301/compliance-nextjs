@@ -217,13 +217,13 @@ export default function Example() {
         <nav className="h-full" aria-label="Directory">
           {Object.keys(directory).map((letter) => (
             <div key={letter} className="relative">
-              <div className="z-10 sticky top-0 border-t border-b border-slate-6 bg-slate-2 px-6 py-2 text-sm font-medium text-slate-11">
+              <div className="z-10 sticky top-0 border-t border-b border-sand-6 bg-sand-2 px-6 py-2 text-sm font-medium text-sand-11">
                 <h3>{letter}</h3>
               </div>
-              <ul role="list" className="relative z-0 divide-y divide-slate-6">
+              <ul role="list" className="relative z-0 divide-y divide-sand-6">
                 {directory[letter].map((person) => (
-                  <li key={person.id} className="bg-slate-1">
-                    <div className="relative px-6 py-5 flex items-center space-x-3 hover:bg-slate-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-9 transition-colors">
+                  <li key={person.id} className="bg-sand-1">
+                    <div className="relative px-6 py-5 flex items-center space-x-3 hover:bg-sand-2 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-9 transition-colors">
                       <div className="flex-shrink-0">
                         <Avatar>
                           <AvatarImage src={person.imageUrl} alt={person.name} />
@@ -233,8 +233,8 @@ export default function Example() {
                       <div className="flex-1 min-w-0">
                         <a href="#" className="focus:outline-none">
                           <span className="absolute inset-0" aria-hidden="true" />
-                          <p className="text-sm font-medium text-slate-12">{person.name}</p>
-                          <p className="text-sm text-slate-11 truncate">{person.role}</p>
+                          <p className="text-sm font-medium text-sand-12">{person.name}</p>
+                          <p className="text-sm text-sand-11 truncate">{person.role}</p>
                         </a>
                       </div>
                     </div>

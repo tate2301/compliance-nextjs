@@ -79,7 +79,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -99,7 +99,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -118,7 +118,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -134,7 +134,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -152,7 +152,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
         <div className="space-y-3">
           <Label
             style={commonLabelStyles}
-            className="text-slate-11 font-semibold"
+            className="text-sand-11 font-semibold"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -168,13 +168,13 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                   value={choice}
                   id={`${id}-${index}`}
                   className={cn(
-                    "border-zinc-300 text-primary-10 focus:ring-primary-20/20",
+                    "border-sand-300 text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 />
                 <Label
                   htmlFor={`${id}-${index}`}
-                  className="text-zinc-600 font-normal"
+                  className="text-sand-600 font-normal"
                 >
                   {choice}
                 </Label>
@@ -188,7 +188,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
         <div className="space-y-3">
           <Label
             style={commonLabelStyles}
-            className="text-slate-11 font-semibold"
+            className="text-sand-11 font-semibold"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -203,13 +203,13 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                 value="yes"
                 id={`${id}-yes`}
                 className={cn(
-                  "border-zinc-300 text-primary-10 focus:ring-primary-20/20",
+                  "border-sand-300 text-primary-10 focus:ring-primary-20/20",
                   error && "border-error-7"
                 )}
               />
               <Label
                 htmlFor={`${id}-yes`}
-                className="text-zinc-600 font-normal"
+                className="text-sand-600 font-normal"
               >
                 Yes
               </Label>
@@ -219,11 +219,11 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                 value="no"
                 id={`${id}-no`}
                 className={cn(
-                  "border-zinc-300 text-primary-10 focus:ring-primary-20/20",
+                  "border-sand-300 text-primary-10 focus:ring-primary-20/20",
                   error && "border-error-7"
                 )}
               />
-              <Label htmlFor={`${id}-no`} className="text-zinc-600 font-normal">
+              <Label htmlFor={`${id}-no`} className="text-sand-600 font-normal">
                 No
               </Label>
             </div>
@@ -237,7 +237,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -259,7 +259,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                     "flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
                     value === rating.toString()
                       ? "border-primary-10 bg-primary-4 text-white"
-                      : "border-zinc-200 bg-white text-slate-10 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
+                      : "border-sand-200 bg-white text-sand-10 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 >
@@ -268,7 +268,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
               )
             )}
           </div>
-          <div className="flex justify-between text-sm text-zinc-500">
+          <div className="flex justify-between text-sm text-sand-500">
             <span>Not at all likely</span>
             <span>Extremely likely</span>
           </div>
@@ -282,7 +282,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -300,7 +300,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                     "flex h-10 w-10 items-center justify-center rounded-full border font-medium transition-colors focus:outline-none focus:ring-2",
                     value === rating.toString()
                       ? "border-primary-10 bg-primary-4 text-white"
-                      : "border-zinc-200 bg-white text-slate-10 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
+                      : "border-sand-200 bg-white text-sand-10 hover:border-primary-20 hover:bg-primary-2 hover:text-primary-10 focus:ring-primary-20/20",
                     error && "border-error-7"
                   )}
                 >
@@ -309,7 +309,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
               )
             )}
           </div>
-          <div className="flex justify-between text-sm text-zinc-500">
+          <div className="flex justify-between text-sm text-sand-500">
             <span>Strongly disagree</span>
             <span>Strongly agree</span>
           </div>
@@ -322,12 +322,12 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
           </Label>
-          <div className="rounded-lg border-2 border-dashed flex-col max-w-96 bg-zinc-50/50 p-6 text-center transition-colors hover:border-indigo-300 hover:bg-zinc-50">
+          <div className="rounded-lg border-2 border-dashed flex-col max-w-96 bg-sand-50/50 p-6 text-center transition-colors hover:border-indigo-300 hover:bg-sand-50">
             <Input
               type="file"
               {...commonProps}
@@ -354,10 +354,10 @@ export function renderField(field: FormField, props: FieldRenderProps) {
                 </svg>
               </div>
               <div>
-                <p className="text-sm font-medium text-slate-10">
+                <p className="text-sm font-medium text-sand-10">
                   Click to upload or drag and drop
                 </p>
-                <p className="text-xs text-zinc-500">
+                <p className="text-xs text-sand-500">
                   {properties.allowedFileTypes?.join(", ") || "All files"}{" "}
                   {properties.maxFileSize &&
                     `(Max: ${properties.maxFileSize}MB)`}
@@ -373,7 +373,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
           <Label
             style={commonLabelStyles}
             htmlFor={id}
-            className="text-slate-10"
+            className="text-sand-10"
           >
             {label}
             {required ? renderRequiredIndicator() : null}
@@ -393,7 +393,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
         <div className="space-y-2 p-2">
           <div
             className={cn(
-              "prose max-w-none w-full rounded-md p-4 leading-loose text-slate-11",
+              "prose max-w-none w-full rounded-md p-4 leading-loose text-sand-11",
               properties.textAlign === "center" && "text-center",
               properties.textAlign === "right" && "text-right",
               properties.textAlign === "justify" && "text-justify"
@@ -410,7 +410,7 @@ export function renderField(field: FormField, props: FieldRenderProps) {
             }}
           />
           {!properties.text && (
-            <p className="text-zinc-400 italic text-sm">
+            <p className="text-sand-400 italic text-sm">
               Enter paragraph text in the properties panel
             </p>
           )}

@@ -47,7 +47,7 @@ export function Alert({
 
     // Variant styles for different alert types
     const variantStyles = {
-        default: "bg-slate-2 text-slate-12 border border-slate-6",
+        default: "bg-sand-2 text-sand-12 border border-sand-6",
         destructive: "bg-error-2 text-error-11 border border-error-6",
         success: "bg-success-2 text-success-11 border border-success-6",
         warning: "bg-warning-2 text-warning-11 border border-warning-6",
@@ -57,7 +57,7 @@ export function Alert({
 
     // Accent border styles
     const accentBorderStyles = {
-        default: "border-l-4 border-l-slate-9",
+        default: "border-l-4 border-l-sand-9",
         destructive: "border-l-4 border-l-error-9",
         success: "border-l-4 border-l-success-9",
         warning: "border-l-4 border-l-warning-9",
@@ -79,7 +79,7 @@ export function Alert({
             case 'accent':
                 return <Info className="h-5 w-5 text-primary-9" />;
             default:
-                return <Info className="h-5 w-5 text-slate-9" />;
+                return <Info className="h-5 w-5 text-sand-9" />;
         }
     };
 
@@ -97,7 +97,7 @@ export function Alert({
                 <button
                     type="button"
                     onClick={onDismiss}
-                    className="absolute right-3 top-3 rounded-full p-1 hover:bg-slate-4 focus:outline-none focus:ring-2 focus:ring-primary-8"
+                    className="absolute right-3 top-3 rounded-full p-1 hover:bg-sand-4 focus:outline-none focus:ring-2 focus:ring-primary-8"
                     aria-label="Dismiss alert"
                 >
                     <X className="h-4 w-4" />

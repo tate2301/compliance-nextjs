@@ -1,62 +1,82 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextResponse } from "next/server";
+import { withAuth }     from "next-auth/middleware";
 
-export async function middleware(request: NextRequest) {
-    const token = request.cookies.get('token');
-    const userCookie = request.cookies.get('user');
-    const host = request.headers.get('host') || '';
-    const url = request.nextUrl;
+const ROOT          = process.env.ROOT_DOMAIN!;
+const CACHE_SECONDS = 60;                                 // tenant cache TTL
 
-    // Parse user data from cookie
-    let userData = null;
-    if (userCookie) {
-        try {
-            userData = JSON.parse(userCookie.value);
-        } catch (error) {
-            console.error('Failed to parse user data:', error);
-        }
-    }
+export default withAuth(
+    async function middleware(req) {
+        const url   = req.nextUrl;
+        const host  = (req.headers.get("host") ?? "").split(":")[0]; // drop :3000
+        const token = req.nextauth.token;
 
-    // Determine if route is protected
-    const isProtectedRoute =
-        url.pathname.startsWith('/dashboard') ||
-        url.pathname.startsWith('/app');
+        console.log(req.nextauth)
 
-    // Handle unauthenticated users
-    if (isProtectedRoute && (!token || !userCookie || !userData)) {
-        const protocol = request.headers.get('x-forwarded-proto') || 'http';
-        const baseHost = host.replace(/^(app\.|admin\.)/, '');
-        const baseUrl = new URL('/auth/signin', `${protocol}://${baseHost}`);
-        const returnUrl = encodeURIComponent(`${protocol}://${host}`);
-        return NextResponse.redirect(new URL(`${baseUrl.toString()}?return_url=${returnUrl}`));
-    }
+        const sub = host.endsWith(`.${ROOT}`) ? host.replace(`.${ROOT}`, "") : "";
 
-    // Handle API routes with headers
-    if (url.pathname.startsWith('/api/')) {
-        const requestHeaders = new Headers(request.headers);
-        if (token) {
-            requestHeaders.set('Authorization', `Bearer ${token.value}`);
-        }
-        if (userData) {
-            requestHeaders.set('userId', userData.id);
+        /* 1️⃣  404 if tenant slug is unknown ----------------------------------- */
+        const reserved = ["", "www", "app", "admin"];
+
+        console.log("Middleware subdomain:", sub, "token:", token, "host:", host);
+        if (!reserved.includes(sub)) {
+            const exists = await fetch(
+                `${process.env.NEXT_PUBLIC_SITE_URL}/api/tenant/${sub}/exists`,
+                { method: "GET", next: { revalidate: CACHE_SECONDS } }
+            );
+
+            if (exists.status === 404) {
+                const url = req.nextUrl.clone()
+                url.pathname = '/404'
+                return NextResponse.rewrite(url);
+            }
         }
 
-        return NextResponse.next({
-            request: {
-                headers: requestHeaders,
-            },
-        });
-    }
+        /* 2️⃣  Protected routes → login if no token ---------------------------- */
+        const protectedPath =
+            url.pathname.startsWith("/dashboard") ||
+            url.pathname.startsWith("/app");
 
-    return NextResponse.next();
-}
+        if (protectedPath && !token) {
+            const signIn = new URL("/auth/signin", process.env.NEXTAUTH_URL);
+            signIn.searchParams.set("callbackUrl", encodeURIComponent(url.href));
+            return NextResponse.redirect(signIn);
+        }
+
+        /* 3️⃣  Tenant mismatch (user logged in under a different slug) --------- */
+        if (token && token.tenantSlug !== sub) {
+            return NextResponse.rewrite(new URL("/403", req.url));
+        }
+
+        /* 4️⃣  Forward JWT to internal API ------------------------------------- */
+        if (url.pathname.startsWith("/api/") && token) {
+            const headers = new Headers(req.headers);
+            headers.set(
+                "Authorization",
+                `Bearer ${req.cookies.get("next-auth.session-token")?.value ?? ""}`
+            );
+            headers.set("x-user-id", token.sub!);
+            return NextResponse.next({ request: { headers } });
+        }
+
+        return NextResponse.next();
+    },
+    {
+        callbacks: {
+            authorized: () => true        // 👆 keep this
+        },
+        secret: process.env.NEXTAUTH_SECRET,
+        pages: { signIn: "/auth/signin" }
+    }
+);
 
 export const config = {
     matcher: [
-        '/dashboard/:path*',
-        '/app/:path*',
-        '/subdomains/:path*',
-        '/api/:path*',
-        '/'
-    ],
+        "/dashboard/:path*",
+        "/app/:path*",
+        "/subdomains/:path*",
+        "/api/:path*",
+        "/",
+        '/((?!api/tenant/[^/]+/exists).*)'
+
+    ]
 };

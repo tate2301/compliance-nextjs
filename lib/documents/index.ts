@@ -1,5 +1,5 @@
 import axios from "axios";
-import { api } from "../auth";
+import { api, localApiClient } from "../auth";
 import { StaffDocument } from "../types";
 
 export const documentsService = {
@@ -8,7 +8,7 @@ export const documentsService = {
     limit: number;
   }): Promise<Array<StaffDocument>> => {
     try {
-      const response = await api.get("/form", { params });
+      const response = await localApiClient.get("/api/forms", { params });
       return response.data as Array<StaffDocument>;
     } catch (error) {
       if (axios.isAxiosError(error)) {

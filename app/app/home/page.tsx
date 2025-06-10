@@ -28,16 +28,16 @@ export default function AppPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="flex flex-col gap-4">
-              <h2 className="text-slate-12 font-semibold">Upcoming Shifts</h2>
-              <div className="flex flex-col gap-4 border border-slate-6 bg-slate-4 p-8 border-dashed justify-between items-center">
+              <h2 className="text-sand-12 font-semibold">Upcoming Shifts</h2>
+              <div className="flex flex-col gap-4 border border-sand-6 bg-sand-4 p-8 border-dashed justify-between items-center">
                 <div className="max-w-96 w-full flex flex-col items-center">
-                  <p className="text-slate-11 mb-2">
+                  <p className="text-sand-11 mb-2">
                     You are currently <span className="font-bold">60%</span>{" "}
                     compliant.
                   </p>
                   <Progress value={60} />
                 </div>
-                <p className="text-slate-10 text-sm">
+                <p className="text-sand-10 text-sm">
                   You have 12 items that need attention.
                 </p>
                 <Button>Submit documents</Button>
@@ -52,21 +52,21 @@ export default function AppPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex justify-between items-center p-2 bg-slate-3 rounded-md">
-                    <span className="text-sm text-slate-11">
+                  <div className="flex justify-between items-center p-2 bg-sand-3 rounded-md">
+                    <span className="text-sm text-sand-11">
                       COVID-19 Vaccination
                     </span>
                     <Badge variant="destructive">Missing</Badge>
                   </div>
-                  <div className="flex justify-between items-center p-2 bg-slate-3 rounded-md">
-                    <span className="text-sm text-slate-11">
+                  <div className="flex justify-between items-center p-2 bg-sand-3 rounded-md">
+                    <span className="text-sm text-sand-11">
                       COVID-19 Vaccination
                     </span>
                     <Badge variant="warning">Incomplete</Badge>
                   </div>
                 </div>
                 <div className="flex justify-between text-sm mb-1 mt-4">
-                  <span className="text-slate-11">85% complete</span>
+                  <span className="text-sand-11">85% complete</span>
                   <span className="text-primary-9 font-medium">17/20</span>
                 </div>
                 <Progress value={60} />
@@ -84,19 +84,19 @@ export default function AppPage() {
 
               <CardContent className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-slate-11">
+                  <span className="text-sm text-sand-11">
                     Registered Nurse (RN)
                   </span>
                   <Badge variant="success">Active</Badge>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-slate-11">
+                  <span className="text-sm text-sand-11">
                     Basic Life Support (BLS)
                   </span>
                   <Badge variant="success">Active</Badge>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-slate-11">
+                  <span className="text-sm text-sand-11">
                     Advanced Cardiac Life Support
                   </span>
                   <Badge variant="warning">Expiring Soon</Badge>
@@ -111,15 +111,15 @@ export default function AppPage() {
               </CardFooter>
             </Card>
 
-            <Card className="border border-dashed bg-slate-4">
+            <Card className="border border-dashed bg-sand-4">
               <CardHeader className="flex items-center">
-                <CardTitle className="text-lg font-semibold text-slate-12">
+                <CardTitle className="text-lg font-semibold text-sand-12">
                   Support
                 </CardTitle>
               </CardHeader>
 
               <CardContent>
-                <p className="text-sm text-slate-11">
+                <p className="text-sm text-sand-11">
                   Need help with your account or have questions about shifts?
                 </p>
               </CardContent>

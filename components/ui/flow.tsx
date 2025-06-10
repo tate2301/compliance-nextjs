@@ -91,7 +91,7 @@ export const Flow = ({
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 10 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-white border-none shadow-md cursor-pointer"
+                            className="absolute left-0 top-1/2 -transand-y-1/2 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-white border-none shadow-md cursor-pointer"
                             onClick={() => handleScroll('left')}
                             aria-label="Scroll left"
                         >
@@ -159,7 +159,7 @@ export const Flow = ({
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -10 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-white border-none shadow-md cursor-pointer"
+                            className="absolute right-0 top-1/2 -transand-y-1/2 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-white border-none shadow-md cursor-pointer"
                             onClick={() => handleScroll('right')}
                             aria-label="Scroll right"
                         >

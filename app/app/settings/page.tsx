@@ -19,7 +19,7 @@ import {
   EditableField,
   EditModal,
   FileUploadModal,
-} from "@/app/components/profile";
+} from "components/profile";
 import { CogIcon } from "@heroicons/react/solid";
 
 export default function ProfilePage() {

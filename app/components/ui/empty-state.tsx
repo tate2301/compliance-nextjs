@@ -53,17 +53,17 @@ export function EmptyState({
     return (
         <div className={cn(
             "px-6 py-14 text-center",
-            dashedBorder && "border-2 border-dashed border-slate-6 rounded-lg",
+            dashedBorder && "border-2 border-dashed border-sand-6 rounded-lg",
             className
         )}>
             {icon && (
-                <div className="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-slate-3 text-slate-11 mb-4">
+                <div className="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-sand-3 text-sand-11 mb-4">
                     {icon}
                 </div>
             )}
-            <h3 className="mt-2 text-lg font-semibold text-slate-12">{title}</h3>
+            <h3 className="mt-2 text-lg font-semibold text-sand-12">{title}</h3>
             {description && (
-                <p className="mt-1 text-sm text-slate-11 max-w-md mx-auto">{description}</p>
+                <p className="mt-1 text-sm text-sand-11 max-w-md mx-auto">{description}</p>
             )}
 
             {(primaryAction || secondaryAction) && (
@@ -87,22 +87,22 @@ export function EmptyState({
                             className={cn(
                                 "relative",
                                 gridLayout
-                                    ? "rounded-lg border border-slate-6 p-6 text-left"
-                                    : "flex items-start p-4 rounded-lg hover:bg-slate-2 transition-colors"
+                                    ? "rounded-lg border border-sand-6 p-6 text-left"
+                                    : "flex items-start p-4 rounded-lg hover:bg-sand-2 transition-colors"
                             )}
                         >
                             {item.icon && (
                                 <div className={cn(
-                                    "flex-shrink-0 h-10 w-10 rounded-md flex items-center justify-center bg-slate-3 text-slate-11",
+                                    "flex-shrink-0 h-10 w-10 rounded-md flex items-center justify-center bg-sand-3 text-sand-11",
                                     gridLayout ? "mx-auto mb-4" : "mr-4"
                                 )}>
                                     {item.icon}
                                 </div>
                             )}
                             <div className={gridLayout ? "text-center" : ""}>
-                                <h4 className="text-base font-medium text-slate-12">{item.title}</h4>
+                                <h4 className="text-base font-medium text-sand-12">{item.title}</h4>
                                 {item.description && (
-                                    <p className="mt-1 text-sm text-slate-11">{item.description}</p>
+                                    <p className="mt-1 text-sm text-sand-11">{item.description}</p>
                                 )}
                                 {item.action && <div className="mt-4">{item.action}</div>}
                             </div>

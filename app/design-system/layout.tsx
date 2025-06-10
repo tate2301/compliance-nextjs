@@ -15,9 +15,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className="bg-slate-3 min-h-screen text-foreground">
+            <body className="bg-sand-3 min-h-screen text-foreground">
                 <Providers>
-                    <header className="sticky top-0 z-50 w-full border-b border-slate-6 bg-card/75 backdrop-blur supports-[backdrop-filter]:bg-card/75">
+                    <header className="sticky top-0 z-50 w-full border-b border-sand-6 bg-card/75 backdrop-blur supports-[backdrop-filter]:bg-card/75">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4">
                             <div className="flex justify-between h-16 items-center flex-1">
                                 <div className="flex">

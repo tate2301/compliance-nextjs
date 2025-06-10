@@ -37,7 +37,7 @@ function SidebarNav({
             "flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all",
             activeSection === item.value
               ? "bg-primary-5 text-primary-11"
-              : "text-slate-11 hover:bg-slate-3 hover:text-slate-12"
+              : "text-sand-11 hover:bg-sand-3 hover:text-sand-12"
           )}
         >
           {item.icon}
@@ -62,21 +62,21 @@ export default function DesignSystemPage() {
   const [activeSection, setActiveSection] = useState("examples");
 
   return (
-    <div className="min-h-screen bg-slate-1">
+    <div className="min-h-screen bg-sand-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <aside className="lg:col-span-3">
             <div className="sticky top-24">
               <div className="space-y-4">
                 <div className="px-3">
-                  <h2 className="mb-2 text-lg font-semibold text-slate-12">
+                  <h2 className="mb-2 text-lg font-semibold text-sand-12">
                     Documentation
                   </h2>
-                  <p className="text-sm text-slate-11">
+                  <p className="text-sm text-sand-11">
                     Browse through our design system documentation and examples.
                   </p>
                 </div>
-                <Separator className="bg-slate-6" />
+                <Separator className="bg-sand-6" />
                 <ScrollArea className="h-[calc(100vh-12rem)]">
                   <div className="px-1">
                     <SidebarNav
@@ -91,7 +91,7 @@ export default function DesignSystemPage() {
           </aside>
 
           <main className="lg:col-span-9">
-            <div className="rounded-lg border border-slate-6 bg-slate-2 p-6">
+            <div className="rounded-lg border border-sand-6 bg-sand-2 p-6">
               {activeSection === "examples" && <CaregiverDashboardExamples />}
               {activeSection === "primitives" && <PrimitivesPage />}
               {activeSection === "admin-dashboard" && (
@@ -101,10 +101,10 @@ export default function DesignSystemPage() {
               {activeSection === "colors" && <ColorSystem />}
               {activeSection === "components" && (
                 <div className="space-y-8">
-                  <h1 className="text-3xl font-bold text-slate-12">
+                  <h1 className="text-3xl font-bold text-sand-12">
                     Components
                   </h1>
-                  <p className="text-slate-11">
+                  <p className="text-sand-11">
                     Components overview coming soon
                   </p>
                 </div>
@@ -114,9 +114,9 @@ export default function DesignSystemPage() {
         </div>
       </div>
 
-      <footer className="border-t border-slate-6 bg-slate-2 py-8 mt-12">
+      <footer className="border-t border-sand-6 bg-sand-2 py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-slate-11 text-sm">
+          <p className="text-center text-sand-11 text-sm">
             Mercury Design System • Built with Next.js and Tailwind CSS
           </p>
         </div>

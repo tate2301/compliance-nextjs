@@ -183,7 +183,7 @@ export default function Example() {
         <body class="h-full">
         ```
       */}
-      <div className="min-h-full bg-slate-1">
+      <div className="min-h-full bg-sand-1">
         <Popover as="header" className="pb-24 bg-gradient-to-r from-primary-9 to-secondary-9">
           {({ open }) => (
             <>
@@ -193,7 +193,7 @@ export default function Example() {
                   <div className="absolute left-0 py-5 flex-shrink-0 lg:static">
                     <a href="#">
                       <span className="sr-only">Workflow</span>
-                      <svg className="h-8 w-auto text-slate-1" fill="none" viewBox="0 0 35 32">
+                      <svg className="h-8 w-auto text-sand-1" fill="none" viewBox="0 0 35 32">
                         <path
                           fill="currentColor"
                           d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z"
@@ -204,7 +204,7 @@ export default function Example() {
 
                   {/* Right section on desktop */}
                   <div className="hidden lg:ml-4 lg:flex lg:items-center lg:py-5 lg:pr-0.5">
-                    <Button variant="ghost" className="flex-shrink-0 p-1 text-slate-12 hover:text-slate-11 focus:ring-2 focus:ring-primary-7">
+                    <Button variant="ghost" className="flex-shrink-0 p-1 text-sand-12 hover:text-sand-11 focus:ring-2 focus:ring-primary-7">
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </Button>
@@ -212,7 +212,7 @@ export default function Example() {
                     {/* Profile dropdown */}
                     <Menu as="div" className="ml-4 relative flex-shrink-0">
                       <div>
-                        <Menu.Button className="bg-slate-3 rounded-full flex text-sm text-slate-12 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7">
+                        <Menu.Button className="bg-sand-3 rounded-full flex text-sm text-sand-12 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7">
                           <span className="sr-only">Open user menu</span>
                           <Avatar>
                             <AvatarImage src={user.imageUrl} alt="" />
@@ -229,15 +229,15 @@ export default function Example() {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-slate-1 ring-1 ring-slate-6 focus:outline-none">
+                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-sand-1 ring-1 ring-sand-6 focus:outline-none">
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
                                 <a
                                   href={item.href}
                                   className={classNames(
-                                    active ? 'bg-slate-2' : '',
-                                    'block px-4 py-2 text-sm text-slate-12 hover:bg-slate-3'
+                                    active ? 'bg-sand-2' : '',
+                                    'block px-4 py-2 text-sm text-sand-12 hover:bg-sand-3'
                                   )}
                                 >
                                   {item.name}
@@ -256,13 +256,13 @@ export default function Example() {
                       <label htmlFor="desktop-search" className="sr-only">
                         Search
                       </label>
-                      <div className="relative text-slate-12 focus-within:text-slate-11">
+                      <div className="relative text-sand-12 focus-within:text-sand-11">
                         <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                           <SearchIcon className="h-5 w-5" aria-hidden="true" />
                         </div>
                         <input
                           id="desktop-search"
-                          className="block w-full bg-slate-3 border-0 pl-10 pr-3 py-2 rounded-md text-slate-12 placeholder-slate-9 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:placeholder-slate-8 sm:text-sm"
+                          className="block w-full bg-sand-3 border-0 pl-10 pr-3 py-2 rounded-md text-sand-12 placeholder-sand-9 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:placeholder-sand-8 sm:text-sm"
                           placeholder="Search"
                           type="search"
                           name="search"
@@ -273,7 +273,7 @@ export default function Example() {
 
                   {/* Menu button */}
                   <div className="absolute right-0 flex-shrink-0 lg:hidden">
-                    <Popover.Button className="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-slate-12 hover:text-slate-11 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7">
+                    <Popover.Button className="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-sand-12 hover:text-sand-11 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7">
                       <span className="sr-only">Open main menu</span>
                       {open ? (
                         <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -283,7 +283,7 @@ export default function Example() {
                     </Popover.Button>
                   </div>
                 </div>
-                <div className="hidden lg:block border-t border-slate-6 py-5">
+                <div className="hidden lg:block border-t border-sand-6 py-5">
                   <div className="grid grid-cols-3 gap-8 items-center">
                     <div className="col-span-2">
                       <nav className="flex space-x-4">
@@ -292,7 +292,7 @@ export default function Example() {
                             key={item.name}
                             href={item.href}
                             className={classNames(
-                              item.current ? 'text-slate-12 bg-slate-3' : 'text-slate-11 hover:text-slate-12',
+                              item.current ? 'text-sand-12 bg-sand-3' : 'text-sand-11 hover:text-sand-12',
                               'rounded-md px-3 py-2 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
@@ -307,13 +307,13 @@ export default function Example() {
                         <label htmlFor="mobile-search" className="sr-only">
                           Search
                         </label>
-                        <div className="relative text-slate-12 focus-within:text-slate-11">
+                        <div className="relative text-sand-12 focus-within:text-sand-11">
                           <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                             <SearchIcon className="h-5 w-5" aria-hidden="true" />
                           </div>
                           <input
                             id="mobile-search"
-                            className="block w-full bg-slate-3 border-0 pl-10 pr-3 py-2 rounded-md text-slate-12 placeholder-slate-9 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:placeholder-slate-8 sm:text-sm"
+                            className="block w-full bg-sand-3 border-0 pl-10 pr-3 py-2 rounded-md text-sand-12 placeholder-sand-9 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:placeholder-sand-8 sm:text-sm"
                             placeholder="Search"
                             type="search"
                             name="search"
@@ -336,7 +336,7 @@ export default function Example() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Popover.Overlay className="z-20 fixed inset-0 bg-slate-1 bg-opacity-50" />
+                    <Popover.Overlay className="z-20 fixed inset-0 bg-sand-1 bg-opacity-50" />
                   </Transition.Child>
 
                   <Transition.Child
@@ -352,11 +352,11 @@ export default function Example() {
                       focus
                       className="z-30 absolute top-0 inset-x-0 max-w-3xl mx-auto w-full p-2 transition transform origin-top"
                     >
-                      <div className="rounded-lg shadow-lg ring-1 ring-slate-6 bg-slate-1 divide-y divide-slate-6">
+                      <div className="rounded-lg shadow-lg ring-1 ring-sand-6 bg-sand-1 divide-y divide-sand-6">
                         <div className="pt-3 pb-2">
                           <div className="flex items-center justify-between px-4">
                             <div>
-                              <svg className="h-8 w-auto text-slate-12" fill="none" viewBox="0 0 35 32">
+                              <svg className="h-8 w-auto text-sand-12" fill="none" viewBox="0 0 35 32">
                                 <path
                                   fill="currentColor"
                                   d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z"
@@ -364,7 +364,7 @@ export default function Example() {
                               </svg>
                             </div>
                             <div className="-mr-2">
-                              <Popover.Button className="bg-slate-3 rounded-md p-2 inline-flex items-center justify-center text-slate-12 hover:text-slate-11 hover:bg-slate-4 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-7">
+                              <Popover.Button className="bg-sand-3 rounded-md p-2 inline-flex items-center justify-center text-sand-12 hover:text-sand-11 hover:bg-sand-4 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-7">
                                 <span className="sr-only">Close menu</span>
                                 <XIcon className="h-6 w-6" aria-hidden="true" />
                               </Popover.Button>
@@ -376,7 +376,7 @@ export default function Example() {
                                 key={item.name}
                                 href={item.href}
                                 className={classNames(
-                                  item.current ? 'bg-slate-3 text-slate-12' : 'text-slate-11 hover:text-slate-12 hover:bg-slate-3',
+                                  item.current ? 'bg-sand-3 text-sand-12' : 'text-sand-11 hover:text-sand-12 hover:bg-sand-3',
                                   'block rounded-md px-3 py-2 text-base font-medium'
                                 )}
                                 aria-current={item.current ? 'page' : undefined}
@@ -395,10 +395,10 @@ export default function Example() {
                               </Avatar>
                             </div>
                             <div className="ml-3 min-w-0 flex-1">
-                              <div className="text-base font-medium text-slate-12 truncate">{user.name}</div>
-                              <div className="text-sm font-medium text-slate-11 truncate">{user.email}</div>
+                              <div className="text-base font-medium text-sand-12 truncate">{user.name}</div>
+                              <div className="text-sm font-medium text-sand-11 truncate">{user.email}</div>
                             </div>
-                            <Button variant="ghost" className="ml-auto flex-shrink-0 p-1 text-slate-12 hover:text-slate-11">
+                            <Button variant="ghost" className="ml-auto flex-shrink-0 p-1 text-sand-12 hover:text-sand-11">
                               <span className="sr-only">View notifications</span>
                               <BellIcon className="h-6 w-6" aria-hidden="true" />
                             </Button>
@@ -408,7 +408,7 @@ export default function Example() {
                               <a
                                 key={item.name}
                                 href={item.href}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-slate-11 hover:text-slate-12 hover:bg-slate-3"
+                                className="block rounded-md px-3 py-2 text-base font-medium text-sand-11 hover:text-sand-12 hover:bg-sand-3"
                               >
                                 {item.name}
                               </a>
@@ -432,11 +432,11 @@ export default function Example() {
               <div className="grid grid-cols-1 gap-4 lg:col-span-2">
                 {/* Welcome panel */}
                 <section aria-labelledby="profile-overview-title">
-                  <div className="rounded-lg bg-slate-1 overflow-hidden shadow">
+                  <div className="rounded-lg bg-sand-1 overflow-hidden shadow">
                     <h2 className="sr-only" id="profile-overview-title">
                       Profile Overview
                     </h2>
-                    <div className="bg-slate-2 p-6">
+                    <div className="bg-sand-2 p-6">
                       <div className="sm:flex sm:items-center sm:justify-between">
                         <div className="sm:flex sm:space-x-5">
                           <div className="flex-shrink-0">
@@ -446,9 +446,9 @@ export default function Example() {
                             </Avatar>
                           </div>
                           <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
-                            <p className="text-sm font-medium text-slate-11">Welcome back,</p>
-                            <p className="text-xl font-bold text-slate-12 sm:text-2xl">{user.name}</p>
-                            <p className="text-sm font-medium text-slate-11">{user.role}</p>
+                            <p className="text-sm font-medium text-sand-11">Welcome back,</p>
+                            <p className="text-xl font-bold text-sand-12 sm:text-2xl">{user.name}</p>
+                            <p className="text-sm font-medium text-sand-11">{user.role}</p>
                           </div>
                         </div>
                         <div className="mt-5 flex justify-center sm:mt-0">
@@ -458,11 +458,11 @@ export default function Example() {
                         </div>
                       </div>
                     </div>
-                    <div className="border-t border-slate-6 bg-slate-1 grid grid-cols-1 divide-y divide-slate-6 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
+                    <div className="border-t border-sand-6 bg-sand-1 grid grid-cols-1 divide-y divide-sand-6 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
                       {stats.map((stat) => (
                         <div key={stat.label} className="px-6 py-5 text-sm font-medium text-center">
-                          <span className="text-slate-12">{stat.value}</span>{' '}
-                          <span className="text-slate-11">{stat.label}</span>
+                          <span className="text-sand-12">{stat.value}</span>{' '}
+                          <span className="text-sand-11">{stat.label}</span>
                         </div>
                       ))}
                     </div>
@@ -471,9 +471,9 @@ export default function Example() {
 
                 {/* Actions panel */}
                 <section aria-labelledby="quick-links-title">
-                  <div className="rounded-lg bg-slate-1 overflow-hidden shadow divide-y divide-slate-6">
+                  <div className="rounded-lg bg-sand-1 overflow-hidden shadow divide-y divide-sand-6">
                     <div className="px-6 py-5 sm:flex sm:items-center sm:justify-between">
-                      <h2 id="quick-links-title" className="text-lg font-medium text-slate-12">
+                      <h2 id="quick-links-title" className="text-lg font-medium text-sand-12">
                         Quick links
                       </h2>
                       <div className="mt-3 sm:mt-0 sm:ml-4">
@@ -482,7 +482,7 @@ export default function Example() {
                         </Button>
                       </div>
                     </div>
-                    <div className="grid grid-cols-1 divide-y divide-slate-6 sm:grid-cols-2 sm:divide-y-0 sm:divide-x">
+                    <div className="grid grid-cols-1 divide-y divide-sand-6 sm:grid-cols-2 sm:divide-y-0 sm:divide-x">
                       {actions.map((action, actionIdx) => (
                         <div
                           key={action.title}
@@ -497,7 +497,7 @@ export default function Example() {
                               className={classNames(
                                 action.iconBackground,
                                 action.iconForeground,
-                                'rounded-lg inline-flex p-3 ring-4 ring-slate-3'
+                                'rounded-lg inline-flex p-3 ring-4 ring-sand-3'
                               )}
                             >
                               <action.icon className="h-6 w-6" aria-hidden="true" />
@@ -511,10 +511,10 @@ export default function Example() {
                                 {action.title}
                               </a>
                             </h3>
-                            <p className="mt-2 text-sm text-slate-11">{action.description}</p>
+                            <p className="mt-2 text-sm text-sand-11">{action.description}</p>
                           </div>
                           <span
-                            className="pointer-events-none absolute top-6 right-6 text-slate-11 group-hover:text-slate-12"
+                            className="pointer-events-none absolute top-6 right-6 text-sand-11 group-hover:text-sand-12"
                             aria-hidden="true"
                           >
                             <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -532,24 +532,24 @@ export default function Example() {
               <div className="grid grid-cols-1 gap-4">
                 {/* Announcements */}
                 <section aria-labelledby="announcements-title">
-                  <div className="rounded-lg bg-slate-1 overflow-hidden shadow">
+                  <div className="rounded-lg bg-sand-1 overflow-hidden shadow">
                     <div className="p-6">
-                      <h2 className="text-base font-medium text-slate-12" id="announcements-title">
+                      <h2 className="text-base font-medium text-sand-12" id="announcements-title">
                         Announcements
                       </h2>
                       <div className="flow-root mt-6">
-                        <ul role="list" className="-my-5 divide-y divide-slate-6">
+                        <ul role="list" className="-my-5 divide-y divide-sand-6">
                           {announcements.map((announcement) => (
                             <li key={announcement.id} className="py-5">
                               <div className="relative focus-within:ring-2 focus-within:ring-primary-7">
-                                <h3 className="text-sm font-semibold text-slate-12">
+                                <h3 className="text-sm font-semibold text-sand-12">
                                   <a href={announcement.href} className="hover:underline focus:outline-none">
                                     {/* Extend touch target to entire panel */}
                                     <span className="absolute inset-0" aria-hidden="true" />
                                     {announcement.title}
                                   </a>
                                 </h3>
-                                <p className="mt-1 text-sm text-slate-11">{announcement.preview}</p>
+                                <p className="mt-1 text-sm text-sand-11">{announcement.preview}</p>
                               </div>
                             </li>
                           ))}
@@ -566,13 +566,13 @@ export default function Example() {
 
                 {/* Recent Hires */}
                 <section aria-labelledby="recent-hires-title">
-                  <div className="rounded-lg bg-slate-1 overflow-hidden shadow">
+                  <div className="rounded-lg bg-sand-1 overflow-hidden shadow">
                     <div className="p-6">
-                      <h2 className="text-base font-medium text-slate-12" id="recent-hires-title">
+                      <h2 className="text-base font-medium text-sand-12" id="recent-hires-title">
                         Recent Hires
                       </h2>
                       <div className="flow-root mt-6">
-                        <ul role="list" className="-my-5 divide-y divide-slate-6">
+                        <ul role="list" className="-my-5 divide-y divide-sand-6">
                           {recentHires.map((person) => (
                             <li key={person.handle} className="py-4">
                               <div className="flex items-center space-x-4">
@@ -583,8 +583,8 @@ export default function Example() {
                                   </Avatar>
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-medium text-slate-12 truncate">{person.name}</p>
-                                  <p className="text-sm text-slate-11 truncate">{'@' + person.handle}</p>
+                                  <p className="text-sm font-medium text-sand-12 truncate">{person.name}</p>
+                                  <p className="text-sm text-sand-11 truncate">{'@' + person.handle}</p>
                                 </div>
                                 <div>
                                   <Button variant="ghost" className="inline-flex items-center shadow-sm px-2.5 py-0.5 text-sm leading-5">
@@ -610,7 +610,7 @@ export default function Example() {
         </main>
         <footer>
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
-            <div className="border-t border-slate-6 py-8 text-sm text-slate-11 text-center sm:text-left">
+            <div className="border-t border-sand-6 py-8 text-sm text-sand-11 text-center sm:text-left">
               <span>&copy; 2024 Your Company, Inc. All rights reserved.</span>
             </div>
           </div>

@@ -55,18 +55,18 @@ export default function Example() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-slate-12/50" />
+              <Dialog.Overlay className="fixed inset-0 bg-sand-12/50" />
             </Transition.Child>
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"
-              enterFrom="-translate-x-full"
-              enterTo="translate-x-0"
+              enterFrom="-transand-x-full"
+              enterTo="transand-x-0"
               leave="transition ease-in-out duration-300 transform"
-              leaveFrom="translate-x-0"
-              leaveTo="-translate-x-full"
+              leaveFrom="transand-x-0"
+              leaveTo="-transand-x-full"
             >
-              <div className="relative flex-1 flex flex-col max-w-xs w-full bg-slate-1 focus:outline-none">
+              <div className="relative flex-1 flex flex-col max-w-xs w-full bg-sand-1 focus:outline-none">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-300"
@@ -104,14 +104,14 @@ export default function Example() {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? 'bg-slate-3 text-slate-12'
-                              : 'text-slate-11 hover:bg-slate-3 hover:text-slate-12',
+                              ? 'bg-sand-3 text-sand-12'
+                              : 'text-sand-11 hover:bg-sand-3 hover:text-sand-12',
                             'group flex items-center px-2 py-2 text-base font-medium rounded-md'
                           )}
                         >
                           <item.icon
                             className={classNames(
-                              item.current ? 'text-slate-11' : 'text-slate-10 group-hover:text-slate-11',
+                              item.current ? 'text-sand-11' : 'text-sand-10 group-hover:text-sand-11',
                               'mr-4 h-6 w-6'
                             )}
                             aria-hidden="true"
@@ -122,7 +122,7 @@ export default function Example() {
                     </div>
                   </nav>
                 </ScrollArea>
-                <div className="flex-shrink-0 flex border-t border-slate-6 p-4">
+                <div className="flex-shrink-0 flex border-t border-sand-6 p-4">
                   <a href="#" className="flex-shrink-0 group block">
                     <div className="flex items-center">
                       <Avatar>
@@ -133,8 +133,8 @@ export default function Example() {
                         <AvatarFallback>WF</AvatarFallback>
                       </Avatar>
                       <div className="ml-3">
-                        <p className="text-base font-medium text-slate-12 group-hover:text-slate-12">Whitney Francis</p>
-                        <p className="text-sm font-medium text-slate-11 group-hover:text-slate-12">View profile</p>
+                        <p className="text-base font-medium text-sand-12 group-hover:text-sand-12">Whitney Francis</p>
+                        <p className="text-sm font-medium text-sand-11 group-hover:text-sand-12">View profile</p>
                       </div>
                     </div>
                   </a>
@@ -151,7 +151,7 @@ export default function Example() {
         <div className="hidden lg:flex lg:flex-shrink-0">
           <div className="flex flex-col w-64">
             {/* Sidebar component, swap this element with another sidebar if you like */}
-            <div className="flex-1 flex flex-col min-h-0 border-r border-slate-6 bg-slate-2">
+            <div className="flex-1 flex flex-col min-h-0 border-r border-sand-6 bg-sand-2">
               <ScrollArea className="flex-1 flex flex-col pt-5 pb-4">
                 <div className="flex items-center flex-shrink-0 px-4">
                   <img
@@ -168,14 +168,14 @@ export default function Example() {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? 'bg-slate-3 text-slate-12'
-                            : 'text-slate-11 hover:bg-slate-3 hover:text-slate-12',
+                            ? 'bg-sand-3 text-sand-12'
+                            : 'text-sand-11 hover:bg-sand-3 hover:text-sand-12',
                           'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                         )}
                       >
                         <item.icon
                           className={classNames(
-                            item.current ? 'text-slate-11' : 'text-slate-10 group-hover:text-slate-11',
+                            item.current ? 'text-sand-11' : 'text-sand-10 group-hover:text-sand-11',
                             'mr-3 h-6 w-6'
                           )}
                           aria-hidden="true"
@@ -186,7 +186,7 @@ export default function Example() {
                   </div>
                 </nav>
               </ScrollArea>
-              <div className="flex-shrink-0 flex border-t border-slate-6 p-4">
+              <div className="flex-shrink-0 flex border-t border-sand-6 p-4">
                 <a href="#" className="flex-shrink-0 w-full group block">
                   <div className="flex items-center">
                     <Avatar>
@@ -197,8 +197,8 @@ export default function Example() {
                       <AvatarFallback>WF</AvatarFallback>
                     </Avatar>
                     <div className="ml-3">
-                      <p className="text-sm font-medium text-slate-12 group-hover:text-slate-12">Whitney Francis</p>
-                      <p className="text-xs font-medium text-slate-11 group-hover:text-slate-12">View profile</p>
+                      <p className="text-sm font-medium text-sand-12 group-hover:text-sand-12">Whitney Francis</p>
+                      <p className="text-xs font-medium text-sand-11 group-hover:text-sand-12">View profile</p>
                     </div>
                   </div>
                 </a>
@@ -208,7 +208,7 @@ export default function Example() {
         </div>
         <div className="flex flex-col min-w-0 flex-1 overflow-hidden">
           <div className="lg:hidden">
-            <div className="flex items-center justify-between bg-slate-2 border-b border-slate-6 px-4 py-1.5">
+            <div className="flex items-center justify-between bg-sand-2 border-b border-sand-6 px-4 py-1.5">
               <div>
                 <img
                   className="h-8 w-auto"
@@ -220,7 +220,7 @@ export default function Example() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-slate-11 hover:text-slate-12"
+                  className="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-sand-11 hover:text-sand-12"
                   onClick={() => setSidebarOpen(true)}
                 >
                   <span className="sr-only">Open sidebar</span>
@@ -233,14 +233,14 @@ export default function Example() {
             <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
               {/* Start main area*/}
               <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-                <div className="h-full border-2 border-slate-6 border-dashed rounded-lg" />
+                <div className="h-full border-2 border-sand-6 border-dashed rounded-lg" />
               </div>
               {/* End main area */}
             </main>
-            <aside className="hidden relative xl:order-first xl:flex xl:flex-col flex-shrink-0 w-96 border-r border-slate-6 overflow-y-auto">
+            <aside className="hidden relative xl:order-first xl:flex xl:flex-col flex-shrink-0 w-96 border-r border-sand-6 overflow-y-auto">
               {/* Start secondary column (hidden on smaller screens) */}
               <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-                <div className="h-full border-2 border-slate-6 border-dashed rounded-lg" />
+                <div className="h-full border-2 border-sand-6 border-dashed rounded-lg" />
               </div>
               {/* End secondary column */}
             </aside>

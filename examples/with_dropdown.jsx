@@ -18,12 +18,12 @@ export default function Example() {
     <span className="relative z-0 inline-flex shadow-sm rounded-md">
       <button
         type="button"
-        className="relative inline-flex items-center px-4 py-2 rounded-l-md border border-slate-6 bg-slate-2 text-sm font-medium text-slate-12 hover:bg-slate-3 focus:z-10 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7 transition-colors"
+        className="relative inline-flex items-center px-4 py-2 rounded-l-md border border-sand-6 bg-sand-2 text-sm font-medium text-sand-12 hover:bg-sand-3 focus:z-10 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7 transition-colors"
       >
         Save changes
       </button>
       <Menu as="span" className="-ml-px relative block">
-        <Menu.Button className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-slate-6 bg-slate-2 text-sm font-medium text-slate-11 hover:bg-slate-3 hover:text-slate-12 focus:z-10 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7 transition-colors">
+        <Menu.Button className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-sand-6 bg-sand-2 text-sm font-medium text-sand-11 hover:bg-sand-3 hover:text-sand-12 focus:z-10 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7 transition-colors">
           <span className="sr-only">Open options</span>
           <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
         </Menu.Button>
@@ -36,7 +36,7 @@ export default function Example() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="origin-top-right absolute right-0 mt-2 -mr-1 w-56 rounded-md shadow-lg bg-slate-1 ring-1 ring-slate-6 focus:outline-none">
+          <Menu.Items className="origin-top-right absolute right-0 mt-2 -mr-1 w-56 rounded-md shadow-lg bg-sand-1 ring-1 ring-sand-6 focus:outline-none">
             <div className="py-1">
               {items.map((item) => (
                 <Menu.Item key={item.name}>
@@ -44,7 +44,7 @@ export default function Example() {
                     <a
                       href={item.href}
                       className={classNames(
-                        active ? 'bg-slate-3 text-slate-12' : 'text-slate-11 hover:text-slate-12',
+                        active ? 'bg-sand-3 text-sand-12' : 'text-sand-11 hover:text-sand-12',
                         'block px-4 py-2 text-sm transition-colors'
                       )}
                     >

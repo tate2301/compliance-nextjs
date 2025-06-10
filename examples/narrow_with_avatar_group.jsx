@@ -27,16 +27,16 @@ const people = [
 export default function Example() {
   return (
     <Card>
-      <ul role="list" className="divide-y divide-slate-6">
+      <ul role="list" className="divide-y divide-sand-6">
         {people.map((person) => (
-          <li key={person.email} className="p-4 flex items-center hover:bg-slate-2 transition-colors">
+          <li key={person.email} className="p-4 flex items-center hover:bg-sand-2 transition-colors">
             <Avatar>
               <AvatarImage src={person.image} alt={person.name} />
               <AvatarFallback>{person.name.charAt(0)}</AvatarFallback>
             </Avatar>
             <div className="ml-3">
-              <p className="text-sm font-medium text-slate-12">{person.name}</p>
-              <p className="text-sm text-slate-11">{person.email}</p>
+              <p className="text-sm font-medium text-sand-12">{person.name}</p>
+              <p className="text-sm text-sand-11">{person.email}</p>
             </div>
           </li>
         ))}

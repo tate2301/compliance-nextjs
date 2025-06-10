@@ -28,11 +28,11 @@ export function FormBuilderHeader({
       <div className="mx-auto flex h-16 items-center justify-between px-6">
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" className="shrink-0">
-            <ArrowLeftIcon className="h-5 w-5 text-zinc-600" />
+            <ArrowLeftIcon className="h-5 w-5 text-sand-600" />
           </Button>
           <div>
-            <h1 className="text-lg font-semibold text-zinc-900">{formTitle}</h1>
-            <p className="text-sm text-zinc-500">{formDescription}</p>
+            <h1 className="text-lg font-semibold text-sand-900">{formTitle}</h1>
+            <p className="text-sm text-sand-500">{formDescription}</p>
           </div>
         </div>
 

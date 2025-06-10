@@ -11,15 +11,15 @@ export default function OnboardingCompletePage() {
           <div className="mx-auto w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
             <Clock className="w-6 h-6 text-amber-600" />
           </div>
-          <CardTitle className="text-2xl font-semibold text-slate-12">
+          <CardTitle className="text-2xl font-semibold text-sand-12">
             Onboarding Complete!
           </CardTitle>
-          <CardDescription className="text-slate-9">
+          <CardDescription className="text-sand-9">
             You've successfully completed all required forms and documentation.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-slate-9 mb-4">
+          <p className="text-sm text-sand-9 mb-4">
             Your submission is now being reviewed by our team. You'll receive an email notification once your account has been verified.
           </p>
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">

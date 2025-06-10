@@ -83,9 +83,9 @@ export default function Example() {
   const [selected, setSelected] = useState(publishingOptions[0])
 
   return (
-    <div className="min-h-full bg-slate-1">
+    <div className="min-h-full bg-sand-1">
       {/* Navbar */}
-      <Disclosure as="nav" className="bg-slate-2 border-b border-slate-6">
+      <Disclosure as="nav" className="bg-sand-2 border-b border-sand-6">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,7 +107,7 @@ export default function Example() {
                           key={item.name}
                           href={item.href}
                           className={classNames(
-                            item.current ? 'bg-slate-3 text-slate-12' : 'text-slate-11 hover:text-slate-12 hover:bg-slate-3',
+                            item.current ? 'bg-sand-3 text-sand-12' : 'text-sand-11 hover:text-sand-12 hover:bg-sand-3',
                             'px-3 py-2 rounded-md text-sm font-medium transition-colors'
                           )}
                           aria-current={item.current ? 'page' : undefined}
@@ -125,13 +125,13 @@ export default function Example() {
                     <label htmlFor="search" className="sr-only">
                       Search
                     </label>
-                    <div className="relative text-slate-11 focus-within:text-slate-12">
+                    <div className="relative text-sand-11 focus-within:text-sand-12">
                       <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                         <SearchIcon className="h-5 w-5" aria-hidden="true" />
                       </div>
                       <input
                         id="search"
-                        className="block w-full bg-slate-3 py-2 pl-10 pr-3 border border-slate-6 rounded-md leading-5 text-slate-12 placeholder-slate-11 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7 focus:placeholder-slate-10 sm:text-sm transition-colors"
+                        className="block w-full bg-sand-3 py-2 pl-10 pr-3 border border-sand-6 rounded-md leading-5 text-sand-12 placeholder-sand-11 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7 focus:placeholder-sand-10 sm:text-sm transition-colors"
                         placeholder="Search"
                         type="search"
                         name="search"
@@ -142,7 +142,7 @@ export default function Example() {
 
                 <div className="flex lg:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="bg-slate-2 p-2 inline-flex items-center justify-center rounded-md text-slate-11 hover:text-slate-12 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-primary-7 transition-colors">
+                  <Disclosure.Button className="bg-sand-2 p-2 inline-flex items-center justify-center rounded-md text-sand-11 hover:text-sand-12 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-primary-7 transition-colors">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -157,7 +157,7 @@ export default function Example() {
                   <div className="flex items-center">
                     <button
                       type="button"
-                      className="bg-slate-2 flex-shrink-0 rounded-full p-1 text-slate-11 hover:text-slate-12 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-primary-7 transition-colors"
+                      className="bg-sand-2 flex-shrink-0 rounded-full p-1 text-sand-11 hover:text-sand-12 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-primary-7 transition-colors"
                     >
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -166,7 +166,7 @@ export default function Example() {
                     {/* Profile dropdown */}
                     <Menu as="div" className="ml-3 relative flex-shrink-0">
                       <div>
-                        <Menu.Button className="bg-slate-2 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-primary-7">
+                        <Menu.Button className="bg-sand-2 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-primary-7">
                           <span className="sr-only">Open user menu</span>
                           <img className="rounded-full h-8 w-8" src={user.imageUrl} alt="" />
                         </Menu.Button>
@@ -180,15 +180,15 @@ export default function Example() {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-slate-1 ring-1 ring-slate-6 focus:outline-none">
+                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-sand-1 ring-1 ring-sand-6 focus:outline-none">
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
                                 <a
                                   href={item.href}
                                   className={classNames(
-                                    active ? 'bg-slate-3' : '',
-                                    'block px-4 py-2 text-sm text-slate-12 hover:bg-slate-3 transition-colors'
+                                    active ? 'bg-sand-3' : '',
+                                    'block px-4 py-2 text-sm text-sand-12 hover:bg-sand-3 transition-colors'
                                   )}
                                 >
                                   {item.name}
@@ -212,7 +212,7 @@ export default function Example() {
                     as="a"
                     href={item.href}
                     className={classNames(
-                      item.current ? 'bg-slate-3 text-slate-12' : 'text-slate-11 hover:text-slate-12 hover:bg-slate-3',
+                      item.current ? 'bg-sand-3 text-sand-12' : 'text-sand-11 hover:text-sand-12 hover:bg-sand-3',
                       'block px-3 py-2 rounded-md text-base font-medium transition-colors'
                     )}
                     aria-current={item.current ? 'page' : undefined}
@@ -221,18 +221,18 @@ export default function Example() {
                   </Disclosure.Button>
                 ))}
               </div>
-              <div className="pt-4 pb-3 border-t border-slate-6">
+              <div className="pt-4 pb-3 border-t border-sand-6">
                 <div className="px-5 flex items-center">
                   <div className="flex-shrink-0">
                     <img className="rounded-full h-10 w-10" src={user.imageUrl} alt="" />
                   </div>
                   <div className="ml-3">
-                    <div className="text-base font-medium text-slate-12">{user.name}</div>
-                    <div className="text-sm font-medium text-slate-11">{user.email}</div>
+                    <div className="text-base font-medium text-sand-12">{user.name}</div>
+                    <div className="text-sm font-medium text-sand-11">{user.email}</div>
                   </div>
                   <button
                     type="button"
-                    className="ml-auto bg-slate-2 flex-shrink-0 rounded-full p-1 text-slate-11 hover:text-slate-12 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-primary-7 transition-colors"
+                    className="ml-auto bg-sand-2 flex-shrink-0 rounded-full p-1 text-sand-11 hover:text-sand-12 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-primary-7 transition-colors"
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -244,7 +244,7 @@ export default function Example() {
                       key={item.name}
                       as="a"
                       href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-slate-12 hover:bg-slate-3 transition-colors"
+                      className="block px-3 py-2 rounded-md text-base font-medium text-sand-12 hover:bg-sand-3 transition-colors"
                     >
                       {item.name}
                     </Disclosure.Button>
@@ -257,7 +257,7 @@ export default function Example() {
       </Disclosure>
 
       {/* Tabs */}
-      <div className="bg-slate-2 border-b border-slate-6">
+      <div className="bg-sand-2 border-b border-sand-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative -mb-px flex space-x-8">
             {tabs.map((tab) => (
@@ -267,7 +267,7 @@ export default function Example() {
                 className={classNames(
                   tab.current
                     ? 'border-primary-9 text-primary-9'
-                    : 'border-transparent text-slate-11 hover:text-slate-12 hover:border-slate-6',
+                    : 'border-transparent text-sand-11 hover:text-sand-12 hover:border-sand-6',
                   'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
@@ -276,7 +276,7 @@ export default function Example() {
                 {tab.count ? (
                   <span
                     className={classNames(
-                      tab.current ? 'bg-primary-3 text-primary-12' : 'bg-slate-3 text-slate-12',
+                      tab.current ? 'bg-primary-3 text-primary-12' : 'bg-sand-3 text-sand-12',
                       'ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium'
                     )}
                   >
@@ -293,13 +293,13 @@ export default function Example() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-8">
           <div className="flex justify-between">
-            <h1 className="text-2xl font-semibold text-slate-12">Candidates</h1>
+            <h1 className="text-2xl font-semibold text-sand-12">Candidates</h1>
             <Listbox as="div" value={selected} onChange={setSelected} className="relative">
-              <Listbox.Button className="inline-flex justify-between w-full rounded-md border border-slate-6 shadow-sm px-4 py-2 bg-slate-2 text-sm font-medium text-slate-12 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7">
+              <Listbox.Button className="inline-flex justify-between w-full rounded-md border border-sand-6 shadow-sm px-4 py-2 bg-sand-2 text-sm font-medium text-sand-12 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-primary-7 focus:border-primary-7">
                 <span className="flex items-center">
                   <span className="block truncate">{selected.name}</span>
                 </span>
-                <ChevronDownIcon className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                <ChevronDownIcon className="h-5 w-5 text-sand-11" aria-hidden="true" />
               </Listbox.Button>
 
               <Transition
@@ -308,13 +308,13 @@ export default function Example() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Listbox.Options className="absolute z-10 mt-1 w-full bg-slate-1 shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-slate-6 overflow-auto focus:outline-none sm:text-sm">
+                <Listbox.Options className="absolute z-10 mt-1 w-full bg-sand-1 shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-sand-6 overflow-auto focus:outline-none sm:text-sm">
                   {publishingOptions.map((option) => (
                     <Listbox.Option
                       key={option.name}
                       className={({ active }) =>
                         classNames(
-                          active ? 'text-slate-12 bg-slate-3' : 'text-slate-12',
+                          active ? 'text-sand-12 bg-sand-3' : 'text-sand-12',
                           'cursor-default select-none relative py-2 pl-3 pr-9'
                         )
                       }
@@ -331,7 +331,7 @@ export default function Example() {
                           {selected ? (
                             <span
                               className={classNames(
-                                active ? 'text-slate-12' : 'text-slate-11',
+                                active ? 'text-sand-12' : 'text-sand-11',
                                 'absolute inset-y-0 right-0 flex items-center pr-4'
                               )}
                             >
@@ -348,21 +348,21 @@ export default function Example() {
           </div>
 
           {/* Candidates list */}
-          <div className="mt-6 bg-slate-2 shadow overflow-hidden rounded-md">
-            <ul role="list" className="divide-y divide-slate-6">
+          <div className="mt-6 bg-sand-2 shadow overflow-hidden rounded-md">
+            <ul role="list" className="divide-y divide-sand-6">
               {candidates.map((candidate) => (
                 <li key={candidate.email}>
-                  <a href="#" className="block hover:bg-slate-3 transition-colors">
+                  <a href="#" className="block hover:bg-sand-3 transition-colors">
                     <div className="px-4 py-4 flex items-center sm:px-6">
                       <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                         <div className="truncate">
                           <div className="flex text-sm">
                             <p className="font-medium text-primary-9 truncate">{candidate.name}</p>
-                            <p className="ml-1 flex-shrink-0 font-normal text-slate-11">via {candidate.email}</p>
+                            <p className="ml-1 flex-shrink-0 font-normal text-sand-11">via {candidate.email}</p>
                           </div>
                           <div className="mt-2 flex">
-                            <div className="flex items-center text-sm text-slate-11">
-                              <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-slate-10" aria-hidden="true" />
+                            <div className="flex items-center text-sm text-sand-11">
+                              <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-sand-10" aria-hidden="true" />
                               <p>
                                 Applied on <time dateTime={candidate.appliedDatetime}>{candidate.applied}</time>
                               </p>
@@ -378,7 +378,7 @@ export default function Example() {
                         </div>
                       </div>
                       <div className="ml-5 flex-shrink-0">
-                        <ChevronRightIcon className="h-5 w-5 text-slate-10" aria-hidden="true" />
+                        <ChevronRightIcon className="h-5 w-5 text-sand-10" aria-hidden="true" />
                       </div>
                     </div>
                   </a>

@@ -16,11 +16,11 @@ export default function FilterBar() {
         <input
           type="text"
           placeholder="Search..."
-          className="border border-slate-6 rounded-md p-2 w-full"
+          className="border border-sand-6 rounded-md p-2 w-full"
         />
         <Button type="submit">Search</Button>
         <Select>
-          <SelectTrigger className="bg-slate-1">
+          <SelectTrigger className="bg-sand-1">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
@@ -29,7 +29,7 @@ export default function FilterBar() {
           </SelectContent>
         </Select>
         <Select>
-          <SelectTrigger className="bg-slate-1">
+          <SelectTrigger className="bg-sand-1">
             <SelectValue placeholder="Filter by" />
           </SelectTrigger>
           <SelectContent>

@@ -50,20 +50,20 @@ export function FileUploadModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[425px] border-slate-6 bg-slate-2">
+            <DialogContent className="sm:max-w-[425px] border-sand-6 bg-sand-2">
                 <DialogHeader>
-                    <DialogTitle className="text-slate-12">{title}</DialogTitle>
-                    <DialogDescription className="text-slate-11">
+                    <DialogTitle className="text-sand-12">{title}</DialogTitle>
+                    <DialogDescription className="text-sand-11">
                         {description}
                     </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-4 py-4">
                     {children}
                     
-                    <div className="border-2 border-dashed border-slate-7 rounded-lg p-6 flex flex-col items-center justify-center gap-2 transition-all duration-300 hover:border-primary-7 hover:bg-slate-3/50 cursor-pointer">
-                        <Upload className="h-8 w-8 text-slate-11" />
-                        <p className="text-sm font-medium text-slate-12">Drag files here or click to browse</p>
-                        <p className="text-xs text-slate-11">Supports PDF, JPG, PNG up to 10MB</p>
+                    <div className="border-2 border-dashed border-sand-7 rounded-lg p-6 flex flex-col items-center justify-center gap-2 transition-all duration-300 hover:border-primary-7 hover:bg-sand-3/50 cursor-pointer">
+                        <Upload className="h-8 w-8 text-sand-11" />
+                        <p className="text-sm font-medium text-sand-12">Drag files here or click to browse</p>
+                        <p className="text-xs text-sand-11">Supports PDF, JPG, PNG up to 10MB</p>
                         <Input
                             type="file"
                             className="hidden"
@@ -74,13 +74,13 @@ export function FileUploadModal({
                     {file && (
                         <div className="space-y-2">
                             <div className="flex items-center gap-2">
-                                <AlertCircle className="h-4 w-4 text-slate-11" />
-                                <span className="text-sm text-slate-12">{file.name}</span>
+                                <AlertCircle className="h-4 w-4 text-sand-11" />
+                                <span className="text-sm text-sand-12">{file.name}</span>
                             </div>
                             {isUploading && (
                                 <>
                                     <Progress value={uploadProgress} className="h-2" />
-                                    <div className="flex justify-between text-xs text-slate-11">
+                                    <div className="flex justify-between text-xs text-sand-11">
                                         <span>{uploadProgress}% Complete</span>
                                         <span>{Math.round(file.size / 1024)} KB</span>
                                     </div>

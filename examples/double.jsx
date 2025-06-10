@@ -114,7 +114,7 @@ export default function Example() {
         <Button
           variant="ghost"
           size="icon"
-          className="absolute -top-1 -left-1.5 text-slate-11 hover:text-slate-12"
+          className="absolute -top-1 -left-1.5 text-sand-11 hover:text-sand-12"
         >
           <span className="sr-only">Previous month</span>
           <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -122,7 +122,7 @@ export default function Example() {
         <Button
           variant="ghost"
           size="icon"
-          className="absolute -top-1 -right-1.5 text-slate-11 hover:text-slate-12"
+          className="absolute -top-1 -right-1.5 text-sand-11 hover:text-sand-12"
         >
           <span className="sr-only">Next month</span>
           <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
@@ -132,8 +132,8 @@ export default function Example() {
             key={monthIdx}
             className={classNames(monthIdx === months.length - 1 && 'hidden md:block', 'text-center')}
           >
-            <h2 className="font-semibold text-slate-12">{month.name}</h2>
-            <div className="mt-6 grid grid-cols-7 text-xs leading-6 text-slate-11">
+            <h2 className="font-semibold text-sand-12">{month.name}</h2>
+            <div className="mt-6 grid grid-cols-7 text-xs leading-6 text-sand-11">
               <div>M</div>
               <div>T</div>
               <div>W</div>
@@ -142,18 +142,18 @@ export default function Example() {
               <div>S</div>
               <div>S</div>
             </div>
-            <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-slate-6 text-sm shadow ring-1 ring-slate-6">
+            <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-sand-6 text-sm shadow ring-1 ring-sand-6">
               {month.days.map((day, dayIdx) => (
                 <button
                   key={day.date}
                   type="button"
                   className={classNames(
-                    day.isCurrentMonth ? 'bg-slate-2 text-slate-12' : 'bg-slate-3 text-slate-11',
+                    day.isCurrentMonth ? 'bg-sand-2 text-sand-12' : 'bg-sand-3 text-sand-11',
                     dayIdx === 0 && 'rounded-tl-lg',
                     dayIdx === 6 && 'rounded-tr-lg',
                     dayIdx === month.days.length - 7 && 'rounded-bl-lg',
                     dayIdx === month.days.length - 1 && 'rounded-br-lg',
-                    'relative py-1.5 hover:bg-slate-3 focus:z-10'
+                    'relative py-1.5 hover:bg-sand-3 focus:z-10'
                   )}
                 >
                   <time
@@ -172,9 +172,9 @@ export default function Example() {
         ))}
       </div>
       <section className="mt-12">
-        <h2 className="font-semibold text-slate-12">Upcoming events</h2>
+        <h2 className="font-semibold text-sand-12">Upcoming events</h2>
         <ScrollArea className="h-[calc(100vh-36rem)]">
-          <ol className="mt-2 divide-y divide-slate-6 text-sm leading-6 text-slate-11">
+          <ol className="mt-2 divide-y divide-sand-6 text-sm leading-6 text-sand-11">
             <li className="py-4 sm:flex">
               <time dateTime="2022-01-17" className="w-28 flex-none">
                 Wed, Jan 12
@@ -185,7 +185,7 @@ export default function Example() {
               <time dateTime="2022-01-19" className="w-28 flex-none">
                 Thu, Jan 13
               </time>
-              <p className="mt-2 flex-auto font-semibold text-slate-12 sm:mt-0">View house with real estate agent</p>
+              <p className="mt-2 flex-auto font-semibold text-sand-12 sm:mt-0">View house with real estate agent</p>
               <p className="flex-none sm:ml-6">
                 <time dateTime="2022-01-13T14:30">2:30 PM</time> - <time dateTime="2022-01-13T16:30">4:30 PM</time>
               </p>
@@ -194,14 +194,14 @@ export default function Example() {
               <time dateTime="2022-01-20" className="w-28 flex-none">
                 Fri, Jan 14
               </time>
-              <p className="mt-2 flex-auto font-semibold text-slate-12 sm:mt-0">Meeting with bank manager</p>
+              <p className="mt-2 flex-auto font-semibold text-sand-12 sm:mt-0">Meeting with bank manager</p>
               <p className="flex-none sm:ml-6">All day</p>
             </li>
             <li className="py-4 sm:flex">
               <time dateTime="2022-01-18" className="w-28 flex-none">
                 Mon, Jan 17
               </time>
-              <p className="mt-2 flex-auto font-semibold text-slate-12 sm:mt-0">Sign paperwork at lawyers</p>
+              <p className="mt-2 flex-auto font-semibold text-sand-12 sm:mt-0">Sign paperwork at lawyers</p>
               <p className="flex-none sm:ml-6">
                 <time dateTime="2022-01-17T10:00">10:00 AM</time> - <time dateTime="2022-01-17T10:15">10:15 AM</time>
               </p>

@@ -13,7 +13,7 @@ interface ExampleCardProps {
 function ExampleCard({ title, children, className = '' }: ExampleCardProps) {
     return (
         <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-slate-12">{title}</h3>
+            <h3 className="text-lg font-semibold text-sand-12">{title}</h3>
             <Card className={`p-4 ${className}`}>
                 {children}
             </Card>
@@ -25,8 +25,8 @@ export default function ButtonExamples() {
     return (
         <div className="space-y-8">
             <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-slate-12">Button Examples</h2>
-                <p className="text-slate-11">Examples of button components following our design system guidelines.</p>
+                <h2 className="text-2xl font-bold text-sand-12">Button Examples</h2>
+                <p className="text-sand-11">Examples of button components following our design system guidelines.</p>
             </div>
 
             <div className="grid grid-cols-1 gap-6">
@@ -40,18 +40,18 @@ export default function ButtonExamples() {
                         <Button variant="link">Link</Button>
                         <Button variant="destructive">Destructive</Button>
                     </div>
-                    <code className="mt-4 block text-sm text-slate-11">Basic button variants</code>
+                    <code className="mt-4 block text-sm text-sand-11">Basic button variants</code>
                 </ExampleCard>
 
                 {/* Semantic Buttons */}
                 <ExampleCard title="Semantic Buttons">
                     <div className="flex flex-wrap gap-4">
                         <Button className="bg-primary-9 hover:bg-primary-10">Primary Action</Button>
-                        <Button className="bg-success-9 hover:bg-success-10 text-slate-1">Success</Button>
-                        <Button className="bg-warning-9 hover:bg-warning-10 text-slate-1">Warning</Button>
+                        <Button className="bg-success-9 hover:bg-success-10 text-sand-1">Success</Button>
+                        <Button className="bg-warning-9 hover:bg-warning-10 text-sand-1">Warning</Button>
                         <Button className="bg-error-9 hover:bg-error-10">Error</Button>
                     </div>
-                    <code className="mt-4 block text-sm text-slate-11">Semantic button states</code>
+                    <code className="mt-4 block text-sm text-sand-11">Semantic button states</code>
                 </ExampleCard>
 
                 {/* Buttons with Icons */}
@@ -80,7 +80,7 @@ export default function ButtonExamples() {
                             </Button>
                         </div>
                     </div>
-                    <code className="mt-4 block text-sm text-slate-11">Buttons with icons and icon-only variants</code>
+                    <code className="mt-4 block text-sm text-sand-11">Buttons with icons and icon-only variants</code>
                 </ExampleCard>
 
                 {/* Button States */}
@@ -103,7 +103,7 @@ export default function ButtonExamples() {
                             </Button>
                         </div>
                     </div>
-                    <code className="mt-4 block text-sm text-slate-11">Button states: disabled and loading</code>
+                    <code className="mt-4 block text-sm text-sand-11">Button states: disabled and loading</code>
                 </ExampleCard>
 
                 {/* Button Sizes */}
@@ -113,13 +113,13 @@ export default function ButtonExamples() {
                         <Button>Default</Button>
                         <Button size="sm">Small</Button>
                     </div>
-                    <code className="mt-4 block text-sm text-slate-11">Button size variants</code>
+                    <code className="mt-4 block text-sm text-sand-11">Button size variants</code>
                 </ExampleCard>
 
                 {/* Button Groups */}
                 <ExampleCard title="Button Groups">
                     <div className="space-y-4">
-                        <div className="inline-flex rounded-lg border border-slate-6 p-1">
+                        <div className="inline-flex rounded-lg border border-sand-6 p-1">
                             <Button variant="ghost" className="rounded-sm">Day</Button>
                             <Button variant="ghost" className="rounded-sm">Week</Button>
                             <Button variant="default" className="rounded-sm">Month</Button>
@@ -130,14 +130,14 @@ export default function ButtonExamples() {
                             <Button className="w-full">Submit</Button>
                         </div>
                     </div>
-                    <code className="mt-4 block text-sm text-slate-11">Button groups and layouts</code>
+                    <code className="mt-4 block text-sm text-sand-11">Button groups and layouts</code>
                 </ExampleCard>
 
                 {/* Action Buttons */}
                 <ExampleCard title="Action Buttons">
                     <div className="space-y-4">
                         <div className="flex flex-wrap gap-4">
-                            <Button className="bg-success-9 hover:bg-success-10 text-slate-1">
+                            <Button className="bg-success-9 hover:bg-success-10 text-sand-1">
                                 <Check className="mr-2 h-4 w-4" /> Approve
                             </Button>
                             <Button className="bg-error-9 hover:bg-error-10">
@@ -148,7 +148,7 @@ export default function ButtonExamples() {
                             </Button>
                         </div>
                     </div>
-                    <code className="mt-4 block text-sm text-slate-11">Contextual action buttons</code>
+                    <code className="mt-4 block text-sm text-sand-11">Contextual action buttons</code>
                 </ExampleCard>
             </div>
         </div>

@@ -1,4 +1,9 @@
-import mongoose, { Model, Schema } from "mongoose";
+import mongoose, { Model, Schema, Document } from "mongoose";
+import {ITenant} from "@/lib/db/models/tenant";
+import {hashPassword} from "@/lib/auth/crypto";
+
+export type Role = "owner" | "admin" | "member";
+
 
 export interface IOnboardingStatus {
   isCompleted: boolean;
@@ -8,9 +13,10 @@ export interface IOnboardingStatus {
   lastUpdated: Date;
 }
 
-export interface IComplianceUser {
-  authUserId: string; // ID from the third-party auth service
+export interface IComplianceUser extends Document {
+  legacyId: string; // ID from the third-party auth service
   email: string;
+  password: string
   firstName: string;
   lastName: string;
   middleNames?: string;
@@ -21,8 +27,8 @@ export interface IComplianceUser {
   onboardingStatus: IOnboardingStatus;
   isActive: boolean;
   isVerified: boolean; // Whether the user's onboarding has been verified/approved by admin
-  createdAt: Date;
-  updatedAt: Date;
+  tenant: ITenant | Schema.Types.ObjectId;
+  role: Role; // User's role in the tenant
 }
 
 const OnboardingStatusSchema = new Schema<IOnboardingStatus>({
@@ -47,17 +53,15 @@ const OnboardingStatusSchema = new Schema<IOnboardingStatus>({
 });
 
 const UserSchema = new Schema<IComplianceUser>({
-  authUserId: {
-    type: String,
-    required: true,
-    unique: true,
-    index: true
-  },
   email: {
     type: String,
     required: true,
     unique: true,
     index: true
+  },
+  password: {
+    type: String,
+    required: true,
   },
   firstName: {
     type: String,
@@ -99,9 +103,21 @@ const UserSchema = new Schema<IComplianceUser>({
   isVerified: {
     type: Boolean,
     default: false
-  }
+  },
+  tenant: {
+    type: Schema.Types.ObjectId,
+    ref: "Tenant",
+  },
+  role: { type: String, enum: ["owner", "admin", "member"], default: "member" }
+
 }, {
   timestamps: true
+});
+
+UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+  this.password = await hashPassword(this.password);
+  next();
 });
 
 // Robust pattern to prevent model recompilation errors in Next.js

@@ -22,10 +22,10 @@ function ExampleCard({ title, children, description, className = '' }: ExampleCa
     return (
         <div className="space-y-3">
             <div className="space-y-1">
-                <h3 className="text-lg font-semibold text-slate-12">{title}</h3>
-                {description && <p className="text-sm text-slate-11">{description}</p>}
+                <h3 className="text-lg font-semibold text-sand-12">{title}</h3>
+                {description && <p className="text-sm text-sand-11">{description}</p>}
             </div>
-            <Card className={`p-4 border-slate-6 bg-slate-2 ${className}`}>
+            <Card className={`p-4 border-sand-6 bg-sand-2 ${className}`}>
                 {children}
             </Card>
         </div>
@@ -45,8 +45,8 @@ export default function ModalExamples() {
     return (
         <div className="space-y-10">
             <div className="space-y-4">
-                <h2 className="text-2xl font-bold tracking-tight text-slate-12">Modal Dialogs</h2>
-                <p className="text-slate-11">Examples of modal dialogs and overlays for admin dashboard interfaces.</p>
+                <h2 className="text-2xl font-bold tracking-tight text-sand-12">Modal Dialogs</h2>
+                <p className="text-sand-11">Examples of modal dialogs and overlays for admin dashboard interfaces.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -62,10 +62,10 @@ export default function ModalExamples() {
                                     Delete Item
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="sm:max-w-[425px] border-slate-6 bg-slate-2">
+                            <DialogContent className="sm:max-w-[425px] border-sand-6 bg-sand-2">
                                 <DialogHeader>
-                                    <DialogTitle className="text-slate-12">Confirm Deletion</DialogTitle>
-                                    <DialogDescription className="text-slate-11">
+                                    <DialogTitle className="text-sand-12">Confirm Deletion</DialogTitle>
+                                    <DialogDescription className="text-sand-11">
                                         Are you sure you want to delete this item? This action cannot be undone.
                                     </DialogDescription>
                                 </DialogHeader>
@@ -73,7 +73,7 @@ export default function ModalExamples() {
                                     <div className="rounded-full bg-red-3 p-2">
                                         <AlertTriangle className="h-5 w-5 text-red-11" />
                                     </div>
-                                    <p className="text-sm text-slate-12">This will permanently remove the item from your account.</p>
+                                    <p className="text-sm text-sand-12">This will permanently remove the item from your account.</p>
                                 </div>
                                 <DialogFooter>
                                     <Button variant="outline" className="transition-all duration-300">Cancel</Button>
@@ -96,10 +96,10 @@ export default function ModalExamples() {
                                     Edit Profile
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="sm:max-w-[500px] border-slate-6 bg-slate-2">
+                            <DialogContent className="sm:max-w-[500px] border-sand-6 bg-sand-2">
                                 <DialogHeader>
-                                    <DialogTitle className="text-slate-12">Edit Profile</DialogTitle>
-                                    <DialogDescription className="text-slate-11">
+                                    <DialogTitle className="text-sand-12">Edit Profile</DialogTitle>
+                                    <DialogDescription className="text-sand-11">
                                         Make changes to your profile information below.
                                     </DialogDescription>
                                 </DialogHeader>
@@ -192,11 +192,11 @@ export default function ModalExamples() {
                                     )}
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="sm:max-w-[400px] border-slate-6 bg-slate-2">
+                            <DialogContent className="sm:max-w-[400px] border-sand-6 bg-sand-2">
                                 <div className="flex flex-col items-center justify-center py-8 space-y-4">
                                     <Loader2 className="h-10 w-10 animate-spin text-primary-9" />
-                                    <DialogTitle className="text-center text-slate-12">Generating Report</DialogTitle>
-                                    <DialogDescription className="text-center text-slate-11">
+                                    <DialogTitle className="text-center text-sand-12">Generating Report</DialogTitle>
+                                    <DialogDescription className="text-center text-sand-11">
                                         Please wait while we generate your report. This might take a moment.
                                     </DialogDescription>
                                 </div>
@@ -213,17 +213,17 @@ export default function ModalExamples() {
                     <div className="space-y-6">
                         <Dialog>
                             <DialogTrigger asChild>
-                                <Button className="bg-green-9 hover:bg-green-10 text-slate-1 transition-all duration-300">
+                                <Button className="bg-green-9 hover:bg-green-10 text-sand-1 transition-all duration-300">
                                     Show Success
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="sm:max-w-[400px] border-slate-6 bg-slate-2">
+                            <DialogContent className="sm:max-w-[400px] border-sand-6 bg-sand-2">
                                 <div className="flex flex-col items-center justify-center py-6 space-y-4">
                                     <div className="rounded-full bg-green-5 p-3">
                                         <Check className="h-6 w-6 text-green-11" />
                                     </div>
-                                    <DialogTitle className="text-center text-slate-12 text-xl">Success!</DialogTitle>
-                                    <DialogDescription className="text-center text-slate-11">
+                                    <DialogTitle className="text-center text-sand-12 text-xl">Success!</DialogTitle>
+                                    <DialogDescription className="text-center text-sand-11">
                                         Your changes have been saved successfully.
                                     </DialogDescription>
                                 </div>
@@ -248,33 +248,33 @@ export default function ModalExamples() {
                                     Need Help?
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="sm:max-w-[550px] border-slate-6 bg-slate-2">
+                            <DialogContent className="sm:max-w-[550px] border-sand-6 bg-sand-2">
                                 <DialogHeader>
-                                    <DialogTitle className="text-slate-12">Help & Documentation</DialogTitle>
-                                    <DialogDescription className="text-slate-11">
+                                    <DialogTitle className="text-sand-12">Help & Documentation</DialogTitle>
+                                    <DialogDescription className="text-sand-11">
                                         Quick guide to using the admin dashboard.
                                     </DialogDescription>
                                 </DialogHeader>
                                 <div className="space-y-4 py-4">
                                     <div className="space-y-2">
-                                        <h4 className="font-medium text-slate-12">Getting Started</h4>
-                                        <p className="text-sm text-slate-11">
+                                        <h4 className="font-medium text-sand-12">Getting Started</h4>
+                                        <p className="text-sm text-sand-11">
                                             The dashboard provides an overview of your metrics and recent activity.
                                             Use the sidebar navigation to access different sections.
                                         </p>
                                     </div>
-                                    <Separator className="my-2 bg-slate-6" />
+                                    <Separator className="my-2 bg-sand-6" />
                                     <div className="space-y-2">
-                                        <h4 className="font-medium text-slate-12">Managing Content</h4>
-                                        <p className="text-sm text-slate-11">
+                                        <h4 className="font-medium text-sand-12">Managing Content</h4>
+                                        <p className="text-sm text-sand-11">
                                             You can create, edit, and delete content from the Content section.
                                             Make sure to save your changes before navigating away.
                                         </p>
                                     </div>
-                                    <Separator className="my-2 bg-slate-6" />
+                                    <Separator className="my-2 bg-sand-6" />
                                     <div className="space-y-2">
-                                        <h4 className="font-medium text-slate-12">Need More Help?</h4>
-                                        <p className="text-sm text-slate-11">
+                                        <h4 className="font-medium text-sand-12">Need More Help?</h4>
+                                        <p className="text-sm text-sand-11">
                                             Contact support at support@example.com or visit our documentation
                                             for more detailed guides.
                                         </p>
@@ -295,7 +295,7 @@ export default function ModalExamples() {
             </div>
 
             {/* Side Drawer */}
-            <Separator className="my-8 bg-slate-6" />
+            <Separator className="my-8 bg-sand-6" />
 
             <ExampleCard
                 title="Side Drawer"
@@ -308,11 +308,11 @@ export default function ModalExamples() {
                                 View User Details
                             </Button>
                         </DrawerTrigger>
-                        <DrawerContent className="border-t border-slate-6 bg-slate-2">
+                        <DrawerContent className="border-t border-sand-6 bg-sand-2">
                             <div className="mx-auto w-full max-w-3xl">
                                 <DrawerHeader>
-                                    <DrawerTitle className="text-slate-12">User Profile</DrawerTitle>
-                                    <DrawerDescription className="text-slate-11">
+                                    <DrawerTitle className="text-sand-12">User Profile</DrawerTitle>
+                                    <DrawerDescription className="text-sand-11">
                                         View and manage user information.
                                     </DrawerDescription>
                                 </DrawerHeader>
@@ -322,51 +322,51 @@ export default function ModalExamples() {
                                             <span className="text-xl font-semibold text-primary-11">JD</span>
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-medium text-slate-12">John Doe</h3>
-                                            <p className="text-sm text-slate-11">john.doe@example.com</p>
+                                            <h3 className="text-lg font-medium text-sand-12">John Doe</h3>
+                                            <p className="text-sm text-sand-11">john.doe@example.com</p>
                                         </div>
                                     </div>
 
-                                    <Separator className="my-2 bg-slate-6" />
+                                    <Separator className="my-2 bg-sand-6" />
 
                                     <div className="grid gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
-                                            <Label className="text-xs text-slate-11">Full Name</Label>
-                                            <p className="text-sm font-medium text-slate-12">John Doe</p>
+                                            <Label className="text-xs text-sand-11">Full Name</Label>
+                                            <p className="text-sm font-medium text-sand-12">John Doe</p>
                                         </div>
                                         <div className="space-y-2">
-                                            <Label className="text-xs text-slate-11">Email Address</Label>
-                                            <p className="text-sm font-medium text-slate-12">john.doe@example.com</p>
+                                            <Label className="text-xs text-sand-11">Email Address</Label>
+                                            <p className="text-sm font-medium text-sand-12">john.doe@example.com</p>
                                         </div>
                                         <div className="space-y-2">
-                                            <Label className="text-xs text-slate-11">Role</Label>
-                                            <p className="text-sm font-medium text-slate-12">Administrator</p>
+                                            <Label className="text-xs text-sand-11">Role</Label>
+                                            <p className="text-sm font-medium text-sand-12">Administrator</p>
                                         </div>
                                         <div className="space-y-2">
-                                            <Label className="text-xs text-slate-11">Status</Label>
+                                            <Label className="text-xs text-sand-11">Status</Label>
                                             <div className="flex items-center gap-2">
                                                 <div className="h-2 w-2 rounded-full bg-green-9"></div>
-                                                <p className="text-sm font-medium text-slate-12">Active</p>
+                                                <p className="text-sm font-medium text-sand-12">Active</p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <Separator className="my-2 bg-slate-6" />
+                                    <Separator className="my-2 bg-sand-6" />
 
                                     <div className="space-y-2">
-                                        <Label className="text-xs text-slate-11">Recent Activity</Label>
+                                        <Label className="text-xs text-sand-11">Recent Activity</Label>
                                         <div className="space-y-3">
                                             <div className="flex justify-between text-sm">
-                                                <p className="text-slate-12">Login</p>
-                                                <p className="text-slate-11">2 hours ago</p>
+                                                <p className="text-sand-12">Login</p>
+                                                <p className="text-sand-11">2 hours ago</p>
                                             </div>
                                             <div className="flex justify-between text-sm">
-                                                <p className="text-slate-12">Updated profile</p>
-                                                <p className="text-slate-11">Yesterday</p>
+                                                <p className="text-sand-12">Updated profile</p>
+                                                <p className="text-sand-11">Yesterday</p>
                                             </div>
                                             <div className="flex justify-between text-sm">
-                                                <p className="text-slate-12">Password change</p>
-                                                <p className="text-slate-11">Last week</p>
+                                                <p className="text-sand-12">Password change</p>
+                                                <p className="text-sand-11">Last week</p>
                                             </div>
                                         </div>
                                     </div>

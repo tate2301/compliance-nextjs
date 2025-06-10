@@ -12,7 +12,7 @@ const steps = [
 
 export default function Example() {
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-1">
+    <div className="py-12 px-4 sm:px-6 lg:px-8 bg-sand-1">
       <nav className="flex justify-center" aria-label="Progress">
         <ol role="list" className="space-y-6">
           {steps.map((step) => (
@@ -26,7 +26,7 @@ export default function Example() {
                         aria-hidden="true"
                       />
                     </span>
-                    <span className="ml-3 text-sm font-medium text-slate-11 group-hover:text-slate-12 transition-colors">
+                    <span className="ml-3 text-sm font-medium text-sand-11 group-hover:text-sand-12 transition-colors">
                       {step.name}
                     </span>
                   </span>
@@ -43,9 +43,9 @@ export default function Example() {
                 <a href={step.href} className="group">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 h-5 w-5 relative flex items-center justify-center" aria-hidden="true">
-                      <div className="h-2 w-2 bg-slate-6 rounded-full group-hover:bg-slate-8 transition-colors" />
+                      <div className="h-2 w-2 bg-sand-6 rounded-full group-hover:bg-sand-8 transition-colors" />
                     </div>
-                    <p className="ml-3 text-sm font-medium text-slate-11 group-hover:text-slate-12 transition-colors">{step.name}</p>
+                    <p className="ml-3 text-sm font-medium text-sand-11 group-hover:text-sand-12 transition-colors">{step.name}</p>
                   </div>
                 </a>
               )}

@@ -77,15 +77,15 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="bg-slate-1 p-6 rounded-lg">
-      <h2 className="text-lg font-semibold text-slate-12">Upcoming meetings</h2>
+    <div className="bg-sand-1 p-6 rounded-lg">
+      <h2 className="text-lg font-semibold text-sand-12">Upcoming meetings</h2>
       <div className="lg:grid lg:grid-cols-12 lg:gap-x-16">
         <div className="mt-10 text-center lg:col-start-8 lg:col-end-13 lg:row-start-1 lg:mt-9 xl:col-start-9">
-          <div className="flex items-center text-slate-12">
+          <div className="flex items-center text-sand-12">
             <Button
               variant="ghost"
               size="icon"
-              className="-m-1.5 flex flex-none items-center justify-center p-1.5 text-slate-11 hover:text-slate-12"
+              className="-m-1.5 flex flex-none items-center justify-center p-1.5 text-sand-11 hover:text-sand-12"
             >
               <span className="sr-only">Previous month</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -94,13 +94,13 @@ export default function Example() {
             <Button
               variant="ghost"
               size="icon"
-              className="-m-1.5 flex flex-none items-center justify-center p-1.5 text-slate-11 hover:text-slate-12"
+              className="-m-1.5 flex flex-none items-center justify-center p-1.5 text-sand-11 hover:text-sand-12"
             >
               <span className="sr-only">Next month</span>
               <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
             </Button>
           </div>
-          <div className="mt-6 grid grid-cols-7 text-xs leading-6 text-slate-11">
+          <div className="mt-6 grid grid-cols-7 text-xs leading-6 text-sand-11">
             <div>M</div>
             <div>T</div>
             <div>W</div>
@@ -109,18 +109,18 @@ export default function Example() {
             <div>S</div>
             <div>S</div>
           </div>
-          <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-slate-3 text-sm shadow ring-1 ring-slate-6">
+          <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-sand-3 text-sm shadow ring-1 ring-sand-6">
             {days.map((day, dayIdx) => (
               <button
                 key={day.date}
                 type="button"
                 className={classNames(
-                  'py-1.5 hover:bg-slate-3 focus:z-10',
-                  day.isCurrentMonth ? 'bg-slate-2' : 'bg-slate-1',
+                  'py-1.5 hover:bg-sand-3 focus:z-10',
+                  day.isCurrentMonth ? 'bg-sand-2' : 'bg-sand-1',
                   (day.isSelected || day.isToday) && 'font-semibold',
                   day.isSelected && 'text-primary-11',
-                  !day.isSelected && day.isCurrentMonth && !day.isToday && 'text-slate-12',
-                  !day.isSelected && !day.isCurrentMonth && !day.isToday && 'text-slate-11',
+                  !day.isSelected && day.isCurrentMonth && !day.isToday && 'text-sand-12',
+                  !day.isSelected && !day.isCurrentMonth && !day.isToday && 'text-sand-11',
                   day.isToday && !day.isSelected && 'text-primary-11',
                   dayIdx === 0 && 'rounded-tl-lg',
                   dayIdx === 6 && 'rounded-tr-lg',
@@ -145,7 +145,7 @@ export default function Example() {
             Add event
           </Button>
         </div>
-        <ol className="mt-4 divide-y divide-slate-6 text-sm leading-6 lg:col-span-7 xl:col-span-8">
+        <ol className="mt-4 divide-y divide-sand-6 text-sm leading-6 lg:col-span-7 xl:col-span-8">
           {meetings.map((meeting) => (
             <li key={meeting.id} className="relative flex space-x-6 py-6 xl:static">
               <Avatar className="h-14 w-14">
@@ -153,12 +153,12 @@ export default function Example() {
                 <AvatarFallback>{meeting.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
               </Avatar>
               <div className="flex-auto">
-                <h3 className="pr-10 font-semibold text-slate-12 xl:pr-0">{meeting.name}</h3>
-                <dl className="mt-2 flex flex-col text-slate-11 xl:flex-row">
+                <h3 className="pr-10 font-semibold text-sand-12 xl:pr-0">{meeting.name}</h3>
+                <dl className="mt-2 flex flex-col text-sand-11 xl:flex-row">
                   <div className="flex items-start space-x-3">
                     <dt className="mt-0.5">
                       <span className="sr-only">Date</span>
-                      <CalendarIcon className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                      <CalendarIcon className="h-5 w-5 text-sand-11" aria-hidden="true" />
                     </dt>
                     <dd>
                       <time dateTime={meeting.datetime}>
@@ -166,10 +166,10 @@ export default function Example() {
                       </time>
                     </dd>
                   </div>
-                  <div className="mt-2 flex items-start space-x-3 xl:mt-0 xl:ml-3.5 xl:border-l xl:border-slate-6 xl:border-opacity-50 xl:pl-3.5">
+                  <div className="mt-2 flex items-start space-x-3 xl:mt-0 xl:ml-3.5 xl:border-l xl:border-sand-6 xl:border-opacity-50 xl:pl-3.5">
                     <dt className="mt-0.5">
                       <span className="sr-only">Location</span>
-                      <MapPin className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                      <MapPin className="h-5 w-5 text-sand-11" aria-hidden="true" />
                     </dt>
                     <dd>{meeting.location}</dd>
                   </div>
@@ -177,7 +177,7 @@ export default function Example() {
               </div>
               <Menu as="div" className="absolute top-6 right-0 xl:relative xl:top-auto xl:right-auto xl:self-center">
                 <div>
-                  <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-slate-11 hover:text-slate-12">
+                  <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-sand-11 hover:text-sand-12">
                     <span className="sr-only">Open options</span>
                     <MoreHorizontal className="h-5 w-5" aria-hidden="true" />
                   </Menu.Button>
@@ -192,14 +192,14 @@ export default function Example() {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-slate-2 shadow-lg ring-1 ring-slate-6 focus:outline-none">
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-sand-2 shadow-lg ring-1 ring-sand-6 focus:outline-none">
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
                           <a
                             href="#"
                             className={classNames(
-                              active ? 'bg-slate-3 text-slate-12' : 'text-slate-11',
+                              active ? 'bg-sand-3 text-sand-12' : 'text-sand-11',
                               'block px-4 py-2 text-sm'
                             )}
                           >
@@ -212,7 +212,7 @@ export default function Example() {
                           <a
                             href="#"
                             className={classNames(
-                              active ? 'bg-slate-3 text-slate-12' : 'text-slate-11',
+                              active ? 'bg-sand-3 text-sand-12' : 'text-sand-11',
                               'block px-4 py-2 text-sm'
                             )}
                           >

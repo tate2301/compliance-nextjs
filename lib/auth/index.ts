@@ -12,8 +12,38 @@ export const api = axios.create({
   },
 });
 
+// Second API client without base URL
+export const localApiClient = axios.create({
+  // withCredentials: true,
+  validateStatus: (status) => {
+    return status >= 200 && status < 400; // Accept 3xx status codes
+  },
+});
+
 // Add request interceptor to ensure headers are set
 api.interceptors.request.use((config) => {
+  // Set headers explicitly
+  config.headers["Content-Type"] = "application/json";
+  config.headers["Accept"] = "application/json";
+  const token = "141|653mpvwYbnqywqnbjl45UHQJQ9O8uCrMUlmAs7Vf"//localStorage.getItem("token");
+  if (token) {
+    config.headers["Authorization"] = `Bearer ${token}`;
+  }
+
+// Log the full request configuration for debugging
+  console.log("Full Request Config:", {
+    url: config.url,
+    method: config.method,
+    headers: config.headers,
+    withCredentials: config.withCredentials,
+    data: config.data,
+  });
+
+  return config;
+});
+
+// Add request interceptor for apiClient
+localApiClient.interceptors.request.use((config) => {
   // Set headers explicitly
   config.headers["Content-Type"] = "application/json";
   config.headers["Accept"] = "application/json";
@@ -23,7 +53,7 @@ api.interceptors.request.use((config) => {
   }
 
 // Log the full request configuration for debugging
-  console.log("Full Request Config:", {
+  console.log("Full Request Config (apiClient):", {
     url: config.url,
     method: config.method,
     headers: config.headers,
@@ -49,6 +79,38 @@ api.interceptors.response.use(
   (error) => {
     if (axios.isAxiosError(error)) {
       console.error("Axios Error Details:", {
+        message: error.message,
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        headers: error.response?.headers,
+        data: error.response?.data,
+        config: error.config,
+      });
+
+      // If we got a redirect, log the location
+      if (error.response?.status === 302) {
+        console.log("Redirect Location:", error.response.headers.location);
+      }
+    }
+    throw error;
+  }
+);
+
+// Add response interceptor for apiClient
+localApiClient.interceptors.response.use(
+  (response) => {
+    console.log("Response Details (apiClient):", {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+      data: response.data,
+      config: response.config,
+    });
+    return response;
+  },
+  (error) => {
+    if (axios.isAxiosError(error)) {
+      console.error("Axios Error Details (apiClient):", {
         message: error.message,
         status: error.response?.status,
         statusText: error.response?.statusText,

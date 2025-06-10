@@ -1,6 +1,6 @@
 "use client";
 
-import { EditableField } from "@/app/components/profile";
+import { EditableField } from "components/profile";
 import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-layout";
 import { useAddress } from "@/app/hooks/address";
 import { useState } from "react";

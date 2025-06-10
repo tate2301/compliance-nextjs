@@ -39,7 +39,7 @@ export default function StaffDocumentPreview({
       {documentData && (
         <div className="p-4">
           {documentData.description && (
-            <p className="text-slate-10 mb-8  pb-4">
+            <p className="text-sand-10 mb-8  pb-4">
               {documentData.description}
             </p>
           )}

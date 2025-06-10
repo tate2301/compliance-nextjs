@@ -115,7 +115,7 @@ const MissingComplianceItemsList = ({
 const MissingComplianceDocument = ({
   title,
   description,
-  id,
+  _id: id,
   itemType,
   isExpired,
   expiryDate,
@@ -137,11 +137,11 @@ const MissingComplianceDocument = ({
     <div className="max-w-4xl rounded-none p-4">
       <div className="flex justify-between items-start ">
         <div>
-          <p className="font-semibold text-slate-12 mb-1 text-sm">
+          <p className="font-semibold text-sand-12 mb-1 text-sm">
             {itemType === ComplianceItemType.TRAININGS ? (
-              <AcademicCapIcon className="size-5 text-slate-8 inline-flex mr-2" />
+              <AcademicCapIcon className="size-5 text-sand-8 inline-flex mr-2" />
             ) : (
-              <DocumentIcon className="size-5 text-slate-8 inline-flex mr-2" />
+              <DocumentIcon className="size-5 text-sand-8 inline-flex mr-2" />
             )}
             {title || name}
             {isExpired && (
@@ -151,7 +151,7 @@ const MissingComplianceDocument = ({
             )}
           </p>
           {description && (
-            <p className="text-sm text-slate-10 ml-7">{description}</p>
+            <p className="text-sm text-sand-10 ml-7">{description}</p>
           )}
           {isExpired && (
             <p className="text-sm text-error-10 ml-7">
@@ -194,8 +194,8 @@ const MissingSystemComplianceDocument = ({
     <div className="max-w-4xl rounded-none p-4">
       <div className="flex justify-between items-start ">
         <div>
-          <p className="font-semibold text-slate-12 mb-1 text-sm">
-            <DocumentIcon className="size-5 text-slate-8 inline-flex mr-2" />
+          <p className="font-semibold text-sand-12 mb-1 text-sm">
+            <DocumentIcon className="size-5 text-sand-8 inline-flex mr-2" />
             {name}
           </p>
         </div>
@@ -214,26 +214,26 @@ const ReferencePersonItem = ({ firstName, lastName, email, id, updatedAt }) => {
   return (
     <div className="flex justify-between items-start p-4">
       <div className="flex gap-4 items-center">
-        <UsersIcon className="size-5 text-slate-10" />
+        <UsersIcon className="size-5 text-sand-10" />
         <div>
           <div className="flex gap-2 flex-1 items-center">
-            <p className="font-semibold text-slate-12 mb-1 text-sm">
+            <p className="font-semibold text-sand-12 mb-1 text-sm">
               {firstName} {lastName}
             </p>
-            <p className="text-slate-10">&bull;</p>
+            <p className="text-sand-10">&bull;</p>
             <p className="text-sm text-error-10 font-medium flex items-center">
               <XCircleIcon className="size-5 text-error-10 mr-1 inline-flex self-center" />
               Could not be verified
             </p>
           </div>
-          <p className="text-sm text-slate-10">{email}</p>
+          <p className="text-sm text-sand-10">{email}</p>
         </div>
       </div>
       <div className="flex gap-1 items-center">
         <Button variant="ghost" className="rounded-sm text-primary-11">
           Update
         </Button>
-        <div className="h-6 bg-slate-6 w-px" />
+        <div className="h-6 bg-sand-6 w-px" />
         <Button variant="ghost" className="rounded-sm text-error-11">
           <TrashIcon className="h-4 w-4 mr-2" />
           Remove reference

@@ -6,8 +6,8 @@ import { useAuth } from "@/lib/auth/auth-context";
 import { useToast } from "@/components/ui/use-toast";
 import { onboardingService, ComplianceUser } from "@/app/app/services/onboarding";
 import { formsService, FormWithResponse } from "@/app/app/services/forms";
-import { FormResponseStatus } from "@/app/api/documents/response/model";
-import { FormCategory } from "@/app/api/documents/model/Document";
+import { FormResponseStatus } from "@/lib/db/models/form-response";
+import { FormCategory } from "@/lib/db/models/document";
 import { Form } from "@/forms_builder/types";
 
 export type FormWithValues = Form & { values: Record<string, string> };

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
-import { ComplianceForm, FormCategory, FormStatus } from "../documents/model/Document";
+import { ComplianceForm, FormCategory, FormStatus } from "@/lib/db/models/document";
 
 // GET /api/forms - Get all forms or filtered forms
 export async function GET(request: NextRequest) {

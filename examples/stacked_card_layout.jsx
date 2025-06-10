@@ -63,7 +63,7 @@ const attachments = [
   { name: 'coverletter_front_end_developer.pdf', href: '#' },
 ]
 const eventTypes = {
-  applied: { icon: User, bgColorClass: 'bg-slate-9' },
+  applied: { icon: User, bgColorClass: 'bg-sand-9' },
   advanced: { icon: ThumbsUp, bgColorClass: 'bg-primary-9' },
   completed: { icon: Check, bgColorClass: 'bg-success-9' },
 }
@@ -139,8 +139,8 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="min-h-full bg-slate-2">
-      <header className="bg-slate-1 border-b border-slate-6">
+    <div className="min-h-full bg-sand-2">
+      <header className="bg-sand-1 border-b border-sand-6">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           <Popover className="flex justify-between h-16">
             <div className="flex px-2 lg:px-0">
@@ -155,7 +155,7 @@ export default function Example() {
               </div>
               <nav aria-label="Global" className="hidden lg:ml-6 lg:flex lg:items-center lg:space-x-4">
                 {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="px-3 py-2 text-slate-12 text-sm font-medium hover:text-primary-11 transition-colors">
+                  <a key={item.name} href={item.href} className="px-3 py-2 text-sand-12 text-sm font-medium hover:text-primary-11 transition-colors">
                     {item.name}
                   </a>
                 ))}
@@ -168,7 +168,7 @@ export default function Example() {
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Search className="h-5 w-5 text-slate-11" aria-hidden="true" />
+                    <Search className="h-5 w-5 text-sand-11" aria-hidden="true" />
                   </div>
                   <Input
                     id="search"
@@ -181,7 +181,7 @@ export default function Example() {
               </div>
             </div>
             <div className="flex items-center lg:hidden">
-              <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-slate-11 hover:text-slate-12 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-7">
+              <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-sand-11 hover:text-sand-12 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-7">
                 <span className="sr-only">Open main menu</span>
                 <MenuIcon className="block h-6 w-6" aria-hidden="true" />
               </Popover.Button>
@@ -197,7 +197,7 @@ export default function Example() {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <Popover.Overlay className="z-20 fixed inset-0 bg-slate-12/25" aria-hidden="true" />
+                  <Popover.Overlay className="z-20 fixed inset-0 bg-sand-12/25" aria-hidden="true" />
                 </Transition.Child>
 
                 <Transition.Child
@@ -213,7 +213,7 @@ export default function Example() {
                     focus
                     className="z-30 absolute top-0 right-0 max-w-none w-full p-2 transition transform origin-top"
                   >
-                    <div className="rounded-lg shadow-lg ring-1 ring-slate-6 bg-slate-1 divide-y divide-slate-6">
+                    <div className="rounded-lg shadow-lg ring-1 ring-sand-6 bg-sand-1 divide-y divide-sand-6">
                       <div className="pt-3 pb-2">
                         <div className="flex items-center justify-between px-4">
                           <div>
@@ -224,7 +224,7 @@ export default function Example() {
                             />
                           </div>
                           <div className="-mr-2">
-                            <Popover.Button className="bg-slate-1 rounded-md p-2 inline-flex items-center justify-center text-slate-11 hover:text-slate-12 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-7">
+                            <Popover.Button className="bg-sand-1 rounded-md p-2 inline-flex items-center justify-center text-sand-11 hover:text-sand-12 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-7">
                               <span className="sr-only">Close menu</span>
                               <X className="h-6 w-6" aria-hidden="true" />
                             </Popover.Button>
@@ -235,7 +235,7 @@ export default function Example() {
                             <a
                               key={item.name}
                               href={item.href}
-                              className="block rounded-md px-3 py-2 text-base text-slate-12 font-medium hover:bg-slate-3 hover:text-primary-11 transition-colors"
+                              className="block rounded-md px-3 py-2 text-base text-sand-12 font-medium hover:bg-sand-3 hover:text-primary-11 transition-colors"
                             >
                               {item.name}
                             </a>
@@ -249,8 +249,8 @@ export default function Example() {
                             <AvatarFallback>{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                           </Avatar>
                           <div className="ml-3">
-                            <div className="text-base font-medium text-slate-12">{user.name}</div>
-                            <div className="text-sm font-medium text-slate-11">{user.email}</div>
+                            <div className="text-base font-medium text-sand-12">{user.name}</div>
+                            <div className="text-sm font-medium text-sand-11">{user.email}</div>
                           </div>
                           <Button
                             variant="ghost"
@@ -266,7 +266,7 @@ export default function Example() {
                             <a
                               key={item.name}
                               href={item.href}
-                              className="block rounded-md px-3 py-2 text-base text-slate-12 font-medium hover:bg-slate-3 hover:text-primary-11 transition-colors"
+                              className="block rounded-md px-3 py-2 text-base text-sand-12 font-medium hover:bg-sand-3 hover:text-primary-11 transition-colors"
                             >
                               {item.name}
                             </a>
@@ -289,7 +289,7 @@ export default function Example() {
 
               <Menu as="div" className="ml-4 relative flex-shrink-0">
                 <div>
-                  <Menu.Button className="bg-slate-1 rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7">
+                  <Menu.Button className="bg-sand-1 rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7">
                     <span className="sr-only">Open user menu</span>
                     <Avatar className="h-8 w-8">
                       <AvatarImage src={user.imageUrl} alt="" />
@@ -306,14 +306,14 @@ export default function Example() {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-slate-1 ring-1 ring-slate-6 focus:outline-none">
+                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-sand-1 ring-1 ring-sand-6 focus:outline-none">
                     {userNavigation.map((item) => (
                       <Menu.Item key={item.name}>
                         {({ active }) => (
                           <a
                             href={item.href}
                             className={classNames(
-                              active ? 'bg-slate-3 text-slate-12' : 'text-slate-11',
+                              active ? 'bg-sand-3 text-sand-12' : 'text-sand-11',
                               'block px-4 py-2 text-sm transition-colors'
                             )}
                           >
@@ -330,15 +330,15 @@ export default function Example() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="border-t border-slate-6 py-3">
+          <div className="border-t border-sand-6 py-3">
             <nav className="flex" aria-label="Breadcrumb">
               <div className="flex sm:hidden">
                 <a
                   href="#"
-                  className="group inline-flex space-x-3 text-sm font-medium text-slate-11 hover:text-slate-12"
+                  className="group inline-flex space-x-3 text-sm font-medium text-sand-11 hover:text-sand-12"
                 >
                   <ArrowLeft
-                    className="flex-shrink-0 h-5 w-5 text-slate-11 group-hover:text-slate-12"
+                    className="flex-shrink-0 h-5 w-5 text-sand-11 group-hover:text-sand-12"
                     aria-hidden="true"
                   />
                   <span>Back to Applicants</span>
@@ -348,7 +348,7 @@ export default function Example() {
                 <ol role="list" className="flex items-center space-x-4">
                   <li>
                     <div>
-                      <a href="#" className="text-slate-11 hover:text-slate-12">
+                      <a href="#" className="text-sand-11 hover:text-sand-12">
                         <Home className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
                         <span className="sr-only">Home</span>
                       </a>
@@ -358,7 +358,7 @@ export default function Example() {
                     <li key={item.name}>
                       <div className="flex items-center">
                         <svg
-                          className="flex-shrink-0 h-5 w-5 text-slate-6"
+                          className="flex-shrink-0 h-5 w-5 text-sand-6"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
                           viewBox="0 0 20 20"
@@ -368,7 +368,7 @@ export default function Example() {
                         </svg>
                         <a
                           href={item.href}
-                          className="ml-4 text-sm font-medium text-slate-11 hover:text-slate-12"
+                          className="ml-4 text-sm font-medium text-sand-11 hover:text-sand-12"
                           aria-current={item.current ? 'page' : undefined}
                         >
                           {item.name}
@@ -394,10 +394,10 @@ export default function Example() {
               <AvatarFallback>RC</AvatarFallback>
             </Avatar>
             <div>
-              <h1 className="text-2xl font-bold text-slate-12">Ricardo Cooper</h1>
-              <p className="text-sm font-medium text-slate-11">
+              <h1 className="text-2xl font-bold text-sand-12">Ricardo Cooper</h1>
+              <p className="text-sm font-medium text-sand-11">
                 Applied for{' '}
-                <a href="#" className="text-slate-12 hover:text-primary-11">
+                <a href="#" className="text-sand-12 hover:text-primary-11">
                   Front End Developer
                 </a>{' '}
                 on <time dateTime="2020-08-25">August 25, 2020</time>
@@ -417,51 +417,51 @@ export default function Example() {
         <div className="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
           <div className="space-y-6 lg:col-start-1 lg:col-span-2">
             <section aria-labelledby="applicant-information-title">
-              <div className="bg-slate-1 shadow-sm sm:rounded-lg border border-slate-6">
+              <div className="bg-sand-1 shadow-sm sm:rounded-lg border border-sand-6">
                 <div className="px-4 py-5 sm:px-6">
-                  <h2 id="applicant-information-title" className="text-lg leading-6 font-medium text-slate-12">
+                  <h2 id="applicant-information-title" className="text-lg leading-6 font-medium text-sand-12">
                     Applicant Information
                   </h2>
-                  <p className="mt-1 max-w-2xl text-sm text-slate-11">Personal details and application.</p>
+                  <p className="mt-1 max-w-2xl text-sm text-sand-11">Personal details and application.</p>
                 </div>
                 <Separator />
                 <div className="px-4 py-5 sm:px-6">
                   <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-slate-11">Application for</dt>
-                      <dd className="mt-1 text-sm text-slate-12">Backend Developer</dd>
+                      <dt className="text-sm font-medium text-sand-11">Application for</dt>
+                      <dd className="mt-1 text-sm text-sand-12">Backend Developer</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-slate-11">Email address</dt>
-                      <dd className="mt-1 text-sm text-slate-12">ricardocooper@example.com</dd>
+                      <dt className="text-sm font-medium text-sand-11">Email address</dt>
+                      <dd className="mt-1 text-sm text-sand-12">ricardocooper@example.com</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-slate-11">Salary expectation</dt>
-                      <dd className="mt-1 text-sm text-slate-12">$120,000</dd>
+                      <dt className="text-sm font-medium text-sand-11">Salary expectation</dt>
+                      <dd className="mt-1 text-sm text-sand-12">$120,000</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-slate-11">Phone</dt>
-                      <dd className="mt-1 text-sm text-slate-12">+1 555-555-5555</dd>
+                      <dt className="text-sm font-medium text-sand-11">Phone</dt>
+                      <dd className="mt-1 text-sm text-sand-12">+1 555-555-5555</dd>
                     </div>
                     <div className="sm:col-span-2">
-                      <dt className="text-sm font-medium text-slate-11">About</dt>
-                      <dd className="mt-1 text-sm text-slate-12">
+                      <dt className="text-sm font-medium text-sand-11">About</dt>
+                      <dd className="mt-1 text-sm text-sand-12">
                         Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat.
                         Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia
                         proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
                       </dd>
                     </div>
                     <div className="sm:col-span-2">
-                      <dt className="text-sm font-medium text-slate-11">Attachments</dt>
-                      <dd className="mt-1 text-sm text-slate-12">
-                        <ul role="list" className="border border-slate-6 rounded-md divide-y divide-slate-6">
+                      <dt className="text-sm font-medium text-sand-11">Attachments</dt>
+                      <dd className="mt-1 text-sm text-sand-12">
+                        <ul role="list" className="border border-sand-6 rounded-md divide-y divide-sand-6">
                           {attachments.map((attachment) => (
                             <li
                               key={attachment.name}
                               className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
                             >
                               <div className="w-0 flex-1 flex items-center">
-                                <Paperclip className="flex-shrink-0 h-5 w-5 text-slate-11" aria-hidden="true" />
+                                <Paperclip className="flex-shrink-0 h-5 w-5 text-sand-11" aria-hidden="true" />
                                 <span className="ml-2 flex-1 w-0 truncate">{attachment.name}</span>
                               </div>
                               <div className="ml-4 flex-shrink-0">
@@ -479,7 +479,7 @@ export default function Example() {
                 <div>
                   <a
                     href="#"
-                    className="block bg-slate-2 text-sm font-medium text-slate-11 text-center px-4 py-4 hover:text-slate-12 sm:rounded-b-lg transition-colors"
+                    className="block bg-sand-2 text-sm font-medium text-sand-11 text-center px-4 py-4 hover:text-sand-12 sm:rounded-b-lg transition-colors"
                   >
                     Read full application
                   </a>
@@ -488,10 +488,10 @@ export default function Example() {
             </section>
 
             <section aria-labelledby="notes-title">
-              <div className="bg-slate-1 shadow-sm sm:rounded-lg sm:overflow-hidden border border-slate-6">
-                <div className="divide-y divide-slate-6">
+              <div className="bg-sand-1 shadow-sm sm:rounded-lg sm:overflow-hidden border border-sand-6">
+                <div className="divide-y divide-sand-6">
                   <div className="px-4 py-5 sm:px-6">
-                    <h2 id="notes-title" className="text-lg font-medium text-slate-12">
+                    <h2 id="notes-title" className="text-lg font-medium text-sand-12">
                       Notes
                     </h2>
                   </div>
@@ -509,16 +509,16 @@ export default function Example() {
                             </Avatar>
                             <div>
                               <div className="text-sm">
-                                <a href="#" className="font-medium text-slate-12">
+                                <a href="#" className="font-medium text-sand-12">
                                   {comment.name}
                                 </a>
                               </div>
-                              <div className="mt-1 text-sm text-slate-12">
+                              <div className="mt-1 text-sm text-sand-12">
                                 <p>{comment.body}</p>
                               </div>
                               <div className="mt-2 text-sm space-x-2">
-                                <span className="text-slate-11 font-medium">{comment.date}</span>{' '}
-                                <span className="text-slate-11 font-medium">&middot;</span>{' '}
+                                <span className="text-sand-11 font-medium">{comment.date}</span>{' '}
+                                <span className="text-sand-11 font-medium">&middot;</span>{' '}
                                 <button
                                   type="button"
                                   className="text-primary-11 font-medium hover:text-primary-12"
@@ -533,7 +533,7 @@ export default function Example() {
                     </ul>
                   </div>
                 </div>
-                <div className="bg-slate-2 px-4 py-6 sm:px-6">
+                <div className="bg-sand-2 px-4 py-6 sm:px-6">
                   <div className="flex space-x-3">
                     <Avatar className="h-10 w-10">
                       <AvatarImage src={user.imageUrl} alt="" />
@@ -549,7 +549,7 @@ export default function Example() {
                             id="comment"
                             name="comment"
                             rows={3}
-                            className="shadow-sm block w-full focus:ring-primary-7 focus:border-primary-7 sm:text-sm border border-slate-6 rounded-md bg-slate-1 text-slate-12 placeholder-slate-11"
+                            className="shadow-sm block w-full focus:ring-primary-7 focus:border-primary-7 sm:text-sm border border-sand-6 rounded-md bg-sand-1 text-sand-12 placeholder-sand-11"
                             placeholder="Add a note"
                             defaultValue={''}
                           />
@@ -557,10 +557,10 @@ export default function Example() {
                         <div className="mt-3 flex items-center justify-between">
                           <a
                             href="#"
-                            className="group inline-flex items-start text-sm space-x-2 text-slate-11 hover:text-slate-12"
+                            className="group inline-flex items-start text-sm space-x-2 text-sand-11 hover:text-sand-12"
                           >
                             <HelpCircle
-                              className="flex-shrink-0 h-5 w-5 text-slate-11 group-hover:text-slate-12"
+                              className="flex-shrink-0 h-5 w-5 text-sand-11 group-hover:text-sand-12"
                               aria-hidden="true"
                             />
                             <span>Some HTML is okay.</span>
@@ -578,8 +578,8 @@ export default function Example() {
           </div>
 
           <section aria-labelledby="timeline-title" className="lg:col-start-3 lg:col-span-1">
-            <div className="bg-slate-1 px-4 py-5 shadow-sm sm:rounded-lg sm:px-6 border border-slate-6">
-              <h2 id="timeline-title" className="text-lg font-medium text-slate-12">
+            <div className="bg-sand-1 px-4 py-5 shadow-sm sm:rounded-lg sm:px-6 border border-sand-6">
+              <h2 id="timeline-title" className="text-lg font-medium text-sand-12">
                 Timeline
               </h2>
 
@@ -590,7 +590,7 @@ export default function Example() {
                       <div className="relative pb-8">
                         {itemIdx !== timeline.length - 1 ? (
                           <span
-                            className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-slate-6"
+                            className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-sand-6"
                             aria-hidden="true"
                           />
                         ) : null}
@@ -599,7 +599,7 @@ export default function Example() {
                             <span
                               className={classNames(
                                 item.type.bgColorClass,
-                                'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-slate-1'
+                                'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-sand-1'
                               )}
                             >
                               <item.type.icon className="w-5 h-5 text-white" aria-hidden="true" />
@@ -607,14 +607,14 @@ export default function Example() {
                           </div>
                           <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
                             <div>
-                              <p className="text-sm text-slate-11">
+                              <p className="text-sm text-sand-11">
                                 {item.content}{' '}
-                                <a href="#" className="font-medium text-slate-12">
+                                <a href="#" className="font-medium text-sand-12">
                                   {item.target}
                                 </a>
                               </p>
                             </div>
-                            <div className="text-right text-sm whitespace-nowrap text-slate-11">
+                            <div className="text-right text-sm whitespace-nowrap text-sand-11">
                               <time dateTime={item.datetime}>{item.date}</time>
                             </div>
                           </div>

@@ -105,8 +105,8 @@ export default function ProfileForm() {
     return (
         <Card className="rounded-lg shadow-2 p-6">
             <div className="mb-6">
-                <h1 className="text-xl font-semibold text-slate-12 mb-2">Profile Information</h1>
-                <p className="text-sm text-slate-11">Update your personal and professional information</p>
+                <h1 className="text-xl font-semibold text-sand-12 mb-2">Profile Information</h1>
+                <p className="text-sm text-sand-11">Update your personal and professional information</p>
             </div>
 
             {saveSuccess && (
@@ -119,14 +119,14 @@ export default function ProfileForm() {
             <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Personal Information section */}
                 <div>
-                    <h2 className="text-md font-medium text-slate-12 mb-4 flex items-center">
+                    <h2 className="text-md font-medium text-sand-12 mb-4 flex items-center">
                         <User className="h-4 w-4 text-primary-9 mr-2" />
                         Personal Information
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="firstName">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="firstName">
                                 First Name
                             </label>
                             <input
@@ -139,7 +139,7 @@ export default function ProfileForm() {
                                     "w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1",
                                     errors.firstName
                                         ? "border-error-7 focus:border-error-8 focus:ring-error-8"
-                                        : "border-slate-6 focus:border-primary-8 focus:ring-primary-8"
+                                        : "border-sand-6 focus:border-primary-8 focus:ring-primary-8"
                                 )}
                             />
                             {errors.firstName && (
@@ -148,7 +148,7 @@ export default function ProfileForm() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="lastName">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="lastName">
                                 Last Name
                             </label>
                             <input
@@ -161,7 +161,7 @@ export default function ProfileForm() {
                                     "w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1",
                                     errors.lastName
                                         ? "border-error-7 focus:border-error-8 focus:ring-error-8"
-                                        : "border-slate-6 focus:border-primary-8 focus:ring-primary-8"
+                                        : "border-sand-6 focus:border-primary-8 focus:ring-primary-8"
                                 )}
                             />
                             {errors.lastName && (
@@ -170,12 +170,12 @@ export default function ProfileForm() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="email">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="email">
                                 Email Address
                             </label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Mail className="h-4 w-4 text-slate-9" />
+                                    <Mail className="h-4 w-4 text-sand-9" />
                                 </div>
                                 <input
                                     id="email"
@@ -187,7 +187,7 @@ export default function ProfileForm() {
                                         "w-full rounded-md border pl-10 px-3 py-2 text-sm focus:outline-none focus:ring-1",
                                         errors.email
                                             ? "border-error-7 focus:border-error-8 focus:ring-error-8"
-                                            : "border-slate-6 focus:border-primary-8 focus:ring-primary-8"
+                                            : "border-sand-6 focus:border-primary-8 focus:ring-primary-8"
                                     )}
                                 />
                             </div>
@@ -197,12 +197,12 @@ export default function ProfileForm() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="phone">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="phone">
                                 Phone Number
                             </label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Phone className="h-4 w-4 text-slate-9" />
+                                    <Phone className="h-4 w-4 text-sand-9" />
                                 </div>
                                 <input
                                     id="phone"
@@ -214,7 +214,7 @@ export default function ProfileForm() {
                                         "w-full rounded-md border pl-10 px-3 py-2 text-sm focus:outline-none focus:ring-1",
                                         errors.phone
                                             ? "border-error-7 focus:border-error-8 focus:ring-error-8"
-                                            : "border-slate-6 focus:border-primary-8 focus:ring-primary-8"
+                                            : "border-sand-6 focus:border-primary-8 focus:ring-primary-8"
                                     )}
                                 />
                             </div>
@@ -224,12 +224,12 @@ export default function ProfileForm() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="dob">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="dob">
                                 Date of Birth
                             </label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Calendar className="h-4 w-4 text-slate-9" />
+                                    <Calendar className="h-4 w-4 text-sand-9" />
                                 </div>
                                 <input
                                     id="dob"
@@ -237,18 +237,18 @@ export default function ProfileForm() {
                                     type="date"
                                     value={formData.dob}
                                     onChange={handleChange}
-                                    className="w-full rounded-md border border-slate-6 pl-10 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
+                                    className="w-full rounded-md border border-sand-6 pl-10 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
                                 />
                             </div>
                         </div>
 
                         <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="address">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="address">
                                 Address
                             </label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <MapPin className="h-4 w-4 text-slate-9" />
+                                    <MapPin className="h-4 w-4 text-sand-9" />
                                 </div>
                                 <input
                                     id="address"
@@ -256,13 +256,13 @@ export default function ProfileForm() {
                                     type="text"
                                     value={formData.address}
                                     onChange={handleChange}
-                                    className="w-full rounded-md border border-slate-6 pl-10 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
+                                    className="w-full rounded-md border border-sand-6 pl-10 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
                                 />
                             </div>
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="city">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="city">
                                 City
                             </label>
                             <input
@@ -271,13 +271,13 @@ export default function ProfileForm() {
                                 type="text"
                                 value={formData.city}
                                 onChange={handleChange}
-                                className="w-full rounded-md border border-slate-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
+                                className="w-full rounded-md border border-sand-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
                             />
                         </div>
 
                         <div className="grid grid-cols-2 gap-3">
                             <div>
-                                <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="state">
+                                <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="state">
                                     State
                                 </label>
                                 <select
@@ -285,7 +285,7 @@ export default function ProfileForm() {
                                     name="state"
                                     value={formData.state}
                                     onChange={handleChange}
-                                    className="w-full rounded-md border border-slate-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8 pr-10 appearance-none bg-no-repeat bg-right"
+                                    className="w-full rounded-md border border-sand-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8 pr-10 appearance-none bg-no-repeat bg-right"
                                     style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20' stroke-width='1.5' stroke='%2374787a' class='w-5 h-5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E")`, backgroundSize: '20px 20px', backgroundPosition: 'right 8px center' }}
                                 >
                                     <option value="AL">Alabama</option>
@@ -305,7 +305,7 @@ export default function ProfileForm() {
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="zip">
+                                <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="zip">
                                     ZIP Code
                                 </label>
                                 <input
@@ -314,7 +314,7 @@ export default function ProfileForm() {
                                     type="text"
                                     value={formData.zip}
                                     onChange={handleChange}
-                                    className="w-full rounded-md border border-slate-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
+                                    className="w-full rounded-md border border-sand-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
                                 />
                             </div>
                         </div>
@@ -323,14 +323,14 @@ export default function ProfileForm() {
 
                 {/* Professional Information section */}
                 <div>
-                    <h2 className="text-md font-medium text-slate-12 mb-4 flex items-center">
+                    <h2 className="text-md font-medium text-sand-12 mb-4 flex items-center">
                         <Award className="h-4 w-4 text-primary-9 mr-2" />
                         Professional Information
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="specialty">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="specialty">
                                 Specialty
                             </label>
                             <select
@@ -338,7 +338,7 @@ export default function ProfileForm() {
                                 name="specialty"
                                 value={formData.specialty}
                                 onChange={handleChange}
-                                className="w-full rounded-md border border-slate-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8 pr-10 appearance-none bg-no-repeat bg-right"
+                                className="w-full rounded-md border border-sand-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8 pr-10 appearance-none bg-no-repeat bg-right"
                                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20' stroke-width='1.5' stroke='%2374787a' class='w-5 h-5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E")`, backgroundSize: '20px 20px', backgroundPosition: 'right 8px center' }}
                             >
                                 <option value="Registered Nurse">Registered Nurse</option>
@@ -352,7 +352,7 @@ export default function ProfileForm() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="experience">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="experience">
                                 Years of Experience
                             </label>
                             <input
@@ -363,12 +363,12 @@ export default function ProfileForm() {
                                 max="50"
                                 value={formData.experience}
                                 onChange={handleChange}
-                                className="w-full rounded-md border border-slate-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
+                                className="w-full rounded-md border border-sand-6 px-3 py-2 text-sm focus:outline-none focus:border-primary-8 focus:ring-1 focus:ring-primary-8"
                             />
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="license">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="license">
                                 License Number
                             </label>
                             <input
@@ -381,7 +381,7 @@ export default function ProfileForm() {
                                     "w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1",
                                     errors.license
                                         ? "border-error-7 focus:border-error-8 focus:ring-error-8"
-                                        : "border-slate-6 focus:border-primary-8 focus:ring-primary-8"
+                                        : "border-sand-6 focus:border-primary-8 focus:ring-primary-8"
                                 )}
                             />
                             {errors.license && (
@@ -390,12 +390,12 @@ export default function ProfileForm() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-11 mb-1" htmlFor="licenseExpiry">
+                            <label className="block text-sm font-medium text-sand-11 mb-1" htmlFor="licenseExpiry">
                                 License Expiry Date
                             </label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Calendar className="h-4 w-4 text-slate-9" />
+                                    <Calendar className="h-4 w-4 text-sand-9" />
                                 </div>
                                 <input
                                     id="licenseExpiry"
@@ -407,7 +407,7 @@ export default function ProfileForm() {
                                         "w-full rounded-md border pl-10 px-3 py-2 text-sm focus:outline-none focus:ring-1",
                                         errors.licenseExpiry
                                             ? "border-error-7 focus:border-error-8 focus:ring-error-8"
-                                            : "border-slate-6 focus:border-primary-8 focus:ring-primary-8"
+                                            : "border-sand-6 focus:border-primary-8 focus:ring-primary-8"
                                     )}
                                 />
                             </div>
@@ -419,11 +419,11 @@ export default function ProfileForm() {
                 </div>
 
                 {/* Form Actions */}
-                <div className="pt-4 border-t border-slate-6 flex justify-end">
+                <div className="pt-4 border-t border-sand-6 flex justify-end">
                     <div className="flex space-x-3">
                         <button
                             type="button"
-                            className="px-4 py-2 border border-slate-6 text-slate-11 rounded-md text-sm hover:bg-slate-2 transition-colors"
+                            className="px-4 py-2 border border-sand-6 text-sand-11 rounded-md text-sm hover:bg-sand-2 transition-colors"
                         >
                             Cancel
                         </button>

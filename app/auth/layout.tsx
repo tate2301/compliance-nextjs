@@ -13,7 +13,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <Suspense>
       <AuthProvider>
-        <div className="flex min-h-screen flex-col bg-slate-1">
+        <div className="flex min-h-screen flex-col bg-sand-1">
           <div className="container flex flex-1 items-center justify-center py-12 md:py-20">
             <div className="w-full max-w-md space-y-6">
               <div className="flex flex-col space-y-2 text-center">
@@ -23,15 +23,9 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
                   </div>
                 </div>
 
-                <h1 className="text-2xl font-bold tracking-tight text-slate-12">
-                  Compliance Aide
-                </h1>
-                <p className="text-slate-9">
-                  Your trusted compliance management platform
-                </p>
               </div>
 
-              <div className="bg-slate-1 p-6 shadow-md border-2 border-slate-6 rounded-lg">
+              <div className="p-6 rounded-lg">
                 {children}
               </div>
               <div className="flex justify-center">
@@ -43,7 +37,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
                   <span>Back to home</span>
                 </Link>
               </div>
-              <div className="text-center text-sm text-slate-9">
+              <div className="text-center text-sm text-sand-9">
                 <p>
                   &copy; {new Date().getFullYear()} Compliance Aide. All rights
                   reserved.

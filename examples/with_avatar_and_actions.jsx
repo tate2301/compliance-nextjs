@@ -3,7 +3,7 @@ import { MailIcon, PhoneIcon } from '@heroicons/react/solid'
 
 export default function Example() {
   return (
-    <div className="bg-slate-1 px-4 py-5 border-b border-slate-6 sm:px-6">
+    <div className="bg-sand-1 px-4 py-5 border-b border-sand-6 sm:px-6">
       <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
         <div className="ml-4 mt-4">
           <div className="flex items-center">
@@ -15,9 +15,9 @@ export default function Example() {
               />
             </div>
             <div className="ml-4">
-              <h3 className="text-lg leading-6 font-medium text-slate-12">Tom Cook</h3>
-              <p className="text-sm text-slate-11">
-                <a href="#" className="hover:text-slate-12 transition-colors">@tom_cook</a>
+              <h3 className="text-lg leading-6 font-medium text-sand-12">Tom Cook</h3>
+              <p className="text-sm text-sand-11">
+                <a href="#" className="hover:text-sand-12 transition-colors">@tom_cook</a>
               </p>
             </div>
           </div>
@@ -25,16 +25,16 @@ export default function Example() {
         <div className="ml-4 mt-4 flex-shrink-0 flex">
           <button
             type="button"
-            className="relative inline-flex items-center px-4 py-2 border border-slate-6 shadow-sm text-sm font-medium rounded-md text-slate-12 bg-slate-2 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7 transition-colors"
+            className="relative inline-flex items-center px-4 py-2 border border-sand-6 shadow-sm text-sm font-medium rounded-md text-sand-12 bg-sand-2 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7 transition-colors"
           >
-            <PhoneIcon className="-ml-1 mr-2 h-5 w-5 text-slate-11" aria-hidden="true" />
+            <PhoneIcon className="-ml-1 mr-2 h-5 w-5 text-sand-11" aria-hidden="true" />
             <span>Phone</span>
           </button>
           <button
             type="button"
-            className="ml-3 relative inline-flex items-center px-4 py-2 border border-slate-6 shadow-sm text-sm font-medium rounded-md text-slate-12 bg-slate-2 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7 transition-colors"
+            className="ml-3 relative inline-flex items-center px-4 py-2 border border-sand-6 shadow-sm text-sm font-medium rounded-md text-sand-12 bg-sand-2 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7 transition-colors"
           >
-            <MailIcon className="-ml-1 mr-2 h-5 w-5 text-slate-11" aria-hidden="true" />
+            <MailIcon className="-ml-1 mr-2 h-5 w-5 text-sand-11" aria-hidden="true" />
             <span>Email</span>
           </button>
         </div>

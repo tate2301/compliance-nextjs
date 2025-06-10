@@ -1,11 +1,11 @@
 "use client";
 
-import { DocumentItem } from "@/app/components/profile";
+import { DocumentItem } from "components/profile";
 import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-layout";
 import { useState } from "react";
 import { useReferences } from "../../hooks/references";
 import { Modal } from "@/app/components/ui/modal";
-import { ReferenceForm } from "@/app/components/profile/reference-form";
+import { ReferenceForm } from "@/components/profile/reference-form";
 import { Reference } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { PlusIcon } from "@heroicons/react/solid";
@@ -78,11 +78,11 @@ export default function ProfilePage() {
         </Button>
       </div>
       <div className="py-4 sm:gap-4">
-        <dd className="mt-1 text-sm text-slate-12 sm:mt-0">
+        <dd className="mt-1 text-sm text-sand-12 sm:mt-0">
           {references.length > 0 ? (
             <ul
               role="list"
-              className="border border-slate-6 rounded-md divide-y divide-slate-6"
+              className="border border-sand-6 rounded-md divide-y divide-sand-6"
             >
               {references.map((reference) => (
                 <DocumentItem
@@ -96,7 +96,7 @@ export default function ProfilePage() {
               ))}
             </ul>
           ) : (
-            <div className="text-center py-8 text-slate-10">
+            <div className="text-center py-8 text-sand-10">
               No references added yet. Click the "Add Reference" button to add one.
             </div>
           )}

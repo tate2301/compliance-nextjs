@@ -154,11 +154,11 @@ export interface OccupationReference {
 }
 
 export interface StaffDocument {
-  created_at: number;
+  createdAt: number;
   description: string;
   expiry_date: number;
   form_id: string;
-  id: number;
+  _id: string;
   status: {
     id: number;
     name: "PENDING" | "ACTIVE" | "ARCHIVED";
@@ -168,7 +168,7 @@ export interface StaffDocument {
   status_id: number;
   theme: string;
   title: string;
-  updated_at: number;
+  updatedAt: number;
   fields: FormField[];
 }
 
@@ -269,4 +269,92 @@ export interface DocumentPayload {
   Document_id: number;
   user_id: number;
   certificate: any;
+}
+
+// New enhanced document types
+export enum DocumentType {
+  FORM = "form",
+  FILE_UPLOAD = "file_upload",
+  TRAINING_CERTIFICATE = "training_certificate",
+  IDENTITY_DOCUMENT = "identity_document",
+  COMPLIANCE_DOCUMENT = "compliance_document"
+}
+
+export enum FormCategory {
+  ONBOARDING = "onboarding",
+  LEGAL = "legal",
+  HEALTH = "health",
+  EMPLOYMENT = "employment",
+  ASSESSMENT = "assessment",
+  COMPLIANCE = "compliance"
+}
+
+export enum DocumentSubmissionStatus {
+  DRAFT = "draft",
+  SUBMITTED = "submitted",
+  PENDING_VERIFICATION = "pending_verification",
+  VERIFIED = "verified",
+  REJECTED = "rejected",
+  EXPIRED = "expired"
+}
+
+export interface EnhancedDocumentReference {
+  _id?: string;
+  referenceId: string;
+  name: string;
+  description?: string;
+  category: FormCategory;
+  documentType: DocumentType;
+  isRequired: boolean;
+  isMandatoryForOnboarding: boolean;
+  validityPeriod?: number;
+  allowedFileTypes?: string[];
+  maxFileSize?: number;
+  formDefinition?: {
+    fields: FormField[];
+    theme?: any;
+  };
+  status: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface DocumentSubmission {
+  _id?: string;
+  documentReference: string | EnhancedDocumentReference;
+  user: string;
+  submissionData?: Record<string, any>;
+  fileData?: {
+    filename: string;
+    originalName: string;
+    mimeType: string;
+    size: number;
+    url: string;
+    uploadedAt: Date;
+  };
+  status: DocumentSubmissionStatus;
+  submittedAt?: Date;
+  verifiedAt?: Date;
+  verifiedBy?: string;
+  expiryDate?: Date;
+  rejectionReason?: string;
+  verificationNotes?: string;
+  version: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface DocumentSubmissionPayload {
+  userId: string;
+  documentReferenceId: string;
+  submissionData?: Record<string, any>;
+  fileData?: {
+    filename: string;
+    originalName: string;
+    mimeType: string;
+    size: number;
+    url: string;
+    uploadedAt: Date;
+  };
+  status?: DocumentSubmissionStatus;
 }

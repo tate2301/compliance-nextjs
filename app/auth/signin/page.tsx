@@ -1,75 +1,126 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { AuthForm } from "../components/auth-form";
-import { toast } from "sonner";
-import { useAuth } from "@/lib/auth/auth-context";
-import { authService } from "@/lib/auth";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { signIn } from 'next-auth/react';
 
-export default function SignIn() {
-  const [isLoading, setIsLoading] = useState(false);
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
+
+const schema = z.object({
+  email: z.string().email({ message: 'Invalid email' }),
+  password: z.string().min(6, { message: 'Min 6 characters' })
+});
+type FormData = z.infer<typeof schema>;
+
+export default function SignInForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting }
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
+
+  const [apiError, setApiError] = useState<string | null>(null);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const { login, isAuthenticated } = useAuth();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  async function onSubmit(values: FormData) {
+    setApiError(null);
 
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
+    const res = await signIn('credentials', {
+      email: values.email,
+      password: values.password,
+    });
 
-    if (!email || !password) {
-      return toast.error("Please enter both email and password");
+    if (res?.error) {
+      setApiError(res.error);
+    } else {
+      router.push(res?.url ?? '/app');
     }
-
-    try {
-      setIsLoading(true);
-      const response = await authService.login({ email, password });
-
-      // Access data from axios response
-      const { user, token } = response.data;
-      login(user, token);
-
-      // After successful login, redirect to onboarding first
-      // The OnboardingGuard will check completion status and redirect appropriately
-      const returnUrl = searchParams.get("return_url");
-      if (returnUrl) {
-        router.push(returnUrl);
-      } else {
-        router.push("/app/onboarding");
-      }
-
-      toast.success("Successfully signed in!");
-    } catch (error) {
-      console.error("Failed to sign in:", error);
-      toast.error(
-        "Failed to sign in. Please check your credentials and try again."
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push("/app/documents");
-    }
-  }, [isAuthenticated, router]);
+  }
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight text-slate-12">
-          Sign in to your account
-        </h1>
-        <p className="text-sm text-slate-9">
-          Enter your credentials to access your account
+      <div className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          {/* Email */}
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                autoComplete="email"
+                {...register('email')}
+                aria-invalid={!!errors.email}
+            />
+            {errors.email && (
+                <p className="text-sm text-error-11">{errors.email.message}</p>
+            )}
+          </div>
+
+          {/* Password */}
+          <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                autoComplete="current-password"
+                {...register('password')}
+                aria-invalid={!!errors.password}
+            />
+            {errors.password && (
+                <p className="text-sm text-error-11">{errors.password.message}</p>
+            )}
+          </div>
+
+          {/* Submit */}
+          <Button className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? 'Signing in…' : 'Sign in'}
+          </Button>
+
+          {apiError && <p className="text-sm text-error-11">{apiError}</p>}
+        </form>
+
+        {/* --- OR continue with --- */}
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <Separator className="w-full" />
+          </div>
+          <div className="relative flex justify-center">
+          <span className="bg-sand-1 px-2 text-sm text-sand-9">
+            Or continue with
+          </span>
+          </div>
+        </div>
+
+        {/* Social buttons (only visual here) */}
+        <div className="grid grid-cols-2 gap-3">
+          <Button variant="outline" type="button" className="w-full">
+            {/* …google svg… */}
+            Google
+          </Button>
+          <Button variant="outline" type="button" className="w-full">
+            {/* …facebook svg… */}
+            Facebook
+          </Button>
+        </div>
+
+        {/* Switch to signup */}
+        <p className="text-center text-sm text-sand-11">
+          Don&#39;t have an account?{' '}
+          <button
+              type="button"
+              onClick={() => router.push('/auth/signup')}
+              className="text-primary-9 hover:underline"
+          >
+            Sign up
+          </button>
         </p>
       </div>
-
-      <AuthForm mode="signin" onSubmit={handleSubmit} isLoading={isLoading} />
-    </div>
   );
 }

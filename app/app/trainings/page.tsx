@@ -18,7 +18,7 @@ import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { Modal } from "@/app/components/ui/modal";
-import { TrainingForm } from "@/app/components/profile/training-form";
+import { TrainingForm } from "@/components/profile/training-form";
 import { Training } from "@/lib/types";
 import { GlobalComplianceAlert } from "../components/GlobalComplianceAlert";
 
@@ -138,7 +138,7 @@ export default function TrainingsPage() {
           </div>
         )}
 
-        <h1 className="text-xl font-medium text-slate-12 mb-4">Trainings</h1>
+        <h1 className="text-xl font-medium text-sand-12 mb-4">Trainings</h1>
         {trainings && trainings.length > 0 ? (
           <div className="space-y-4">
             {trainings.map((training) => {

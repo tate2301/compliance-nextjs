@@ -32,7 +32,7 @@ export interface ModalProps {
 const variantStyles: Record<ModalVariant, { button: string; title: string }> = {
   default: {
     button: "bg-primary-11 hover:bg-primary-9",
-    title: "text-slate-12",
+    title: "text-sand-12",
   },
   destructive: {
     button: "bg-error-1 hover:bg-error-9 text-error-1",
@@ -77,7 +77,7 @@ export function Modal({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         className={cn(
-          "border-slate-6 bg-slate-2",
+          "border-sand-6 bg-sand-2",
           sizeStyles[size],
           "w-[95%] rounded-lg md:w-full",
           className
@@ -86,7 +86,7 @@ export function Modal({
         <DialogHeader>
           <DialogTitle className={variantStyle.title}>{title}</DialogTitle>
           {description && (
-            <DialogDescription className="text-slate-11">
+            <DialogDescription className="text-sand-11">
               {description}
             </DialogDescription>
           )}

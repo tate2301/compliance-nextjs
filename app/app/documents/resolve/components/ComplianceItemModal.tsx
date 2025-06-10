@@ -27,10 +27,10 @@ export default function ComplianceItemModal({
 }) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[425px] lg:max-w-4xl max-h-[70vh] overflow-y-auto w-full border-slate-6 bg-slate-2">
+      <DialogContent className="max-w-[425px] lg:max-w-4xl max-h-[70vh] overflow-y-auto w-full border-sand-6 bg-sand-2">
         <DialogHeader>
-          <DialogTitle className="text-slate-12">{title}</DialogTitle>
-          <DialogDescription className="text-slate-11">
+          <DialogTitle className="text-sand-12">{title}</DialogTitle>
+          <DialogDescription className="text-sand-11">
             {description}
           </DialogDescription>
         </DialogHeader>

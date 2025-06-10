@@ -322,7 +322,7 @@ export const Dashboard = ({
                 </Flow>
 
                 {/* Global Locus */}
-                <div style={{ position: 'fixed', bottom: '24px', left: '50%', transform: 'translateX(-50%)', width: '600px', maxWidth: '90%' }}>
+                <div style={{ position: 'fixed', bottom: '24px', left: '50%', transform: 'transandX(-50%)', width: '600px', maxWidth: '90%' }}>
                     <Locus
                         suggestions={locusSuggestions}
                         onExecute={handleExecuteCommand}

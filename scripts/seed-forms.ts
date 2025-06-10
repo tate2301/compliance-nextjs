@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import dbConnect from "../lib/db/mongoose";
-import { ComplianceForm, FormCategory, FormStatus } from "../app/api/documents/model/Document";
+import { ComplianceForm, FormCategory, FormStatus } from "@/lib/db/models/document";
 import { getJotFormById } from "../app/actions/forms";
 
 // Validate required environment variables

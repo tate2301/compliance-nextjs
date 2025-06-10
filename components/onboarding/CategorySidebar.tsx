@@ -49,7 +49,7 @@ export function CategorySidebar({
                   className={cn(
                     "flex items-center gap-3 rounded-lg border-2 p-3",
                     isCompleted && "border-success-10 bg-primary/5",
-                    isActive && "bg-slate-1",
+                    isActive && "bg-sand-1",
                     isPending &&
                       "hover:opacity-75 transition-opacity"
                   )}
@@ -71,10 +71,10 @@ export function CategorySidebar({
                     )}
                   </div>
                   <div className="flex flex-col min-w-0 flex-1">
-                    <div className={cn("text-sm font-medium mb-1 truncate", isCompleted && "text-slate-10")}>
+                    <div className={cn("text-sm font-medium mb-1 truncate", isCompleted && "text-sand-10")}>
                       {cat.charAt(0).toUpperCase() + cat.slice(1)}
                     </div>
-                    <div className="text-xs text-slate-10">
+                    <div className="text-xs text-sand-10">
                       {
                         catForms.filter((form) =>
                           completedForms.includes(form.id)
@@ -100,7 +100,7 @@ export function CategorySidebar({
                         className={cn(
                           "flex w-full items-center gap-3 rounded-lg p-2 text-left text-sm transition-colors",
                           isCompleted && "text-success-10",
-                          isActive && "bg-slate-3 text-slate-12",
+                          isActive && "bg-sand-3 text-sand-12",
                           isPending &&
                             "text-muted-foreground hover:text-muted-foreground/80"
                         )}
@@ -109,11 +109,11 @@ export function CategorySidebar({
                           className={cn(
                             "h-2 w-2 rounded-full shrink-0",
                             isCompleted && "bg-success-10",
-                            isActive && "border-2 border-slate-8",
-                            isPending && "border border-slate-6"
+                            isActive && "border-2 border-sand-8",
+                            isPending && "border border-sand-6"
                           )}
                         />
-                        <span className={cn("truncate text-slate-10", isActive && "font-semibold text-slate-12")}>{form.title}</span>
+                        <span className={cn("truncate text-sand-10", isActive && "font-semibold text-sand-12")}>{form.title}</span>
                       </button>
                     );
                   })}

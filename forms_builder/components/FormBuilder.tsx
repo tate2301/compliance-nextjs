@@ -56,7 +56,7 @@ export function FormBuilderPresenter({
   }, [form]);
 
   return (
-    <div className="flex h-screen flex-col bg-zinc-50">
+    <div className="flex h-screen flex-col bg-sand-50">
       {/* Top Toolbar */}
       <header className="border-b bg-white px-6 py-4 shadow-sm">
         <div className="flex items-center justify-between">
@@ -65,10 +65,10 @@ export function FormBuilderPresenter({
               <ArrowLeftIcon className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-xl font-semibold text-zinc-900">
+              <h1 className="text-xl font-semibold text-sand-900">
                 {form.title || "Untitled Form"}
               </h1>
-              <p className="text-sm text-zinc-500">
+              <p className="text-sm text-sand-500">
                 Build and customize your form
               </p>
             </div>
@@ -121,7 +121,7 @@ export function FormBuilderPresenter({
         </aside>
 
         {/* Center - Form Preview */}
-        <main className="flex-1 overflow-y-auto bg-zinc-50 p-8">
+        <main className="flex-1 overflow-y-auto bg-sand-50 p-8">
           <div className="mx-auto max-w-3xl">
             <FormPreview onHandleSubmitForm={handlePublish} />
           </div>
@@ -134,7 +134,7 @@ export function FormBuilderPresenter({
               <FieldProperties />
             </div>
           ) : (
-            <div className="flex h-full items-center justify-center p-6 text-center text-zinc-500">
+            <div className="flex h-full items-center justify-center p-6 text-center text-sand-500">
               <div>
                 <p className="text-sm">
                   Select a field to customize its properties

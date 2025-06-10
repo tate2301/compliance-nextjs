@@ -37,10 +37,10 @@ export function FullscreenPreviewModal({
             {/* Header */}
             <div className="flex items-center justify-between border-b px-6 py-4">
               <div>
-                <h2 className="text-xl font-semibold text-zinc-900">
+                <h2 className="text-xl font-semibold text-sand-900">
                   Form Preview
                 </h2>
-                <p className="text-sm text-zinc-500">
+                <p className="text-sm text-sand-500">
                   Preview how your form will look to users
                 </p>
               </div>
@@ -48,9 +48,9 @@ export function FullscreenPreviewModal({
                 variant="ghost"
                 size="icon"
                 onClick={onClose}
-                className="rounded-full hover:bg-zinc-100"
+                className="rounded-full hover:bg-sand-100"
               >
-                <XIcon className="h-5 w-5 text-zinc-500" />
+                <XIcon className="h-5 w-5 text-sand-500" />
               </Button>
             </div>
 
@@ -78,7 +78,7 @@ export function FullscreenPreviewModal({
                   {form.fields?.map((field) => (
                     <div
                       key={field.id}
-                      className="rounded-lg bg-zinc-50/50 p-6 transition-all hover:bg-zinc-50"
+                      className="rounded-lg bg-sand-50/50 p-6 transition-all hover:bg-sand-50"
                     >
                       {renderField(field)}
                     </div>
@@ -88,7 +88,7 @@ export function FullscreenPreviewModal({
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-end gap-3 border-t bg-zinc-50/80 px-6 py-4">
+            <div className="flex items-center justify-end gap-3 border-t bg-sand-50/80 px-6 py-4">
               <Button variant="outline" onClick={onClose}>
                 Close Preview
               </Button>

@@ -33,9 +33,8 @@ export default function RootLayout({ params, children }: SubdomainLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "bg-slate-3 min-h-screen text-foreground",
-          ibmPlexSans.variable,
-          ibmPlexSans.className
+          "bg-sand-3 min-h-screen text-foreground",
+          
         )}
       >
         <Providers>

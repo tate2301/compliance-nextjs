@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
-import ComplianceUser from "../model";
-import { ComplianceForm } from "@/app/api/documents/model/Document";
-import { FormResponse } from "@/app/api/documents/response/model";
+import ComplianceUser from "@/lib/db/models/user";
+import { ComplianceForm } from "@/lib/db/models/document";
+import { FormResponse } from "@/lib/db/models/form-response";
 
 // GET /api/user/onboarding-status - Check onboarding completion and verification status
 export async function GET(request: NextRequest) {
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
     // Get user data
     const user = await ComplianceUser.findOne(
-      { authUserId }, 
+      { legacyId: authUserId },
       { onboardingStatus: 1, isVerified: 1 }
     ).exec();
 
@@ -75,7 +75,7 @@ export async function GET(request: NextRequest) {
       isCompleted: allFormsCompleted,
       completedSteps: Array.from(completedFormIds),
       totalSteps: requiredFormIds.length,
-      lastUpdated: user.onboardingStatus?.lastUpdated,
+    lastUpdated: user.onboardingStatus?.lastUpdated,
       isVerified: user.isVerified || false
     });
   } catch (error) {

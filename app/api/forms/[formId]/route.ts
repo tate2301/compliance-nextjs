@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
-import { ComplianceForm } from "../../documents/model/Document";
+import { ComplianceForm } from "@/lib/db/models/document";
 
 interface Params {
   formId: string;

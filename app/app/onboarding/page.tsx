@@ -2,12 +2,12 @@
 
 import { useRef } from "react";
 import { useOnboardingData } from "@/app/hooks/useOnboardingData";
-import { CategorySidebar } from "@/app/components/onboarding/CategorySidebar";
+import { CategorySidebar } from "@/components/onboarding/CategorySidebar";
 import {
   FormContainer,
   FormPreviewRef,
-} from "@/app/components/onboarding/FormContainer";
-import { NavigationButtons } from "@/app/components/onboarding/NavigationButtons";
+} from "@/components/onboarding/FormContainer";
+import { NavigationButtons } from "@/components/onboarding/NavigationButtons";
 import { Loader2 } from "lucide-react";
 
 function OnboardingLoadingSkeleton() {
@@ -18,7 +18,7 @@ function OnboardingLoadingSkeleton() {
       {/* Main content skeleton */}
       <div className="flex-1 min-w-0">
         <div className="grid gap-4">
-          <div className="bg-card rounded-lg border border-slate-6 p-6">
+          <div className="bg-card rounded-lg p-6">
             <div className="flex items-center justify-center p-12">
               <div className="flex flex-col items-center gap-4">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -29,8 +29,8 @@ function OnboardingLoadingSkeleton() {
 
           {/* Navigation skeleton */}
           <div className="flex justify-between gap-3">
-            <div className="h-10 w-24 bg-slate-3 rounded animate-pulse" />
-            <div className="h-10 w-40 bg-slate-3 rounded animate-pulse" />
+            <div className="h-10 w-24 bg-sand-3 rounded animate-pulse" />
+            <div className="h-10 w-40 bg-sand-3 rounded animate-pulse" />
           </div>
         </div>
       </div>

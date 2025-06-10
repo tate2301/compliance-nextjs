@@ -5,11 +5,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const inputVariants = cva(
-  "flex w-full rounded-md border bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+  "flex w-full rounded-md border bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-sand-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "border-slate-7 focus:border-primary-8",
+        default: "border-sand-7 focus:border-primary-8",
         error: "border-error-8 focus:border-error-9 focus-visible:ring-error-7",
       },
       size: {
@@ -53,7 +53,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       return (
         <div className="relative w-full">
           {leftElement && (
-            <div className="absolute left-2 top-1/2 -translate-y-1/2 text-slate-11">
+            <div className="absolute left-2 top-1/2 -transand-y-1/2 text-sand-11">
               {leftElement}
             </div>
           )}
@@ -68,7 +68,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {rightElement && (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-11">
+            <div className="absolute right-2 top-1/2 -transand-y-1/2 text-sand-11">
               {rightElement}
             </div>
           )}
@@ -104,7 +104,7 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
     return (
       <div className={cn("space-y-1.5", className)}>
         {label && (
-          <label htmlFor={id} className="text-sm font-medium text-slate-12">
+          <label htmlFor={id} className="text-sm font-medium text-sand-12">
             {label}
           </label>
         )}
@@ -113,7 +113,7 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
           <p
             className={cn(
               "text-xs",
-              hasError ? "text-error-11" : "text-slate-11"
+              hasError ? "text-error-11" : "text-sand-11"
             )}
           >
             {hasError ? errorMessage : helperText}

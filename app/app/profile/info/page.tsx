@@ -19,7 +19,7 @@ import {
   EditableField,
   EditModal,
   FileUploadModal,
-} from "@/app/components/profile";
+} from "components/profile";
 import {
   DocumentTextIcon,
   HomeIcon,
@@ -65,7 +65,7 @@ export default function ProfilePage() {
       title="Personal information"
       subtitle="Information must match your legal documents"
     >
-      <dl className="divide-y divide-slate-6">
+      <dl className="divide-y divide-sand-6">
         <EditableField
           label="Full name"
           value={`${editValues.first_name} ${editValues.last_name}`}

@@ -16,7 +16,7 @@ export default function MobileHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-slate-6 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/95 md:hidden"
+        "sticky top-0 z-50 w-full border-b border-sand-6 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/95 md:hidden"
       )}
     >
       <div className="flex h-14 items-center justify-between px-4">
@@ -28,7 +28,7 @@ export default function MobileHeader() {
           <NavUser user={{
             name: `${user.first_name} ${user.last_name}`,
             email: user.email,
-            profile_image: user.profile_image,
+            avatar: user.profile_image,
           }} />
         </div>
       </div>

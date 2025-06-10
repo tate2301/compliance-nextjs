@@ -41,12 +41,14 @@ import { useExportProfile } from "@/app/app/hooks/exports";
 
 export function NavUser({
   user,
+  collapsed = false,
 }: {
   user: {
     name: string;
     email: string;
-    profile_image: string;
+    avatar: string;
   };
+  collapsed?: boolean;
 }) {
   const { isMobile } = useSidebar();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -61,8 +63,6 @@ export function NavUser({
       onClose();
     }
   }, [hasStartedDownload, isDownloading]);
-
-  console.log({avatar: user.profile_image})
 
   return (
     <SidebarMenu>
@@ -115,18 +115,20 @@ export function NavUser({
             <Button
               size="lg"
               variant="ghost"
-              className="px-1 pr-2 py-0.5 flex gap-4 hover:bg-slate-6 data-[state=open]:bg-slate-6 data-[state=open]:text-sidebar-accent-foreground max-w-64 w-fit"
+              className="px-1 pr-2 py-0.5 flex gap-4 hover:bg-sand-6 data-[state=open]:bg-sand-6 data-[state=open]:text-sidebar-accent-foreground max-w-64 w-fit"
             >
               <Avatar className="h-6 w-7 rounded-md">
-                <AvatarImage src={user.profile_image} alt={user.name} />
-                <AvatarFallback className="rounded-lg">
-                  {user.name.split(" ").map((name) => name[0]).join("")}
-                </AvatarFallback>
+                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{user.name}</span>
-              </div>
-              <ChevronDown className="ml-auto size-4" />
+              {!collapsed && (
+                <>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-medium">{user.name}</span>
+                </div>
+                <ChevronDown className="ml-auto size-4" />
+                </>
+              )}
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -138,10 +140,8 @@ export function NavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.profile_image} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">
-                    {user.name.split(" ").map((name) => name[0]).join("")}
-                  </AvatarFallback>
+                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>
@@ -162,7 +162,11 @@ export function NavUser({
                 <BellIcon className="size-5" /> Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
-           
+            <DropdownMenuSeparator />
+            <DropdownMenuItem className="w-full" onClick={onOpen}>
+              <DocumentDownloadIcon className="size-5 mr-auto" />
+              <span className="w-full text-left">Export profile</span>
+            </DropdownMenuItem>{" "}
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogoutIcon className="size-5" /> Log out

@@ -11,6 +11,7 @@ import { HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { documentsService } from "@/lib/documents";
 import StaffDocumentsList from "../components/StaffDocumentsList";
 import { GlobalComplianceAlert } from "../components/GlobalComplianceAlert";
+import FilterBar from "@/components/FilterBar";
 
 export default async function ProfilePage({ dehydratedState }: any) {
   const queryClient = new QueryClient();
@@ -23,7 +24,7 @@ export default async function ProfilePage({ dehydratedState }: any) {
   return (
     <HydrationBoundary state={dehydratedState}>
       <div className="p-6 max-w-6xl mx-auto w-full">
-        <div className="mb-4">
+        <div className="mb-4 flex justify-between items-center">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -42,6 +43,10 @@ export default async function ProfilePage({ dehydratedState }: any) {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+
+          <div>
+            <FilterBar />
+          </div>
         </div>
         <GlobalComplianceAlert />
 

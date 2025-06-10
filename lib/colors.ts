@@ -4,10 +4,10 @@
  */
 
 import {
-    slate,
-    slateDark,
-    slateA,
-    slateDarkA,
+    sand,
+    sandDark,
+    sandA,
+    sandDarkA,
     indigo,
     indigoDark,
     indigoA,
@@ -54,7 +54,7 @@ function createColorScale(scale: Record<string, string>, alphaScale: Record<stri
 }
 
 export const colors = {
-    slate: createColorScale(slate, slateA),
+    sand: createColorScale(sand, sandA),
     primary: createColorScale(indigo, indigoA),
     secondary: createColorScale(blue, blueA),
     error: createColorScale(red, redA),
@@ -64,7 +64,7 @@ export const colors = {
 
 // Dark mode colors
 export const darkColors = {
-    slate: createColorScale(slateDark, slateDarkA),
+    sand: createColorScale(sandDark, sandDarkA),
     primary: createColorScale(indigoDark, indigoDarkA),
     secondary: createColorScale(blueDark, blueDarkA),
     error: createColorScale(redDark, redDarkA),

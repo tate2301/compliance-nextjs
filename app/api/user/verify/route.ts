@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
-import ComplianceUser from "../model";
+import ComplianceUser from "@/lib/db/models/user";
 
 // PUT /api/user/verify - Verify/approve a user's onboarding
 export async function PUT(request: NextRequest) {
@@ -17,7 +17,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    const user = await ComplianceUser.findOne({ authUserId }).exec();
+    const user = await ComplianceUser.findOne({ legacyId: authUserId }).exec();
 
     if (!user) {
       return NextResponse.json(

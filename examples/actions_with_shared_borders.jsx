@@ -83,7 +83,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="rounded-lg bg-slate-3 overflow-hidden shadow divide-y divide-slate-6 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+    <div className="rounded-lg bg-sand-3 overflow-hidden shadow divide-y divide-sand-6 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
       {actions.map((action, actionIdx) => (
         <div
           key={action.title}
@@ -92,7 +92,7 @@ export default function Example() {
             actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
             actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
             actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
-            'relative group bg-slate-1 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-8 hover:bg-slate-2 transition-colors'
+            'relative group bg-sand-1 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-8 hover:bg-sand-2 transition-colors'
           )}
         >
           <div>
@@ -100,27 +100,27 @@ export default function Example() {
               className={classNames(
                 action.iconBackground,
                 action.iconForeground,
-                'rounded-lg inline-flex p-3 ring-4 ring-slate-1'
+                'rounded-lg inline-flex p-3 ring-4 ring-sand-1'
               )}
             >
               <action.icon className="h-6 w-6" aria-hidden="true" />
             </span>
           </div>
           <div className="mt-8">
-            <h3 className="text-lg font-medium text-slate-12">
+            <h3 className="text-lg font-medium text-sand-12">
               <a href={action.href} className="focus:outline-none">
                 {/* Extend touch target to entire panel */}
                 <span className="absolute inset-0" aria-hidden="true" />
                 {action.title}
               </a>
             </h3>
-            <p className="mt-2 text-sm text-slate-11">
+            <p className="mt-2 text-sm text-sand-11">
               Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et
               quo et molestiae.
             </p>
           </div>
           <span
-            className="pointer-events-none absolute top-6 right-6 text-slate-8 group-hover:text-slate-11 transition-colors"
+            className="pointer-events-none absolute top-6 right-6 text-sand-8 group-hover:text-sand-11 transition-colors"
             aria-hidden="true"
           >
             <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">

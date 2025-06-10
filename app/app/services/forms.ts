@@ -1,6 +1,6 @@
 import axios from "axios";
-import { FormCategory, FormStatus, IComplianceForm } from "@/app/api/documents/model/Document";
-import { FormResponseStatus, IFormResponse } from "@/app/api/documents/response/model";
+import { FormCategory, FormStatus, IComplianceForm } from "@/lib/db/models/document";
+import { FormResponseStatus, IFormResponse } from "@/lib/db/models/form-response";
 
 export interface FormWithResponse extends IComplianceForm {
   userResponse?: IFormResponse;

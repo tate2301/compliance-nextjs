@@ -20,24 +20,24 @@ module.exports = {
     extend: {
       colors: {
         // Primary mercury palette
-        slate: getColorScale('slate'),
+        sand: getColorScale('sand'),
         primary: getColorScale('indigo'),
         secondary: getColorScale('blue'),
         warning: getColorScale('amber'),
         error: getColorScale('red'),
         success: getColorScale('green'),
         mercury: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
+          1: '#f8fafc',
+          2: '#f1f5f9',
+          3: '#e2e8f0',
+          4: '#cbd5e1',
+          5: '#94a3b8',
+          6: '#64748b',
+          7: '#475569',
+          8: '#334155',
+          9: '#1e293b',
+          10: '#0f172a',
+          11: '#020617',
         },
         // Accent colors
         silver: {

@@ -1,11 +1,11 @@
 /* This example requires Tailwind CSS v2.0+ */
 export default function Example() {
   return (
-    <div className="bg-slate-1 shadow-md rounded-lg border border-slate-6">
+    <div className="bg-sand-1 shadow-md rounded-lg border border-sand-6">
       <div className="px-4 py-5 sm:p-6">
-        <h3 className="text-lg leading-6 font-medium text-slate-12">Payment method</h3>
+        <h3 className="text-lg leading-6 font-medium text-sand-12">Payment method</h3>
         <div className="mt-5">
-          <div className="rounded-md bg-slate-2 px-6 py-5 sm:flex sm:items-start sm:justify-between border border-slate-6">
+          <div className="rounded-md bg-sand-2 px-6 py-5 sm:flex sm:items-start sm:justify-between border border-sand-6">
             <h4 className="sr-only">Visa</h4>
             <div className="sm:flex sm:items-start">
               <svg className="h-8 w-auto sm:flex-shrink-0 sm:h-6" viewBox="0 0 36 24" aria-hidden="true">
@@ -16,8 +16,8 @@ export default function Example() {
                 />
               </svg>
               <div className="mt-3 sm:mt-0 sm:ml-4">
-                <div className="text-sm font-medium text-slate-12">Ending with 4242</div>
-                <div className="mt-1 text-sm text-slate-11 sm:flex sm:items-center">
+                <div className="text-sm font-medium text-sand-12">Ending with 4242</div>
+                <div className="mt-1 text-sm text-sand-11 sm:flex sm:items-center">
                   <div>Expires 12/20</div>
                   <span className="hidden sm:mx-2 sm:inline" aria-hidden="true">
                     &middot;
@@ -29,7 +29,7 @@ export default function Example() {
             <div className="mt-4 sm:mt-0 sm:ml-6 sm:flex-shrink-0">
               <button
                 type="button"
-                className="inline-flex items-center px-4 py-2 border border-slate-6 shadow-sm font-medium rounded-md text-slate-12 bg-slate-2 hover:bg-slate-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7 sm:text-sm transition-colors"
+                className="inline-flex items-center px-4 py-2 border border-sand-6 shadow-sm font-medium rounded-md text-sand-12 bg-sand-2 hover:bg-sand-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-7 sm:text-sm transition-colors"
               >
                 Edit
               </button>

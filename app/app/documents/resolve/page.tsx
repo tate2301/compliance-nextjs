@@ -59,10 +59,10 @@ export default async function UpdateDocuments() {
         </div>
 
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-slate-12 mb-2">
+          <h1 className="text-2xl font-bold text-sand-12 mb-2">
             Verification Centre
           </h1>
-          <p className="text-slate-11 text-balance ">
+          <p className="text-sand-11 text-balance ">
             Stay compliant by keeping your requirements up to date.
           </p>
         </div>

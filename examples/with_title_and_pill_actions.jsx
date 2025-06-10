@@ -50,7 +50,7 @@ export default function Example() {
 
   return (
     <form action="#" className="relative">
-      <div className="border border-slate-6 rounded-lg shadow-sm overflow-hidden focus-within:border-primary-7 focus-within:ring-1 focus-within:ring-primary-7">
+      <div className="border border-sand-6 rounded-lg shadow-sm overflow-hidden focus-within:border-primary-7 focus-within:ring-1 focus-within:ring-primary-7">
         <label htmlFor="title" className="sr-only">
           Title
         </label>
@@ -58,7 +58,7 @@ export default function Example() {
           type="text"
           name="title"
           id="title"
-          className="block w-full border-0 pt-2.5 text-lg font-medium text-slate-12 placeholder-slate-11 bg-slate-2 focus:ring-0 transition-colors"
+          className="block w-full border-0 pt-2.5 text-lg font-medium text-sand-12 placeholder-sand-11 bg-sand-2 focus:ring-0 transition-colors"
           placeholder="Title"
         />
         <label htmlFor="description" className="sr-only">
@@ -68,7 +68,7 @@ export default function Example() {
           rows={2}
           name="description"
           id="description"
-          className="block w-full border-0 py-0 resize-none text-slate-12 placeholder-slate-11 bg-slate-2 focus:ring-0 sm:text-sm transition-colors"
+          className="block w-full border-0 py-0 resize-none text-sand-12 placeholder-sand-11 bg-sand-2 focus:ring-0 sm:text-sm transition-colors"
           placeholder="Write a description..."
           defaultValue={''}
         />
@@ -95,16 +95,16 @@ export default function Example() {
               <>
                 <Listbox.Label className="sr-only">Assign</Listbox.Label>
                 <div className="relative">
-                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 bg-slate-3 text-sm font-medium text-slate-11 whitespace-nowrap hover:bg-slate-4 sm:px-3 transition-colors">
+                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 bg-sand-3 text-sm font-medium text-sand-11 whitespace-nowrap hover:bg-sand-4 sm:px-3 transition-colors">
                     {assigned.value === null ? (
-                      <UserCircleIcon className="flex-shrink-0 h-5 w-5 text-slate-9 sm:-ml-1" aria-hidden="true" />
+                      <UserCircleIcon className="flex-shrink-0 h-5 w-5 text-sand-9 sm:-ml-1" aria-hidden="true" />
                     ) : (
                       <img src={assigned.avatar} alt="" className="flex-shrink-0 h-5 w-5 rounded-full" />
                     )}
 
                     <span
                       className={classNames(
-                        assigned.value === null ? '' : 'text-slate-12',
+                        assigned.value === null ? '' : 'text-sand-12',
                         'hidden truncate sm:ml-2 sm:block'
                       )}
                     >
@@ -119,13 +119,13 @@ export default function Example() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-slate-1 shadow-md max-h-56 rounded-lg py-3 text-base ring-1 ring-slate-6 overflow-auto focus:outline-none sm:text-sm">
+                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-sand-1 shadow-md max-h-56 rounded-lg py-3 text-base ring-1 ring-sand-6 overflow-auto focus:outline-none sm:text-sm">
                       {assignees.map((assignee) => (
                         <Listbox.Option
                           key={assignee.value}
                           className={({ active }) =>
                             classNames(
-                              active ? 'bg-slate-3 text-slate-12' : 'bg-slate-1 text-slate-11',
+                              active ? 'bg-sand-3 text-sand-12' : 'bg-sand-1 text-sand-11',
                               'cursor-default select-none relative py-2 px-3 transition-colors'
                             )
                           }
@@ -135,7 +135,7 @@ export default function Example() {
                             {assignee.avatar ? (
                               <img src={assignee.avatar} alt="" className="flex-shrink-0 h-5 w-5 rounded-full" />
                             ) : (
-                              <UserCircleIcon className="flex-shrink-0 h-5 w-5 text-slate-9" aria-hidden="true" />
+                              <UserCircleIcon className="flex-shrink-0 h-5 w-5 text-sand-9" aria-hidden="true" />
                             )}
 
                             <span className="ml-3 block font-medium truncate">{assignee.name}</span>
@@ -154,17 +154,17 @@ export default function Example() {
               <>
                 <Listbox.Label className="sr-only">Add a label</Listbox.Label>
                 <div className="relative">
-                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 bg-slate-3 text-sm font-medium text-slate-11 whitespace-nowrap hover:bg-slate-4 sm:px-3 transition-colors">
+                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 bg-sand-3 text-sm font-medium text-sand-11 whitespace-nowrap hover:bg-sand-4 sm:px-3 transition-colors">
                     <TagIcon
                       className={classNames(
-                        labelled.value === null ? 'text-slate-9' : 'text-slate-11',
+                        labelled.value === null ? 'text-sand-9' : 'text-sand-11',
                         'flex-shrink-0 h-5 w-5 sm:-ml-1'
                       )}
                       aria-hidden="true"
                     />
                     <span
                       className={classNames(
-                        labelled.value === null ? '' : 'text-slate-12',
+                        labelled.value === null ? '' : 'text-sand-12',
                         'hidden truncate sm:ml-2 sm:block'
                       )}
                     >
@@ -179,13 +179,13 @@ export default function Example() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-slate-1 shadow-md max-h-56 rounded-lg py-3 text-base ring-1 ring-slate-6 overflow-auto focus:outline-none sm:text-sm">
+                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-sand-1 shadow-md max-h-56 rounded-lg py-3 text-base ring-1 ring-sand-6 overflow-auto focus:outline-none sm:text-sm">
                       {labels.map((label) => (
                         <Listbox.Option
                           key={label.value}
                           className={({ active }) =>
                             classNames(
-                              active ? 'bg-slate-3 text-slate-12' : 'bg-slate-1 text-slate-11',
+                              active ? 'bg-sand-3 text-sand-12' : 'bg-sand-1 text-sand-11',
                               'cursor-default select-none relative py-2 px-3 transition-colors'
                             )
                           }
@@ -208,17 +208,17 @@ export default function Example() {
               <>
                 <Listbox.Label className="sr-only">Add a due date</Listbox.Label>
                 <div className="relative">
-                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 bg-slate-3 text-sm font-medium text-slate-11 whitespace-nowrap hover:bg-slate-4 sm:px-3 transition-colors">
+                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 bg-sand-3 text-sm font-medium text-sand-11 whitespace-nowrap hover:bg-sand-4 sm:px-3 transition-colors">
                     <CalendarIcon
                       className={classNames(
-                        dated.value === null ? 'text-slate-9' : 'text-slate-11',
+                        dated.value === null ? 'text-sand-9' : 'text-sand-11',
                         'flex-shrink-0 h-5 w-5 sm:-ml-1'
                       )}
                       aria-hidden="true"
                     />
                     <span
                       className={classNames(
-                        dated.value === null ? '' : 'text-slate-12',
+                        dated.value === null ? '' : 'text-sand-12',
                         'hidden truncate sm:ml-2 sm:block'
                       )}
                     >
@@ -233,13 +233,13 @@ export default function Example() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-slate-1 shadow-md max-h-56 rounded-lg py-3 text-base ring-1 ring-slate-6 overflow-auto focus:outline-none sm:text-sm">
+                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-sand-1 shadow-md max-h-56 rounded-lg py-3 text-base ring-1 ring-sand-6 overflow-auto focus:outline-none sm:text-sm">
                       {dueDates.map((dueDate) => (
                         <Listbox.Option
                           key={dueDate.value}
                           className={({ active }) =>
                             classNames(
-                              active ? 'bg-slate-3 text-slate-12' : 'bg-slate-1 text-slate-11',
+                              active ? 'bg-sand-3 text-sand-12' : 'bg-sand-1 text-sand-11',
                               'cursor-default select-none relative py-2 px-3 transition-colors'
                             )
                           }

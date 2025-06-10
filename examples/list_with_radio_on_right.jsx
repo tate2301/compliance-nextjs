@@ -29,21 +29,21 @@ const accounts = [
 export default function Example() {
   return (
     <Card className="p-6">
-      <h2 className="text-lg font-semibold text-slate-12">Transfer funds</h2>
-      <p className="mt-1 text-sm text-slate-11">Transfer your balance to your bank account.</p>
+      <h2 className="text-lg font-semibold text-sand-12">Transfer funds</h2>
+      <p className="mt-1 text-sm text-sand-11">Transfer your balance to your bank account.</p>
       <RadioGroup defaultValue="checking" className="mt-6 space-y-4">
         {accounts.map((account) => (
           <div key={account.id} className="relative flex items-start">
             <div className="min-w-0 flex-1 text-sm">
               <Label 
                 htmlFor={`account-${account.id}`} 
-                className="text-slate-12 font-medium"
+                className="text-sand-12 font-medium"
               >
                 {account.name}
               </Label>
               <p 
                 id={`account-${account.id}-description`} 
-                className="mt-1 text-sm text-slate-11"
+                className="mt-1 text-sm text-sand-11"
               >
                 {account.description}
               </p>

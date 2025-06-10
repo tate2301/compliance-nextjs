@@ -77,9 +77,9 @@ function NavLink({ href, icon, children, badge, isActive }: NavLinkProps) {
         isActive={isActive}
         tooltip={isCollapsed ? String(children) : undefined}
         className={cn(
-          "sidebar-item group relative w-full justify-start transition-all duration-200 ease-out",
-          "hover:bg-slate-4 hover:text-slate-12",
-          " data-[active=true]:text-primary-12 data-[active=true]:bg-slate-6",
+          "sidebar-item relative w-full justify-start transition-all duration-200 ease-out",
+          "hover:bg-sand-4 hover:text-sand-12",
+          "data-[active=true]:text-primary-12 data-[active=true]:bg-sand-6 data-[active=true]:font-semibold",
           "focus-visible:ring-1 focus-visible:ring-primary-7",
           "rounded-md",
           isCollapsed ? "justify-center" : "justify-start"
@@ -87,7 +87,7 @@ function NavLink({ href, icon, children, badge, isActive }: NavLinkProps) {
       >
         <Link 
           href={href} 
-          className={cn("flex items-center gap-3 w-full", isCollapsed && "justify-center !size-10")}
+          className={cn("flex items-center gap-3 w-full group", isCollapsed && "justify-center !size-10")}
           onClick={handleClick}
         >
           <div className="flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
@@ -121,9 +121,9 @@ function ComplianceStatus({ isCompliant }) {
   const { isCompliant: compliant, percentage, missing } = isCompliant;
 
   return (
-    <div className="mx-2 p-3 border rounded-lg bg-gradient-to-br from-slate-1 to-slate-2 border-slate-6 shadow-sm">
+    <div className="mx-2 p-3 border rounded-lg bg-gradient-to-br from-sand-1 to-sand-2 border-sand-6 shadow-sm">
       <div className="flex items-center justify-between mb-2">
-        <h3 className="text-xs font-semibold text-slate-11">Compliance Status</h3>
+        <h3 className="text-xs font-semibold text-sand-11">Compliance Status</h3>
         {compliant ? (
           <CheckCircle className="h-4 w-4 text-green-600" />
         ) : (
@@ -131,7 +131,7 @@ function ComplianceStatus({ isCompliant }) {
         )}
       </div>
 
-      <div className="w-full bg-slate-4 rounded-full h-2 mb-2 overflow-hidden">
+      <div className="w-full bg-sand-4 rounded-full h-2 mb-2 overflow-hidden">
         <div
           className={cn(
             "progress-bar h-2 rounded-full transition-all duration-500 ease-out",
@@ -146,7 +146,7 @@ function ComplianceStatus({ isCompliant }) {
         />
       </div>
 
-      <div className="text-xs text-slate-10 flex justify-between items-center">
+      <div className="text-xs text-sand-10 flex justify-between items-center">
         <span className="font-medium">{percentage}% Complete</span>
         {missing && missing.length > 0 && (
           <span className="text-amber-600">
@@ -178,7 +178,7 @@ function SidebarToggle() {
     return (
       <SidebarTrigger className={cn(
         "size-10 py-0 px-0 flex justify-center items-center transition-all duration-300 ease-out",
-        "hover:bg-slate-6 hover:text-slate-12",
+        "hover:bg-sand-6 hover:text-sand-12",
       )}>
         <Menu className="size-5" />
         <span className="sr-only">Toggle Sidebar</span>
@@ -193,7 +193,7 @@ function SidebarToggle() {
       onClick={toggleSidebar}
       className={cn(
         "size-10 py-0 px-0 flex justify-center items-center transition-all duration-300 ease-out",
-        "hover:bg-slate-6 hover:text-slate-12",
+        "hover:bg-sand-6 hover:text-sand-12",
         isCollapsed ? "rotate-0" : "rotate-180"
       )}
       aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
@@ -216,7 +216,7 @@ export function MobileMenuButton() {
     <div className="lg:hidden fixed top-4 left-4 z-50">
       <SidebarTrigger className={cn(
         "size-10 py-0 px-0 flex justify-center items-center transition-all duration-300 ease-out",
-        "hover:bg-slate-6 hover:text-slate-12 bg-white shadow-md border border-slate-6 rounded-md",
+        "hover:bg-sand-6 hover:text-sand-12 bg-white shadow-md border border-sand-6 rounded-md",
       )}>
         <Menu className="size-5" />
         <span className="sr-only">Open Menu</span>
@@ -278,7 +278,7 @@ export function StaffSidebar() {
       <Sidebar
         collapsible="icon"
         className={cn(
-          "border-r border-slate-6 bg-gradient-to-b from-slate-1 to-slate-2 transition-all duration-300",
+          "border-r border-sand-6 bg-gradient-to-b from-sand-1 to-sand-2 transition-all duration-300",
           isCollapsed ? "w-16" : "w-fit"
         )}
         style={isCollapsed ? { 
@@ -288,13 +288,13 @@ export function StaffSidebar() {
       >
 
         <SidebarHeader className={cn(
-          "border-b border-slate-6 transition-all duration-200",
+          "border-b border-sand-6 transition-all duration-200",
         )}>
           {!isCollapsed || isMobile ? (
             <div className="flex gap-4 items-center">
               <NavUser
                 user={{
-                  profile_image: user.profile_image,
+                  avatar: user.profile_image,
                   email: user.email,
                   name: `${user.first_name} ${user.last_name}`,
                 }}
@@ -306,9 +306,14 @@ export function StaffSidebar() {
               <SidebarToggle />
 
               <div className="flex justify-center">
-                <div className="w-7 h-7 rounded-full bg-primary-9 flex items-center justify-center text-white text-sm font-semibold">
-                  {user.first_name?.[0]}{user.last_name?.[0]}
-                </div>
+              <NavUser
+                user={{
+                  avatar: user.profile_image,
+                  email: user.email,
+                  name: `${user.first_name} ${user.last_name}`,
+                }}
+                collapsed
+              />
               </div>
             </div>
           )}

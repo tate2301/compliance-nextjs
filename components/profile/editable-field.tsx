@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "@/app/components/ui/select";
 
 export interface EditableFieldProps {
   label: string;
@@ -52,8 +52,8 @@ export function EditableField({
 
   return (
     <div className="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-      <dt className="text-sm font-medium text-slate-11">{label}</dt>
-      <dd className="mt-1 flex text-sm text-slate-12 sm:mt-0 sm:col-span-2">
+      <dt className="text-sm font-medium text-sand-11">{label}</dt>
+      <dd className="mt-1 flex text-sm text-sand-12 sm:mt-0 sm:col-span-2">
         {isEditing ? (
           type === "select" ? (
             <Select value={currentValue} onValueChange={handleChange}>

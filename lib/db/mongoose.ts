@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+require("dotenv").config();
 
 declare global {
     var mongoose: any // This is to prevent multiple connections in development

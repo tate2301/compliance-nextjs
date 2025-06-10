@@ -32,8 +32,8 @@ export function DatePicker({
 					<Button
 						variant="outline"
 						className={cn(
-							"w-full justify-start text-slate-11 text-left font-normal border-slate-6",
-							!value && "text-slate-10",
+							"w-full justify-start text-sand-11 text-left font-normal border-sand-6",
+							!value && "text-sand-10",
 							className
 						)}
 						disabled={disabled}
@@ -45,7 +45,7 @@ export function DatePicker({
 				<PopoverContent
 					className={cn(
 						"w-auto p-0",
-						"bg-slate-1 border border-slate-6",
+						"bg-sand-1 border border-sand-6",
 						"shadow-lg rounded-md"
 					)}
 					align="start"

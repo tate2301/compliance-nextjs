@@ -19,7 +19,7 @@ import {
   EditableField,
   EditModal,
   FileUploadModal,
-} from "@/app/components/profile";
+} from "components/profile";
 import {
   DocumentTextIcon,
   HomeIcon,
@@ -111,28 +111,28 @@ export default function ProfilePage() {
       </div>
 
       <div className="px-2 mb-4">
-        <h3 className="text-lg leading-6 font-medium text-slate-12">Profile</h3>
-        <p className="mt-1 max-w-2xl text-sm text-slate-11">
+        <h3 className="text-lg leading-6 font-medium text-sand-12">Profile</h3>
+        <p className="mt-1 max-w-2xl text-sm text-sand-11">
           Personal details and application.
         </p>
       </div>
 
-      <div className="px-2 mt-5 border-t border-slate-6 flex gap-6">
+      <div className="px-2 mt-5 border-t border-sand-6 flex gap-6">
         <div className="flex flex-col sticky top-0 w-64 py-4">
           <ul className="space-y-2">
-            <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
+            <li className="p-2 h-[40px] flex items-center border border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
               <Link className="w-full h-full" href={"/app/profile/info"}>
                 <UserIcon className="size-4 inline-flex self-center mr-2" />
                 Personal Information
               </Link>
             </li>
-            <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
+            <li className="p-2 h-[40px] flex items-center border border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
               <Link className="w-full h-full" href={"/app/profile/address"}>
                 <HomeIcon className="size-4 inline-flex self-center mr-2" />
                 Physical Address
               </Link>
             </li>
-            <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
+            <li className="p-2 h-[40px] flex items-center border border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
               <Link
                 className="w-full h-full"
                 href={"/app/profile/identification"}
@@ -141,13 +141,13 @@ export default function ProfilePage() {
                 Identification
               </Link>
             </li>
-            <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
+            <li className="p-2 h-[40px] flex items-center border border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
               <Link className="w-full h-full" href={"/app/profile/dbs"}>
                 <DocumentTextIcon className="size-4 inline-flex self-center mr-2" />
                 DBS
               </Link>
             </li>
-            <li className="p-2 h-[40px] flex items-center border border-transparent text-slate-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
+            <li className="p-2 h-[40px] flex items-center border border-transparent text-sand-10 hover:border-secondary-6 hover:bg-secondary-4 hover:text-secondary-11">
               <Link className="w-full h-full" href={"/app/profile/references"}>
                 <UsersIcon className="size-4 inline-flex self-center mr-2" />
                 References
@@ -155,7 +155,7 @@ export default function ProfilePage() {
             </li>
           </ul>
         </div>
-        <dl className="divide-y divide-slate-6 w-full">
+        <dl className="divide-y divide-sand-6 w-full">
           <EditableField
             label="Full name"
             value={`${userData?.first_name || ""} ${userData?.last_name || ""}`}

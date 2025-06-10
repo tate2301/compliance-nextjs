@@ -20,7 +20,7 @@ interface ExampleCardProps {
 function ExampleCard({ title, children, className = '' }: ExampleCardProps) {
     return (
         <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-slate-12">{title}</h3>
+            <h3 className="text-lg font-semibold text-sand-12">{title}</h3>
             <Card className={`p-4 ${className}`}>
                 {children}
             </Card>
@@ -32,15 +32,15 @@ export default function CaregiverDashboardExamples() {
     return (
         <div className="space-y-8">
             <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-slate-12">Caregiver Dashboard Examples</h2>
-                <p className="text-slate-11">Practical examples of the design system in action, showcasing common caregiver dashboard patterns.</p>
+                <h2 className="text-2xl font-bold text-sand-12">Caregiver Dashboard Examples</h2>
+                <p className="text-sand-11">Practical examples of the design system in action, showcasing common caregiver dashboard patterns.</p>
             </div>
 
             <Card className="p-6">
-                <h3 className="text-lg font-semibold text-slate-12 mb-4">Example Components</h3>
+                <h3 className="text-lg font-semibold text-sand-12 mb-4">Example Components</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="space-y-3">
-                        <h4 className="font-medium text-slate-12">Layout Examples</h4>
+                        <h4 className="font-medium text-sand-12">Layout Examples</h4>
                         <ul className="space-y-2">
                             <li>
                                 <a href="/examples/constrained_grid_layout" className="text-primary-11 hover:text-primary-12 transition-colors">
@@ -76,7 +76,7 @@ export default function CaregiverDashboardExamples() {
                     </div>
 
                     <div className="space-y-3">
-                        <h4 className="font-medium text-slate-12">Content Examples</h4>
+                        <h4 className="font-medium text-sand-12">Content Examples</h4>
                         <ul className="space-y-2">
                             <li>
                                 <a href="/examples/with_condensed_content" className="text-primary-11 hover:text-primary-12 transition-colors">
@@ -117,7 +117,7 @@ export default function CaregiverDashboardExamples() {
                     </div>
 
                     <div className="space-y-3">
-                        <h4 className="font-medium text-slate-12">Navigation Examples</h4>
+                        <h4 className="font-medium text-sand-12">Navigation Examples</h4>
                         <ul className="space-y-2">
                             <li>
                                 <a href="/examples/with_actions_and_breadcrumbs" className="text-primary-11 hover:text-primary-12 transition-colors">
@@ -143,7 +143,7 @@ export default function CaregiverDashboardExamples() {
                     </div>
 
                     <div className="space-y-3">
-                        <h4 className="font-medium text-slate-12">Form Examples</h4>
+                        <h4 className="font-medium text-sand-12">Form Examples</h4>
                         <ul className="space-y-2">
                             <li>
                                 <a href="/examples/with_title_and_pill_actions" className="text-primary-11 hover:text-primary-12 transition-colors">
@@ -179,7 +179,7 @@ export default function CaregiverDashboardExamples() {
                     </div>
 
                     <div className="space-y-3">
-                        <h4 className="font-medium text-slate-12">Interactive Examples</h4>
+                        <h4 className="font-medium text-sand-12">Interactive Examples</h4>
                         <ul className="space-y-2">
                             <li>
                                 <a href="/examples/with_preview" className="text-primary-11 hover:text-primary-12 transition-colors">
@@ -215,7 +215,7 @@ export default function CaregiverDashboardExamples() {
                     </div>
 
                     <div className="space-y-3">
-                        <h4 className="font-medium text-slate-12">Dashboard Examples</h4>
+                        <h4 className="font-medium text-sand-12">Dashboard Examples</h4>
                         <ul className="space-y-2">
                             <li>
                                 <a href="/examples/DashboardExample" className="text-primary-11 hover:text-primary-12 transition-colors">
@@ -243,22 +243,22 @@ export default function CaregiverDashboardExamples() {
                     <div className="space-y-4">
                         <div className="flex items-center justify-between">
                             <div className="space-y-1">
-                                <p className="text-sm font-medium text-slate-12">Background Check</p>
-                                <Progress value={100} className="bg-slate-3" />
+                                <p className="text-sm font-medium text-sand-12">Background Check</p>
+                                <Progress value={100} className="bg-sand-3" />
                             </div>
                             <Badge variant="secondary">Complete</Badge>
                         </div>
                         <div className="flex items-center justify-between">
                             <div className="space-y-1">
-                                <p className="text-sm font-medium text-slate-12">Document Verification</p>
-                                <Progress value={60} className="bg-slate-3" />
+                                <p className="text-sm font-medium text-sand-12">Document Verification</p>
+                                <Progress value={60} className="bg-sand-3" />
                             </div>
                             <Badge variant="outline">In Progress</Badge>
                         </div>
                         <div className="flex items-center justify-between">
                             <div className="space-y-1">
-                                <p className="text-sm font-medium text-slate-12">Reference Check</p>
-                                <Progress value={0} className="bg-slate-3" />
+                                <p className="text-sm font-medium text-sand-12">Reference Check</p>
+                                <Progress value={0} className="bg-sand-3" />
                             </div>
                             <Badge variant="secondary">Pending</Badge>
                         </div>
@@ -268,27 +268,27 @@ export default function CaregiverDashboardExamples() {
                 {/* Document Upload Card */}
                 <ExampleCard title="Required Documents">
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between p-3 bg-slate-2 rounded-lg">
+                        <div className="flex items-center justify-between p-3 bg-sand-2 rounded-lg">
                             <div className="flex items-center space-x-3">
                                 <CheckCircle className="w-5 h-5 text-success-9" />
-                                <span className="text-sm text-slate-12">ID Verification</span>
+                                <span className="text-sm text-sand-12">ID Verification</span>
                             </div>
                             <Badge variant="outline">Uploaded</Badge>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-slate-2 rounded-lg">
+                        <div className="flex items-center justify-between p-3 bg-sand-2 rounded-lg">
                             <div className="flex items-center space-x-3">
                                 <AlertCircle className="w-5 h-5 text-warning-9" />
-                                <span className="text-sm text-slate-12">Certification</span>
+                                <span className="text-sm text-sand-12">Certification</span>
                             </div>
                             <Button size="sm" variant="outline">
                                 <Upload className="w-4 h-4 mr-2" />
                                 Upload
                             </Button>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-slate-2 rounded-lg">
+                        <div className="flex items-center justify-between p-3 bg-sand-2 rounded-lg">
                             <div className="flex items-center space-x-3">
                                 <AlertCircle className="w-5 h-5 text-error-9" />
-                                <span className="text-sm text-slate-12">Insurance</span>
+                                <span className="text-sm text-sand-12">Insurance</span>
                             </div>
                             <Button size="sm" variant="outline">
                                 <Upload className="w-4 h-4 mr-2" />
@@ -301,30 +301,30 @@ export default function CaregiverDashboardExamples() {
                 {/* Upcoming Shifts Card */}
                 <ExampleCard title="Upcoming Shifts">
                     <div className="space-y-4">
-                        <div className="flex items-center space-x-4 p-3 bg-slate-2 rounded-lg">
+                        <div className="flex items-center space-x-4 p-3 bg-sand-2 rounded-lg">
                             <CalendarDays className="w-10 h-10 text-primary-9" />
                             <div className="flex-1">
-                                <p className="text-sm font-medium text-slate-12">Morning Shift</p>
-                                <p className="text-xs text-slate-11">Today, 7:00 AM - 3:00 PM</p>
+                                <p className="text-sm font-medium text-sand-12">Morning Shift</p>
+                                <p className="text-xs text-sand-11">Today, 7:00 AM - 3:00 PM</p>
                                 <div className="flex items-center mt-2">
                                     <Avatar className="w-6 h-6">
                                         <img src="https://ui.shadcn.com/avatars/01.png" alt="Patient" />
                                     </Avatar>
-                                    <span className="ml-2 text-xs text-slate-11">Sarah Johnson</span>
+                                    <span className="ml-2 text-xs text-sand-11">Sarah Johnson</span>
                                 </div>
                             </div>
                             <Badge>Confirmed</Badge>
                         </div>
-                        <div className="flex items-center space-x-4 p-3 bg-slate-2 rounded-lg">
+                        <div className="flex items-center space-x-4 p-3 bg-sand-2 rounded-lg">
                             <CalendarDays className="w-10 h-10 text-primary-9" />
                             <div className="flex-1">
-                                <p className="text-sm font-medium text-slate-12">Evening Shift</p>
-                                <p className="text-xs text-slate-11">Tomorrow, 3:00 PM - 11:00 PM</p>
+                                <p className="text-sm font-medium text-sand-12">Evening Shift</p>
+                                <p className="text-xs text-sand-11">Tomorrow, 3:00 PM - 11:00 PM</p>
                                 <div className="flex items-center mt-2">
                                     <Avatar className="w-6 h-6">
                                         <img src="https://ui.shadcn.com/avatars/02.png" alt="Patient" />
                                     </Avatar>
-                                    <span className="ml-2 text-xs text-slate-11">Michael Brown</span>
+                                    <span className="ml-2 text-xs text-sand-11">Michael Brown</span>
                                 </div>
                             </div>
                             <Badge variant="outline">Pending</Badge>
@@ -340,7 +340,7 @@ export default function CaregiverDashboardExamples() {
                             className="rounded-md border"
                         />
                         <div className="flex items-center justify-between">
-                            <p className="text-sm text-slate-11">Selected: 5 days</p>
+                            <p className="text-sm text-sand-11">Selected: 5 days</p>
                             <Button size="sm">Update Schedule</Button>
                         </div>
                     </div>

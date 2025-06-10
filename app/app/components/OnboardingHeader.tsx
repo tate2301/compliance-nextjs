@@ -19,11 +19,11 @@ export default function OnboardingHeader() {
     if (!isAuthenticated || !user) return null;
 
     return (
-        <header className="sticky top-0 z-50 p-2 w-full border-b border-slate-6/50 shadow-sm bg-slate-2 backdrop-blur supports-[backdrop-filter]:bg-card/75">
+        <header className="sticky top-0 z-50 p-2 w-full border-b border-sand-6/50 shadow-sm bg-sand-2 backdrop-blur supports-[backdrop-filter]:bg-card/75">
             <div className="max-w-7xl mx-auto flex justify-between w-full px-4 sm:px-6 lg:px-8">
                 <div className="flex gap-4 items-center">
-                    <p className='text-slate-12 text-base sm:text-lg font-medium'>Compliance Aide</p>
-                    <span className="text-sm text-slate-9 hidden sm:inline">- Complete your onboarding</span>
+                    <p className='text-sand-12 text-base sm:text-lg font-medium'>Compliance Aide</p>
+                    <span className="text-sm text-sand-9 hidden sm:inline">- Complete your onboarding</span>
                 </div>
 
                 <div className='flex gap-4 sm:gap-6 items-center'>
@@ -40,7 +40,7 @@ export default function OnboardingHeader() {
                             <DropdownMenuLabel className="text-sm">
                                 {user.first_name} {user.last_name}
                             </DropdownMenuLabel>
-                            <DropdownMenuLabel className="text-sm text-slate-9">
+                            <DropdownMenuLabel className="text-sm text-sand-9">
                                 {user.email}
                             </DropdownMenuLabel>
                             <DropdownMenuSeparator />
