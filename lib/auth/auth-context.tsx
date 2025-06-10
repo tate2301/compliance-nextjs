@@ -1,96 +1,67 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { User } from "@/lib/types";
+import { useSession, signOut } from "next-auth/react";
+import type { User } from "@/lib/types";
 
 interface AuthContextType {
   user: User | null;
-  token: string | null;
-  login: (user: User, token: string) => void;
   logout: () => void;
   isAuthenticated: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+function mapUser(data: any): User {
+  return {
+    id: data.id ?? data._id ?? data.legacyId,
+    email: data.email,
+    first_name: data.firstName,
+    last_name: data.lastName,
+    middle_names: data.middleNames,
+    ni_number: data.niNumber,
+    phone: data.phone,
+    date_of_birth: data.dateOfBirth,
+    profile_image: data.profileImage,
+    role: data.role,
+  } as User;
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const { data: session, status } = useSession();
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
-    // Helper function to get cookie value
-    const getCookie = (name: string) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop()?.split(";").shift();
-      return null;
-    };
-
-    // Initialize from localStorage or cookies
-    const storedUser = localStorage.getItem("user") || getCookie("user");
-    const storedToken = localStorage.getItem("token") || getCookie("token");
-
-    if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        setUser(parsedUser);
-        // Ensure localStorage is in sync
-        localStorage.setItem("user", JSON.stringify(parsedUser));
-      } catch (error) {
-        console.error("Failed to parse user data:", error);
+    async function fetchUser() {
+      if (status === "authenticated" && session?.user?.id) {
+        try {
+          const res = await fetch(`/api/user?authUserId=${session.user.id}`);
+          if (res.ok) {
+            const data = await res.json();
+            setUser(mapUser(data));
+          }
+        } catch (err) {
+          console.error("Failed to fetch user", err);
+        }
+      } else if (status !== "loading") {
+        setUser(null);
       }
     }
+    fetchUser();
+  }, [session, status]);
 
-    if (storedToken) {
-      try {
-        const parsedToken = storedToken;
-        setToken(parsedToken);
-        // Ensure localStorage is in sync
-        localStorage.setItem("token", (parsedToken));
-      } catch (error) {
-        console.error("Failed to parse token:", error);
-      }
-    }
-  }, []);
-
-  const login = (user: User, token: string) => {
-    // Set localStorage
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("token", token);
-
-    // Set cookies
-    document.cookie = `user=${JSON.stringify(user)}; path=/; max-age=2592000`; // 30 days
-    document.cookie = `token=${token}; path=/; max-age=2592000`;
-
-    setUser(user);
-    setToken(token);
-  };
-
-  const logout = () => {
-    // Clear localStorage
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-
-    // Clear cookies
-    document.cookie = "user=; path=/; max-age=0";
-    document.cookie = "token=; path=/; max-age=0";
-
-    setUser(null);
-    setToken(null);
-  };
+  const logout = () => signOut({ callbackUrl: "/auth/signin" });
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        token,
-        login,
-        logout,
-        isAuthenticated: !!user && !!token,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+      <AuthContext.Provider
+          value={{
+            user,
+            logout,
+            isAuthenticated: status === "authenticated",
+          }}
+      >
+        {children}
+      </AuthContext.Provider>
   );
 }
 

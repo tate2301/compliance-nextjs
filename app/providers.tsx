@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
+import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
 
 import {
@@ -46,16 +47,18 @@ export function Providers({ children }: ProvidersProps) {
   const queryClient = getQueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <Toaster />
-        {children}
-      </ThemeProvider>
-    </QueryClientProvider>
+      <SessionProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+          >
+            <Toaster />
+            {children}
+          </ThemeProvider>
+        </QueryClientProvider>
+      </SessionProvider>
   );
 }
