@@ -5,6 +5,7 @@ import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-
 import { useAddress } from "@/app/hooks/address";
 import { useState } from "react";
 import { toast } from "sonner";
+import LoadingPlaceholder from "@/components/LoadingPlaceholder";
 
 export default function ProfileAddressPage() {
   const { address, isLoading, updateAddress, addAddress } = useAddress();
@@ -30,7 +31,7 @@ export default function ProfileAddressPage() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingPlaceholder />
   }
 
   return (

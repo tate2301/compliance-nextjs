@@ -77,7 +77,7 @@ function NavLink({ href, icon, children, badge, isActive }: NavLinkProps) {
         isActive={isActive}
         tooltip={isCollapsed ? String(children) : undefined}
         className={cn(
-          "sidebar-item relative w-full justify-start transition-all duration-200 ease-out",
+          "relative w-full justify-start transition-all duration-200 ease-out",
           "hover:bg-sand-4 hover:text-sand-12",
           "data-[active=true]:text-primary-12 data-[active=true]:bg-sand-6 data-[active=true]:font-semibold",
           "focus-visible:ring-1 focus-visible:ring-primary-7",
@@ -239,12 +239,6 @@ export function StaffSidebar() {
 
   const navigationItems = [
     {
-      href: "/app/profile",
-      icon: <User className="h-4 w-4" />,
-      label: "Profile",
-      isActive: pathname === "/app/profile"
-    },
-    {
       href: "/app/shifts",
       icon: <Building className="h-4 w-4" />,
       label: "Shifts",
@@ -258,6 +252,12 @@ export function StaffSidebar() {
         ? userWithCompliance?.isCompliant?.missing?.length
         : undefined,
       isActive: pathname === "/app/documents"
+    },
+    {
+      href: "/app/profile",
+      icon: <User className="h-4 w-4" />,
+      label: "Profile",
+      isActive: pathname === "/app/profile"
     },
     {
       href: "/app/trainings",

@@ -10,6 +10,7 @@ import { Reference } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { PlusIcon } from "@heroicons/react/solid";
 import { toast } from "sonner";
+import LoadingPlaceholder from "@/components/LoadingPlaceholder";
 
 export default function ProfilePage() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -66,7 +67,7 @@ export default function ProfilePage() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingPlaceholder />
   }
 
   return (

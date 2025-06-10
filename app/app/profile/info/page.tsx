@@ -29,6 +29,7 @@ import {
   UsersIcon,
 } from "@heroicons/react/solid";
 import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-layout";
+import LoadingPlaceholder from "@/components/LoadingPlaceholder";
 
 export default function ProfilePage() {
   const { user } = useAuth();
@@ -59,6 +60,10 @@ export default function ProfilePage() {
     // Handle document upload logic here
     console.log("Uploading document:", file);
   };
+
+  if (isLoading) {
+    return <LoadingPlaceholder />
+  }
 
   return (
     <DashboardProfileLayout

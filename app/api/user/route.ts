@@ -4,16 +4,10 @@ import { authOptions }               from '@/app/api/auth/[...nextauth]/route';
 
 import dbConnect        from '@/lib/db/mongoose';
 import ComplianceUser   from '@/lib/db/models/user';
+import {requireSession} from "@/lib/auth/acl";
 
 /* ─────────── helpers ─────────── */
 
-async function requireSession(req: NextRequest) {
-  const session = await getServerSession(authOptions); // <- reads the JWT cookie
-  if (!session) {
-    throw NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-  }
-  return session;
-}
 
 /* ─────────── GET /api/user/[_id?] ─────────── */
 

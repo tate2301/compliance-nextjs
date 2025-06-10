@@ -5,6 +5,7 @@ import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-
 import { useDbs } from "@/app/hooks/dbs";
 import { useState } from "react";
 import { toast } from "sonner";
+import LoadingPlaceholder from "@/components/LoadingPlaceholder";
 
 export default function ProfileDbsPage() {
   const { dbs, dbsReferences, isLoading, updateDbs, addDbs } = useDbs();
@@ -30,7 +31,7 @@ export default function ProfileDbsPage() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingPlaceholder />
   }
 
   return (

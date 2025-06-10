@@ -2,14 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
 import { FormResponse, FormResponseStatus } from "@/lib/db/models/form-response";
 import { ComplianceForm } from "@/lib/db/models/document";
+import {requireSession} from "@/lib/auth/acl";
 
 // GET /api/form-responses - Get form responses for a user
 export async function GET(request: NextRequest) {
   try {
     await dbConnect();
-
+    const session = await requireSession(request)
     const searchParams = request.nextUrl.searchParams;
-    const userId = searchParams.get("userId");
+    const userId = session.user.id
+
     const formId = searchParams.get("formId");
     const status = searchParams.get("status") as FormResponseStatus;
 

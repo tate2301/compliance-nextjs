@@ -5,6 +5,7 @@ import { DashboardProfileLayout } from "@/components/Wrappers/dashboard-profile-
 import { useIdentification } from "@/app/hooks/identification";
 import { useState } from "react";
 import { toast } from "sonner";
+import LoadingPlaceholder from "@/components/LoadingPlaceholder";
 
 export default function ProfileIdentificationPage() {
   const { identification, idReferences, isLoading, updateIdentification, addIdentification } = useIdentification();
@@ -30,7 +31,7 @@ export default function ProfileIdentificationPage() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingPlaceholder />
   }
 
   return (

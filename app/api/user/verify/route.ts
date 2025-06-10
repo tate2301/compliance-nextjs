@@ -1,23 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
 import ComplianceUser from "@/lib/db/models/user";
+import {requireSession} from "@/lib/auth/acl";
 
 // PUT /api/user/verify - Verify/approve a user's onboarding
 export async function PUT(request: NextRequest) {
   try {
     await dbConnect();
+    const session = await requireSession(request)
+    const userId = session.user.id
 
     const body = await request.json();
-    const { authUserId, isVerified } = body;
+    const {  isVerified } = body;
 
-    if (!authUserId || typeof isVerified !== 'boolean') {
+    if (typeof isVerified !== 'boolean') {
       return NextResponse.json(
         { error: "authUserId and isVerified (boolean) are required" },
         { status: 400 }
       );
     }
 
-    const user = await ComplianceUser.findOne({ legacyId: authUserId }).exec();
+    const user = await ComplianceUser.findById(userId).exec();
 
     if (!user) {
       return NextResponse.json(
@@ -40,7 +43,7 @@ export async function PUT(request: NextRequest) {
     return NextResponse.json({
       message: `User ${isVerified ? 'verified' : 'unverified'} successfully`,
       user: {
-        authUserId: user.authUserId,
+        _id: user._id.toString(),
         email: user.email,
         firstName: user.firstName,
         lastName: user.lastName,

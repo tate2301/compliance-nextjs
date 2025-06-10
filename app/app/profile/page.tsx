@@ -30,6 +30,7 @@ import {
 } from "@heroicons/react/solid";
 import { useUser } from "@/app/hooks/user";
 import { toast } from "sonner";
+import LoadingPlaceholder from "@/components/LoadingPlaceholder";
 
 export default function ProfilePage() {
   const { user } = useAuth();
@@ -84,7 +85,7 @@ export default function ProfilePage() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingPlaceholder />
   }
 
   return (

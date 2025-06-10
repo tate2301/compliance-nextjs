@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
 import { DocumentReference } from "@/lib/db/models/document";
 import { DocumentSubmission, DocumentSubmissionStatus } from "@/lib/db/models/form-response";
+import {requireSession} from "@/lib/auth/acl";
 
 // GET /api/documents/[documentId] - Get specific document reference or submission
 export async function GET(
@@ -11,9 +12,10 @@ export async function GET(
   try {
     await dbConnect();
 
+    const session = await requireSession(request)
     const searchParams = request.nextUrl.searchParams;
     const type = searchParams.get("type"); // 'reference' or 'submission'
-    const userId = searchParams.get("userId");
+    const userId = session.user.id
 
     if (type === "submission" && userId) {
       // Get user's specific document submission

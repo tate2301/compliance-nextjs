@@ -3,25 +3,18 @@ import dbConnect from "@/lib/db/mongoose";
 import ComplianceUser from "@/lib/db/models/user";
 import { ComplianceForm } from "@/lib/db/models/document";
 import { FormResponse } from "@/lib/db/models/form-response";
+import {requireSession} from "@/lib/auth/acl";
 
 // GET /api/user/onboarding-status - Check onboarding completion and verification status
 export async function GET(request: NextRequest) {
   try {
     await dbConnect();
-
-    const searchParams = request.nextUrl.searchParams;
-    const authUserId = searchParams.get("authUserId");
-
-    if (!authUserId) {
-      return NextResponse.json(
-        { error: "authUserId parameter is required" },
-        { status: 400 }
-      );
-    }
+    const session = await requireSession(request)
+    const userId = session.user.id
 
     // Get user data
-    const user = await ComplianceUser.findOne(
-      { legacyId: authUserId },
+    const user = await ComplianceUser.findById(
+      userId,
       { onboardingStatus: 1, isVerified: 1 }
     ).exec();
 

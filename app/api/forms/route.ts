@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/db/mongoose";
 import { ComplianceForm, FormCategory, FormStatus } from "@/lib/db/models/document";
+import {requireSession} from "@/lib/auth/acl";
 
 // GET /api/forms - Get all forms or filtered forms
 export async function GET(request: NextRequest) {
   try {
     await dbConnect();
+    const session = await requireSession(request);
 
     const searchParams = request.nextUrl.searchParams;
     const category = searchParams.get("category") as FormCategory;

@@ -3,13 +3,15 @@ import dbConnect from "@/lib/db/mongoose";
 import { DocumentReference, DocumentType } from "@/lib/db/models/document";
 import { DocumentSubmission, DocumentSubmissionStatus } from "@/lib/db/models/form-response";
 import ComplianceUser from "@/lib/db/models/user";
+import {requireSession} from "@/lib/auth/acl";
 
 // GET /api/documents - Get document references or user document submissions
 export async function GET(request: NextRequest) {
   try {
     await dbConnect();
+    const session = await requireSession(request)
     const searchParams = request.nextUrl.searchParams;
-    const userId = searchParams.get("userId");
+    const userId = session.user.id
     const type = searchParams.get("type"); // 'references' or 'submissions'
     const category = searchParams.get("category");
     const documentType = searchParams.get("documentType");
@@ -69,11 +71,12 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     await dbConnect();
+    const session = await requireSession(request)
+    const userId = session.user.id
 
     const body = await request.json();
     const { 
-      userId, 
-      documentReferenceId, 
+      documentReferenceId,
       submissionData, 
       fileData, 
       status = DocumentSubmissionStatus.DRAFT 
